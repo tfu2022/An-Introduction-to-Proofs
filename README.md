@@ -12,7 +12,7 @@ Topics included: logical connectives, truth tables, conditional propositions, bi
 
 2. Some Axioms of Sets (by Hassium)
 
-Topics included: axiom of extensionality, axiom schema of separation, axiom of pairing, ordered pairs, axiom of union, De Morgan's law, axiom of infinity, construction of natural numbers, axiom of power set, Cartesian product, equivalence relations, partially ordered sets, finite induction
+Topics included: axiom of extensionality, axiom schema of separation, axiom of pairing, ordered pairs, axiom of union, axiom of infinity, construction of natural numbers, axiom of power set, Cartesian product, equivalence relations, partially ordered sets, finite induction
 
 3. Functions (by Hassium)
 
@@ -20,7 +20,11 @@ Topics included: functions, composition of functions, finiteness, injectivity an
 
 4. Integers and Rationals
 
+5. Real Numbers 
 
+6. Groups (by Hassium)
+
+Topics included: groups, cosets, group homomorphisms, normal subgroups, group actions, free groups, group presentations, automorphism groups, Sylow theorems, finitely generated abelian groups, semi-direct product
 
 
 # Acknowledgent
