@@ -507,22 +507,38 @@ Consider a diagram, where every vertex is an object and every arrow is a structu
     Let $f:A\to B$ be a function. We say $f$ is \hdef{injective} if for all $x,y\in B$ and $x=y$, then $\inv{f}(x)=\inv{f}(y)$. We say $f$ is \hdef{surjective} if $\ran(f)=\cod(f)$. The function $f$ is said to be \hdef{bijective} if it is both injective and surjective.
 \end{definition}
 \begin{problem}
-    
+    State an example if such a function exists.
+    \begin{enumerate}
+        \item a function $f:\{1,2,3\}\to\{4,5,6\}$ that is injective but not surjective;
+        \item a function $f:\{1,2,3\}\to\{4,5,6\}$ that is surjective but not injective;
+        \item a function $f:\R\to\R$ that is injective but not surjective;
+        \item a function $f:\R\to\R$ that is surjective but not injective;
+        \item a function $f:\R\to\{1,2,3\}$ that is injective but not surjective;
+        \item a function $f:\R\to\{1,2,3\}$ that is surjective but not injective.
+    \end{enumerate}
 \end{problem}
 \begin{proposition}
     The composition of two surjective functions is surjective.
 \end{proposition}
 \begin{proof}
-    
+    Let $f:A\to B$ and $g:B\to C$ be surjective functions, then $\ran(f)=\cod(f)=B$ and $\ran(g)=\cod(g)=C$. For all $x\in C$, $\inv{g}(x)\in B$ and $\inv{f}(\inv{g}(x))\in A$, so $C\sub\ran(g\comp f)$, hence $g\comp f$ is surjective.
 \end{proof}
 \begin{problem}
     
 \end{problem}
 \begin{definition}
+    A set $S$ is said to be \hdef{finite} if there exists a bijective function $f:S\to\{1,\dots,n\}$, where $n\in\N$. 
+
+    If $S$ is not finite, we say $S$ is \hdef{infinite}.
+\end{definition}
+\begin{problem}
+    Let $S$ and $X$ be sets. Prove that if $\card{S}=\card{X}$, then ever 
+\end{problem}
+\begin{definition}
     Let $A$ be a set. The \hdef{identity function}, denoted ${\id}_{A}$, is the function ${\id}_{A}(x)=x$ for all $x\in A$.
 \end{definition}
 \begin{problem}
-    Let $f:A\to B$ be a function, prove that $f\comp{\id}_{A}=f={\id}_{B}$.
+    Let $f:A\to B$ be a function, prove that $f\comp{\id}_{A}=f={\id}_{B}\comp f$.
 \end{problem}
 \begin{definition}
     
