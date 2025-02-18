@@ -527,12 +527,10 @@ Consider a diagram, where every vertex is an object and every arrow is a structu
     
 \end{problem}
 \begin{definition}
-    A set $S$ is said to be \hdef{finite} if there exists a bijective function $f:S\to\{1,\dots,n\}$, where $n\in\N$. 
-
-    If $S$ is not finite, we say $S$ is \hdef{infinite}.
+    A set $S$ is said to be \hdef{finite} if there exists a bijective function $f:S\to n$, where $n\in\N$. The \hdef{cardinality} of $S$, denoted $\card{S}$, is the number $n$. If $S$ is not finite, we say $S$ is \hdef{infinite}.
 \end{definition}
 \begin{problem}
-    Let $S$ and $X$ be sets. Prove that if $\card{S}=\card{X}$, then ever 
+    Let $S$ and $X$ be finite sets with $\card{S}=\card{X}$. Let $f:S\to X$ be a function. Prove that if $f$ is injective, then $f$ is surjective. Does the converse hold?
 \end{problem}
 \begin{definition}
     Let $A$ be a set. The \hdef{identity function}, denoted ${\id}_{A}$, is the function ${\id}_{A}(x)=x$ for all $x\in A$.
@@ -540,18 +538,7 @@ Consider a diagram, where every vertex is an object and every arrow is a structu
 \begin{problem}
     Let $f:A\to B$ be a function, prove that $f\comp{\id}_{A}=f={\id}_{B}\comp f$.
 \end{problem}
-\begin{definition}
-    
-\end{definition}
-\begin{example}
-    All sets form a class.
-\end{example}
-\begin{problem}
-    Prove the following statements.
-    \begin{enumerate}
-        \item 
-    \end{enumerate}
-\end{problem}
+
 
 
 
