@@ -436,9 +436,8 @@ The well-ordering principle is equivalent to the axiom of choice, which will be 
 \begin{example}
     Here are some examples of functions.
     \begin{enumerate}
-        \item if $X$ is a set, then $\id:X\to X$ is a function such that for all $x\in X$, $\id(x)=x$;
-        \item the operation $f:\N\to\N$ defined by $f(n)={n}^{+}$, where $n\in\N$, is a function;
-        \item the operation $f:\R\to\R\times\R$ defined by $f(x)=(x,x)$, where $x\in\R$, is a function.
+        \item The operation $f:\N\to\N$ defined by $f(n)={n}^{+}$, where $n\in\N$, is a function.
+        \item The operation $f:\R\to\R\times\R$ defined by $f(x)=(x,x)$, where $x\in\R$, is a function.
     \end{enumerate}
 \end{example}
 \begin{problem}
@@ -524,7 +523,15 @@ Consider a diagram, where every vertex is an object and every arrow is a structu
     Let $f:A\to B$ and $g:B\to C$ be surjective functions, then $\ran(f)=\cod(f)=B$ and $\ran(g)=\cod(g)=C$. For all $x\in C$, $\inv{g}(x)\in B$ and $\inv{f}(\inv{g}(x))\in A$, so $C\sub\ran(g\comp f)$, hence $g\comp f$ is surjective.
 \end{proof}
 \begin{problem}
-    
+    Let $f$ and $g$ be functions. Prove or disprove the following statements.
+    \begin{enumerate}
+        \item If $f$ and $g$ are injective, then $f\comp g$ is injective. 
+        \item If $f$ and $g$ are bijective, then $f\comp g$ is bijective.
+        \item If $f$ is surjective and $g$ is injective, then $f\comp g$ is injective.
+    \end{enumerate}
+\end{problem}
+\begin{problem}
+    Let $S$ be a set. Prove that there does not exist a suerjective function $f:S\to\ps(S)$. 
 \end{problem}
 \begin{definition}
     A set $S$ is said to be \hdef{finite} if there exists a bijective function $f:S\to n$, where $n\in\N$. The \hdef{cardinality} of $S$, denoted $\card{S}$, is the number $n$. If $S$ is not finite, we say $S$ is \hdef{infinite}.
@@ -538,17 +545,33 @@ Consider a diagram, where every vertex is an object and every arrow is a structu
 \begin{problem}
     Let $f:A\to B$ be a function, prove that $f\comp{\id}_{A}=f={\id}_{B}\comp f$.
 \end{problem}
-
-
-
-
-
-
-
+\begin{definition}
+    Let $f:A\to B$ be a function. The function $g:B\to A$ is a \hdef{left inverse} of $f$ if $g\comp f={\id}_{A}$. The function $h:B\to A$ is a \hdef{right inverse} of $f$ if $f\comp h={\id}_{B}$. A function $\vp$ is called the \hdef{inverse} if it is both a left inverse and a right inverse of $f$.
+\end{definition}
+\begin{proposition}
+    Let $f$ be a function. If $g$ is an inverse of $f$, then $g$ is unique.
+\end{proposition}
+\begin{proof}
+    Suppose $g$ and $h$ are inverses of $f$, then $h=h\comp f\comp g=(h\comp f)\comp g=g$.
+\end{proof}
+\begin{problem}
+    Let $f$ is a function with a left inverse $g$. Prove that if $f$ has a right inverse, then the right inverse is $g$, conclude that $g$ is the inverse of $f$.
+\end{problem}
+\begin{problem}
+    Prove that a function has a left inverse if and only if it is injective. 
+\end{problem}
+\begin{problem}
+    Prove that a function has a right inverse if and only if it is surjective, conclude that a function is bijective if and only if it has an inverse.
+\end{problem}
+\begin{definition}
+    A \hdef{category} consists of
+    \begin{enumerate}
+        \item a collection, denoted $\Ob$
+    \end{enumerate}
+\end{definition}
 
 
 \newpage
-
 \section{Integers and Rationals}
 \section{Real Numbers}
 \section{Groups}
