@@ -365,7 +365,7 @@ It suffices to show a binary operation is indeed a set. Let $R$ be a binary oper
     Prove that an equivalence class is a set.
 \end{problem}
 \begin{problem}
-    Prove that the inclusion $\sub$ is not an equivalence relation in $\N$.
+    Prove that $=$ is an equivalence relation in $\N$.
 \end{problem}
 \begin{problem}
     Let $R$ be a binary operation on a set $X$. For all $a,b\in A$, prove that ${S}_{a}\cap{S}_{b}$ is either $\es$ or ${S}_{a}$. Prove that $\Un{S}_{a}=X$, where each pair of ${S}_{a}$ are disjoint.
@@ -546,7 +546,7 @@ Consider a diagram, where every vertex is an object and every arrow is a structu
     Let $f:A\to B$ be a function, prove that $f\comp{\id}_{A}=f={\id}_{B}\comp f$.
 \end{problem}
 \begin{definition}
-    Let $f:A\to B$ be a function. The function $g:B\to A$ is a \hdef{left inverse} of $f$ if $g\comp f={\id}_{A}$. The function $h:B\to A$ is a \hdef{right inverse} of $f$ if $f\comp h={\id}_{B}$. A function $\vp$ is called the \hdef{inverse} if it is both a left inverse and a right inverse of $f$.
+    Let $f:A\to B$ be a function. The function $g:B\to A$ is a \hdef{left inverse} of $f$ if $g\comp f={\id}_{A}$. The function $h:B\to A$ is a \hdef{right inverse} of $f$ if $f\comp h={\id}_{B}$. A function $\vp$ is called an \hdef{inverse} of $f$ if it is both a left inverse and a right inverse of $f$.
 \end{definition}
 \begin{proposition}
     Let $f$ be a function. If $g$ is an inverse of $f$, then $g$ is unique.
@@ -567,9 +567,53 @@ Consider a diagram, where every vertex is an object and every arrow is a structu
     A \hdef{category} $\cft{C}$ consists of
     \begin{enumerate}
         \item a collection, denoted $\Ob(\cft{C})$, of \hdef{objects};
-        \item 
+        \item for each pair of objects $(X,Y)$, there exists a set ${\Hom}_{\cft{C}}(X,Y)$ of \hdef{morphisms} from $X$ to $Y$;
+        \item a \hdef{composition operation}, which gives, for each pair of morphisms $f\in{\Hom}_{\cft{C}}(X,Y)$ and $g\in{\Hom}_{\cft{C}}(Y,Z)$, a morphism $g\comp f\in{\Hom}_{\cft{C}}(X,Y)$.
+    \end{enumerate}
+    such that
+    \begin{enumerate}
+        \item given any $f\in{\Hom}_{\cft{C}}(X,Y)$, $g\in{\Hom}_{\cft{C}}(Y,Z)$, and $h\in{\Hom}_{\cft{C}}(Z,W)$, we have the identity $(h\comp g)\comp f=h\comp(g\comp f)$;
+        \item for each object $X$, there exists a morphism ${\id}_{X}\in{\Hom}_{\cft{C}}(X,X)$ with the property that $f\comp{\id}_{X}=f$ and ${\id}_{X}\comp g=g$ for any $f\in{\Hom}_{\cft{C}}(X,Y)$ and $g\in{\Hom}_{\cft{C}}(Z,X)$.
     \end{enumerate}
 \end{definition}
+\par
+Let sets be objects, let functions be morphisms, and let the composition of morphisms be the composition of functions. By our previous observations, it suffices to check this defines a category of sets, denoted $\cft{Set}$.
+\begin{example}
+    Let $X$ be a set, then ${\Hom}_{\cft{Set}}(X,X)$ is a category.
+\end{example}
+\begin{problem}
+    Morphisms are not guaranteed to be functions. Let $(S,\le)$ be a partially ordered set. Let $\Ob(\cft{C})=S$ and $x\to y$ be a morphism if $x\le y$. Prove that $\cft{C}$ is a category.
+\end{problem}
+\begin{definition}
+    Let $\sim$ be an equivalence relation on a set $X$. The \hdef{quotient set}, denoted $X/\sim$, is the set $\{[x]\mid x\in X\}$.
+\end{definition}
+\begin{problem}
+    Prove that the function $\pi:X\to X/\sim$ defined by $\pi(x)=[x]$ is a well-defined surjective function.
+\end{problem}
+\begin{definition}
+    Let $X$ and $Y$ be sets. Let $\sim$ be an equivalence relation on $X$. A function $f:X\to Y$ is \hdef{invariant} under the equivalence relation if $x\sim y$ implies $f(x)=f(y)$.
+\end{definition}
+\customtheorem{Universal property for quotient sets}
+\begin{Universal property for quotient sets}
+    Let $X$ and $Y$ be sets. Let $\sim$ be an equivalence relation on $X$ and let $f:X\to Y$ be invariant under the equivalence relation. Then there exists a function $\wb{f}:X/\sim Y$ such that $f=\wb{f}\comp\pi$.
+\end{Universal property for quotient sets}
+\begin{center}
+    \begin{tikzcd}
+        {X/\sim} && X \\
+        \\
+        && Y
+        \arrow["{\wb{f}}"', dashed, from=1-1, to=3-3]
+        \arrow["\pi"', from=1-3, to=1-1]
+        \arrow["f", from=1-3, to=3-3]
+    \end{tikzcd}
+\end{center}
+\par
+The proof of the universal property has two parts. We first verify that the quotient set has the universal property. Then we verify that the quotient set is characterized
+by this universal property, that is, any set satisfying the universal property must be the quotient set.
+\begin{proof}
+    ()
+\end{proof}
+
 
 
 \newpage
