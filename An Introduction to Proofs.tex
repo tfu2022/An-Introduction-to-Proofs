@@ -523,6 +523,9 @@ Consider a diagram, where every vertex is an object and every arrow is a structu
     Let $f:A\to B$ and $g:B\to C$ be surjective functions, then $\ran(f)=\cod(f)=B$ and $\ran(g)=\cod(g)=C$. For all $x\in C$, $\inv{g}(x)\in B$ and $\inv{f}(\inv{g}(x))\in A$, so $C\sub\ran(g\comp f)$, hence $g\comp f$ is surjective.
 \end{proof}
 \begin{problem}
+    Let $f:X\to Y$ be a surjective function. Prove that there exists an injective function $g:Y\to X$.
+\end{problem}
+\begin{problem}
     Let $f$ and $g$ be functions. Prove or disprove the following statements.
     \begin{enumerate}
         \item If $f$ and $g$ are injective, then $f\comp g$ is injective. 
@@ -558,10 +561,7 @@ Consider a diagram, where every vertex is an object and every arrow is a structu
     Let $f$ is a function with a left inverse $g$. Prove that if $f$ has a right inverse, then the right inverse is $g$, conclude that $g$ is the inverse of $f$.
 \end{problem}
 \begin{problem}
-    Prove that a function has a left inverse if and only if it is injective. 
-\end{problem}
-\begin{problem}
-    Prove that a function has a right inverse if and only if it is surjective, conclude that a function is bijective if and only if it has an inverse.
+    Prove that a function has a left inverse if and only if it is injective. Prove that a function has a right inverse if and only if it is surjective, conclude that a function is bijective if and only if it has an inverse.
 \end{problem}
 \begin{definition}
     A \hdef{category} $\cft{C}$ consists of
