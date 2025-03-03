@@ -202,7 +202,7 @@ Elements determine a set. One way to describe a set is to explicitly list the el
 \par
 It suffices to check that axiom schema of separation guarantees that subsets are sets.
 \begin{remark}
-    Some textbooks use ``$\sube$'' for subset and ``$\sub$'' for proper subsets.
+    Some textbooks use ``$\sube$'' for subsets and ``$\sub$'' for proper subsets.
 \end{remark}
 \begin{proposition}
     Let $A$ be a set, then $A\sub A$.
@@ -564,10 +564,13 @@ Consider a diagram, where every vertex is an object and every arrow is a structu
     Prove that a function has a left inverse if and only if it is injective. Prove that a function has a right inverse if and only if it is surjective, conclude that a function is bijective if and only if it has an inverse.
 \end{problem}
 \begin{definition}
+    A \hdef{class} 
+\end{definition}
+\begin{definition}
     A \hdef{category} $\cft{C}$ consists of
     \begin{enumerate}
-        \item a collection, denoted $\Ob(\cft{C})$, of \hdef{objects};
-        \item for each pair of objects $(X,Y)$, there exists a set ${\Hom}_{\cft{C}}(X,Y)$ of \hdef{morphisms} from $X$ to $Y$;
+        \item a class, denoted $\Ob(\cft{C})$, of \hdef{objects};
+        \item for each pair of objects $(X,Y)$, there exists a class ${\Hom}_{\cft{C}}(X,Y)$ of \hdef{morphisms} from $X$ to $Y$;
         \item a \hdef{composition operation}, which gives, for each pair of morphisms $f\in{\Hom}_{\cft{C}}(X,Y)$ and $g\in{\Hom}_{\cft{C}}(Y,Z)$, a morphism $g\comp f\in{\Hom}_{\cft{C}}(X,Y)$.
     \end{enumerate}
     such that
@@ -582,7 +585,7 @@ Let sets be objects, let functions be morphisms, and let the composition of morp
     Let $X$ be a set, then ${\Hom}_{\cft{Set}}(X,X)$ is a category.
 \end{example}
 \begin{example}
-    In the following diagram, each vertex is an object and arrow is a morphism. This defines a category.
+    In the following diagram, each vertex is an object and each arrow is a morphism. This defines a category.
     \begin{center}
         \begin{tikzcd}
             \bullet && \bullet
@@ -593,12 +596,12 @@ Let sets be objects, let functions be morphisms, and let the composition of morp
         \end{tikzcd}
     \end{center}
 \end{example}
-\begin{definition}
-    Let $\cft{C}$ be a category. A morphism $f\in{\Hom}_{\cft{C}}(A,B)$ is an \hdef{isomorphism} if there exists $g\in{\Hom}_{\cft{C}}(B,A)$ such that $f\comp g={\id}_{B}$ and $g\comp f={\id}_{A}$.
-\end{definition}
 \begin{problem}
     Morphisms are not guaranteed to be functions. Let $(S,\le)$ be a partially ordered set. Let $\Ob(\cft{C})=S$ and $x\to y$ be a morphism if $x\le y$. Prove that $\cft{C}$ is a category.
 \end{problem}
+\begin{definition}
+    Let $\cft{C}$ be a category. A morphism $f\in{\Hom}_{\cft{C}}(A,B)$ is an \hdef{isomorphism} if there exists $g\in{\Hom}_{\cft{C}}(B,A)$ such that $f\comp g={\id}_{B}$ and $g\comp f={\id}_{A}$. If there exists a morphism between two objects $A$ and $B$, then we say they are \hdef{isomorphic}, denoted $A\iso B$.
+\end{definition}
 \begin{definition}
     Let $\sim$ be an equivalence relation on a set $X$. The \hdef{quotient set}, denoted $X/\sim$, is the set $\{[x]\mid x\in X\}$.
 \end{definition}
