@@ -462,7 +462,7 @@ The well-ordering principle is equivalent to the axiom of choice, which will be 
     Let $f:X\to Y$, $g:Y\to Z$, and $h:Z\to S$ be functions. For all $x\in X$, $(h\comp g\comp f)(x)=h(g(f(x)))=(h\comp g)(f(x))=((h\comp g)\comp f)(x)$.
 \end{proof}
 \par
-Consider a diagram, where every vertex is an object and every arrow is a structure-preserving function. Such a diagram is said to be commutative if all paths between two vertices are equivalent. In this section, every vertex is a set and every arrow is a function.
+Consider a diagram, where every vertex is an object and every arrow preserves the structure of those objects. Such a diagram is said to be \hdef{commutative} if all paths between two vertices are equivalent. In this section, every vertex is a set and every arrow is a function.
 \begin{example}
     Consider the following diagrams.
     \begin{center}
@@ -564,13 +564,10 @@ Consider a diagram, where every vertex is an object and every arrow is a structu
     Prove that a function has a left inverse if and only if it is injective. Prove that a function has a right inverse if and only if it is surjective, conclude that a function is bijective if and only if it has an inverse.
 \end{problem}
 \begin{definition}
-    A \hdef{class} 
-\end{definition}
-\begin{definition}
     A \hdef{category} $\cft{C}$ consists of
     \begin{enumerate}
-        \item a class, denoted $\Ob(\cft{C})$, of \hdef{objects};
-        \item for each pair of objects $(X,Y)$, there exists a class ${\Hom}_{\cft{C}}(X,Y)$ of \hdef{morphisms} from $X$ to $Y$;
+        \item a collection, denoted $\Ob(\cft{C})$, of \hdef{objects};
+        \item for each pair of objects $(X,Y)$, there exists a collection ${\Hom}_{\cft{C}}(X,Y)$ of \hdef{morphisms} from $X$ to $Y$;
         \item a \hdef{composition operation}, which gives, for each pair of morphisms $f\in{\Hom}_{\cft{C}}(X,Y)$ and $g\in{\Hom}_{\cft{C}}(Y,Z)$, a morphism $g\comp f\in{\Hom}_{\cft{C}}(X,Y)$.
     \end{enumerate}
     such that
@@ -579,6 +576,9 @@ Consider a diagram, where every vertex is an object and every arrow is a structu
         \item for each object $X$, there exists a morphism ${\id}_{X}\in{\Hom}_{\cft{C}}(X,X)$ with the property that $f\comp{\id}_{X}=f$ and ${\id}_{X}\comp g=g$ for any $f\in{\Hom}_{\cft{C}}(X,Y)$ and $g\in{\Hom}_{\cft{C}}(Z,X)$.
     \end{enumerate}
 \end{definition}
+\begin{remark}
+    For any category $\cft{C}$, the collections $\Ob(\cft{C})$ and ${\Hom}_{\cft{C}}(X,Y)$ are not guaranteed to be sets. However, we will use $\in$ for the collections for clarity.
+\end{remark}
 \par
 Let sets be objects, let functions be morphisms, and let the composition of morphisms be the composition of functions. By our previous observations, it suffices to check this defines a category of sets, denoted $\cft{Set}$.
 \begin{example}
@@ -619,7 +619,7 @@ Let sets be objects, let functions be morphisms, and let the composition of morp
 \end{definition}
 \customtheorem{Universal property for quotient sets}
 \begin{Universal property for quotient sets}
-    Let $X$ and $Y$ be sets. Let $\sim$ be an equivalence relation on $X$ and let $f:X\to Y$ be invariant under the equivalence relation. Then there exists a function $\wb{f}:X/\sim Y$ such that $f=\wb{f}\comp\pi$.
+    Let $X$ and $Y$ be sets. Let $\sim$ be an equivalence relation on $X$ and let $f:X\to Y$ be invariant under the equivalence relation. Then there exists a unique function $\wb{f}:X/\sim\to Y$ such that $f=\wb{f}\comp\pi$.
 \end{Universal property for quotient sets}
 \begin{center}
     \begin{tikzcd}
@@ -633,17 +633,23 @@ Let sets be objects, let functions be morphisms, and let the composition of morp
 \end{center}
 \par
 The proof of the universal property has two parts. We first verify that the quotient set has the universal property. Then we verify that the quotient set is characterized
-by this universal property, that is, any set satisfying the universal property must be the quotient set.
+by this universal property, that is, any set satisfying the universal property must be the quotient set. This proof will be separated into multiple propositions.
+\begin{proposition}
+    There exists a map $\wb{f}:X/\sim\to Y$ such that $f=\wb{f}\comp\pi$.
+\end{proposition}
 \begin{proof}
     
 \end{proof}
+\begin{problem}
+    Prove that such $\wb{f}$ is unique.
+\end{problem}
 
 
 
 \newpage
 \section{Integers and Rationals}
 \section{Real Numbers}
-\section{Groups}
+\section{Introduction to Groups}
 \newsection{Acknowledgement}
 
 \hindex
