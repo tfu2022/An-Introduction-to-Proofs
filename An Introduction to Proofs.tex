@@ -13,7 +13,12 @@ In higher-level mathematics, students need a certain level of ``mathematical mat
 \par
 You may notice that we use different names for the same object—a common practice in mathematics. For example, the set of all real numbers $\R$ can be viewed as a set, a group, a ring, a field, a topological space, a metric space $\dots$ Each term highlights a particular aspect of the same structure. As Poincaré famously said, ``Mathematics is the art of giving the same name to different things.''
 \par
-Many people have contributed to this short note.
+Many people have contributed to this short note. Special thanks to FSG, who wrote $\S 5$ and collaborated with me on a general topology note, an important reference for my writing in $\S 6$. Special thanks to Tingyu Wu for collaborating $\S 4$. Thanks to Bryce for his suggestions on $\S 1$ and $\S 3$. 
+\par
+Finally, think deeper and enjoy mathematics!
+\begin{flushright}
+    -------- \cfc{Hassium}
+\end{flushright}
 \section{Basic Logic}
 Logic is the formal framework and rules of inference that ensure the validity and coherence of arguments in math. 
 \begin{remark}
@@ -290,7 +295,7 @@ The definition of ordered pairs can be extended to multiple elements. We call $(
         \item $A\cup(B\cap C)=(A\cup B)\cap(A\cup C)$.
     \end{enumerate}
 \end{problem}
-\begin{theorem}[De Morgan's law]\index{De Morgan's law}
+\begin{theorem}[De Morgan's law]
     Let $A$, $B$, and $C$ be sets, then $C\sm(A\cap B)=(C\sm A)\cup(C\sm B)$ and $C\sm(A\cup B)=(C\sm A)\cap(C\sm B)$.
 \end{theorem}
 \begin{proof}
@@ -654,6 +659,9 @@ Let sets be objects, let functions be morphisms, and let the composition of morp
 \begin{definition}
     Let $X$ and $Y$ be sets. Let $\sim$ be an equivalence relation on $X$. A function $f:X\to Y$ is \hdef{invariant} under the equivalence relation such that, $x\sim y$ implies $f(x)=f(y)$.
 \end{definition}
+\begin{problem}
+    Let $X$ be a set and let $\sim$ be an equivalence relation on $X$. Prove that $\pi$ is invariant under $\sim$.
+\end{problem}
 \customtheorem{Universal property for quotient sets}
 \begin{Universal property for quotient sets}
     Let $X$ and $Y$ be sets. Let $\sim$ be an equivalence relation on $X$ and let $f:X\to Y$ be invariant under the equivalence relation. Then there exists a unique function $\wb{f}:X/\sim\to Y$ such that $f=\wb{f}\comp\pi$.
@@ -669,7 +677,9 @@ Let sets be objects, let functions be morphisms, and let the composition of morp
     \end{tikzcd}
 \end{center}
 \par
-The proof of the universal property has two parts, namely, the existence and uniqueness.
+The proof of the universal property has two parts. We first verify that the quotient set has the universal property.
+Then we verify that the quotient set is characterized by this universal property, that is, any set satisfying the universal
+property must be the quotient set. This proof will be separated into multiple propositions.
 \begin{proposition}
     There exists a map $\wb{f}:X/\sim\to Y$ such that $f=\wb{f}\comp\pi$.
 \end{proposition}
@@ -678,18 +688,24 @@ The proof of the universal property has two parts, namely, the existence and uni
 \end{proof}
 
 
-\newpage
+
 \begin{problem}
     Prove that such $\wb{f}$ is unique.
 \end{problem}
-
 \begin{proposition}
-    Let $X$, $Y$, and $Z$ be sets. 
+    Any function $f:X\to Y$ induces an equivalence relation on $X$. 
 \end{proposition}
-
-\begin{problem}
-    Prove that any function $f:X\to Y$ induces an equivalence relation on $X$. 
-\end{problem}
+\begin{proof}
+    
+\end{proof}
+\begin{proposition}
+    Let $S$ be any set satisfying the universal property for quotient sets. Let $X$ be a set and let $\sim$ be an equivalence relation on $X$. Then $S\iso X/\sim$.
+\end{proposition}
+\begin{proof}
+    
+\end{proof}
+\par
+This completes our proof of the universal property for quotients.
 \begin{theorem}[canonical decomposition of functions]
     Let $f:A\to B$ be a function, the there exists a surjective function $\pi$, a bijective function $g$, and an injective function $i$, such that $f=i\comp g\comp\pi$.
 \end{theorem}
@@ -707,9 +723,17 @@ The proof of the universal property has two parts, namely, the existence and uni
     Let $i:\im(f)\to B$ be the identity map, then $i$ is injective. The function $f:A\to B$ induces an equivalence relation $\sim$ on $X$. The projection map $\pi:A\to A/\sim$ is surjective. 
 \end{proof}
 
+
+\customtheorem{Axiom of choice}
+\begin{Axiom of choice}
+    Every 
+\end{Axiom of choice}
+
+
+\newpage
 \section{Integers and Rationals}
 \section{Real Numbers}
-\section{Basic Topology}
+\section{Topology and Geometry}
 \section{Introduction to Groups}
 \newsection{References}
 
