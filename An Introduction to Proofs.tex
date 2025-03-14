@@ -68,9 +68,8 @@ Two propositions $P$ and $Q$ are \hdef{logically equivalent} if they have the sa
 \end{problem}
 \par
 Let $P$ and $Q$ be propositions. Consider the proposition ``if $n$ is a natural number, then $2n$ is an even number''. Let $P$ denotes ``$n$ is a natural number'' and let $Q$ denotes ``$2n$ is an even number'', then the sentence becomes ``if $P$, then $Q$'', denoted $P\implies Q$. This implication called a \hdef{conditional proposition}, $P$ is called the \hdef{antecedent} and $Q$ is called the \hdef{consequent}. The proposition $P\implies Q$ is true if $P$ is true and $Q$ is true. What if $P$ is false? The answer arises from one's intuition.
-\begin{example}
-    Imagine your high school teacher say ``if you didn't submit your homework, then you haven't completed it''. How would you argue against this sentence? The most likely response would be, ``I did the homework but I didn't submit it''. Whether or not you submitted your homework does not affect the truth value of the implication.
-\end{example}
+\par
+Imagine your high school teacher say ``if you didn't submit your homework, then you haven't completed it''. How would you argue against this sentence? The most likely response would be, ``I did the homework but I didn't submit it''. Whether or not you submitted your homework does not affect the truth value of the implication.
 \par
 You should convinced by your own intuition. This case is called a \hdef{vacuous truth}. In the proposition $P\implies Q$, when $P$ is false, $P\implies Q$ is true. The truth table of $P\implies Q$ is shown below.
 \begin{center}
@@ -575,6 +574,12 @@ Consider a diagram, where every vertex is an object and every arrow preserves th
     Let $S$ and $X$ be finite sets with $\card{S}=\card{X}$. Let $f:S\to X$ be a function. Prove that if $f$ is injective, then $f$ is surjective. Does the converse hold?
 \end{problem}
 \begin{definition}
+    Let $f:X\to Y$ be a function. Let $Z\sub Y$, then the \hdef{restriction} of $f$ onto $Z$ is the map $f{\vert}_{Z}:X\to Z$ defined by $f{\vert}_{Z}(x)=f(x)$ for all $x\in X$.
+\end{definition}
+\begin{problem}
+    Let $f:X\to Y$ be a function. Prove that the restriction $f{\vert}_{\im(f)}$ is a well-defined surjective function.
+\end{problem}
+\begin{definition}
     Let $A$ be a set. The \hdef{identity function}, denoted ${\id}_{A}$, is the function ${\id}_{A}(x)=x$ for all $x\in A$.
 \end{definition}
 \begin{problem}
@@ -600,17 +605,14 @@ Consider a diagram, where every vertex is an object and every arrow preserves th
     \begin{enumerate}
         \item a collection, denoted $\Ob(\cft{C})$, of \hdef{objects};
         \item for each pair of objects $(X,Y)$, there exists a collection ${\Hom}_{\cft{C}}(X,Y)$ of \hdef{morphisms} from $X$ to $Y$;
-        \item a \hdef{composition operation}, which gives, for each pair of morphisms $f\in{\Hom}_{\cft{C}}(X,Y)$ and $g\in{\Hom}_{\cft{C}}(Y,Z)$, a morphism $g\comp f\in{\Hom}_{\cft{C}}(X,Y)$.
+        \item a \hdef{composition operation}, which gives, for each pair of morphisms $f:X\to Y$ and $g:Y\to Z$, a morphism $g\comp f:X\to Z$.
     \end{enumerate}
     such that
     \begin{enumerate}
-        \item given any $f\in{\Hom}_{\cft{C}}(X,Y)$, $g\in{\Hom}_{\cft{C}}(Y,Z)$, and $h\in{\Hom}_{\cft{C}}(Z,W)$, we have the identity $(h\comp g)\comp f=h\comp(g\comp f)$;
-        \item for each object $X$, there exists a morphism ${\id}_{X}\in{\Hom}_{\cft{C}}(X,X)$ with the property that $f\comp{\id}_{X}=f$ and ${\id}_{X}\comp g=g$ for any $f\in{\Hom}_{\cft{C}}(X,Y)$ and $g\in{\Hom}_{\cft{C}}(Z,X)$.
+        \item given any $f:X\to Y$, $g:Y\to Z$, and $h:Z\to W$, we have the identity $(h\comp g)\comp f=h\comp(g\comp f)$;
+        \item for each object $X$, there exists a morphism ${\id}_{X}:X\to X$ with the property that $f\comp{\id}_{X}=f$ and ${\id}_{X}\comp g=g$ for any $f:X\to Y$ and $g:Z\to X$.
     \end{enumerate}
 \end{definition}
-\begin{remark}
-    For any category $\cft{C}$, the collections $\Ob(\cft{C})$ and ${\Hom}_{\cft{C}}(X,Y)$ are not guaranteed to be sets. The notation $\in$ in collections is informal but clear.
-\end{remark}
 \par
 Let sets be objects, let functions be morphisms, and let the composition of morphisms be the composition of functions. By our previous observations, it suffices to check this defines a category of sets, denoted $\cft{Set}$.
 \begin{example}
@@ -632,13 +634,13 @@ Let sets be objects, let functions be morphisms, and let the composition of morp
     Morphisms are not guaranteed to be functions. Let $(S,\le)$ be a partially ordered set. Let $\Ob(\cft{C})=S$ and $x\to y$ be a morphism if $x\le y$. Prove that $\cft{C}$ is a category.
 \end{problem}
 \begin{definition}
-    Let $\cft{C}$ be a category. A morphism $f\in{\Hom}_{\cft{C}}(A,B)$ is a \hdef{monomorphism} if for all $g,h\in{\Hom}_{\cft{C}}(C,A)$, $f\comp g=g\comp h$ implies $g=h$. A morphism $f\in{\Hom}_{\cft{C}}(A,B)$ is called an \hdef{epimorphism} if for all $i,j\in{\Hom}_{\cft{C}}(B,D)$, $i\comp f=j\comp f$ implies $i=j$.
+    Let $\cft{C}$ be a category. A morphism $f:A\to B$ is a \hdef{monomorphism} if for all $g,h:C\to A$, $f\comp g=g\comp h$ implies $g=h$. A morphism $f:A\to B$ is called an \hdef{epimorphism} if for all $i,j:B\to D$, $i\comp f=j\comp f$ implies $i=j$.
 \end{definition}
 \begin{problem}
     Prove that an injective function is a monomorphism in $\cft{Set}$. Prove that a surjective function is an epimorphism in $\cft{Set}$.
 \end{problem}
 \begin{definition}
-    Let $\cft{C}$ be a category. A morphism $f\in{\Hom}_{\cft{C}}(A,B)$ is an \hdef{isomorphism} if there exists $g\in{\Hom}_{\cft{C}}(B,A)$ such that $f\comp g={\id}_{B}$ and $g\comp f={\id}_{A}$. If there exists a morphism between two objects $A$ and $B$, then we say they are \hdef{isomorphic}, denoted $A\iso B$.
+    Let $\cft{C}$ be a category. A morphism $f:A\to B$ is an \hdef{isomorphism} if there exists $g\in{\Hom}_{\cft{C}}(B,A)$ such that $f\comp g={\id}_{B}$ and $g\comp f={\id}_{A}$. If there exists a morphism between two objects $A$ and $B$, then we say they are \hdef{isomorphic}, denoted $A\iso B$.
 \end{definition}
 \begin{definition}
     Let $\sim$ be an equivalence relation on a set $X$. The \hdef{quotient set}, denoted $X/\sim$, is the set $\{[x]\mid x\in X\}$.
@@ -647,13 +649,10 @@ Let sets be objects, let functions be morphisms, and let the composition of morp
     Let $S=\{a,b,c,d\}$. Let $\sim$ be an equivalence relation on $S$ such that $a\sim b$ and $c\sim d$. The quotient set $S/\sim$ is $\{a,c\}$.
 \end{example}
 \begin{problem}
-    Prove that the function $\pi:X\to X/\sim$ defined by $\pi(x)=[x]$ is a well-defined surjective function.
-\end{problem}
-\begin{problem}
     Consider the set of all integers $\Z$. Fix $n\in\Z$, Let ${\sim}_{n}$ be an equivalence relation on $\Z$ such that $a{\sim}_{n}b$ if and only if $a-b=kn$ for some $k\in\Z$. Prove that ${\sim}_{n}$ is indeed an equivalence relation. Find the quotient set $\Z/{\sim}_{2}$. Find the quotient set $\Z/{\sim}_{n}$ for all $n$.
 \end{problem}
 \begin{definition}
-    Let $X$ and $Y$ be sets. Let $\sim$ be an equivalence relation on $X$. A function $f:X\to Y$ is \hdef{invariant} under the equivalence relation if $x\sim y$ implies $f(x)=f(y)$.
+    Let $X$ and $Y$ be sets. Let $\sim$ be an equivalence relation on $X$. A function $f:X\to Y$ is \hdef{invariant} under the equivalence relation such that, $x\sim y$ implies $f(x)=f(y)$.
 \end{definition}
 \customtheorem{Universal property for quotient sets}
 \begin{Universal property for quotient sets}
@@ -672,11 +671,15 @@ Let sets be objects, let functions be morphisms, and let the composition of morp
 \par
 The proof of the universal property has two parts. We first verify that the quotient set has the universal property. Then we verify that the quotient set is characterized
 by this universal property, that is, any set satisfying the universal property must be the quotient set. This proof will be separated into multiple propositions.
+
+
+
+\newpage
 \begin{proposition}
     There exists a map $\wb{f}:X/\sim\to Y$ such that $f=\wb{f}\comp\pi$.
 \end{proposition}
 \begin{proof}
-    Define $\wb{f}([x])=$
+    Define the relation $\wb{f}=\{([x],y)\mid \}$. 
 \end{proof}
 \begin{problem}
     Prove that such $\wb{f}$ is unique.
@@ -684,25 +687,27 @@ by this universal property, that is, any set satisfying the universal property m
 \begin{proposition}
     Let $X$, $Y$, and $Z$ be sets. 
 \end{proposition}
-
+\begin{problem}
+    Prove that any function $f:X\to Y$ induces an equivalence relation on $X$. 
+\end{problem}
 \begin{theorem}[canonical decomposition of functions]
     Let $f:A\to B$ be a function, the there exists a surjective function $\pi$, a bijective function $g$, and an injective function $i$, such that $f=i\comp g\comp\pi$.
 \end{theorem}
 \begin{center}
     \begin{tikzcd}
-        A && {A/\sim} \\
-        \\
-        B && {\im(f)}
+        A && {A/\sim} && {\im(f)} && B
         \arrow["\pi", from=1-1, to=1-3]
-        \arrow["f"', from=1-1, to=3-1]
-        \arrow["g", from=1-3, to=3-3]
-        \arrow["i", from=3-3, to=3-1]
+        \arrow["{f{\vert}_{\im(f)}}"', curve={height=18pt}, from=1-1, to=1-5]
+        \arrow["f", curve={height=-24pt}, from=1-1, to=1-7]
+        \arrow["g", from=1-3, to=1-5]
+        \arrow["i", from=1-5, to=1-7]
     \end{tikzcd}    
 \end{center}
-\begin{proof}
-    Let $i:\im(f)\to B$ be the identity map, since $\im(f)\sub B$, $i$ is injective.
-\end{proof}
 \newpage
+\begin{proof}
+    Let $i:\im(f)\to B$ be the identity map, then $i$ is injective. The function $f:A\to B$ induces an equivalence relation $\sim$ on $X$. The projection map $\pi:A\to A/\sim$ is surjective. 
+\end{proof}
+
 \section{Integers and Rationals}
 \section{Real Numbers}
 \section{Basic Topology}
