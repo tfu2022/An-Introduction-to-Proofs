@@ -17,14 +17,14 @@ Many people have contributed to this short note.
 \section{Basic Logic}
 Logic is the formal framework and rules of inference that ensure the validity and coherence of arguments in math. 
 \begin{remark}
-    We shall accept that sentences can be either true or false. Moreover, we assume that every English sentences can be stated in symbolic logic form.
+    We shall accept that sentences can be either true or false. Moreover, we assume that every English sentence can be stated in symbolic logic form.
 \end{remark} 
 \par
 A \hdef{proposition} is a sentence that is either true or false in a mathematical system. The label ``true'' or ``false'' assigned to a proposition is called its \hdef{truth value}. We use the letters $T$ and $F$ to represent ``true'' and ``false'', respectively. An \hdef{axiom} is a proposition that is assumed to be true within a mathematical system without requiring proof. Axioms serve as the foundational building blocks of a mathematical theory, from which other propositions can be derived. A \hdef{theorem} is a proposition that has been proven to be true using logical reasoning and the accepted axioms and previously established theorems of the mathematical system. The proof demonstrates why the theorem must hold based on these foundations.
 \par
-Consider the proposition ``$\pi$ is not a rational number'', which is trivially true. However, we could always find some false companion of this proposition, such as ``$\pi$ is a rational number''. Similarly, we can find a true companion of a false proposition. Let $P$ be a proposition, such companion of $P$ is called the \hdef{negation} of $P$, denoted $\neg P$.
+Consider the proposition ``$\pi$ is not a rational number'', which is trivially true. However, we could always find some false companion of this proposition, such as ``$\pi$ is a rational number''. Similarly, we can find a true companion of a false proposition. Let $P$ be a proposition, such a companion of $P$ is called the \hdef{negation} of $P$, denoted $\neg P$.
 \par
-Let $P$ and $Q$ be propositions. Those sentences can be combined using the word ``and'', denoted $P\wedge Q$, and called the \hdef{conjunction} of $P$ and $Q$. The proposition $P\wedge Q$ is true if both $P$ and $Q$ is true. We can combine the propositions by the word ``or'', denoted $P\vee Q$, and called the \hdef{disjunction} of $P$ and $Q$. The proposition $P\vee Q$ is true if at least one of $P$ or $Q$ is true. A \hdef{truth table} is shown below.
+Let $P$ and $Q$ be propositions. Those sentences can be combined using the word ``and'', denoted $P\wedge Q$, and called the \hdef{conjunction} of $P$ and $Q$. The proposition $P\wedge Q$ is true if both $P$ and $Q$ are true. We can combine the propositions by the word ``or'', denoted $P\vee Q$, and called the \hdef{disjunction} of $P$ and $Q$. The proposition $P\vee Q$ is true if at least one of $P$ or $Q$ is true. A \hdef{truth table} is shown below.
 \begin{center}
     \begin{tabular}{cc|ccc}
         $P$ & $Q$ & $\neg P$ & $P\wedge Q$ & $P\vee Q$ \\
@@ -71,7 +71,7 @@ Let $P$ and $Q$ be propositions. Consider the proposition ``if $n$ is a natural 
 \par
 Imagine your high school teacher say ``if you didn't submit your homework, then you haven't completed it''. How would you argue against this sentence? The most likely response would be, ``I did the homework but I didn't submit it''. Whether or not you submitted your homework does not affect the truth value of the implication.
 \par
-You should convinced by your own intuition. This case is called a \hdef{vacuous truth}. In the proposition $P\implies Q$, when $P$ is false, $P\implies Q$ is true. The truth table of $P\implies Q$ is shown below.
+You should be convinced by your own intuition. This case is called a \hdef{vacuous truth}. In the proposition $P\implies Q$, when $P$ is false, $P\implies Q$ is true. The truth table of $P\implies Q$ is shown below.
 \begin{center}
     \begin{tabular}{cc|c}
         $P$ & $Q$ & $P\implies Q$ \\
@@ -120,7 +120,7 @@ Let $P$ be the proposition ``$x$ is a natural number''. Here $x$ is a \hdef{vari
     Let $x$ be a variable and let $x$ be a natural number. Give a proposition $P(x)$ such that $P(x)$ is true when $x\le 2024$ and false when $x\ge 2025$.
 \end{problem}
 \par
-Propositional functions are often quantified. The \hdef{universal quantifier} is denoted by ``$\forall$'', and the proposition $\forall x(P(x))$ is true if and only if $P(x)$ is true for every $x$ in its domain. The \hdef{existential quantifier} is denoted by ``$\exists$'', and the proposition $\exists x(P(x))$ is true if and only if $P(x)$ is true for at least one $x$ in its domain. Consider the proposition $\forall x(P(x))$, this means all $x$ make $P(x)$ true, so there does not exists some $x$ such that $P(x)$ is false, which is $\neg(\exists x(\neg P(x)))$.
+Propositional functions are often quantified. The \hdef{universal quantifier} is denoted by ``$\forall$'', and the proposition $\forall x(P(x))$ is true if and only if $P(x)$ is true for every $x$ in its domain. The \hdef{existential quantifier} is denoted by ``$\exists$'', and the proposition $\exists x(P(x))$ is true if and only if $P(x)$ is true for at least one $x$ in its domain. Consider the proposition $\forall x(P(x))$, this means all $x$ make $P(x)$ true, so there does not exist some $x$ such that $P(x)$ is false, which is $\neg(\exists x(\neg P(x)))$.
 \begin{example}
     Let $P(x)$ be a proposition, then $\neg(\forall x(P(x)))\iff\neg(\neg(\exists x(\neg P(x))))\iff\exists x(\neg P(x))$. 
 \end{example}
@@ -397,7 +397,7 @@ It suffices to show a binary operation is indeed a set. Let $R$ be a binary oper
     For all elements $a,b,c\in Y$, $a,b,c\in X$, so $Y$ inherits the partial ordering of $X$.
 \end{proof}
 \begin{problem}
-    Let $(X,\le)$ be a partial ordered set, prove that $\le$ is an equivalence relation.
+    Let $(X,\le)$ be a partial ordered set, prove that $\le$ is not an equivalence relation.
 \end{problem}
 \begin{problem}
     Let $(X,\le)$ be a linearly ordered set and let $Y\sub X$, prove that $Y$ is linearly ordered.
@@ -449,7 +449,7 @@ The well-ordering principle is equivalent to the axiom of choice, which will be 
     Let $f$ be a function, prove that $\ran(f)\sub\cod(f)$.
 \end{problem}
 \begin{problem}
-    Verity whether the following binary operations are functions.
+    Verify whether the following binary operations are functions.
     \begin{enumerate}
         \item $f:\R\to\R$ with $f(x)=\sqrt{x}$ for all $x\in\R$.
         \item $f:\{1,2,3\}\to\{2,3\}$ with $f=\{\{1,2\},\{2,2\},\{3,2\}\}$.
@@ -565,7 +565,7 @@ Consider a diagram, where every vertex is an object and every arrow preserves th
     \end{enumerate}
 \end{problem}
 \begin{problem}
-    Let $S$ be a set. Prove that there does not exist a suerjective function $f:S\to\ps(S)$. 
+    Let $S$ be a set. Prove that there does not exist a surjective function $f:S\to\ps(S)$. 
 \end{problem}
 \begin{definition}
     A set $S$ is said to be \hdef{finite} if there exists a bijective function $f:S\to n$, where $n\in\N$. The \hdef{cardinality} of $S$, denoted $\card{S}$, is the number $n$. If $S$ is not finite, we say $S$ is \hdef{infinite}.
@@ -595,7 +595,7 @@ Consider a diagram, where every vertex is an object and every arrow preserves th
     Suppose $g$ and $h$ are inverses of $f$, then $h=h\comp f\comp g=(h\comp f)\comp g=g$.
 \end{proof}
 \begin{problem}
-    Let $f$ is a function with a left inverse $g$. Prove that if $f$ has a right inverse, then the right inverse is $g$, conclude that $g$ is the inverse of $f$.
+    Let $f$ be a function with a left inverse $g$. Prove that if $f$ has a right inverse, then the right inverse is $g$, conclude that $g$ is the inverse of $f$.
 \end{problem}
 \begin{problem}
     Prove that a function has a left inverse if and only if it is injective. Prove that a function has a right inverse if and only if it is surjective, conclude that a function is bijective if and only if it has an inverse.
@@ -669,24 +669,24 @@ Let sets be objects, let functions be morphisms, and let the composition of morp
     \end{tikzcd}
 \end{center}
 \par
-The proof of the universal property has two parts. We first verify that the quotient set has the universal property. Then we verify that the quotient set is characterized
-by this universal property, that is, any set satisfying the universal property must be the quotient set. This proof will be separated into multiple propositions.
-
-
-
-\newpage
+The proof of the universal property has two parts, namely, the existence and uniqueness.
 \begin{proposition}
     There exists a map $\wb{f}:X/\sim\to Y$ such that $f=\wb{f}\comp\pi$.
 \end{proposition}
 \begin{proof}
     Define the relation $\wb{f}=\{([x],y)\mid \}$. 
 \end{proof}
+
+
+\newpage
 \begin{problem}
     Prove that such $\wb{f}$ is unique.
 \end{problem}
+
 \begin{proposition}
     Let $X$, $Y$, and $Z$ be sets. 
 \end{proposition}
+
 \begin{problem}
     Prove that any function $f:X\to Y$ induces an equivalence relation on $X$. 
 \end{problem}
@@ -703,7 +703,6 @@ by this universal property, that is, any set satisfying the universal property m
         \arrow["i", from=1-5, to=1-7]
     \end{tikzcd}    
 \end{center}
-\newpage
 \begin{proof}
     Let $i:\im(f)\to B$ be the identity map, then $i$ is injective. The function $f:A\to B$ induces an equivalence relation $\sim$ on $X$. The projection map $\pi:A\to A/\sim$ is surjective. 
 \end{proof}
