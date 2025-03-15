@@ -3,7 +3,7 @@
 \input{/Users/mr.hassium/Desktop/Github/Hello-World/hassium.tex}
 \begin{document}
 \def\htitle{An Introduction to Proofs}
-\def\hauthor{Hassium, Fan San Gann, Tingyu Wu}
+\def\hauthor{Hassium, Fung San Gann, Tingyu Wu}
 \def\hfauthor{Hassium, FSG, T. Wu}
 \hsetup
 \htoc
@@ -13,7 +13,7 @@ In higher-level mathematics, students need a certain level of ``mathematical mat
 \par
 You may notice that we use different names for the same object—a common practice in mathematics. For example, the set of all real numbers $\R$ can be viewed as a set, a group, a ring, a field, a topological space, a metric space $\dots$ Each term highlights a particular aspect of the same structure. As Poincaré famously said, ``Mathematics is the art of giving the same name to different things.''
 \par
-Many people have contributed to this short note. Special thanks to FSG, who wrote $\S 5$ and collaborated with me on a general topology note, an important reference for my writing in $\S 6$. Special thanks to Tingyu Wu for collaborating $\S 4$. Thanks to Bryce for his suggestions on $\S 1$ and $\S 3$. 
+Many people have contributed to this short note. Special thanks to FSG, who wrote $\S 6$ and collaborated with me on a general topology note, an important reference for my writing in $\S 7$. Thanks to Tingyu Wu for collaborating $\S 4$. Thanks to Bryce for his suggestions on $\S 1$ and $\S 3$. 
 \par
 Finally, think deeper and enjoy mathematics!
 \begin{flushright}
@@ -365,9 +365,9 @@ It suffices to show a binary operation is indeed a set. Let $R$ be a binary oper
 \begin{definition}
     Let $R$ be a binary operation on a set $S$, that is, $R\sub S\times S$. We say $R$ is an \hdef{equivalence relation} if the following properties hold.
     \begin{enumerate}
-        \item for all $a\in X$, $aRa$;\hfill(reflexive)
-        \item $aRb$ implies $bRa$;\hfill(symmetric)
-        \item $aRb$ and $bRc$ implies $aRc$.\hfill(transitive)
+        \item For all $a\in X$, $aRa$.\hfill(reflexive)
+        \item If $aRb$, then $bRa$.\hfill(symmetric)
+        \item If $aRb$ and $bRc$, then $aRc$.\hfill(transitive)
     \end{enumerate}
     For all $a\in A$, the set ${S}_{a}=\{b\mid aRb\}$ is the \hdef{equivalence class} of $a$. 
 \end{definition}
@@ -413,7 +413,7 @@ It suffices to show a binary operation is indeed a set. Let $R$ be a binary oper
 \begin{definition}
     Let $(X,\le)$ be a partially ordered set and let $Y\sub X$ be an nonempty subset. An element $a$ is the \hdef{upper bound} of $X$ if for all $x\in X$, $x\le a$. An element $b$ is the \hdef{lower bound} of $X$ if for all $x\in X$, $b\le x$. The least upper bound of $X$ is called the \hdef{supremum} and the greatest lower bound of $X$ is called the \hdef{infimum}.
 \end{definition}
-\begin{theorem}[well-ordering principle]\index{well-ordering principle}
+\begin{theorem}[well-ordering principle]
     For all nonempty subset $X\sub\N$, $X$ has a smallest element.
 \end{theorem}
 \par
@@ -648,13 +648,13 @@ Let sets be objects, let functions be morphisms, and let the composition of morp
     Let $\cft{C}$ be a category. A morphism $f:A\to B$ is an \hdef{isomorphism} if there exists $g\in{\Hom}_{\cft{C}}(B,A)$ such that $f\comp g={\id}_{B}$ and $g\comp f={\id}_{A}$. If there exists a morphism between two objects $A$ and $B$, then we say they are \hdef{isomorphic}, denoted $A\iso B$.
 \end{definition}
 \begin{definition}
-    Let $\sim$ be an equivalence relation on a set $X$. The \hdef{quotient set}, denoted $X/\sim$, is the set $\{[x]\mid x\in X\}$.
+    Let $\sim$ be an equivalence relation on a set $X$. The \hdef{quotient set}, denoted ${X}_{\sim}$, is the set $\{[x]\mid x\in X\}$.
 \end{definition}
 \begin{example}
-    Let $S=\{a,b,c,d\}$. Let $\sim$ be an equivalence relation on $S$ such that $a\sim b$ and $c\sim d$. The quotient set $S/\sim$ is $\{a,c\}$.
+    Let $S=\{a,b,c,d\}$. Let $\sim$ be an equivalence relation on $S$ such that $a\sim b$ and $c\sim d$. The quotient set ${S}_{\sim}$ is $\{a,c\}$.
 \end{example}
 \begin{problem}
-    Consider the set of all integers $\Z$. Fix $n\in\Z$, Let ${\sim}_{n}$ be an equivalence relation on $\Z$ such that $a{\sim}_{n}b$ if and only if $a-b=kn$ for some $k\in\Z$. Prove that ${\sim}_{n}$ is indeed an equivalence relation. Find the quotient set $\Z/{\sim}_{2}$. Find the quotient set $\Z/{\sim}_{n}$ for all $n$.
+    Consider the set of all integers $\Z$. Fix $n\in\Z$, Let ${\sim}_{n}$ be an equivalence relation on $\Z$ such that $a{\sim}_{n}b$ if and only if $a-b=kn$ for some $k\in\Z$. Prove that ${\sim}_{n}$ is indeed an equivalence relation. Find the quotient set ${\Z}_{{\sim}_{2}}$. Find the quotient set ${\Z}_{{\sim}_{n}}$ for all $n$.
 \end{problem}
 \begin{definition}
     Let $X$ and $Y$ be sets. Let $\sim$ be an equivalence relation on $X$. A function $f:X\to Y$ is \hdef{invariant} under the equivalence relation such that, $x\sim y$ implies $f(x)=f(y)$.
@@ -664,11 +664,11 @@ Let sets be objects, let functions be morphisms, and let the composition of morp
 \end{problem}
 \customtheorem{Universal property for quotient sets}
 \begin{Universal property for quotient sets}
-    Let $X$ and $Y$ be sets. Let $\sim$ be an equivalence relation on $X$ and let $f:X\to Y$ be invariant under the equivalence relation. Then there exists a unique function $\wb{f}:X/\sim\to Y$ such that $f=\wb{f}\comp\pi$.
+    Let $X$ and $Y$ be sets. Let $\sim$ be an equivalence relation on $X$ and let $f:X\to Y$ be invariant under the equivalence relation. Then there exists a unique function $\wb{f}:{X}_{\sim}\to Y$ such that $f=\wb{f}\comp\pi$.
 \end{Universal property for quotient sets}
 \begin{center}
     \begin{tikzcd}
-        {X/\sim} && X \\
+        {{X}_{\sim}} && X \\
         \\
         && Y
         \arrow["{\wb{f}}"', dashed, from=1-1, to=3-3]
@@ -681,7 +681,7 @@ The proof of the universal property has two parts. We first verify that the quot
 Then we verify that the quotient set is characterized by this universal property, that is, any set satisfying the universal
 property must be the quotient set. This proof will be separated into multiple propositions.
 \begin{proposition}
-    There exists a map $\wb{f}:X/\sim\to Y$ such that $f=\wb{f}\comp\pi$.
+    There exists a map $\wb{f}:{X}_{\sim}\to Y$ such that $f=\wb{f}\comp\pi$.
 \end{proposition}
 \begin{proof}
     Define the relation $\wb{f}=\{([x],y)\mid \}$. 
@@ -699,7 +699,7 @@ property must be the quotient set. This proof will be separated into multiple pr
     
 \end{proof}
 \begin{proposition}
-    Let $S$ be any set satisfying the universal property for quotient sets. Let $X$ be a set and let $\sim$ be an equivalence relation on $X$. Then $S\iso X/\sim$.
+    Let $S$ be any set satisfying the universal property for quotient sets. Let $X$ be a set and let $\sim$ be an equivalence relation on $X$. Then $S\iso {X}_{\sim}$.
 \end{proposition}
 \begin{proof}
     
@@ -720,21 +720,23 @@ This completes our proof of the universal property for quotient sets.
     \end{tikzcd}    
 \end{center}
 \begin{proof}
-    Let $i:\im(f)\to B$ be the identity map, then $i$ is injective. The function $f:A\to B$ induces an equivalence relation $\sim$ on $X$. The projection map $\pi:A\to A/\sim$ is surjective. 
+    Let $i:\im(f)\to B$ be the identity map, then $i$ is injective. The function $f:A\to B$ induces an equivalence relation $\sim$ on $X$. The projection map $\pi:A\to{A}_{\sim}$ is surjective. 
 \end{proof}
 
 
 \customtheorem{Axiom of choice}
-\begin{Axiom of choice}
-    Every 
+\begin{Axiom of choice}\index{axiom of choice}
+    Let $F$ be a function defined on a set $I$ such that $F(i)$ is a nonempty set for all $i\in I$. Then there exists a \hdef{choice function} $d$ defined on $I$ such that $f(i)\in F(i)$ for all $i\in I$.
 \end{Axiom of choice}
-
+\begin{definition}
+    
+\end{definition}
 
 \newpage
-\section{Integers and Rationals}
+\section{Integers and Cardinality}
+\section{Introduction to Groups}
 \section{Real Numbers}
 \section{Topology and Geometry}
-\section{Introduction to Groups}
 \newsection{References}
 
 \hindex
