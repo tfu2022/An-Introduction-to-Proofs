@@ -1,10 +1,11 @@
 % chktex-file 1 chktex-file 8 chktex-file 9 chktex-file 12 chktex-file 13 chktex-file 15 chktex-file 17 chktex-file 18 chktex-file 26 chktex-file 31 chktex-file 36 chktex-file 44
 \documentclass[10pt]{article}
 \input{/Users/mr.hassium/Desktop/Github/Hello-World/hassium.tex}
-\begin{document}
 \def\htitle{An Introduction to Proofs}
 \def\hauthor{Hassium, Fung San Gann, Tingyu Wu}
 \def\hfauthor{Hassium, FSG, T. Wu}
+\addbibresource{An Introduction to Proofs.bib}
+\begin{document}
 \hsetup
 \htoc
 \hmain
@@ -724,20 +725,23 @@ This completes our proof of the universal property for quotient sets.
 \end{proof}
 
 
-\customtheorem{Axiom of choice}
-\begin{Axiom of choice}\index{axiom of choice}
-    Let $F$ be a function defined on a set $I$ such that $F(i)$ is a nonempty set for all $i\in I$. Then there exists a \hdef{choice function} $d$ defined on $I$ such that $f(i)\in F(i)$ for all $i\in I$.
-\end{Axiom of choice}
-\begin{definition}
-    
-\end{definition}
+
 
 \newpage
 \section{Integers and Cardinality}
+
+
+% \customtheorem{Axiom of choice}\begin{Axiom of choice}\index{axiom of choice} Let $F$ be a function defined on a set $I$ such that $F(i)$ is a nonempty set for all $i\in I$. Then there exists a \hdef{choice function} $d$ defined on $I$ such that $f(i)\in F(i)$ for all $i\in I$. \end{Axiom of choice}
+
+
+\newpage
+
+
 \section{Introduction to Groups}
 \section{Real Numbers}
 \section{Topology and Geometry}
-\newsection{References}
+\newpage
+\printbibliography
 
 \hindex
 \end{document}

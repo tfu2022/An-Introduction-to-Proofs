@@ -78,5 +78,8 @@
     <requires type="dynamic">
       <file>"An Introduction to Proofs".bcf</file>
     </requires>
+    <requires type="editable">
+      <file>An Introduction to Proofs.bib</file>
+    </requires>
   </external>
 </requests>
