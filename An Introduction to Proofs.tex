@@ -414,8 +414,11 @@ It suffices to show a binary operation is indeed a set. Let $R$ be a binary oper
 \begin{definition}
     Let $(X,\le)$ be a partially ordered set and let $Y\sub X$ be an nonempty subset. An element $a$ is the \hdef{upper bound} of $X$ if for all $x\in X$, $x\le a$. An element $b$ is the \hdef{lower bound} of $X$ if for all $x\in X$, $b\le x$. The least upper bound of $X$ is called the \hdef{supremum} and the greatest lower bound of $X$ is called the \hdef{infimum}.
 \end{definition}
+\begin{definition}
+    Let $(X,\le)$ be a partially ordered set. The set is \hdef{well-ordered} if for every nonempty subset $S$ of $X$, there exists $a\in S$ such that for all $s\in S$, $a\le s$.
+\end{definition}
 \begin{theorem}[well-ordering principle]
-    For all nonempty subset $X\sub\N$, $X$ has a smallest element.
+    The natural numbers $\N$ is well-ordered.
 \end{theorem}
 \par
 The well-ordering principle is equivalent to the axiom of choice, which will be discussed later. You may assume the well-ordering principle is correct for now. 
@@ -707,10 +710,13 @@ The proof of the universal property has two parts. We first verify that a quotie
         \arrow["{{\pi}_{1}}", from=1-3, to=3-3]
     \end{tikzcd}
 \end{center}
+\begin{proof}
+    Since ${\pi}_{1}$ is surjective, $\wb{{\pi}_{1}}$ is surjective. For all $[x],[y]\in{X}_{{\sim}_{1}}$, 
+\end{proof}
 \par
 This completes our proof of the universal property for quotient sets.
 \begin{theorem}[canonical decomposition of functions]
-    Let $f:A\to B$ be a function, the there exists a surjective function $\pi$, a bijective function $g$, and an injective function $i$, such that $f=i\comp g\comp\pi$.
+    Let $f:A\to B$ be a function, then there exists a surjective function $\pi$, a bijective function $g$, and an injective function $i$, such that $f=i\comp g\comp\pi$.
 \end{theorem}
 \begin{center}
     \begin{tikzcd}
@@ -725,7 +731,18 @@ This completes our proof of the universal property for quotient sets.
 \begin{proof}
     Let $i:\im(f)\to B$ be the identity map, then $i$ is injective. The function $f:A\to B$ induces an equivalence relation $\sim$ on $X$, so $g$ is bijective. The projection map $\pi:A\to{A}_{\sim}$ is surjective. For all $a\in A$, $(i\comp g\comp\pi)(a)=(i\comp g)([a])=i(f(a))=f(a)$. 
 \end{proof}
+\customtheorem{Axiom of choice}
+\begin{Axiom of choice}\index{axiom of choice}
+    Let $F$ be a function defined on a set $I$ such that $F(i)$ is a nonempty set for all $i\in I$. Then there exists a \hdef{choice function} $d$ defined on $I$ such that $f(i)\in F(i)$ for all $i\in I$. 
+\end{Axiom of choice}
 
+
+\begin{theorem}[Zermelo's well-ordering theorem]
+    Every set $S$ can be well-ordered.
+\end{theorem}
+\begin{problem}
+    Prove that the axiom of choice implies that every epimorphism in $\cft{Set}$ has a right inverse.
+\end{problem}
 
 
 
@@ -733,7 +750,7 @@ This completes our proof of the universal property for quotient sets.
 \section{Integers and Cardinality}
 
 
-% \customtheorem{Axiom of choice}\begin{Axiom of choice}\index{axiom of choice} Let $F$ be a function defined on a set $I$ such that $F(i)$ is a nonempty set for all $i\in I$. Then there exists a \hdef{choice function} $d$ defined on $I$ such that $f(i)\in F(i)$ for all $i\in I$. \end{Axiom of choice}
+
 
 
 \newpage
