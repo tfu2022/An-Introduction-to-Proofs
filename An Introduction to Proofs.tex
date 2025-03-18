@@ -441,6 +441,7 @@ The well-ordering principle is equivalent to the axiom of choice, which will be 
     Prove that the finite induction implies the well-ordering principle, conclude that they are equivalent.
 \end{problem}
 \section{Functions}
+Functions are relations on sets that 
 \begin{definition}
     Let $X$ and $Y$ be sets. A \hdef{function} $f$ is a binary operation $f\sub X\times Y$ such that for all $x\in X$, there exists a unique $y\in Y$ such that $(x,y)\in f$. We say $f$ is a function from $X$ to $Y$, denoted $f:X\to Y$. The set $Y$ is called the \hdef{codomain} of $f$, denoted $\cod(f)$.
 \end{definition}
@@ -735,15 +736,17 @@ This completes our proof of the universal property for quotient sets.
 \begin{Axiom of choice}\index{axiom of choice}
     Let $F$ be a function defined on a set $I$ such that $F(i)$ is a nonempty set for all $i\in I$. Then there exists a \hdef{choice function} $d$ defined on $I$ such that $f(i)\in F(i)$ for all $i\in I$. 
 \end{Axiom of choice}
-
-
 \begin{theorem}[Zermelo's well-ordering theorem]
     Every set $S$ can be well-ordered.
 \end{theorem}
+\begin{proof}
+    
+\end{proof}
 \begin{problem}
     Prove that the axiom of choice implies that every epimorphism in $\cft{Set}$ has a right inverse.
 \end{problem}
-
+\par
+Notice that the Zermelo's well-ordering theorem does not imply the well-ordering principle. To prove the well-ordering principle, you have to show $\le$ in $\N$ is the desired ordering. Check Jech's Set Theory to see a proof.
 
 
 \newpage
@@ -758,9 +761,8 @@ This completes our proof of the universal property for quotient sets.
 
 \section{Introduction to Groups}
 \section{Real Numbers}
-\section{Topology and Geometry}
-\newpage
-\newsection{Reference}
+\section{Topology}
+
 
 \hindex
 \end{document}
