@@ -732,6 +732,12 @@ This completes our proof of the universal property for quotient sets.
 \begin{proof}
     Let $i:\im(f)\to B$ be the identity map, then $i$ is injective. The function $f:A\to B$ induces an equivalence relation $\sim$ on $X$, so $g$ is bijective. The projection map $\pi:A\to{A}_{\sim}$ is surjective. For all $a\in A$, $(i\comp g\comp\pi)(a)=(i\comp g)([a])=i(f(a))=f(a)$. 
 \end{proof}
+\begin{definition}
+    Let $\cft{C}$ be a category. Let $A$ and $B$ be objects in $\cft{C}$. The \hdef{product} of $A$ and $B$, denoted $C$, is an object in $\cft{C}$ such that the following diagram commutes.
+\end{definition}
+
+
+
 \customtheorem{Axiom of choice}
 \begin{Axiom of choice}\index{axiom of choice}
     Let $F$ be a function defined on a set $I$ such that $F(i)$ is a nonempty set for all $i\in I$. Then there exists a \hdef{choice function} $d$ defined on $I$ such that $f(i)\in F(i)$ for all $i\in I$. 
