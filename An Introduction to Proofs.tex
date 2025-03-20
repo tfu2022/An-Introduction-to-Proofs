@@ -4,7 +4,6 @@
 \def\htitle{An Introduction to Proofs}
 \def\hauthor{Hassium, Fung San Gann, Tingyu Wu}
 \def\hfauthor{Hassium, FSG, T. Wu}
-\addbibresource{An Introduction to Proofs.bib}
 \begin{document}
 \hsetup
 \htoc
@@ -441,7 +440,6 @@ The well-ordering principle is equivalent to the axiom of choice, which will be 
     Prove that the finite induction implies the well-ordering principle, conclude that they are equivalent.
 \end{problem}
 \section{Functions}
-Functions are relations on sets that 
 \begin{definition}
     Let $X$ and $Y$ be sets. A \hdef{function} $f$ is a binary operation $f\sub X\times Y$ such that for all $x\in X$, there exists a unique $y\in Y$ such that $(x,y)\in f$. We say $f$ is a function from $X$ to $Y$, denoted $f:X\to Y$. The set $Y$ is called the \hdef{codomain} of $f$, denoted $\cod(f)$.
 \end{definition}
@@ -671,7 +669,7 @@ Let sets be objects, let functions be morphisms, and let the composition of morp
     Define $\sim$ on $X$ by $x\sim y$, where $x,y\in X$, if and only if $f(x)\sim f(y)$. For all $x=y$, $f(x)=f(y)$. For all $x=y=z$, $f(x)=f(y)=f(z)$. Hence $\sim$ is a well-defined equivalence relation on $X$, and $f$ is trivially invariant under $\sim$.
 \end{proof}
 \customtheorem{Universal property for quotient sets}
-\begin{Universal property for quotient sets}
+\begin{Universal property for quotient sets}\index{quotient set}
     Let $X$ and $Y$ be sets. Let $\sim$ be an equivalence relation on $X$ and let $f:X\to Y$ be invariant under the equivalence relation. Then there exists a unique function $\wb{f}:{X}_{\sim}\to Y$ such that $f=\wb{f}\comp\pi$.
 \end{Universal property for quotient sets}
 \begin{center}
@@ -733,7 +731,7 @@ This completes our proof of the universal property for quotient sets.
     Let $i:\im(f)\to B$ be the identity map, then $i$ is injective. The function $f:A\to B$ induces an equivalence relation $\sim$ on $X$, so $g$ is bijective. The projection map $\pi:A\to{A}_{\sim}$ is surjective. For all $a\in A$, $(i\comp g\comp\pi)(a)=(i\comp g)([a])=i(f(a))=f(a)$. 
 \end{proof}
 \begin{definition}
-    Let $\cft{C}$ be a category. Let $A$ and $B$ be objects in $\cft{C}$. The \hdef{product} of $A$ and $B$, denoted $C$, is an object in $\cft{C}$ such that the following diagram commutes.
+    Let $\cft{C}$ be a category. Let $A$ and $B$ be objects in $\cft{C}$. The \hdef{product} of $A$ and $B$, denoted $C$, is an object in $\cft{C}$
 \end{definition}
 
 
@@ -757,8 +755,12 @@ Notice that the Zermelo's well-ordering theorem does not imply the well-ordering
 
 \newpage
 \section{Integers and Cardinality}
-
-
+\begin{theorem}[recursion]
+    Given a set $X$ and $x\in X$. Let $f:X\to X$ be a function, then there exists a unique function $F:\N\to X$ such that $F(0)=x$ and $F({n}^{+})=f(F(n))$ for all $n\in\N$.
+\end{theorem}
+\begin{proof}
+    Define $F:\N\to X$ by
+\end{proof}
 
 
 
@@ -768,7 +770,6 @@ Notice that the Zermelo's well-ordering theorem does not imply the well-ordering
 \section{Introduction to Groups}
 \section{Real Numbers}
 \section{Topology}
-
 
 \hindex
 \end{document}
