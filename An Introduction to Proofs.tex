@@ -355,6 +355,12 @@ We denote $0=\es$, $1={0}^{+}$, $2={1}^{+}$, $\dots$
     \end{enumerate}
 \end{problem}
 \begin{definition}
+    The \hdef{disjoint union} of two sets $A$ and $B$, denoted $A\cp B$, is the set $A\cp B=(A\times\{0\})\cup(B\times\{1\})$.
+\end{definition}
+\begin{problem}
+    Let $A$ and $B$ be sets, prove that $A\cp B$ is a set.
+\end{problem}
+\begin{definition}
     A \hdef{binary operation} $R$ is a set of ordered pairs. If $(x,y)\in R$, we write $xRy$. The \hdef{domain} of $R$ is the set $\dom(R)=\{u\mid\text{there exists}\ v\ \text{such that}\ (u,v)\in R\}$. The \hdef{range} of $R$ is the set $\ran(R)=\{v\mid\text{there exists}\ u\ \text{such that}\ (u,v)\in R\}$. 
 \end{definition}
 \par
@@ -434,10 +440,7 @@ The well-ordering principle is equivalent to the axiom of choice, which will be 
     Prove that given a subset $S\sub\N$ of the natural numbers with $0\in S$ and $\{0,1,\dots,n\}\sub S$ implies $n+1\in S$, then $S=\N$. This is known as the complete finite induction.
 \end{problem}
 \begin{problem}
-    Prove that the complete finite induction is equivalent to the finite induction.
-\end{problem}
-\begin{problem}
-    Prove that the finite induction implies the well-ordering principle, conclude that they are equivalent.
+    Prove that complete finite induction, finite induction, and well-ordering principle are equivalent.
 \end{problem}
 \section{Functions}
 \begin{definition}
@@ -505,7 +508,7 @@ Consider a diagram, where every vertex is an object and every arrow preserves th
     The left diagram is commutative if $g\comp f=h$. The right diagram is commutative if $g\comp f=h$ and $\psi\comp\vp=h$.
 \end{example}
 \begin{problem}
-    Let $f:{S}_{1}\times{S}_{2}\to{S}_{3}$ be a function. Prove that if $f$ is commutative, then ${S}_{1}={S}_{2}$. Prove that if $f$ is associative, then the following diagram commutes.
+    Let $f:{S}_{1}\times{S}_{2}\to{S}_{3}$ be a function. We say $f$ is commutative as a composition if $f(a,b)=f(b,a)$. Similarly, $f$ is associative as a composition if $f(f(a,b),c)=f(a,f(b,c))$. Prove that if $f$ is commutative, then ${S}_{1}={S}_{2}$. Prove that if $f$ is associative, then the following diagram commutes.
     \begin{center}
         \begin{tikzcd}
             {{S}_{1}\times{S}_{2}\times{S}_{3}} && {{S}_{4}\times{S}_{3}} \\
@@ -638,6 +641,9 @@ Let sets be objects, let functions be morphisms, and let the composition of morp
 \begin{problem}
     Morphisms are not guaranteed to be functions. Let $(S,\le)$ be a partially ordered set. Let $\Ob(\cft{C})=S$ and $x\to y$ be a morphism if $x\le y$. Prove that $\cft{C}$ is a category.
 \end{problem}
+\begin{problem}
+    Let $\cft{C}$ be a category. Let a system $\cop{C}$ consists of all objects in $\cft{C}$ and all morphisms $f:A\to B$ if $B\to A$ is a morphism in $\cft{C}$. Prove that $\cop{C}$ is indeed a category. This is called the \hdef{dual category} of $\cft{C}$.
+\end{problem}
 \begin{definition}
     Let $\cft{C}$ be a category. A morphism $f:A\to B$ is a \hdef{monomorphism} if for all $g,h:C\to A$, $f\comp g=g\comp h$ implies $g=h$. A morphism $f:A\to B$ is called an \hdef{epimorphism} if for all $i,j:B\to D$, $i\comp f=j\comp f$ implies $i=j$.
 \end{definition}
@@ -721,7 +727,6 @@ This completes our proof of the universal property for quotient sets.
     \begin{tikzcd}
         A && {{A}_{\sim}} && {\im(f)} && B
         \arrow["\pi", from=1-1, to=1-3]
-        \arrow["h"', curve={height=18pt}, from=1-1, to=1-5]
         \arrow["f", curve={height=-24pt}, from=1-1, to=1-7]
         \arrow["g", from=1-3, to=1-5]
         \arrow["i", from=1-5, to=1-7]
@@ -731,9 +736,49 @@ This completes our proof of the universal property for quotient sets.
     Let $i:\im(f)\to B$ be the identity map, then $i$ is injective. The function $f:A\to B$ induces an equivalence relation $\sim$ on $X$, so $g$ is bijective. The projection map $\pi:A\to{A}_{\sim}$ is surjective. For all $a\in A$, $(i\comp g\comp\pi)(a)=(i\comp g)([a])=i(f(a))=f(a)$. 
 \end{proof}
 \begin{definition}
-    Let $\cft{C}$ be a category. Let $A$ and $B$ be objects in $\cft{C}$. The \hdef{product} of $A$ and $B$, denoted $C$, is an object in $\cft{C}$
+    Let $\cft{C}$ be a category. Let $A$ and $B$ be objects in $\cft{C}$. The \hdef{product} of $A$ and $B$, denoted $P$, is an object in $\cft{C}$ with morphisms ${p}_{1}:P\to A$ and ${p}_{2}:P\to B$ such that for all object $X$ in $\cft{C}$ with morphisms ${\vp}_{1}:X\to A$ and ${\vp}_{2}:X\to B$, there exists a unique $u:X\to P$.
 \end{definition}
+\begin{center}
+    \begin{tikzcd}
+        && X \\
+        \\
+        A && P && B
+        \arrow["{{\vp}_{1}}"', from=1-3, to=3-1]
+        \arrow["u", dashed, from=1-3, to=3-3]
+        \arrow["{{\vp}_{2}}", from=1-3, to=3-5]
+        \arrow["{{p}_{1}}", from=3-3, to=3-1]
+        \arrow["{{p}_{2}}"', from=3-3, to=3-5]
+    \end{tikzcd}
+\end{center}
+\begin{problem}
+    Prove that in $\cft{Set}$, the Cartesian product satisfies the universal property for product.
+\end{problem}
+\begin{proposition}
+    
+\end{proposition}
 
+\begin{center}
+    \begin{tikzcd}
+        && Q \\
+        \\
+        A && P && B \\
+        \\
+        && Q
+        \arrow["{{\vp}_{1}}"', from=1-3, to=3-1]
+        \arrow["u", from=1-3, to=3-3]
+        \arrow["{{\vp}_{2}}", from=1-3, to=3-5]
+        \arrow["{{p}_{1}}", from=3-3, to=3-1]
+        \arrow["{{p}_{2}}"', from=3-3, to=3-5]
+        \arrow["v"', from=3-3, to=5-3]
+        \arrow["{{\vp}_{1}}", from=5-3, to=3-1]
+        \arrow["{{\vp}_{2}}"', from=5-3, to=3-5]
+    \end{tikzcd}
+\end{center}
+
+
+\begin{definition}
+    Let $\cft{C}$ be a category. Let $A$ and $B$ be objects in $\cft{C}$. The \hdef{coproduct} of $A$ and $B$, denoted $Q$, is an object in $\cft{C}$ with morphisms ${q}_{1}:A\to Q$ and ${q}_{2}:B\to Q$ such that for all object $Y$ in $\cft{C}$ with morphisms ${\vp}_{1}:A\to Y$ and ${\vp}_{2}:B\to Y$, there exists a unique $v:Q\to Y$.
+\end{definition}
 
 
 \customtheorem{Axiom of choice}
