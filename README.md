@@ -16,9 +16,11 @@ Topics included: axiom of extensionality, axiom schema of separation, axiom of p
 
 3. Functions (by Hassium)
 
-Topics included: functions, composition of functions, finiteness of sets, injectivity and surjectivity, odd and even functions, inverse, the category Set, morphisms and relations with injectivity and surjectivity, quotient sets, universal property for quotient sets, canonical decomposition of functions, Cartesian product as product in Set, axiom of choice, Zermelo's well-ordering theorem
+Topics included: functions, composition of functions, finiteness of sets, injectivity and surjectivity, odd and even functions, inverse, the category Set, morphisms and relations with injectivity and surjectivity, quotient sets, universal property for quotient sets, canonical decomposition of functions, Cartesian product as product in Set, coproduct
 
 4. Integers and Cardinality
+
+
 
 5. Introduction to Groups (by Hassium)
 
