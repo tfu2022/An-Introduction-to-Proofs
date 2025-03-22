@@ -574,14 +574,14 @@ Consider a diagram, where every vertex is an object and every arrow preserves th
         \item If $f$ is surjective and $g$ is injective, then $f\comp g$ is injective.
     \end{enumerate}
 \end{problem}
-\begin{problem}
-    Let $S$ be a set. Prove that there does not exist a surjective function $f:S\to\ps(S)$. 
-\end{problem}
 \begin{definition}
     A set $S$ is said to be \hdef{finite} if there exists a bijective function $f:S\to n$, where $n\in\N$. The \hdef{cardinality} of $S$, denoted $\card{S}$, is the number $n$. If $S$ is not finite, we say $S$ is \hdef{infinite}.
 \end{definition}
 \begin{problem}
     Let $S$ and $X$ be finite sets with $\card{S}=\card{X}$. Let $f:S\to X$ be a function. Prove that if $f$ is injective, then $f$ is surjective. Does the converse hold?
+\end{problem}
+\begin{problem}
+    Let $S$ be a finite set. Prove that there does not exist a surjective function $f:S\to\ps(S)$. 
 \end{problem}
 \begin{definition}
     Let $f:X\to Y$ be a function. Let $Z\sub X$, then the \hdef{restriction} of $f$ onto $Z$ is the map $f{\vert}_{Z}:Z\to Y$ defined by $f{\vert}_{Z}(z)=f(z)$ for all $z\in Z$.
@@ -611,7 +611,7 @@ Consider a diagram, where every vertex is an object and every arrow preserves th
     A \hdef{category} $\cft{C}$ consists of
     \begin{enumerate}
         \item a collection, denoted $\Ob(\cft{C})$, of \hdef{objects};
-        \item for each pair of objects $X$ and $Y$, there exists a collection of \hdef{morphisms} $f:X\to Y$, where $X$ is called the \hdef{domain} and $Y$ is called the \hdef{codomian};
+        \item for each pair of objects $X$ and $Y$, there exists a collection of \hdef{morphisms} $f:X\to Y$, where $X$ is called the \hdef{domain} and $Y$ is called the \hdef{codomain};
         \item a \hdef{composition operation}, which gives, for each pair of morphisms $f:X\to Y$ and $g:Y\to Z$, a morphism $g\comp f:X\to Z$.
     \end{enumerate}
     such that
