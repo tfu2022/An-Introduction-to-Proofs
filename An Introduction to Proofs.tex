@@ -1,9 +1,9 @@
-% chktex-file 1 chktex-file 8 chktex-file 9 chktex-file 12 chktex-file 13 chktex-file 15 chktex-file 17 chktex-file 18 chktex-file 26 chktex-file 31 chktex-file 36 chktex-file 44
+% chktex-file 1 chktex-file 8 chktex-file 9 chktex-file 12 chktex-file 13 chktex-file 15 chktex-file 17 chktex-file 18 chktex-file 26 chktex-file 31 chktex-file 36 chektex-file 40 chktex-file 44
 \documentclass[10pt]{article}
 \input{/Users/mr.hassium/Desktop/Github/Hello-World/hassium.tex}
 \def\htitle{An Introduction to Proofs}
 \def\hauthor{Hassium, Fung San Gann, Tingyu Wu}
-\def\hfauthor{Hassium, FSG, T. Wu}
+\def\hfauthor{Hs, FSG, T. Wu}
 \begin{document}
 \hsetup
 \htoc
@@ -795,7 +795,9 @@ This completes our proof of the universal property for quotient sets.
     Describe the product and coproduct in $\cop{Set}$. 
 \end{problem}
 \section{Integers and Cardinality}
-
+\begin{definition}
+    An \hdef{ordinal} 
+\end{definition}
 
 
 
@@ -803,9 +805,111 @@ This completes our proof of the universal property for quotient sets.
 
 
 \section{Introduction to Groups}
+\begin{definition}
+    A \hdef{monoid} is a triple ($M$,$\comp$,e), where $M$ is a set and $\comp:M\times M\to M$, called a \hdef{composition}, is a function such that
+    \begin{enumerate}
+        \item for all $a,b,c\in M$, $a\comp(b\comp c)=(a\comp b)\comp c$;\hfill(associative)
+        \item there exists $e\in M$ such that for all $x\in M$, $e\comp x=x=x\comp e$.\hfill(identity)
+    \end{enumerate}
+    Here $e$ is called an \hdef{identity}.
+\end{definition}
+\begin{remark}
+    We will use $gf$ for $g\comp f$.
+\end{remark}
+\begin{example}
+    Here are some examples of monoids.
+    \begin{enumerate}
+        \item The natural numbers $(\N,+,0)$ is a monoid.
+        \item Given a set $S$, the set of all functions $f:S\to S$ forms a monoid with the usual composition of function, denoted $M(S)$.
+    \end{enumerate}
+\end{example}
+\begin{problem}
+    Prove that the identity element is unique in any monoid.
+\end{problem}
+\begin{definition}
+    A triple $(G,\comp,e)$ is a \hdef{group} if it is a monoid and for all $g\in G$, there exists $h\in G$ such that $h\comp g=e=g\comp h$. Such $f$ is called an \hdef{inverse} of $g$. If $\comp$ is commutative, then the group is \hdef{abelian}. The cardinality of a group is called its \hdef{order}, denoted $\card{G}$.
+\end{definition}
+\begin{example}
+    Here are some examples of groups.
+    \begin{enumerate}
+        \item The triple $(\Z,+,0)$ is an abelian group.
+        \item Let $S$ be a set. All bijections $S\to S$ forms a group called the \hdef{symmetric group}. If $S$ is finite, then the symmetric group is denoted by ${S}_{n}$.
+        \item Consider the set ${D}_{n}$ of all rotations and reflections that map a regular $n$-gon into itself, this is called the \hdef{dihedral group}. Let the reflection be $S$, which gives ${S}^{2}=e$. Multiply the rotations by $S$ on the left, then we have $n$ distinct rotational symmetries. Hence there are $n$ rotations and $n$ reflections, that is, $\card{{D}_{n}}=2n$.
+    \end{enumerate}    
+\end{example}
+\begin{proposition}
+    Let $G$ be a group. For all $g\in G$, the inverse of $g$ is unique.
+\end{proposition}
+\begin{proof}
+    For all $g\in G$, let $f$ and $h$ be two inverses, then $f=f(gh)=(fg)h=h$, hence the inverse of $g$ is unique.
+\end{proof}
+\par
+For all $g\in G$, where $G$ is a group, the inverse of $g$ is denoted by $\inv{g}$.
+\begin{problem}
+    Let $G$ be a group and let $g\in G$. A \hdef{left inverse} of $g$ is an element $h\in G$ such that $hg=e$. Similarly, we can define a right inverse of $g$. Prove that a left inverse is equivalent to a right inverse, conclude that any left or right inverse of an element is its inverse.
+\end{problem}
+\begin{problem}
+    Let $G$ be a group and let $g,h\in G$. Prove that the following statements.
+    \begin{enumerate}
+        \item $(-e)g=-g$;
+        \item $-(-g)=g$;
+        \item $-g(-h)=gh$.
+    \end{enumerate}
+\end{problem}
+\begin{problem}
+    Let $G$ be a group and let ${g}_{i}\in G$, define the composition of finitely many elements by ${\prod}_{i=1}^{n}{x}_{1}\cdots{x}_{n}=({x}_{1}\cdots{x}_{n-1}){x}_{n}$, prove that ${\prod}_{i=1}^{m}{x}_{i}{\prod}_{j=1}^{n}{x}_{m+j}={\prod}_{j=1}^{m+n}{x}_{j}$. This is called the generalized associativity.
+\end{problem}
+\begin{problem}
+    Prove that $\card{{S}_{n}}=n$!
+\end{problem}
+\begin{definition}
+    Let $G$ and $H$ be monoids. A function $\vp:G\to H$ is called a \hdef{monoid homomorphism} if $\vp(ab)=\vp(a)\vp(b)$ and $\vp({e}_{G})={e}_{H}$ for all $a,b\in G$. Let $G$ and $H$ be groups, a function $\vp:G\to H$ is called a \hdef{group homomorphism} if $\vp$ is a monoid homomorphism.
+\end{definition}
+\begin{problem}
+    Let the objects be monoids and let the morphisms be monoid homomorphisms. Prove that this defines a category, denoted $\cft{Mon}$. Let the objects be groups and let the morphisms be group homomorphisms. Prove that this defines a category, denoted $\cft{Grp}$.
+\end{problem}
+\begin{definition}
+    A \hdef{subgroup} of a group $(G,\comp,e)$ is a subset $H\sub G$ containing $e$ such that $(H,\comp,e)$ is a group. If $H$ is a subgroup of $G$, we write $H\le G$.
+\end{definition}
+\begin{proposition}
+    Let $G$ be a group, then $H\le G$ if and only if $e\in H\sub G$, for all $g,f\in H$, $g\inv{f}\in H$. 
+\end{proposition}
+\begin{proof}
+    The $(\Ra)$ direction is trivial. $(\La)$ Since $H\sub G$, the composition is associative. For all $g\in H$, take $f=g$, then $g\inv{g}=e$, hence $H\le G$.
+\end{proof}
+\begin{problem}
+    If $A\le B\le G$, prove that $A\le G$.
+\end{problem}
+\begin{problem}
+    Let $G$ be a group. Prove that all subgroups of $G$ form a set. Prove that the set is partially ordered under $\sub$. This is called the \hdef{lattice of subgroups} of $G$.
+\end{problem}
+\begin{definition}
+    Let $H\le G$ be a subgroup. A \hdef{left coset} for $H$ is a set of the form $xH=\{xh\mid h\in H\}$. A right coset is of the form $Hx=\{hx\mid h\in H\}$. The set of all left cosets for $H$ is denoted by $G/H$ and the set of all right cosets for $H$ is denoted by $H\sm G$. The \hdef{index} of $H$ in $G$ is $[G:H]=\card{G/H}$.
+\end{definition}
+\begin{problem}
+    Prove that there exists a bijection $\psi:G/H\to H\sm G$, conclude that $[G:H]=\card{H\sm G}$.
+\end{problem}
+\begin{theorem}[Cayley's theorem]
+    Any monoid is isomorphic to a submonoid of $M(S)$ for some set $S$. Any group is isomorphic to a subgroup of some symmetric group.
+\end{theorem}
+\begin{proof}
+    Let $M$ be a monoid. For all $\al\in M$, let ${\al}_{l}(\al)=\al x$ for all $x\in M$, then ${\al}_{l}$ maps $M$ to itself. Consider $S=\{{\al}_{l}:\al\in M\}$, which is a subset of $M(S)$. The identity map ${\al}_{e}\in S$. For all $\al,\be\in M$, ${\al}_{l}({\be}_{l}(x))={\al}_{l}(\be x)=\al\be x=(\al\be)x={(\al\be)}_{l}(x)$, so $S$ is a submonoid of $M(S)$. Consider the map $\vp(\al)={\al}_{l}$. For all $\al,\be\in M$, $\vp(\al)\vp(\be)={\al}_{l}{\be}_{l}={(\al\be)}_{l}=\vp(\al\be)$. The map is trivially surjective. Let $\vp(\al)=\vp(\be)$, then ${\al}_{l}={\be}_{l}$, that is, $\al x=\be x$. Consider $x=1$, then $\al=\be$, hence $\vp$ is an isomorphism. Now consider a group $G$ and construct the same set $S$. For all ${\al}_{l}$, the inverse is ${(\inv{\al})}_{l}$. We have ${\al}_{l}{(\inv{\al})}_{l}(x)={\al}_{l}(\inv{\al}x)=x$ and ${(\inv{\al})}_{l}{\al}_{l}(x)={(\inv{\al})}_{l}(\al x)=x$, hence $S$ is a subgroup of $\text{Sym}S$. Construct the same $\vp$, then $S$ is isomorphic to $G$.
+\end{proof}
+\begin{definition}
+    Let $H\le G$ be a subgroup. We say $H$ is a \hdef{normal subgroup} of $G$, denoted $H\nsg G$, if $xH=Hx$ for all $x\in G$.
+\end{definition}
+\begin{problem}
+    Prove that $H\nsg G$ if and only if $gH\inv{g}=H$ for all $g\in G$.
+\end{problem}
+\begin{proposition}
+    Let $\vp:G\to H$ be a group homomorphism. Then $\ker(\vp)\nsg G$ and $\im(\vp)\le H$.
+\end{proposition}
+\begin{proof}
+    
+\end{proof}
+
+\newpage
 \section{Real Numbers}
-
-
 \newpage
 \section{Topology}
 
