@@ -244,7 +244,6 @@ It suffices to check that axiom schema of separation guarantees that subsets are
 \begin{problem}
     List all the subsets of $X=\{1,2,3\}$, $Y=\{1,2,3,4\}$, and $Z=\{1,\{1,2\},\{2,1\},3\}$.
 \end{problem}
-To construct more complex structures, we need an order between objects. 
 \customtheorem{Axiom of pairing}
 \begin{Axiom of pairing}\index{axiom of pairing}
     For two objects $a$ and $b$, there exists a set $\{a,b\}$ containing exactly $a$ and $b$.
@@ -302,7 +301,7 @@ The definition of ordered pairs can be extended to multiple elements. We call $(
     Let $x\in C\sm(A\cap B)$, then $x\in C$ and $x\notin A\cap B$, that is, $x\notin A$ and $x\notin B$. If $x\notin C\sm A$, then $x\notin A$, so $x\notin B$ and $x\in C\sm B$. Hence $C\sm(A\cap B)\sub(C\sm A)\cup(C\sm B)$. Now let $x\in(C\sm A)\cup(C\sm B)$, then $x\in C$ and $x\notin A$ or $x\notin B$, so $x\notin A\cap B$, that is, $x\in C\sm(A\cap B)$, hence $(C\sm A)\cup(C\sm B)\sub C\sm(A\cap B)$. The proof of the second part is left as an exercise.
 \end{proof}
 \par
-Some texts assume the existence of an ``universal set'', denoted $U$, which has all objects as elements including itself, so we can define complements of any set $S$ as the set $U\sm S$. However, this assumption leads to a paradox. Consider the set $S$, defined as the set of all sets that are not members of themselves, that is, $S=\{X\mid X\notin X\}$. Does $S$ belong to $S$? This is known as Russell's Paradox. Assume $S\in S$, then by the definition of $S$, $S\in S$ implies $S\notin S$, a contradiction. Assume $S\notin S$, then $S\in S$. This is also a contradiction. Thus, the existence of such a set $S$ leads to a logical inconsistency.
+Some texts assume the existence of an ``universal set'', denoted $U$, which has all objects as elements including itself, so we can define complements of any set $S$ as the set $U\sm S$. However, this assumption leads to a paradox. Consider the set $S$, defined as the set of all sets that are not members of themselves, that is, $S=\{X\mid X\notin X\}$. Does $S$ belong to $S$? This is known as Russell's Paradox. Assume $S\in S$, then by the definition of $S$, $S\in S$ implies $S\notin S$, a contradiction. Assume $S\notin S$, then $S\in S$. This is also a contradiction.
 \begin{definition}
     Let $X$ be a set, and let the \hdef{successor} of $X$ be ${X}^{+}=X\cup\{X\}$. A set $S$ is called an \hdef{inductive set} if $\es\in S$ and for all $X\in S$, ${X}^{+}\in S$.
 \end{definition}
@@ -387,11 +386,11 @@ It suffices to show a binary operation is indeed a set. Let $R$ be a binary oper
     Let $R$ be a binary operation on a set $X$. For all $a,b\in A$, prove that ${S}_{a}\cap{S}_{b}$ is either $\es$ or ${S}_{a}$. Prove that $\Un{S}_{a}=X$, where each pair of ${S}_{a}$ are disjoint.
 \end{problem}
 \begin{definition}
-    Let $\le$ be a binary relation on a set $X$. We say $\le$ is a \hdef{partial ordering} if the following conditions hold:
+    Let $\le$ be a binary relation on a set $X$. We say $\le$ is a \hdef{partial ordering} if the following conditions hold.
     \begin{enumerate}
-        \item for all $x\in X$, $x\le x$;
-        \item for all $x,y\in X$, $x\le y$ and $y\le x$ implies $x=y$;
-        \item for all $a,b,c\in X$, if $a\le b$ and $b\le c$, then $a\le c$.
+        \item For all $x\in X$, $x\le x$.
+        \item For all $x,y\in X$, $x\le y$ and $y\le x$ implies $x=y$.
+        \item For all $a,b,c\in X$, if $a\le b$ and $b\le c$, then $a\le c$.
     \end{enumerate}
     The set with a partial ordering is called a \hdef{partially ordered set}.
 \end{definition}
@@ -612,14 +611,15 @@ Consider a diagram, where every vertex is an object and every arrow preserves th
     A \hdef{category} $\cft{C}$ consists of
     \begin{enumerate}
         \item a collection, denoted $\Ob(\cft{C})$, of \hdef{objects};
-        \item for each pair of objects $(X,Y)$, there exists a collection ${\Hom}_{\cft{C}}(X,Y)$ of \hdef{morphisms} from $X$ to $Y$;
+        \item for each pair of objects $X$ and $Y$, there exists a collection of \hdef{morphisms} $f:X\to Y$, where $X$ is called the \hdef{domain} and $Y$ is called the \hdef{codomian};
         \item a \hdef{composition operation}, which gives, for each pair of morphisms $f:X\to Y$ and $g:Y\to Z$, a morphism $g\comp f:X\to Z$.
     \end{enumerate}
     such that
     \begin{enumerate}
         \item given any $f:X\to Y$, $g:Y\to Z$, and $h:Z\to W$, we have the identity $(h\comp g)\comp f=h\comp(g\comp f)$;
-        \item for each object $X$, there exists a morphism ${\id}_{X}:X\to X$ with the property that $f\comp{\id}_{X}=f$ and ${\id}_{X}\comp g=g$ for any $f:X\to Y$ and $g:Z\to X$.
+        \item for each object $X$, there exists an \hdef{identity morphism} ${\id}_{X}:X\to X$ with the property that $f\comp{\id}_{X}=f$ and ${\id}_{X}\comp g=g$ for any $f:X\to Y$ and $g:Z\to X$.
     \end{enumerate}
+    The collection of morphisms from $X$ to $Y$ is denoted by ${\Hom}_{\cft{C}}(X,Y)$.
 \end{definition}
 \par
 Let sets be objects, let functions be morphisms, and let the composition of morphisms be the composition of functions. By our previous observations, it suffices to check this defines a category of sets, denoted $\cft{Set}$.
@@ -643,6 +643,9 @@ Let sets be objects, let functions be morphisms, and let the composition of morp
 \end{problem}
 \begin{problem}
     Let $\cft{C}$ be a category. Let a system $\cop{C}$ consists of all objects in $\cft{C}$ and all morphisms $f:A\to B$ if $B\to A$ is a morphism in $\cft{C}$. Prove that $\cop{C}$ is indeed a category. This is called the \hdef{dual category} of $\cft{C}$.
+\end{problem}
+\begin{problem}
+    Prove that the identity morphism is unique for each object $A$ in a category $\cft{C}$.
 \end{problem}
 \begin{definition}
     Let $\cft{C}$ be a category. A morphism $f:A\to B$ is a \hdef{monomorphism} if for all $g,h:C\to A$, $f\comp g=g\comp h$ implies $g=h$. A morphism $f:A\to B$ is called an \hdef{epimorphism} if for all $i,j:B\to D$, $i\comp f=j\comp f$ implies $i=j$.
@@ -716,7 +719,7 @@ The proof of the universal property has two parts. We first verify that a quotie
     \end{tikzcd}
 \end{center}
 \begin{proof}
-    Since ${\pi}_{1}$ is surjective, $\wb{{\pi}_{1}}$ is surjective. For all $[x],[y]\in{X}_{{\sim}_{1}}$, 
+    Since ${\pi}_{1}$ is surjective, $\wb{{\pi}_{1}}$ is surjective. Suppose $\wb{{\pi}_{1}}({s}_{1})=\wb{{\pi}_{1}}({s}_{2})$, where ${s}_{1}, {s}_{2}\in S$. Since $\pi_2$ is surjective, there exist $x,y\in X$ with ${s}_{1}={\pi}_{2}(x)$ and ${s}_{2}={\pi}_{2}(y)$. Then $\wb{{\pi}_{1}}({s}_{1})=\wb{{\pi}_{1}}({\pi}_{2}(x))={\pi}_{1}(x)$ and $\wb{{\pi}_{1}}({s}_{2})=\wb{{\pi}_{1}}({\pi}_{2}(y))={\pi}_{1}(y)$, which implies ${\pi}_{1}(x)={\pi}_{1}(y)$, so $[x]=[y]$. Since ${\pi}_{2}$ is invariant under ${\sim}_{1}$, it follows that ${\pi}_{2}(x)={\pi}_{2}(y)$, so ${s}_{1}={s}_{2}$. Hence $S\iso{X}_{{\sim}_{1}}$.        
 \end{proof}
 \par
 This completes our proof of the universal property for quotient sets.
@@ -754,10 +757,10 @@ This completes our proof of the universal property for quotient sets.
     Prove that in $\cft{Set}$, the Cartesian product satisfies the universal property for product.
 \end{problem}
 \begin{proposition}
-    Let $A$ and $B$ be objects in a category $\cft{C}$. Then their product is unique.
+    Let $A$ and $B$ be objects in a category $\cft{C}$. Then their product is unique up to isomorphism.
 \end{proposition}
 \begin{proof}
-    
+    Let $P$ with ${p}_{1}:P\to A$ and ${p}_{2}:P\to B$ be the product of $A$ and $B$. Suppose $Q$ with ${\vp}_{1}:Q\to A$ and ${\vp}_{2}:Q\to B$ is another product of $A$ and $B$. By the universal property, $u:Q\to P$ and $v:P\to Q$ are unique such that ${p}_{1}\comp u={\vp}_{1}$, ${p}_{2}\comp u={\vp}_{2}$, ${\vp}_{1}\comp v={p}_{1}$, and ${\vp}_{2}\comp v={p}_{2}$. We have ${\vp}_{1}\comp u\comp v={\vp}_{1}$ and ${\vp}_{2}\comp u\comp v={\vp}_{2}$, then $u\comp v={\id}_{Q}$. Similarly, $v\comp u={\id}_{P}$. Hence $P\iso Q$.
 \end{proof}
 \begin{center}
     \begin{tikzcd}
@@ -776,8 +779,9 @@ This completes our proof of the universal property for quotient sets.
         \arrow["{{\vp}_{2}}"', from=5-3, to=3-5]
     \end{tikzcd}
 \end{center}
-
-
+\begin{problem}
+    Let $A$, $B$, and $C$ be sets. Use the universal property to prove that $A\times(B\times C)=(A\times B)\times C$.
+\end{problem}
 \begin{definition}
     Let $\cft{C}$ be a category. Let $A$ and $B$ be objects in $\cft{C}$. The \hdef{coproduct} of $A$ and $B$, denoted $Q$, is an object in $\cft{C}$ with morphisms ${q}_{1}:A\to Q$ and ${q}_{2}:B\to Q$ such that for all object $Y$ in $\cft{C}$ with morphisms ${\vp}_{1}:A\to Y$ and ${\vp}_{2}:B\to Y$, there exists a unique $v:Q\to Y$.
 \end{definition}
@@ -785,24 +789,12 @@ This completes our proof of the universal property for quotient sets.
     Prove that in $\cft{Set}$, the disjoint union satisfies the universal property for coproduct.
 \end{problem}
 \begin{problem}
-    Let $A$ and $B$ be objects in a category $\cft{C}$. Then their coproduct is unique.
+    Let $A$ and $B$ be objects in a category $\cft{C}$. Prove that their coproduct is unique up to isomorphism.
+\end{problem}
+\begin{problem}
+    Describe the product and coproduct in $\cop{Set}$. 
 \end{problem}
 
-\customtheorem{Axiom of choice}
-\begin{Axiom of choice}\index{axiom of choice}
-    Let $F$ be a function defined on a set $I$ such that $F(i)$ is a nonempty set for all $i\in I$. Then there exists a \hdef{choice function} $d$ defined on $I$ such that $f(i)\in F(i)$ for all $i\in I$. 
-\end{Axiom of choice}
-\begin{theorem}[Zermelo's well-ordering theorem]
-    Every set $S$ can be well-ordered.
-\end{theorem}
-\begin{proof}
-    
-\end{proof}
-\begin{problem}
-    Prove that the axiom of choice implies that every epimorphism in $\cft{Set}$ has a right inverse.
-\end{problem}
-\par
-Notice that the Zermelo's well-ordering theorem does not imply the well-ordering principle. To prove the well-ordering principle, you have to show $\le$ in $\N$ is the desired ordering. Check Jech's Set Theory to see a proof.
 
 
 \newpage
