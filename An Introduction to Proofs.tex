@@ -907,7 +907,19 @@ For all $g\in G$, where $G$ is a group, the inverse of $g$ is denoted by $\inv{g
 \begin{proof}
     
 \end{proof}
-
+\begin{definition}
+    Let $G$ be a group and $N\nsg G$. 
+\end{definition}
+\begin{center}
+    \begin{tikzcd}
+        {G/N} && G \\
+        \\
+        && H
+        \arrow["{\wb{\vp}}"', dashed, from=1-1, to=3-3]
+        \arrow["\pi"', from=1-3, to=1-1]
+        \arrow["\vp", from=1-3, to=3-3]
+    \end{tikzcd}
+\end{center}
 \newpage
 \section{Real Numbers}
 \newpage
