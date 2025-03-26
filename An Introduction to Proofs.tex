@@ -806,6 +806,7 @@ This completes our proof of the universal property for quotient sets.
 \begin{problem}
     Describe the product and coproduct in $\cop{Set}$. 
 \end{problem}
+\newpage
 \section{Integers and Cardinality}
 \begin{definition}
     An \hdef{ordinal} 
@@ -933,7 +934,7 @@ For all $g\in G$, where $G$ is a group, the inverse of $g$ is denoted by $\inv{g
     Any monoid is isomorphic to a submonoid of $M(S)$ for some set $S$. Any group is isomorphic to a subgroup of some symmetric group.
 \end{theorem}
 \begin{proof}
-    Let $M$ be a monoid. For all $\al\in M$, let ${\al}_{l}(\al)=\al x$ for all $x\in M$, then ${\al}_{l}$ maps $M$ to itself. Consider $S=\{{\al}_{l}:\al\in M\}$, which is a subset of $M(S)$. The identity map ${\al}_{e}\in S$. For all $\al,\be\in M$, ${\al}_{l}({\be}_{l}(x))={\al}_{l}(\be x)=\al\be x=(\al\be)x={(\al\be)}_{l}(x)$, so $S$ is a submonoid of $M(S)$. Consider the map $\vp(\al)={\al}_{l}$. For all $\al,\be\in M$, $\vp(\al)\vp(\be)={\al}_{l}{\be}_{l}={(\al\be)}_{l}=\vp(\al\be)$. The map is trivially surjective. Let $\vp(\al)=\vp(\be)$, then ${\al}_{l}={\be}_{l}$, that is, $\al x=\be x$. Consider $x=1$, then $\al=\be$, hence $\vp$ is an isomorphism. Now consider a group $G$ and construct the same set $S$. For all ${\al}_{l}$, the inverse is ${(\inv{\al})}_{l}$. We have ${\al}_{l}{(\inv{\al})}_{l}(x)={\al}_{l}(\inv{\al}x)=x$ and ${(\inv{\al})}_{l}{\al}_{l}(x)={(\inv{\al})}_{l}(\al x)=x$, hence $S$ is a subgroup of $\text{Sym}S$. Construct the same $\vp$, then $S$ is isomorphic to $G$.
+    Let $M$ be a monoid. For all $\al\in M$, let ${\al}_{l}(\al)=\al x$ for all $x\in M$, then ${\al}_{l}$ maps $M$ to itself. Consider $S=\{{\al}_{l}:\al\in M\}$, which is a subset of $M(S)$. The identity map ${\al}_{e}\in S$. For all $\al,\be\in M$, ${\al}_{l}({\be}_{l}(x))={\al}_{l}(\be x)=\al\be x=(\al\be)x={(\al\be)}_{l}(x)$, so $S$ is a submonoid of $M(S)$. Consider the map $\vp(\al)={\al}_{l}$. For all $\al,\be\in M$, $\vp(\al)\vp(\be)={\al}_{l}{\be}_{l}={(\al\be)}_{l}=\vp(\al\be)$. The map is trivially surjective. Let $\vp(\al)=\vp(\be)$, then ${\al}_{l}={\be}_{l}$, that is, $\al x=\be x$. Consider $x=1$, then $\al=\be$, hence $\vp$ is an isomorphism. Now consider a group $G$ and construct the same set $S$. For all ${\al}_{l}$, the inverse is ${(\inv{\al})}_{l}$. We have ${\al}_{l}{(\inv{\al})}_{l}(x)={\al}_{l}(\inv{\al}x)=x$ and ${(\inv{\al})}_{l}{\al}_{l}(x)={(\inv{\al})}_{l}(\al x)=x$, hence $S$ is a subgroup of some symmetric group. Construct the same $\vp$, then $S$ is isomorphic to $G$.
 \end{proof}
 \begin{definition}
     Let $H\le G$ be a subgroup. We say $H$ is a \hdef{normal subgroup} of $G$, denoted $H\nsg G$, if $xH=Hx$ for all $x\in G$.
@@ -951,8 +952,15 @@ For all $g\in G$, where $G$ is a group, the inverse of $g$ is denoted by $\inv{g
     Let ${C}_{2}$ be a group of order 2. Prove that ${C}_{2}$ is unique up to isomorphim. Define the set ${C}_{2}=\{1,-1\}$, where $0$ is the identity. For all $\pi\in{S}_{n}$, define $\vp:{S}_{n}\to{C}_{2}$ by $\vp(\pi)=-1$ if $\pi$ is an odd permutation and $\vp(\pi)=1$ if it is an even permutation. Prove that $\sgn$ is a well-defined group homomorphism. The kernel of $\vp$ is called the \hdef{alternating group}, denoted ${A}_{n}$. Prove that ${A}_{n}$ is abelian if $n\le 3$ and prove that ${A}_{n}$ is not abelian for $n>3$, conclude that a normal subgroup is not necessarily abelian.
 \end{problem}
 \begin{definition}
-    Let $G$ be a group and $N\nsg G$. 
+    Let $G$ be a group and $N\nsg G$. The \hdef{quotient group} $G/N$ is defined to be $\{aN\mid a\in G\}$. 
 \end{definition}
+\begin{problem}
+    Prove that $(aN)(bN)=(ab)N$. Take this as a composition on $G/N$, prove that $G/N$ is indeed a group. Prove that $\pi:G\to G/N$ defined by $\pi(g)=gN$ is a group epimorphism.
+\end{problem}
+\customtheorem{Universal property for quotient groups}
+\begin{Universal property for quotient groups}
+    Let $G$ be a group and let $N\nsg G$. Let $\pi:G\to G/N$ be the quotient epimorphism. For all group homomorphism $\vp:G\to H$ with $N\sub\ker(\vp)$, there exists a unique group homomorphism $\wb{\vp}:G/N\to H$ such that $\wb{\vp}\comp\pi=\vp$.
+\end{Universal property for quotient groups}
 \begin{center}
     \begin{tikzcd}
         {G/N} && G \\
@@ -963,6 +971,12 @@ For all $g\in G$, where $G$ is a group, the inverse of $g$ is denoted by $\inv{g
         \arrow["\vp", from=1-3, to=3-3]
     \end{tikzcd}
 \end{center}
+\begin{problem}
+    Prove that the quotient groups satisfy the universal property.
+\end{problem}
+\begin{proposition}
+    
+\end{proposition}
 
 
 
@@ -971,44 +985,6 @@ For all $g\in G$, where $G$ is a group, the inverse of $g$ is denoted by $\inv{g
 
 
 
-
-\tikzset{
-    node/.style={
-        circle,
-        fill,
-        inner sep=1.5pt
-    },
-    font=\footnotesize
-}
-\begin{theorem}[Zassenhaus lemma]
-    Let $U$ and $V$ be subgroups of a group. Let $u$ and $v$ be normal subgroups of $U$ and $V$, respectively. Then $u(U\cap v)$ is normal in $u(U\cap V)$, $(u\cap V)v$ is normal in $(U\cap V)v$, and $u(U\cap V)/u(U\cap v)\iso(U\cap V)v/(u\cap V)v$.
-\end{theorem}
-\begin{center}
-    \begin{tikzpicture}
-        \node[node, label={above right:$G$}] (G1) at (0,0.5) {};
-        \node[node, label={above left:$H$}] (H1) at (3,0.5) {};
-        \node[node, label={left:${G}^{\'}(G\cap H)$}] (G2) at (0,0) {};
-        \node[node, label={[label distance=5pt]above:$G\cap H$}] (GH2) at (1.5,-1) {};
-        \node[node, label={right:$(G\cap H){H}^{\'}$}] (H2) at (3,0) {};  
-        \node[node, label={left:${G}^{\'}(G\cap{H}^{\'})$}] (G3) at (0,-1.5) {};
-        \node[node, label={below:$K$}] (GH3) at (1.5,-2.5) {};
-        \node[node, label={right:$(G\cap{H}^{\'}){H}^{\'}$}] (H3) at (3,-1.5) {};   
-        \node[node, label={left:${G}^{\'}$}] (G4) at (-1,-2.25) {};
-        \node[node, label={below:${G}^{\'}\cap H$}] (G5) at (0.5,-3.25) {};
-        \node[node, label={right:${H}^{\'}$}] (H4) at (4,-2.25) {};
-        \node[node, label={below:$G\cap{H}^{\'}$}] (H5) at (2.5,-3.25) {};        
-        \draw 
-            (G1) -- (G2) 
-            (H1) -- (H2) 
-            (G2) -- (G3) 
-            (H2) -- (H3) 
-            (GH2) -- (GH3)
-            (G2) -- (GH2) -- (H2)
-            (G3) -- (GH3) -- (H3)
-            (G3) -- (G4) -- (G5) -- (GH3)
-            (H3) -- (H4) -- (H5) -- (GH3);
-    \end{tikzpicture}
-\end{center}
 
 
 \newpage
