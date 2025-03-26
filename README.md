@@ -12,23 +12,24 @@ Topics included: logical connectives, truth tables, conditional propositions, bi
 
 2. Some Axioms of Sets (by Hassium)
 
-Topics included: axiom of extensionality, axiom schema of separation, axiom of pairing, ordered pairs, axiom of union, axiom of infinity, construction of natural numbers, axiom of power set, Cartesian product, equivalence relations, partially ordered sets, well-ordering principle, finite induction
+Topics included: axiom of extensionality, axiom schema of separation, axiom of pairing, ordered pairs, axiom of union, axiom of infinity, construction of natural numbers, axiom of power set, Cartesian product, disjoint union, equivalence relations, partially ordered sets, well-ordering principle, finite induction
 
 3. Functions (by Hassium)
 
-Topics included: functions, composition of functions, finiteness of sets, injectivity and surjectivity, odd and even functions, inverse, the category Set, morphisms and relations with injectivity and surjectivity, quotient sets, universal property for quotient sets, canonical decomposition of functions, Cartesian product as product in Set, coproduct
+Topics included: functions, composition of functions, finiteness of sets, injectivity and surjectivity, odd and even functions, inverse, the category Set, morphisms and their relations with injectivity and surjectivity, quotient sets, canonical decomposition of functions, Cartesian product as product in Set, disjoint union as coprudct in Set
 
 4. Integers and Cardinality
 
-
+Topics included: ordinals, axiom of choice, transfinite induction
 
 5. Introduction to Groups (by Hassium)
 
-Topics included: groups, cosets, group homomorphisms, normal subgroups, group actions, free groups, group presentations, automorphism groups, semi-direct product, tbd
+Topics included: groups, cosets, group homomorphisms, normal subgroups, quotient groups, group actions, free groups, group presentations, semidirect product, rings, ideals, modules, fields, functors, natural transformations, Yoneda lemma
+
+maybe more group theory should be added, tbd
 
 6. Real Numbers (by Fung San Gann)
 
 7. Topology (by Hassium)
 
-
-# Acknowledgent
+Topics included: 
