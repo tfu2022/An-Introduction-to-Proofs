@@ -845,12 +845,12 @@ This completes our proof of the universal property for quotient sets.
     Here are some examples of groups.
     \begin{enumerate}
         \item The triple $(\Z,+,0)$ is an abelian group.
-        \item Let $S$ be a set. All bijections $S\to S$ forms a group called the \hdef{symmetric group}. If $S$ is finite, then the symmetric group is denoted by ${S}_{n}$. An element of the symmetric group is called a \hdef{permutation}.
+        \item Let $S$ be a set. All bijections $S\to S$ forms a group called the \hdef{symmetric group}. If $S$ is finite, then the symmetric group is denoted by ${\fr{S}}_{n}$. An element of the symmetric group is called a \hdef{permutation}.
         \item Consider the set ${D}_{n}$ of all rotations and reflections that map a regular $n$-gon into itself, this is called the \hdef{dihedral group}. Let the reflection be $S$, which gives ${S}^{2}=e$. Multiply the rotations by $S$ on the left, then we have $n$ distinct rotational symmetries. Hence there are $n$ rotations and $n$ reflections, that is, $\card{{D}_{n}}=2n$.
     \end{enumerate}    
 \end{example}
 \par
-Let $\pi$ be a permutation of ${S}_{n}$. A permuatation can be expressed by two-line notation, that is, 
+Let $\pi$ be a permutation of ${\fr{S}}_{n}$. A permuatation can be expressed by two-line notation, that is, 
 \begin{center}
     $\pi=
     \begin{pmatrix}
@@ -863,10 +863,10 @@ The first line can be dropped to from an one-line notation. Given $1\le i\le n$ 
 \par
 A $k$-cycle is a cycle containing $k$ elements. The cycle type of a permutation is an expression of the form $({1}^{{m}_{1}},{2}^{{m}_{2}},\ldots,{n}^{{m}_{n}})$, where ${m}_{k}$ is the number of cycles of length $k$ in $\pi$. A 1-cycle of $\pi$ is called a fixedpoint. An \hdef{involution} is a permutation $\pi$ such that ${\pi}^{2}=\ve$, where $\ve$ is the identity.
 \begin{problem}
-    Prove that every permutation in ${S}_{n}$ can be written as a finite composition of involutions.
+    Prove that every permutation in ${\fr{S}}_{n}$ can be written as a finite composition of involutions.
 \end{problem}
 \begin{definition}
-    A permutation $\pi\in{S}_{n}$ is called an \hdef{odd permutation} if it can be written as the composition of an odd number of involutions. A permutation $\pi\in{S}_{n}$ is called an \hdef{even permutation} if it can be written as the composition of an even number of involutions.
+    A permutation $\pi\in{\fr{S}}_{n}$ is called an \hdef{odd permutation} if it can be written as the composition of an odd number of involutions. A permutation $\pi\in{\fr{S}}_{n}$ is called an \hdef{even permutation} if it can be written as the composition of an even number of involutions.
 \end{definition}
 \begin{proposition}
     Let $G$ be a group. For all $g\in G$, the inverse of $g$ is unique.
@@ -891,7 +891,7 @@ For all $g\in G$, where $G$ is a group, the inverse of $g$ is denoted by $\inv{g
     Let $G$ be a group and let ${g}_{i}\in G$, define the composition of finitely many elements by ${\prod}_{i=1}^{n}{x}_{1}\cdots{x}_{n}=({x}_{1}\cdots{x}_{n-1}){x}_{n}$, prove that ${\prod}_{i=1}^{m}{x}_{i}{\prod}_{j=1}^{n}{x}_{m+j}={\prod}_{j=1}^{m+n}{x}_{j}$. This is called the generalized associativity.
 \end{problem}
 \begin{problem}
-    Prove that $\card{{S}_{n}}=n$!
+    Prove that $\card{{\fr{S}}_{n}}=n$!
 \end{problem}
 \begin{definition}
     Let $G$ and $H$ be monoids. A function $\vp:G\to H$ is called a \hdef{monoid homomorphism} if $\vp(ab)=\vp(a)\vp(b)$ and $\vp({e}_{G})={e}_{H}$ for all $a,b\in G$. Let $G$ and $H$ be groups, a function $\vp:G\to H$ is called a \hdef{group homomorphism} if $\vp$ is a monoid homomorphism.
@@ -948,7 +948,7 @@ For all $g\in G$, where $G$ is a group, the inverse of $g$ is denoted by $\inv{g
     Let $a,b\in\ker(\vp)$, then $\vp(a\inv{b})=\vp(a)\vp(b)=\vp{\inv{b}}$. We have ${e}_{H}=\vp(b\inv{b})={e}_{H}\vp(\inv{b})$, then $\vp({\inv{b}})={e}_{H}$, which implies $\ker(\vp)\le G$. For all $g\in G$, $\vp(g\ker(\vp)\inv{g})=\vp(g)\vp(\ker(\vp))\vp(\inv{g})={e}_{H}$, then $g\ker(\vp)\inv{g}\sub\ker(\vp)$.
 \end{proof}
 \begin{problem}
-    Let ${C}_{2}$ be a group of order 2. Prove that ${C}_{2}$ is unique up to isomorphim. Define the set ${C}_{2}=\{1,-1\}$, where $0$ is the identity. For all $\pi\in{S}_{n}$, define $\vp:{S}_{n}\to{C}_{2}$ by $\vp(\pi)=-1$ if $\pi$ is an odd permutation and $\vp(\pi)=1$ if it is an even permutation. Prove that $\sgn$ is a well-defined group homomorphism. The kernel of $\vp$ is called the \hdef{alternating group}, denoted ${A}_{n}$. Prove that ${A}_{n}$ is abelian if $n\le 3$ and prove that ${A}_{n}$ is not abelian for $n>3$, conclude that a normal subgroup is not necessarily abelian.
+    Let ${C}_{2}$ be a group of order 2. Prove that ${C}_{2}$ is unique up to isomorphim. Define the set ${C}_{2}=\{1,-1\}$, where $0$ is the identity. For all $\pi\in{\fr{S}}_{n}$, define $\vp:{\fr{S}}_{n}\to{C}_{2}$ by $\vp(\pi)=-1$ if $\pi$ is an odd permutation and $\vp(\pi)=1$ if it is an even permutation. Prove that $\sgn$ is a well-defined group homomorphism. The kernel of $\vp$ is called the \hdef{alternating group}, denoted ${\fr{A}}_{n}$. Prove that ${\fr{A}}_{n}$ is abelian if $n\le 3$ and prove that ${\fr{A}}_{n}$ is not abelian for $n>3$, conclude that a normal subgroup is not necessarily abelian.
 \end{problem}
 \begin{definition}
     Let $G$ be a group and $N\nsg G$. The \hdef{quotient group} $G/N$ is defined to be $\{aN\mid a\in G\}$. 
