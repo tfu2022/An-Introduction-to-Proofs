@@ -367,6 +367,9 @@ It suffices to show a binary operation is indeed a set. Let $R$ be a binary oper
 \begin{problem}
     Let $R$ be a binary operation. Prove that $\dom(R),\ran(R)\sub\Un(\Un R)$, hence, by axiom of union, $\dom(R)$ and $\ran(R)$ are sets.
 \end{problem}
+\begin{problem}
+    Let $X$ and $Y$ be sets. The \hdef{symmetric difference} $X\tri Y$ is defined to be $(X\sm Y)\cup(Y\sm X)$. Prove that $X\tri Y$ is a set.
+\end{problem}
 \begin{definition}
     Let $R$ be a binary operation on a set $S$, that is, $R\sub S\times S$. We say $R$ is an \hdef{equivalence relation} if the following properties hold.
     \begin{enumerate}
@@ -861,7 +864,7 @@ Let $\pi$ be a permutation of ${\fr{S}}_{n}$. A permuatation can be expressed by
 \par
 The first line can be dropped to from an one-line notation. Given $1\le i\le n$ and $i\in\mathbb{Z}$, we can write $\pi$ in cycle notation, that is, $(i,\pi(i),{\pi}^{2}(i),\ldots,{\pi}^{p-1}(i))$, where $p$ is the first integer such that ${\pi}^{p}(i)=i$. Such a cycle means that $\pi$ sends $i$ to $\pi(i)$, $\pi(i)$ to ${\pi}^{2}(i)$, and eventually, ${\pi}^{p-1}(i)$ back to $i$.
 \par
-A $k$-cycle is a cycle containing $k$ elements. The cycle type of a permutation is an expression of the form $({1}^{{m}_{1}},{2}^{{m}_{2}},\ldots,{n}^{{m}_{n}})$, where ${m}_{k}$ is the number of cycles of length $k$ in $\pi$. A 1-cycle of $\pi$ is called a fixedpoint. An \hdef{involution} is a permutation $\pi$ such that ${\pi}^{2}=\ve$, where $\ve$ is the identity.
+A $k$-cycle is a cycle containing $k$ elements. The cycle type of a permutation is an expression of the form $({1}^{{m}_{1}},{2}^{{m}_{2}},\ldots,{n}^{{m}_{n}})$, where ${m}_{k}$ is the number of cycles of length $k$ in $\pi$. An \hdef{involution} is a permutation $\pi$ such that ${\pi}^{2}=e$.
 \begin{problem}
     Prove that every permutation in ${\fr{S}}_{n}$ can be written as a finite composition of involutions.
 \end{problem}
@@ -933,7 +936,7 @@ For all $g\in G$, where $G$ is a group, the inverse of $g$ is denoted by $\inv{g
     Any monoid is isomorphic to a submonoid of $M(S)$ for some set $S$. Any group is isomorphic to a subgroup of some symmetric group.
 \end{theorem}
 \begin{proof}
-    Let $M$ be a monoid. For all $\al\in M$, let ${\al}_{l}(\al)=\al x$ for all $x\in M$, then ${\al}_{l}$ maps $M$ to itself. Consider $S=\{{\al}_{l}:\al\in M\}$, which is a subset of $M(S)$. The identity map ${\al}_{e}\in S$. For all $\al,\be\in M$, ${\al}_{l}({\be}_{l}(x))={\al}_{l}(\be x)=\al\be x=(\al\be)x={(\al\be)}_{l}(x)$, so $S$ is a submonoid of $M(S)$. Consider the map $\vp(\al)={\al}_{l}$. For all $\al,\be\in M$, $\vp(\al)\vp(\be)={\al}_{l}{\be}_{l}={(\al\be)}_{l}=\vp(\al\be)$. The map is trivially surjective. Let $\vp(\al)=\vp(\be)$, then ${\al}_{l}={\be}_{l}$, that is, $\al x=\be x$. Consider $x=1$, then $\al=\be$, hence $\vp$ is an isomorphism. Now consider a group $G$ and construct the same set $S$. For all ${\al}_{l}$, the inverse is ${(\inv{\al})}_{l}$. We have ${\al}_{l}{(\inv{\al})}_{l}(x)={\al}_{l}(\inv{\al}x)=x$ and ${(\inv{\al})}_{l}{\al}_{l}(x)={(\inv{\al})}_{l}(\al x)=x$, hence $S$ is a subgroup of some symmetric group. Construct the same $\vp$, then $S$ is isomorphic to $G$.
+    Let $M$ be a monoid. For all $\al\in M$, let ${\al}_{l}(\al)=\al x$ for all $x\in M$, then ${\al}_{l}$ maps $M$ to itself. Consider $S=\{{\al}_{l}\mid\al\in M\}$, which is a subset of $M(S)$. The identity map ${\al}_{e}\in S$. For all $\al,\be\in M$, ${\al}_{l}({\be}_{l}(x))={\al}_{l}(\be x)=\al\be x=(\al\be)x={(\al\be)}_{l}(x)$, so $S$ is a submonoid of $M(S)$. Consider the map $\vp(\al)={\al}_{l}$. For all $\al,\be\in M$, $\vp(\al)\vp(\be)={\al}_{l}{\be}_{l}={(\al\be)}_{l}=\vp(\al\be)$. The map is trivially surjective. Let $\vp(\al)=\vp(\be)$, then ${\al}_{l}={\be}_{l}$, that is, $\al x=\be x$. Consider $x=1$, then $\al=\be$, hence $\vp$ is an isomorphism. Now consider a group $G$ and construct the same set $S$. For all ${\al}_{l}$, the inverse is ${(\inv{\al})}_{l}$. We have ${\al}_{l}{(\inv{\al})}_{l}(x)={\al}_{l}(\inv{\al}x)=x$ and ${(\inv{\al})}_{l}{\al}_{l}(x)={(\inv{\al})}_{l}(\al x)=x$, hence $S$ is a subgroup of some symmetric group. Construct the same $\vp$, then $S$ is isomorphic to $G$.
 \end{proof}
 \begin{definition}
     Let $H\le G$ be a subgroup. We say $H$ is a \hdef{normal subgroup} of $G$, denoted $H\nsg G$, if $xH=Hx$ for all $x\in G$.
