@@ -294,7 +294,7 @@ The definition of ordered pairs can be extended to multiple elements. We call $(
         \item $A\cup(B\cap C)=(A\cup B)\cap(A\cup C)$.
     \end{enumerate}
 \end{problem}
-\begin{theorem}[De Morgan's law]
+\begin{theorem}[De Morgan's law]\index{De Morgan's law}
     Let $A$, $B$, and $C$ be sets, then $C\sm(A\cap B)=(C\sm A)\cup(C\sm B)$ and $C\sm(A\cup B)=(C\sm A)\cap(C\sm B)$.
 \end{theorem}
 \begin{proof}
@@ -424,12 +424,12 @@ It suffices to show a binary operation is indeed a set. Let $R$ be a binary oper
 \begin{definition}
     Let $(X,\le)$ be a partially ordered set. The set is \hdef{well-ordered} if for every nonempty subset $S$ of $X$, there exists $a\in S$ such that for all $s\in S$, $a\le s$.
 \end{definition}
-\begin{theorem}[well-ordering principle]
+\begin{theorem}[well-ordering principle]\index{well-ordering principle}
     The natural numbers $\N$ is well-ordered.
 \end{theorem}
 \par
 The well-ordering principle is equivalent to the axiom of choice, which will be discussed later. You may assume the well-ordering principle is correct for now. 
-\begin{theorem}[finite induction]
+\begin{theorem}[finite induction]\index{finite induction}
     Given a subset $S\sub\N$ of the natural numbers with $0\in S$ and $n\in S$ implies $n+1\in S$, then $S=\N$.
 \end{theorem}
 \begin{proof}
@@ -439,7 +439,7 @@ The well-ordering principle is equivalent to the axiom of choice, which will be 
     Consider the statement: let $n\in\N$, show that ${\sum}_{i=0}^{n}=(n(n+1))/2$. If $n=0$, then the equation trivially holds. Assume ${\sum}_{i=0}^{k}=(k(k+1))/2$ holds for some $k\in\N$, then ${\sum}_{i=0}^{k+1}=(k(k+1))/2+(k+1)=((k+1)(k+2))/2$. Hence, by induction, ${\sum}_{i=0}^{n}=(n(n+1))/2$ for all $n\in\N$.
 \end{example}
 \begin{problem}
-    Prove that given a subset $S\sub\N$ of the natural numbers with $0\in S$ and $\{0,1,\dots,n\}\sub S$ implies $n+1\in S$, then $S=\N$. This is known as the complete finite induction.
+    Prove that given a subset $S\sub\N$ of the natural numbers with $0\in S$ and $\{0,1,\dots,n\}\sub S$ implies $n+1\in S$, then $S=\N$. This is known as the \hdef{complete finite induction}.
 \end{problem}
 \begin{problem}
     Prove that complete finite induction, finite induction, and well-ordering principle are equivalent.
@@ -726,7 +726,7 @@ The proof of the universal property has two parts. We first verify that a quotie
 \end{proof}
 \par
 This completes our proof of the universal property for quotient sets.
-\begin{theorem}[canonical decomposition of functions]
+\begin{theorem}[canonical decomposition of functions]\index{canonical decomposition of functions}
     Let $f:A\to B$ be a function, then there exists a surjective function $\pi$, a bijective function $g$, and an injective function $i$, such that $f=i\comp g\comp\pi$.
 \end{theorem}
 \begin{center}
@@ -822,15 +822,25 @@ This completes our proof of the universal property for quotient sets.
 \begin{problem}
     Prove that the set of natural numbers $\N$ is an ordinal.
 \end{problem}
-\begin{theorem}[transfinite recursion]
+
+
+
+\par
+Consider a relation $\sim\ \sub\N\times\N$ such that $(a,b)\sim(c,d)$ if and only if $a+d=b+c$.
+\begin{problem}
+    Prove that $\sim$ is an equivalence relation.
+\end{problem}
+\begin{definition}
+    The set of all \hdef{integers} is defined to be $\N\times{\N}_{\sim}$. 
+\end{definition}
+\begin{proposition}
     
-\end{theorem}
+\end{proposition}
+
 
 
 
 \newpage
-
-
 \section{Introduction to Groups}
 \begin{definition}
     A \hdef{monoid} is a triple ($M$,$\comp$,e), where $M$ is a set and $\comp:M\times M\to M$, called a \hdef{composition}, is a function such that
@@ -874,9 +884,7 @@ Let $\pi$ be a permutation of ${\fr{S}}_{n}$. A permuatation can be expressed by
     \end{pmatrix}$.
 \end{center}
 \par
-The first line can be dropped to from an one-line notation. Given $1\le i\le n$ and $i\in\mathbb{Z}$, we can write $\pi$ in cycle notation, that is, $(i,\pi(i),{\pi}^{2}(i),\ldots,{\pi}^{p-1}(i))$, where $p$ is the first integer such that ${\pi}^{p}(i)=i$. Such a cycle means that $\pi$ sends $i$ to $\pi(i)$, $\pi(i)$ to ${\pi}^{2}(i)$, and eventually, ${\pi}^{p-1}(i)$ back to $i$.
-\par
-A $k$-cycle is a cycle containing $k$ elements. The cycle type of a permutation is an expression of the form $({1}^{{m}_{1}},{2}^{{m}_{2}},\ldots,{n}^{{m}_{n}})$, where ${m}_{k}$ is the number of cycles of length $k$ in $\pi$. An \hdef{involution} is a permutation $\pi$ such that ${\pi}^{2}=e$.
+The first line can be dropped to from an one-line notation. Given $1\le i\le n$ and $i\in\mathbb{Z}$, we can write $\pi$ in cycle notation, that is, $(i,\pi(i),{\pi}^{2}(i),\ldots,{\pi}^{p-1}(i))$, where $p$ is the first integer such that ${\pi}^{p}(i)=i$. Such a cycle means that $\pi$ sends $i$ to $\pi(i)$, $\pi(i)$ to ${\pi}^{2}(i)$, and eventually, ${\pi}^{p-1}(i)$ back to $i$. The cycle type of a permutation is an expression of the form $({1}^{{m}_{1}},{2}^{{m}_{2}},\ldots,{n}^{{m}_{n}})$, where ${m}_{k}$ is the number of cycles of length $k$ in $\pi$. An \hdef{involution} is a permutation $\pi$ such that ${\pi}^{2}=e$.
 \begin{problem}
     Prove that every permutation in ${\fr{S}}_{n}$ can be written as a finite composition of involutions.
 \end{problem}
@@ -903,7 +911,7 @@ For all $g\in G$, where $G$ is a group, the inverse of $g$ is denoted by $\inv{g
     \end{enumerate}
 \end{problem}
 \begin{problem}
-    Let $G$ be a group and let ${g}_{i}\in G$, define the composition of finitely many elements by ${\prod}_{i=1}^{n}{x}_{1}\cdots{x}_{n}=({x}_{1}\cdots{x}_{n-1}){x}_{n}$, prove that ${\prod}_{i=1}^{m}{x}_{i}{\prod}_{j=1}^{n}{x}_{m+j}={\prod}_{j=1}^{m+n}{x}_{j}$. This is called the generalized associativity.
+    Let $G$ be a group and let ${g}_{i}\in G$, define the composition of finitely many elements by ${\prod}_{i=1}^{n}{x}_{1}\cdots{x}_{n}=({x}_{1}\cdots{x}_{n-1}){x}_{n}$, prove that ${\prod}_{i=1}^{m}{x}_{i}{\prod}_{j=1}^{n}{x}_{m+j}={\prod}_{j=1}^{m+n}{x}_{j}$. This is called the \hdef{generalized associativity}.
 \end{problem}
 \begin{problem}
     Prove that $\card{{\fr{S}}_{n}}=n$!
@@ -921,7 +929,7 @@ For all $g\in G$, where $G$ is a group, the inverse of $g$ is denoted by $\inv{g
     Let $G$ be a group, then $H\le G$ if and only if $e\in H\sub G$, for all $g,f\in H$, $g\inv{f}\in H$. 
 \end{proposition}
 \begin{proof}
-    The $(\Ra)$ direction is trivial. $(\La)$ Since $H\sub G$, the composition is associative. For all $g\in H$, take $f=g$, then $g\inv{g}=e$, hence $H\le G$.
+    $(\Ra)$ Trivial. $(\La)$ Since $H\sub G$, the composition is associative. For all $g\in H$, take $f=g$, then $g\inv{g}=e$; take $f=e$, then $\inv{g}\in H$ for all $g$, hence $H\le G$.
 \end{proof}
 \begin{problem}
     If $A\le B\le G$, prove that $A\le G$.
@@ -936,7 +944,7 @@ For all $g\in G$, where $G$ is a group, the inverse of $g$ is denoted by $\inv{g
     Prove that there exists a bijection $\psi:G/H\to H\sm G$, conclude that $[G:H]=\card{H\sm G}$.
 \end{problem}
 \begin{proposition}
-    Let $H\le G$ be a subgroup. Then there exists a list of left cosets ${x}_{i}H$ such that ${x}_{n}H\cap{x}_{m}H=\es$ and $\Un{x}_{i}H=G$.
+    Let $H\le G$ be a subgroup. Then there exists a set of left cosets ${x}_{i}H$ such that ${x}_{n}H\cap{x}_{m}H=\es$ and $\Un{x}_{i}H=G$.
 \end{proposition}
 \begin{proof}
     
@@ -944,7 +952,7 @@ For all $g\in G$, where $G$ is a group, the inverse of $g$ is denoted by $\inv{g
 \begin{problem}
     Let $H\le G$ be a subgroup. Prove that $[G:1]=[G:H][H:1]$. Let $K\le G$ and $K\sub H$. Prove that $[G:K]=[G:H][H:K]$.
 \end{problem}
-\begin{theorem}[Cayley's theorem]
+\begin{theorem}[Cayley's theorem]\index{Cayley's theorem}
     Any monoid is isomorphic to a submonoid of $M(S)$ for some set $S$. Any group is isomorphic to a subgroup of some symmetric group.
 \end{theorem}
 \begin{proof}
@@ -960,7 +968,7 @@ For all $g\in G$, where $G$ is a group, the inverse of $g$ is denoted by $\inv{g
     Let $\vp:G\to H$ be a group homomorphism. Then $\ker(\vp)\nsg G$ and $\im(\vp)\le H$.
 \end{proposition}
 \begin{proof}
-    Let $a,b\in\ker(\vp)$, then $\vp(a\inv{b})=\vp(a)\vp(b)=\vp{\inv{b}}$. We have ${e}_{H}=\vp(b\inv{b})={e}_{H}\vp(\inv{b})$, then $\vp({\inv{b}})={e}_{H}$, which implies $\ker(\vp)\le G$. For all $g\in G$, $\vp(g\ker(\vp)\inv{g})=\vp(g)\vp(\ker(\vp))\vp(\inv{g})={e}_{H}$, then $g\ker(\vp)\inv{g}\sub\ker(\vp)$.
+    Let $a,b\in\ker(\vp)$, then $\vp(a\inv{b})=\vp(a)\vp(b)=\vp{\inv{b}}$. We have ${e}_{H}=\vp(b\inv{b})={e}_{H}\vp(\inv{b})$, then $\vp({\inv{b}})={e}_{H}$, which implies $\ker(\vp)\le G$. For all $g\in G$, $\vp(g\ker(\vp)\inv{g})=\vp(g)\vp(\ker(\vp))\vp(\inv{g})={e}_{H}$, then $g\ker(\vp)\inv{g}\sub\ker(\vp)$. For all $g\in\ker(\vp)$, we have 
 \end{proof}
 \begin{problem}
     Let ${C}_{2}$ be a group of order 2. Prove that ${C}_{2}$ is unique up to isomorphim. Define the set ${C}_{2}=\{1,-1\}$, where $0$ is the identity. For all $\pi\in{\fr{S}}_{n}$, define $\vp:{\fr{S}}_{n}\to{C}_{2}$ by $\vp(\pi)=-1$ if $\pi$ is an odd permutation and $\vp(\pi)=1$ if it is an even permutation. Prove that $\sgn$ is a well-defined group homomorphism. The kernel of $\vp$ is called the \hdef{alternating group}, denoted ${\fr{A}}_{n}$. Prove that ${\fr{A}}_{n}$ is abelian if $n\le 3$ and prove that ${\fr{A}}_{n}$ is not abelian for $n>3$, conclude that a normal subgroup is not necessarily abelian.
@@ -972,7 +980,7 @@ For all $g\in G$, where $G$ is a group, the inverse of $g$ is denoted by $\inv{g
     Prove that $(aN)(bN)=(ab)N$. Take this as a composition on $G/N$, prove that $G/N$ is indeed a group. Prove that $\pi:G\to G/N$ defined by $\pi(g)=gN$ is a group epimorphism.
 \end{problem}
 \customtheorem{Universal property for quotient groups}
-\begin{Universal property for quotient groups}
+\begin{Universal property for quotient groups}\index{quotient group}
     Let $G$ be a group and let $N\nsg G$. Let $\pi:G\to G/N$ be the quotient epimorphism. For all group homomorphism $\vp:G\to H$ with $N\sub\ker(\vp)$, there exists a unique group homomorphism $\wb{\vp}:G/N\to H$ such that $\wb{\vp}\comp\pi=\vp$.
 \end{Universal property for quotient groups}
 \begin{center}
@@ -986,13 +994,24 @@ For all $g\in G$, where $G$ is a group, the inverse of $g$ is denoted by $\inv{g
     \end{tikzcd}
 \end{center}
 \begin{problem}
-    Prove that the quotient groups satisfy the universal property.
+    Prove that the quotient groups satisfy the universal property and the universal property characterizes quotient groups.
 \end{problem}
-\begin{proposition}
-    
-\end{proposition}
-
-
+\customtheorem{Universal property for free groups}
+\begin{Universal property for free groups}
+    Let $X$ be a subset of a group $F$. Then $F$ is a \hdef{free group} with \hdef{basis} $X$ if for any function $\vp:X\to G$, where $G$ is a group, there exists a unique extension $\wb{\vp}:F\to G$.
+\end{Universal property for free groups}
+\begin{center}
+    \begin{tikzcd}
+        F && X \\
+        \\
+        && G
+        \arrow["{\wb{\vp}}"', from=1-1, to=3-3]
+        \arrow["i"', from=1-3, to=1-1]
+        \arrow["\vp", from=1-3, to=3-3]
+    \end{tikzcd}
+\end{center}
+\par
+Consider an \hdef{alphabet}
 
 
 
