@@ -359,6 +359,9 @@ We denote $0=\es$, $1={0}^{+}$, $2={1}^{+}$, $\dots$
 \begin{problem}
     Let $A$ and $B$ be sets, prove that $A\cp B$ is a set.
 \end{problem}
+\begin{problem}
+    Let $X$ and $Y$ be sets. The \hdef{symmetric difference} $X\tri Y$ is defined to be $(X\sm Y)\cup(Y\sm X)$. Prove that $X\tri Y$ is a set.
+\end{problem}
 \begin{definition}
     A \hdef{binary operation} $R$ is a set of ordered pairs. If $(x,y)\in R$, we write $xRy$. The \hdef{domain} of $R$ is the set $\dom(R)=\{u\mid\text{there exists}\ v\ \text{such that}\ (u,v)\in R\}$. The \hdef{range} of $R$ is the set $\ran(R)=\{v\mid\text{there exists}\ u\ \text{such that}\ (u,v)\in R\}$. 
 \end{definition}
@@ -366,9 +369,6 @@ We denote $0=\es$, $1={0}^{+}$, $2={1}^{+}$, $\dots$
 It suffices to show a binary operation is indeed a set. Let $R$ be a binary operation, then $R\sub X\times Y$ for some sets $X$ and $Y$. By the axiom schema of separation, $R$ is a set. 
 \begin{problem}
     Let $R$ be a binary operation. Prove that $\dom(R),\ran(R)\sub\Un(\Un R)$, hence, by axiom of union, $\dom(R)$ and $\ran(R)$ are sets.
-\end{problem}
-\begin{problem}
-    Let $X$ and $Y$ be sets. The \hdef{symmetric difference} $X\tri Y$ is defined to be $(X\sm Y)\cup(Y\sm X)$. Prove that $X\tri Y$ is a set.
 \end{problem}
 \begin{definition}
     Let $R$ be a binary operation on a set $S$, that is, $R\sub S\times S$. We say $R$ is an \hdef{equivalence relation} if the following properties hold.
@@ -659,6 +659,18 @@ Let sets be objects, let functions be morphisms, and let the composition of morp
 \begin{definition}
     Let $\cft{C}$ be a category. A morphism $f:A\to B$ is an \hdef{isomorphism} if there exists $g\in{\Hom}_{\cft{C}}(B,A)$ such that $f\comp g={\id}_{B}$ and $g\comp f={\id}_{A}$. If there exists a morphism between two objects $A$ and $B$, then we say they are \hdef{isomorphic}, denoted $A\iso B$.
 \end{definition}
+\begin{definition}
+    An \hdef{initial object} $0$ of a category $\cft{C}$ is an object such that for any object $A$, there is a unique morphism $0\to A$. A \hdef{terminal object} $1$ of a category $\cft{C}$ is an object such that for any object $B$, there is a unique morphism $A\to 1$.
+\end{definition}
+\begin{proposition}
+    Initial object and terminal object of a category are unique up to isomorphism.
+\end{proposition}
+\begin{proof}
+    
+\end{proof}
+\begin{problem}
+    Prove that $\es$ is the initial object in $\cft{Set}$. Prove that any singleton is a terminal object in $\cft{Set}$.
+\end{problem}
 \begin{definition}
     Let $\sim$ be an equivalence relation on a set $X$. The \hdef{quotient set}, denoted ${X}_{\sim}$, is the set $\{[x]\mid x\in X\}$.
 \end{definition}

@@ -16,7 +16,7 @@ Topics included: axiom of extensionality, axiom schema of separation, axiom of p
 
 3. Functions (by Hassium)
 
-Topics included: functions, composition of functions, finiteness of sets, injectivity and surjectivity, odd and even functions, inverse, the category Set, morphisms and their relations with injectivity and surjectivity, quotient sets, canonical decomposition of functions, Cartesian product as product in Set, disjoint union as coprudct in Set
+Topics included: functions, composition of functions, finiteness of sets, injectivity and surjectivity, odd and even functions, inverse, the category Set, morphisms and their relations with injectivity and surjectivity, initial and terminal objects, quotient sets, canonical decomposition of functions, Cartesian product as product in Set, disjoint union as coprudct in Set
 
 4. Integers and Cardinality
 
@@ -24,7 +24,7 @@ Topics included: ordinals, axiom of choice, transfinite induction
 
 5. Introduction to Groups (by Hassium)
 
-Topics included: groups, cosets, group homomorphisms, normal subgroups, quotient groups, group actions, free groups, group presentations, semidirect product, rings, ideals, modules, fields, functors, natural transformations, Yoneda lemma
+Topics included: groups, cosets, group homomorphisms, normal subgroups, quotient groups, group actions, free groups, group presentations, rings, ideals, modules, fields, functors, natural transformations, Yoneda lemma
 
 maybe more group theory should be added, tbd
 
