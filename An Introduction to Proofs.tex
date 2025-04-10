@@ -9,6 +9,11 @@
 \htoc
 \hmain
 \section*{Introduction}
+In higher-level mathematics, students need a certain level of ``mathematical maturity'' to understand and apply abstract ideas. However, there is no clear way to measure this maturity, nor a definitive method to teach someone how to write a proof. This note is intended to be a transition from high/middle school math to proof-based formal mathematics.
+\par
+You may notice that we use different names for the same object—a common practice in mathematics. For example, the set of all real numbers $\R$ can be viewed as a set, a group, a ring, a field, a topological space, a metric space $\dots$ Each term highlights a particular aspect of the same structure. As Poincaré famously said, ``Mathematics is the art of giving the same name to different things.''
+\par
+Finally, think deeper and enjoy mathematics!
 \section{Basic Logic}
 Logic is the formal framework and rules of inference that ensure the validity and coherence of arguments in math. 
 \begin{remark}
@@ -621,10 +626,10 @@ Let sets be objects, let functions be morphisms, and let the composition of morp
     \begin{center}
         \begin{tikzcd}
             \bullet && \bullet
-            \arrow[from=1-1, to=1-1, loop, in=55, out=125, distance=10mm]
-            \arrow[from=1-1, to=1-3]
-            \arrow[shift left=3, from=1-3, to=1-1]
-            \arrow[from=1-3, to=1-3, loop, in=55, out=125, distance=10mm]
+            \arrow[from=1-1, to=1-1, loop, in=145, out=215, distance=10mm]
+            \arrow[shift left, from=1-1, to=1-3]
+            \arrow[shift left, from=1-3, to=1-1]
+            \arrow[shift right, from=1-3, to=1-3, loop, in=35, out=325, distance=10mm]
         \end{tikzcd}
     \end{center}
 \end{example}
@@ -759,7 +764,7 @@ This completes our proof of the universal property for quotient sets.
     Let $i:\im(f)\to B$ be the identity map, then $i$ is injective. The function $f:A\to B$ induces an equivalence relation $\sim$ on $X$, so $g$ is bijective. The projection map $\pi:A\to{A}_{\sim}$ is surjective. For all $a\in A$, $(i\comp g\comp\pi)(a)=(i\comp g)([a])=i(f(a))=f(a)$. 
 \end{proof}
 \begin{definition}
-    Let $\cft{C}$ be a category. Let $A$ and $B$ be objects in $\cft{C}$. The \hdef{product} of $A$ and $B$, denoted $P$, is an object in $\cft{C}$ with morphisms ${p}_{1}:P\to A$ and ${p}_{2}:P\to B$ such that for all object $X$ in $\cft{C}$ with morphisms ${\vp}_{1}:X\to A$ and ${\vp}_{2}:X\to B$, there exists a unique $u:X\to P$.
+    Let $\cft{C}$ be a category. Let $A$ and $B$ be objects in $\cft{C}$. The \hdef{product} of $A$ and $B$, denoted $P$, is an object in $\cft{C}$ with morphisms ${p}_{1}:P\to A$ and ${p}_{2}:P\to B$ such that for all object $X$ in $\cft{C}$ with morphisms ${\vp}_{1}:X\to A$ and ${\vp}_{2}:X\to B$, there exists a unique $u:X\to P$ such that the following diagram commutes.
 \end{definition}
 \begin{center}
     \begin{tikzcd}
@@ -833,9 +838,6 @@ This completes our proof of the universal property for quotient sets.
 \begin{definition}
     The \hdef{addition} on $\N$ is defined to be ${\{{+}_{n}\}}_{n\in\N}$ such that ${+}_{n}(0)=n$ and ${+}_{n}({m}^{+})={({+}_{n}(m))}^{+}$ for a fixed $n$ and every $m\in\N$. We denote ${+}_{n}(m)$ by $n+m$.
 \end{definition}
-\begin{problem}
-    Prove that the recursion theorem guarantees the addition on $\N$ is well-defined.
-\end{problem}
 \begin{proposition}
     For all $n\in\N$, $n+0=n=0+n$.
 \end{proposition}
@@ -845,32 +847,90 @@ This completes our proof of the universal property for quotient sets.
 \begin{problem}
     Prove that $n+1={n}^{+}$ for all $n\in\N$.
 \end{problem}
-\begin{proposition}
-    For all $m,n\in\N$, $m+n=n+m$.
-\end{proposition}
-\begin{proof}
-    
-\end{proof}
+\begin{problem}
+    Prove that $m+n=n+m$ for all $m,n\in\N$.
+\end{problem}
 \begin{problem}
     Prove that $a+(b+c)=(a+b)+c$ for all $a,b,c\in\N$.
 \end{problem}
-\par
-Consider a relation $\sim\ \sub\N\times\N$ such that $(a,b)\sim(c,d)$ if and only if $a+d=b+c$. We will denote the relation by $\sim$ in this section.
 \begin{problem}
-    Prove that $\sim$ is an equivalence relation.
+    Consider a relation ${\sim}_{\N+}\sub\N\times\N$ defined by $(a,b)\sim(c,d)$ if and only if $a+d=b+c$. Prove that ${\sim}_{\N+}$ is an equivalence relation.
 \end{problem}
 \begin{definition}
-    The set of all \hdef{integers}, denoted $\Z$, is defined to be ${(\N\times{\N})}_{\sim}$. Let $[(a,b)]\in\Z$, the \hdef{inverse} of $[(a,b)]$ is defined to be $[(b,a)]$.
+    The set of all \hdef{integers}, denoted $\Z$, is defined to be ${(\N\times{\N})}_{{\sim}_{\N+}}$. Let $[(a,b)]\in\Z$, the \hdef{inverse} of $[(a,b)]$ is defined to be $[(b,a)]$.
 \end{definition}
 \begin{problem}
-    Prove that there exists a bijection between $\{[a,b]\mid a,b\in\N\ \text{and}\ a\subn b\}$ and $\{[b,a]\mid a,b\in\N\ \text{and}\ b\subn a\}$, conclude that the inverse of an integer is unique.
+    Prove that there exists a bijection between $\{[(a,b)]\mid a,b\in\N\ \text{and}\ a\subn b\}$ and $\{[(b,a)]\mid a,b\in\N\ \text{and}\ b\subn a\}$, conclude that the inverse of an integer is unique.
 \end{problem}
 \par
 Let $n\in\Z$, the inverse of $n$ is denoted by $-n$.
-
-
-
-
+\begin{definition}
+    Let $[(a,b)],[(c,d)]\in\Z$, the \hdef{addition} on $\Z$ is defined to be $[(a,b)]+[(c,d)]=[(a+c,b+d)]$.
+\end{definition}
+\begin{proposition}
+    The addition on $\Z$ is well-defined.
+\end{proposition}
+\begin{proof}
+    Suppose $(a,b)\sim({a}^{\'},{b}^{\'})$ and $(c,d)\sim({c}^{\'},{d}^{\'})$, then $a+{b}^{\'}=b+{a}^{\'}$ and $c+{d}^{\'}=d+{c}^{\'}$. We have $(a+c)+({b}^{\'}+{d}^{\'})=a+{b}^{\'}+c+{d}^{\'}=b+{a}^{\'}+d+{c}^{\'}=(b+d)+({a}^{\'}+{c}^{\'})$, hence $(a+c,b+d)\sim({a}^{\'}+{c}^{\'},{b}^{\'}+{d}^{\'})$.
+\end{proof}
+\begin{definition}
+    Let $[(a,b)],[(c,d)]\in\Z$, the \hdef{multiplication} on $\Z$ is defined to be $[(a,b)]\cdot[(c,d)]=[(ac+bd,ad+bc)]$.
+\end{definition}
+\begin{problem}
+    Prove that the multiplication on $\Z$ is well-defined.
+\end{problem}
+\begin{problem}
+    Consider the relation ${\sim}_{\Z\times}\sub\Z\times(\Z\sm\{0\})$ defined by $(a,b)\sim(b,c)$ if and only if $ad=bc$. Prove that ${\sim}_{\Z\times}$ is an equivalence relation.
+\end{problem}
+\begin{definition}
+    The \hdef{rational numbers}, denoted $\Q$, is defined to be the set ${(\Z\times(\Z\sm\{0\}))}_{{\sim}_{\Z\times}}$. Let $[(a,b)],[(c,d)]\in\Q$, the \hdef{addition} is defined to be $[(a,b)]+[(c,d)]=[(ad+bc,bd)]$ and the \hdef{multiplication} on $\Q$ is defined to be $[(a,b)]\cdot[(c,d)]=[(ac,bd)]$.
+\end{definition}
+\begin{problem}
+    Prove that addition and multiplication on $\Q$ are well-defined.
+\end{problem}
+\begin{problem}
+    Let $0$ be the element $[(0,x)]\in\Q$ and let $1$ be the element $[(x,x)]\in\Q$ for any $x$. Verify the following algebraic properties of $\Q$.
+    \begin{enumerate}
+        \item $a+b=b+a$ and $ab=ba$ for all $a,b\in\Q$.\hfill(\hdef{commutativity})
+        \item $a+b+c=a+(b+c)$ and $abc=a(bc)$ for all $a,b,c\in\Q$.\hfill(\hdef{associativity})
+        \item $a+0=a$ for all $a\in\Q$.\hfill(\hdef{additive identity})
+        \item $a\cdot 1=a$ for all $a\in\Q$.\hfill(\hdef{multiplicative identity})
+        \item For all $a\in\Q$, there exists a unique $-a\in\Q$ such that $a+(-a)=0$.\hfill(\hdef{additive inverse})
+        \item For all $a\in\Q$ and $a\ne 0$, there exists a unique $\inv{a}\in\Q$ such that $a\inv{a}=1$.\hfill(\hdef{multiplicative inverse})
+        \item $a(b+c)=ab+ac$.\hfill(\hdef{distributivity}) 
+    \end{enumerate}
+\end{problem}
+\begin{definition}
+    Let $a,b\in\Q$ and $b\ne 0$. The \hdef{subtraction} on $\Q$ is defined to be $a-b=a+(-b)$. The \hdef{division} on $\Q$ is defined to be $a/b=a\cdot\inv{b}$.
+\end{definition}
+\par
+Recall that we have defined $\le$ on $\N$ by the natural inclusion, that is, for all $a,b\in\N$, $a\le b$ if and only if $a\sub b$. Let $[(a,b)],[(c,d)]\in\Z$, we say $[(a,b)]\le[(c,d)]$ if and only if $a+d<b+c$. Let $[(a,b)],[(c,d)]\in\Q$ with $b,d\ge 0$ and $b,d\ne 0$, then $[(a,b)]\le[(c,d)]$ if and only if $ad\le bc$.
+\begin{proposition}
+    For all $a,b,c\in\Q$, the following properties hold.
+    \begin{enumerate}
+        \item $a+c=b+c$ implies $a=b$.
+        \item $a\cdot 0=0$.
+        \item $(-a)b=-ab$.
+        \item $(-a)(-b)=ab$.
+        \item $ac=bc$ and $c\ne 0$ imply $a=b$.
+        \item $ab=0$ implies either $a=0$ or $b=0$.
+    \end{enumerate}
+\end{proposition}
+\begin{proof}
+    (\rom1) We have $a=a+(c+(-c))=a+c+(-c)=b+c+(-c)=b+(c+(-c))=b$. (\rom2) We have $a\cdot 0=a\cdot(0+0)=a\cdot 0+a\cdot 0$, then $a\cdot 0+0=a\cdot 0+a\cdot 0$, so $a\cdot 0=0$. (\rom3) We have $ab+(-a)b=(a+(-a))b=0b=0$. Hence $(-a)b=-ab$. (\rom4) We have $(-a)(-b)+(-ab)=(-a)(-b)+(-a)b=(-a)(-b+b)=0$. Hence $(-a)(-b)=ab$. (\rom5) We have $a=a(c\inv{c})=ac\inv{c}=bc\inv{c}=b(c\inv{c})=b$. (\rom6) Let $b\ne 0$, then $ab=0=0b$, so $a=0$. 
+\end{proof}
+\begin{problem}
+    Prove that for all $a,b,c\in\Q$, the following properties hold.
+    \begin{enumerate}
+        \item If $a\le b$, then $-b\le -a$.
+        \item If $a\le b$ and $c\le 0$, then $bc\le ac$.
+        \item If $0\le a$ and $0\le b$, then $0\le ab$.
+        \item $0\le{a}^{2}$.
+        \item If $0<a$, then $0<\inv{a}$.
+        \item If $0<a<b$, then $0<\inv{b}<\inv{a}$.
+    \end{enumerate}
+\end{problem}
+% some card shit
 
 
 \newpage
@@ -886,6 +946,25 @@ Let $n\in\Z$, the inverse of $n$ is denoted by $-n$.
 \begin{problem}
     Prove that the set of natural numbers $\N$ is an ordinal.
 \end{problem}
+\begin{definition}
+    If $\vp(x,{p}_{1},{p}_{2},\dots)$ is some formula, then we say $C=\{x\mid\vp\}$ is a \hdef{class}, that is, $x$ is a member of $C$ if and only if $x$ satisfies $\vp$.
+\end{definition}
+\begin{example}
+    The collection of all sets is a class.
+\end{example}
+\begin{problem}
+    Prove that every set is a class.
+\end{problem}
+\customtheorem{Axiom schema of replacement}
+\begin{Axiom schema of replacement}\index{Axiom schema of replacement}
+    If a class $F$ is a funciton, then for all $X$, there exists a set $Y=F(X)=\{F(x)\mid x\in X\}$.
+\end{Axiom schema of replacement}
+\begin{proposition}
+    Axiom schema of replacement implies axiom schema of separation.
+\end{proposition}
+\begin{proof}
+    
+\end{proof}
 
 
 \newpage
@@ -969,6 +1048,9 @@ For all $g\in G$, where $G$ is a group, the inverse of $g$ is denoted by $\inv{g
 \end{definition}
 \begin{problem}
     Let the objects be monoids and let the morphisms be monoid homomorphisms. Prove that this defines a category, denoted $\cft{Mon}$. Let the objects be groups and let the morphisms be group homomorphisms. Prove that this defines a category, denoted $\cft{Grp}$.
+\end{problem}
+\begin{problem}
+    Prove that a group isomorphism is a bijective group homomorphism.
 \end{problem}
 \begin{definition}
     A \hdef{subgroup} of a group $(G,\comp,e)$ is a subset $H\sub G$ containing $e$ such that $(H,\comp,e)$ is a group. If $H$ is a subgroup of $G$, we write $H\le G$.
