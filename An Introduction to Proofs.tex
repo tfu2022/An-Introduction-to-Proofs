@@ -1187,10 +1187,27 @@ For all $g\in G$, where $G$ is a group, the inverse of $g$ is denoted by $\inv{g
         \arrow["\vp", from=1-3, to=3-3]
     \end{tikzcd}
 \end{center}
-\begin{definition}
-    
-\end{definition}
 
+
+\begin{definition}
+    Let $G$ and $H$ be groups. A group $P$ is \hdef{projective} if $\ga:G\thra H$ and $\pi:P\to H$, then there exists a map $\vp:P\to G$ such that $\vp\ga=\pi$.
+\end{definition}
+\begin{center}
+    \begin{tikzcd}
+        G && H \\
+        \\
+        && P
+        \arrow["\ga", two heads, from=1-1, to=1-3]
+        \arrow["\vp", dashed, from=3-3, to=1-1]
+        \arrow["\pi"', from=3-3, to=1-3]
+    \end{tikzcd}
+\end{center}
+\begin{definition}
+    Let $S\le G$ be a subgroup. A map $\rho:G\thra S$ is a \hdef{retraction} if ${\rho}^{2}=\rho$, and $S$ is called a \hdef{retract} of $G$.
+\end{definition}
+\begin{proposition}
+    The projective groups are the retracts of free groups.
+\end{proposition}
 
 
 \begin{problem}
