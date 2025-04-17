@@ -164,6 +164,8 @@ In the following sections, we shall assume readers are familiar with basic logic
     \end{enumerate} 
     Find the negation of each proposition. 
 \end{problem}
+
+\newpage
 \section{Some Axioms of Sets}
 \par
 In this section, we begin investigating sets, the most basic entities in mathematics. It is natural to ask: What is a set? There is no precise definition of sets. Intuitively, a \hdef{set} is a collection of objects that satisfy some property, and the objects are called \hdef{elements}.
@@ -292,6 +294,12 @@ The definition of ordered pairs can be extended to multiple elements. We call $(
 \begin{proof}
     Let $x\in C\sm(A\cap B)$, then $x\in C$ and $x\notin A\cap B$, that is, $x\notin A$ and $x\notin B$. If $x\notin C\sm A$, then $x\notin A$, so $x\notin B$ and $x\in C\sm B$. Hence $C\sm(A\cap B)\sub(C\sm A)\cup(C\sm B)$. Now let $x\in(C\sm A)\cup(C\sm B)$, then $x\in C$ and $x\notin A$ or $x\notin B$, so $x\notin A\cap B$, that is, $x\in C\sm(A\cap B)$, hence $(C\sm A)\cup(C\sm B)\sub C\sm(A\cap B)$. The proof of the second part is left as an exercise.
 \end{proof}
+\begin{definition}
+    Let $X$ be a set. A \hdef{partition} of $X$ is a set $\{{X}_{i}\}$ of non-empty subsets of $X$ such that every elements $x\in X$ lies in exactly one of there subsets.
+\end{definition}
+\begin{problem}
+    Prove that a partition is a set.
+\end{problem}
 \par
 Some texts assume the existence of an ``universal set'', denoted $U$, which has all objects as elements including itself, so we can define complements of any set $S$ as the set $U\sm S$. However, this assumption leads to a paradox. Consider the set $S$, defined as the set of all sets that are not members of themselves, that is, $S=\{X\mid X\notin X\}$. Does $S$ belong to $S$? This is known as Russell's Paradox. Assume $S\in S$, then by the definition of $S$, $S\in S$ implies $S\notin S$, a contradiction. Assume $S\notin S$, then $S\in S$. This is also a contradiction.
 \begin{definition}
@@ -378,7 +386,7 @@ It suffices to show a binary operation is indeed a set. Let $R$ be a binary oper
     Prove that $=$ is an equivalence relation in $\N$.
 \end{problem}
 \begin{problem}
-    Let $R$ be a binary operation on a set $X$. For all $a,b\in A$, prove that ${S}_{a}\cap{S}_{b}$ is either $\es$ or ${S}_{a}$. Prove that $\Un{S}_{a}=X$, where each pair of ${S}_{a}$ are disjoint.
+    Let $R$ be a binary operation on a set $X$. For all $a,b\in A$, prove that ${S}_{a}\cap{S}_{b}$ is either $\es$ or ${S}_{a}$. Prove that the collection of ${S}_{a}$ forms a partition of $X$.
 \end{problem}
 \begin{definition}
     Let $\le$ be a binary relation on a set $X$. We say $\le$ is a \hdef{partial ordering} if the following conditions hold.
@@ -402,13 +410,13 @@ It suffices to show a binary operation is indeed a set. Let $R$ be a binary oper
     For all elements $a,b,c\in Y$, $a,b,c\in X$, so $Y$ inherits the partial ordering of $X$.
 \end{proof}
 \begin{problem}
-    Let $(X,\le)$ be a partial ordered set, prove that $\le$ is not an equivalence relation.
-\end{problem}
-\begin{problem}
     Let $(X,\le)$ be a linearly ordered set and let $Y\sub X$, prove that $Y$ is linearly ordered.
 \end{problem}
 \begin{problem}
     Let $X$ be a set. If $(\ps(X),\sub)$ is a linearly ordered set, prove that $X$ is either a singleton or the empty set.
+\end{problem}
+\begin{problem}
+    Let $L$ be a partially-ordered set in which the maximum length of a subchain is finite. Then $L$ can be partitioned into $n$ antichains.
 \end{problem}
 \begin{definition}
     Let $(X,\le)$ be a partially ordered set and let $Y\sub X$ be an nonempty subset. An element $a$ is the \hdef{upper bound} of $X$ if for all $x\in X$, $x\le a$. An element $b$ is the \hdef{lower bound} of $X$ if for all $x\in X$, $b\le x$. The least upper bound of $X$ is called the \hdef{supremum} and the greatest lower bound of $X$ is called the \hdef{infimum}.
@@ -431,11 +439,11 @@ The well-ordering theorem is equivalent to the axiom of choice, which will be di
     Consider the statement: let $n\in\N$, show that ${\sum}_{i=0}^{n}=(n(n+1))/2$. If $n=0$, then the equation trivially holds. Assume ${\sum}_{i=0}^{k}=(k(k+1))/2$ holds for some $k\in\N$, then ${\sum}_{i=0}^{k+1}=(k(k+1))/2+(k+1)=((k+1)(k+2))/2$. Hence, by induction, ${\sum}_{i=0}^{n}=(n(n+1))/2$ for all $n\in\N$.
 \end{example}
 \begin{problem}
-    Prove that given a subset $S\sub\N$ of the natural numbers with $0\in S$ and $\{0,1,\dots,n\}\sub S$ implies $n+1\in S$, then $S=\N$. This is known as the \hdef{complete finite induction}.
+    Prove that given a subset $S\sub\N$ of the natural numbers with $0\in S$ and $\{0,1,\dots,n\}\sub S$ implies $n+1\in S$, then $S=\N$. This is known as the \hdef{complete finite induction}. Prove that the complete finite induction implies the finite induction, conclude that they are equivalent.
 \end{problem}
-\begin{problem}
-    Prove that complete finite induction, finite induction, and well-ordering principle are equivalent.
-\end{problem}
+
+
+\newpage
 \section{Functions}
 \begin{definition}
     Let $X$ and $Y$ be sets. A \hdef{function} $f$ is a binary operation $f\sub X\times Y$ such that for all $x\in X$, there exists a unique $y\in Y$ such that $(x,y)\in f$. We say $f$ is a function from $X$ to $Y$, denoted $f:X\to Y$. The set $Y$ is called the \hdef{codomain} of $f$, denoted $\cod(f)$.
@@ -452,6 +460,9 @@ The well-ordering theorem is equivalent to the axiom of choice, which will be di
 \end{example}
 \begin{problem}
     Let $f$ be a function, prove that $\ran(f)\sub\cod(f)$.
+\end{problem}
+\begin{problem}
+    Consider a function $f:\es\to A$, prove that $f=\es$. Prove that such $f$ is unique for every set $A$.
 \end{problem}
 \begin{problem}
     Verify whether the following binary operations are functions.
@@ -645,12 +656,22 @@ Let sets be objects, let functions be morphisms, and let the composition of morp
 \begin{definition}
     Let $\cft{C}$ be a category. A morphism $f:A\to B$ is a \hdef{monomorphism} if for all $g,h:C\to A$, $f\comp g=g\comp h$ implies $g=h$. A morphism $f:A\to B$ is called an \hdef{epimorphism} if for all $i,j:B\to D$, $i\comp f=j\comp f$ implies $i=j$.
 \end{definition}
+\begin{proposition}
+    A function is injective if and only if it is a monomorphism in $\cft{Set}$.
+\end{proposition}
+\begin{proof}
+    $(\Ra)$ Let $f:A\to B$ be injective. If $A=\es$, then $f$ is the unique empty function. If $A\ne\es$, let $g:B\to A$ be the left inverse of $f$, 
+    $(\La)$ Let $f:A\to B$ be a monomorphism. If $A=\es$, then $f:\es\to B$ is vacuously injective. If $A\ne\es$, 
+\end{proof}
 \begin{problem}
-    Prove that an injective function is a monomorphism in $\cft{Set}$. Prove that a surjective function is an epimorphism in $\cft{Set}$.
+    Prove that a function is surjective if and only if it is an epimorphism in $\cft{Set}$.
 \end{problem}
 \begin{definition}
     Let $\cft{C}$ be a category. A morphism $f:A\to B$ is an \hdef{isomorphism} if there exists $g\in{\Hom}_{\cft{C}}(B,A)$ such that $f\comp g={\id}_{B}$ and $g\comp f={\id}_{A}$. If there exists a morphism between two objects $A$ and $B$, then we say they are \hdef{isomorphic}, denoted $A\iso B$.
 \end{definition}
+\begin{problem}
+    Prove that a morphism is an isomorphism if and only if it is a monomorphism and an epimorphism.
+\end{problem}
 \begin{problem}
     Let $A$ and $B$ be well-ordered sets that are isomorphic to each other. Prove that the isomorphism between them is unique.
 \end{problem}
@@ -661,17 +682,17 @@ Let sets be objects, let functions be morphisms, and let the composition of morp
     Initial objects of a category $\cft{C}$ are unique up to isomorphism.
 \end{proposition}
 \begin{proof}
-    Let $0$ and ${0}^{\'}$ be initial objects in some category $\cft{C}$. Let $\vp:0\to{0}^{\'}$ and $\psi:{0}^{\'}\to 0$. Since the diagram is commutative, we have $\vp\comp\psi\comp\vp=\vp\comp{\id}_{0}$, hence $\vp$ is an isomorphism. 
+    Let $0$ and $0'$ be initial objects in some category $\cft{C}$. Let $\vp:0\to 0'$ and $\psi:0'\to 0$. Since the diagram is commutative, we have $\vp\comp\psi\comp\vp=\vp\comp{\id}_{0}$, hence $\vp$ is an isomorphism. 
 \end{proof}
 \begin{center}
     \begin{tikzcd}
-        0 && {{0}^{\'}} \\
+        0 && {0'} \\
         \\
-        && 0 && {{0}^{\'}}
+        && 0 && {0'}
         \arrow["\vp", from=1-1, to=1-3]
         \arrow["{\id}_{0}"', from=1-1, to=3-3]
         \arrow["\psi", from=1-3, to=3-3]
-        \arrow["{\id}_{{0}^{\'}}", from=1-3, to=3-5]
+        \arrow["{\id}_{0'}", from=1-3, to=3-5]
         \arrow["\vp", from=3-3, to=3-5]
     \end{tikzcd}
 \end{center}
@@ -828,6 +849,9 @@ This completes our proof of the universal property for quotient sets.
 \begin{problem}
     Describe the product and coproduct in $\cop{Set}$. 
 \end{problem}
+
+
+\newpage
 \section{Integers and Cardinality}
 \begin{theorem}[recursion]\index{recursion}
     Given a set $X$ and $x\in X$. Let $f:X\to X$ be a function, then there exists a unique function $F:\N\to X$ such that $F(0)=x$ and $F({n}^{+})=f(F(n))$ for all $n\in\N$.
@@ -845,13 +869,12 @@ This completes our proof of the universal property for quotient sets.
     It is trivial that $n+0=n$. Let $n=0$, then $0+0=0$. Suppose $0+k=k$ for some $k\in\N$, then $0+({k}^{+})={(0+k)}^{+}={k}^{+}$. Hence, by induction, $n+0=n=0+n$.
 \end{proof}
 \begin{problem}
-    Prove that $n+1={n}^{+}$ for all $n\in\N$.
-\end{problem}
-\begin{problem}
-    Prove that $m+n=n+m$ for all $m,n\in\N$.
-\end{problem}
-\begin{problem}
-    Prove that $a+(b+c)=(a+b)+c$ for all $a,b,c\in\N$.
+    Prove that the following properties hold.
+    \begin{enumerate}
+        \item $n+1={n}^{+}$ for all $n\in\N$.
+        \item $m+n=n+m$ for all $m,n\in\N$.
+        \item $a+(b+c)=(a+b)+c$ for all $a,b,c\in\N$.
+    \end{enumerate}
 \end{problem}
 \begin{problem}
     Consider a relation ${\sim}_{\N+}\sub\N\times\N$ defined by $(a,b)\sim(c,d)$ if and only if $a+d=b+c$. Prove that ${\sim}_{\N+}$ is an equivalence relation.
@@ -871,7 +894,7 @@ Let $n\in\Z$, the inverse of $n$ is denoted by $-n$.
     The addition on $\Z$ is well-defined.
 \end{proposition}
 \begin{proof}
-    Suppose $(a,b)\sim({a}^{\'},{b}^{\'})$ and $(c,d)\sim({c}^{\'},{d}^{\'})$, then $a+{b}^{\'}=b+{a}^{\'}$ and $c+{d}^{\'}=d+{c}^{\'}$. We have $(a+c)+({b}^{\'}+{d}^{\'})=a+{b}^{\'}+c+{d}^{\'}=b+{a}^{\'}+d+{c}^{\'}=(b+d)+({a}^{\'}+{c}^{\'})$, hence $(a+c,b+d)\sim({a}^{\'}+{c}^{\'},{b}^{\'}+{d}^{\'})$.
+    Suppose $(a,b)\sim(a',b')$ and $(c,d)\sim(c',d')$, then $a+b'=b+a'$ and $c+d'=d+c'$. We have $(a+c)+(b'+d')=a+b'+c+d'=b+a'+d+c'=(b+d)+(a'+c')$, hence $(a+c,b+d)\sim(a'+c',b'+d')$.
 \end{proof}
 \begin{definition}
     Let $[(a,b)],[(c,d)]\in\Z$, the \hdef{multiplication} on $\Z$ is defined to be $[(a,b)]\cdot[(c,d)]=[(ac+bd,ad+bc)]$.
@@ -931,9 +954,10 @@ Recall that we have defined $\le$ on $\N$ by the natural inclusion, that is, for
     \end{enumerate}
 \end{problem}
 % some card shit
-\begin{definition}
-    A infinite set $A$ is \hdef{countable} if there exists $f:\N\to A$ bijective. An infinite set that is not countable is called an uncountable set.
-\end{definition}
+
+
+
+
 
 
 \newpage
@@ -1125,7 +1149,7 @@ For all $g\in G$, where $G$ is a group, the inverse of $g$ is denoted by $\inv{g
     Let $M$ be a monoid. For all $\al\in M$, let ${\al}_{l}(\al)=\al x$ for all $x\in M$, then ${\al}_{l}$ maps $M$ to itself. Consider $S=\{{\al}_{l}\mid\al\in M\}$, which is a subset of $M(S)$. The identity map ${\al}_{e}\in S$. For all $\al,\be\in M$, ${\al}_{l}({\be}_{l}(x))={\al}_{l}(\be x)=\al\be x=(\al\be)x={(\al\be)}_{l}(x)$, so $S$ is a submonoid of $M(S)$. Consider the map $\vp(\al)={\al}_{l}$. For all $\al,\be\in M$, $\vp(\al)\vp(\be)={\al}_{l}{\be}_{l}={(\al\be)}_{l}=\vp(\al\be)$. The map is trivially surjective. Let $\vp(\al)=\vp(\be)$, then ${\al}_{l}={\be}_{l}$, that is, $\al x=\be x$. Consider $x=1$, then $\al=\be$, hence $\vp$ is an isomorphism. Now consider a group $G$ and construct the same set $S$. For all ${\al}_{l}$, the inverse is ${(\inv{\al})}_{l}$. We have ${\al}_{l}{(\inv{\al})}_{l}(x)={\al}_{l}(\inv{\al}x)=x$ and ${(\inv{\al})}_{l}{\al}_{l}(x)={(\inv{\al})}_{l}(\al x)=x$, hence $S$ is a subgroup of some symmetric group. Construct the same $\vp$, then $S$ is isomorphic to $G$.
 \end{proof}
 \begin{definition}
-    Let $H\le G$ be a subgroup. We say $H$ is a \hdef{normal subgroup} of $G$, denoted $H\nsg G$, if $xH=Hx$ for all $x\in G$. A non-trivial group $G$ is said to be \hdef{simple} if the only subgroups of $G$ are $G$ and the trivial subgroup.
+    Let $H\le G$ be a subgroup. We say $H$ is a \hdef{normal subgroup} of $G$, denoted $H\nsg G$, if $xH=Hx$ for all $x\in G$. A non-trivial group $G$ is said to be \hdef{simple} if the only normal subgroups of $G$ are $G$ and the trivial subgroup.
 \end{definition}
 \begin{problem}
     Prove that $H\nsg G$ if and only if $gH\inv{g}=H$ for all $g\in G$.
@@ -1222,7 +1246,6 @@ For all $g\in G$, where $G$ is a group, the inverse of $g$ is denoted by $\inv{g
 
 \newpage
 \section{Real Numbers}
-
 
 
 
