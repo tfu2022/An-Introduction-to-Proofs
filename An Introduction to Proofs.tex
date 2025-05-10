@@ -609,11 +609,33 @@ Consider a diagram, where every vertex is an object and every arrow preserves th
     Prove that a function has a left inverse if and only if it is injective. Prove that a function has a right inverse if and only if it is surjective, conclude that a function is bijective if and only if it has an inverse.
 \end{problem}
 \begin{definition}
-    A \hdef{category} $\cft{C}$ consists of
+    Let $\sim$ be an equivalence relation on a set $X$. The \hdef{quotient set}, denoted ${X}_{\sim}$, is the set $\{[x]\mid x\in X\}$.
+\end{definition}
+\begin{example}
+    Let $S=\{a,b,c,d\}$. Let $\sim$ be an equivalence relation on $S$ such that $a\sim b$ and $c\sim d$. The quotient set ${S}_{\sim}$ is $\{a,c\}$.
+\end{example}
+\begin{problem}
+    Consider the set of all integers $\Z$. Fix $n\in\Z$, Let ${\sim}_{n}$ be an equivalence relation on $\Z$ such that $a{\sim}_{n}b$ if and only if $a-b=kn$ for some $k\in\Z$. Prove that ${\sim}_{n}$ is indeed an equivalence relation. Find the quotient set ${\Z}_{{\sim}_{2}}$. Find the quotient set ${\Z}_{{\sim}_{n}}$ for all $n$.
+\end{problem}
+\begin{definition}
+    Let $X$ and $Y$ be sets. Let $\sim$ be an equivalence relation on $X$. A function $f:X\to Y$ is \hdef{invariant} under the equivalence relation such that, $x\sim y$ if and only if $f(x)=f(y)$.
+\end{definition}
+\begin{problem}
+    Let $X$ be a set and let $\sim$ be an equivalence relation on $X$. Prove that $\pi:X\to{X}_{\sim}$ defined by $x\mt[x]$ is a well-defined surjective function. Prove it is invariant under $\sim$.
+\end{problem}
+\begin{proposition}
+    Let $f:X\to Y$ be a function, then $f$ is an invariant fuction under some equivalence relation on $X$.
+\end{proposition}
+\begin{proof}
+    Define $\sim$ on $X$ by $x\sim y$, where $x,y\in X$, if and only if $f(x)\sim f(y)$. For all $x=y$, $f(x)=f(y)$. For all $x=y=z$, $f(x)=f(y)=f(z)$. Hence $\sim$ is a well-defined equivalence relation on $X$, and $f$ is trivially invariant under $\sim$.
+\end{proof}
+\section{Functions as Morphisms}
+\begin{definition}
+    A \hdef{category} $\cft{C}$ consists of:
     \begin{enumerate}
         \item a collection, denoted $\Ob(\cft{C})$, of \hdef{objects};
         \item for each pair of objects $X$ and $Y$, there exists a collection of \hdef{morphisms} $f:X\to Y$, where $X$ is called the \hdef{domain} and $Y$ is called the \hdef{codomain};
-        \item a \hdef{composition operation}, which gives, for each pair of morphisms $f:X\to Y$ and $g:Y\to Z$, a morphism $g\comp f:X\to Z$.
+        \item a \hdef{composition operation}, which gives, for each pair of morphisms $f:X\to Y$ and $g:Y\to Z$, a morphism $g\comp f:X\to Z$,
     \end{enumerate}
     such that
     \begin{enumerate}
@@ -697,27 +719,6 @@ Let sets be objects, let functions be morphisms, and let the composition of morp
 \begin{problem}
     Prove that $\es$ is the initial object in $\cft{Set}$. Prove that any singleton is a terminal object in $\cft{Set}$.
 \end{problem}
-\begin{definition}
-    Let $\sim$ be an equivalence relation on a set $X$. The \hdef{quotient set}, denoted ${X}_{\sim}$, is the set $\{[x]\mid x\in X\}$.
-\end{definition}
-\begin{example}
-    Let $S=\{a,b,c,d\}$. Let $\sim$ be an equivalence relation on $S$ such that $a\sim b$ and $c\sim d$. The quotient set ${S}_{\sim}$ is $\{a,c\}$.
-\end{example}
-\begin{problem}
-    Consider the set of all integers $\Z$. Fix $n\in\Z$, Let ${\sim}_{n}$ be an equivalence relation on $\Z$ such that $a{\sim}_{n}b$ if and only if $a-b=kn$ for some $k\in\Z$. Prove that ${\sim}_{n}$ is indeed an equivalence relation. Find the quotient set ${\Z}_{{\sim}_{2}}$. Find the quotient set ${\Z}_{{\sim}_{n}}$ for all $n$.
-\end{problem}
-\begin{definition}
-    Let $X$ and $Y$ be sets. Let $\sim$ be an equivalence relation on $X$. A function $f:X\to Y$ is \hdef{invariant} under the equivalence relation such that, $x\sim y$ if and only if $f(x)=f(y)$.
-\end{definition}
-\begin{problem}
-    Let $X$ be a set and let $\sim$ be an equivalence relation on $X$. Prove that $\pi:X\to{X}_{\sim}$ defined by $x\mt[x]$ is a well-defined surjective function. Prove it is invariant under $\sim$.
-\end{problem}
-\begin{proposition}
-    Let $f:X\to Y$ be a function, then $f$ is an invariant fuction under some equivalence relation on $X$.
-\end{proposition}
-\begin{proof}
-    Define $\sim$ on $X$ by $x\sim y$, where $x,y\in X$, if and only if $f(x)\sim f(y)$. For all $x=y$, $f(x)=f(y)$. For all $x=y=z$, $f(x)=f(y)=f(z)$. Hence $\sim$ is a well-defined equivalence relation on $X$, and $f$ is trivially invariant under $\sim$.
-\end{proof}
 \customtheorem{Universal property for quotient sets}
 \begin{Universal property for quotient sets}\index{quotient set}
     Let $X$ and $Y$ be sets. Let $\sim$ be an equivalence relation on $X$ and let $f:X\to Y$ be invariant under the equivalence relation. Then there exists a unique function $\wb{f}:{X}_{\sim}\to Y$ such that $f=\wb{f}\comp\pi$.
@@ -844,9 +845,6 @@ This completes our proof of the universal property for quotient sets.
 \begin{problem}
     Describe the product and coproduct in $\cop{Set}$. 
 \end{problem}
-
-
-\newpage
 \section{Integers and Cardinality}
 \begin{theorem}[recursion]\index{recursion}
     Given a set $X$ and $x\in X$. Let $f:X\to X$ be a function, then there exists a unique function $F:\N\to X$ such that $F(0)=x$ and $F({n}^{+})=f(F(n))$ for all $n\in\N$.
@@ -883,7 +881,7 @@ This completes our proof of the universal property for quotient sets.
 \par
 Let $n\in\Z$, the inverse of $n$ is denoted by $-n$.
 \begin{definition}
-    Let $[(a,b)],[(c,d)]\in\Z$, the \hdef{addition} on $\Z$ is defined to be $[(a,b)]+[(c,d)]=[(a+c,b+d)]$.
+    Let $[(a,b)],[(c,d)]\in\Z$. The \hdef{addition} on $\Z$ is defined to be $[(a,b)]+[(c,d)]=[(a+c,b+d)]$.
 \end{definition}
 \begin{proposition}
     The addition on $\Z$ is well-defined.
@@ -948,13 +946,48 @@ Recall that we have defined $\le$ on $\N$ by the natural inclusion, that is, for
         \item If $0<a<b$, then $0<\inv{b}<\inv{a}$.
     \end{enumerate}
 \end{problem}
-% some card shit
+\par
+Now we consider the cardinality of infinite sets. We have constructed $\Z$ and $\Q$ based on $\N$, and all of those sets are considered to have the same cardinality.
+\begin{definition}
+    A set $S$ is said to be \hdef{countable} if $S$ is finite or $S{\iso}_{\cat{Set}}\N$. If a set is not countable, then we say the set is \hdef{uncountable}.
+\end{definition}
+\par
+The function ${\id}_{\N}:\N\to\N$ is trivially bijective, so $\N$ is countable.
+\begin{proposition}
+    Let $X$ and $Y$ be sets. If there exists a function $f:X\to Y$ that is injective, then $\card{X}\le\card{Y}$.
+\end{proposition}
+\begin{proposition}
+    Let $X$ and $Y$ be sets. Then the following properties hold. \\
+    a). Let $X$ be a finite set, $x\notin X$ an element, then $X\cup\{x\}$ is finite and $| X\cup\{x\}| = |X|+1$\\
+    b). Let $X$ be a finite set, $Y\subseteq X$, then $Y$ is finite and $|Y|\leq|X|$\\
+    c). Let $X$ be a finite set, $f:X\to Y$ a function, then $f(X)$ is finite and $|f(X)|\leq|X|$\\
+    d). Let $X, Y$ be finite sets, then $X\cup Y$ is finite and $|X\cup Y|\leq |X|+|Y|$\\
+    e). Let $X, Y$ be finite sets, then their Cartesian product $X\times Y$ is finite and $|X\times Y|=|X|\cdot|Y|$\\
+    f). Let $X, Y$ be finite sets, then $Y^X$ is finite and $|Y^X|=|Y|^{|X|}$\\
+\end{proposition}
+\begin{proof}
+    select some proofs here, maybe 2 or 3 
+\end{proof}
+\begin{proposition} 
+    The set $\Z$ and $\Q$ are countable.
+\end{proposition}
+\begin{proof}
+    Since $\N$ is countable, $\N\times\N$ is countable. The natural projection $\N\times\N\to\Z$ is surjective. 
+\end{proof}
+
+%%%% it's better to introduce Cantor's theorem
+%\customtheorem{Cantor's Theorem}
+%\begin{Cantor's Theorem}
+%    Let $S$ be arbitrary set (finite or infinite), the the sets $S$ and $2^S$ cannot have equal cardinality.
+%\end{Cantor's Theorem}
+%\begin{proof}
+    Suppose for the sake of contradiction $|S|=|2^S|$ so there exists a bijection $f:S\to 2^S$. Now consider set $A:=\{x\in S \mid x\notin f(x)\}$. Note the set is well-defined since $f(x)\in 2^S\subseteq S$. Since $f$ is a bijiection, there must exists a $x\in S$ s.t. $f(x)=A$. Here are the two cases: if $x\in A$ then by definition $x\notin f(x) \implies x\notin A$; if $x\notin A$ then $x\notin f(x)$ and by definition $x\in A$, where both cases form a contradiction.
+%\end{proof}
 
 
 
 
-
-
+%%%%%%%%%%%%%%%%%%%
 \newpage
 \begin{definition}
     A set $S$ is said to be \hdef{transitive} if for all $s\in S$, $s\sub S$. A set is an \hdef{ordinal} if it is transitive and well-ordered by $\in$.
@@ -1245,12 +1278,10 @@ Know some new groups are important!
 \end{problem}
 
 
-
 \newpage
 \section{Real Numbers}
-
-
-
+\section{General Topology}
+\section{Functors and Yoneda Lemma}
 
 
 
