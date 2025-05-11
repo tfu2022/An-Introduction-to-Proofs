@@ -168,7 +168,7 @@ In the following sections, we shall assume readers are familiar with basic logic
 \par
 In this section, we begin investigating sets, the most basic entities in mathematics. It is natural to ask: What is a set? There is no precise definition of sets. Intuitively, a \hdef{set} is a collection of objects that satisfy some property, and the objects are called \hdef{elements}.
 \begin{remark}
-    This note is based on the ZFC set theory. In this system, every object is a set and we allow sets of sets. From now on, assume that there exists a set.
+    This note is based on the ZFC set theory. In this system, every object is a set, so there are sets of sets. From now on, assume that there exists a set.
 \end{remark}
 \par
 If $S$ is a set and $x$ is an element in $S$, then we say $x$ belongs to $S$, denoted $x\in S$. If $x$ does not belong to $S$, then we write $x\notin S$. If $S$ has no element, then we call it an \hdef{empty set}, denoted $\es$.
@@ -693,7 +693,7 @@ Let sets be objects, let functions be morphisms, and let the composition of morp
     Let $A$ and $B$ be well-ordered sets that are isomorphic to each other. Prove that the isomorphism between them is unique.
 \end{problem}
 \begin{definition}
-    An \hdef{initial object} $0$ of a category $\cft{C}$ is an object in $\cft{C}$ such that for any object $A$, there is a unique morphism $0\to A$. A \hdef{terminal object} $1$ of a category $\cft{C}$ is an object of $\cft{C}$ such that for any object $B$, there is a unique morphism $A\to 1$.
+    An \hdef{initial object} $0$ of a category $\cft{C}$ is an object in $\cft{C}$ such that for any object $A$, there is a unique morphism $0\to A$. A \hdef{terminal object} $1$ of a category $\cft{C}$ is an object of $\cft{C}$ such that for any object $B$, there is a unique morphism $A\to 1$. We say an object is a \hdef{zero object} if it is both an initial object and a terminal object.
 \end{definition}
 \begin{proposition}
     Initial objects of a category $\cft{C}$ are unique up to isomorphism.
@@ -717,7 +717,7 @@ Let sets be objects, let functions be morphisms, and let the composition of morp
     Prove that the initial object in a category $\cft{C}$ is a terminal object in $\cop{C}$, conclude that terminal objects in $\cft{C}$ are unique up to isomorphism.
 \end{problem}
 \begin{problem}
-    Prove that $\es$ is the initial object in $\cft{Set}$. Prove that any singleton is a terminal object in $\cft{Set}$.
+    Prove that $\es$ is the initial object in $\cft{Set}$. Prove that any singleton is a terminal object in $\cft{Set}$. Hence the zero object does not exist in $\cat{Set}$.
 \end{problem}
 \customtheorem{Universal property for quotient sets}
 \begin{Universal property for quotient sets}\index{quotient set}
@@ -969,17 +969,17 @@ The function ${\id}_{\N}:\N\to\N$ is trivially bijective, so $\N$ is countable.
     select some proofs here, maybe 2 or 3 
 \end{proof}
 \begin{proposition} 
-    The set $\Z$ and $\Q$ are countable.
+    The sets $\Z$ and $\Q$ are countable.
 \end{proposition}
 \begin{proof}
-    Since $\N$ is countable, $\N\times\N$ is countable. The natural projection $\N\times\N\to\Z$ is surjective. 
+    Since $\N$ is countable, $\N\times\N$ is countable. The natural projection $\N\times\N\to\Z$ is surjective, so $\Z$ is countable. Similarly, $\Q$ is countable.
 \end{proof}
-
-%%%% it's better to introduce Cantor's theorem
-%\customtheorem{Cantor's Theorem}
-%\begin{Cantor's Theorem}
-%    Let $S$ be arbitrary set (finite or infinite), the the sets $S$ and $2^S$ cannot have equal cardinality.
-%\end{Cantor's Theorem}
+\begin{theorem}[Cantor's theorem]\index{Cantor's theorem}
+    Let $S$ be a set. Then any function $f:S\to\ps(S)$ is not bijective.
+\end{theorem}
+\begin{proof}
+    
+\end{proof}
 %\begin{proof}
     Suppose for the sake of contradiction $|S|=|2^S|$ so there exists a bijection $f:S\to 2^S$. Now consider set $A:=\{x\in S \mid x\notin f(x)\}$. Note the set is well-defined since $f(x)\in 2^S\subseteq S$. Since $f$ is a bijiection, there must exists a $x\in S$ s.t. $f(x)=A$. Here are the two cases: if $x\in A$ then by definition $x\notin f(x) \implies x\notin A$; if $x\notin A$ then $x\notin f(x)$ and by definition $x\in A$, where both cases form a contradiction.
 %\end{proof}
