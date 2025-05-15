@@ -9,15 +9,18 @@
 \htoc
 \hmain
 \section*{Introduction}
-In higher-level mathematics, students need a certain level of ``mathematical maturity'' to understand and apply abstract ideas. However, there is no clear way to measure this maturity, nor a definitive method to teach someone how to write a proof. This note is intended to be a transition from high/middle school math to proof-based formal mathematics.
+In higher-level mathematics, students need a certain level of ``mathematical maturity'' to understand and apply abstract ideas. However, there is no clear way to measure this maturity, nor a definitive method to teach someone how to write a proof. This note is intended to be a transition from high school math to proof-based formal mathematics.
 \par
-You may notice that we use different names for the same object—a common practice in mathematics. For example, the set of all real numbers $\R$ can be viewed as a set, a group, a ring, a field, a topological space, a metric space $\dots$ (hopefully you will learn every term here in this note) Each term highlights a particular aspect of the same structure. As Poincaré famously said, ``Mathematics is the art of giving the same name to different things.''
+The first four sections are the solid prerequisites for any kind of mathematics. Sections 6 to 10 are selected topics that help students to prepare for advaneced math courses. There are mainly four parts: linear algebra, abstract algebra, real analysis, and general topology. For linear algebra, please read section 6. For abstract algebra, we recommend the readers to check section 6 and 7. For real analysis, we will use some basic ring theory to construct $\R$, so please check section 8 and 9. For general topology, please read section 6 and 10. Those parts are designed to be independent of each other.
+\par
+You may notice that we use different names for the same object—a common practice in mathematics. For example, the set of all real numbers $\R$ can be viewed as a set, a group, a ring, a field, a topological space, a metric space $\dots$ (hopefully you will learn every term in this note) Each term highlights a particular aspect of the same structure. Math is one! As Poincaré famously said, ``Mathematics is the art of giving the same name to different things.''
 \par
 Many people have contributed to this note.
 \par
 Finally, think deeper and enjoy mathematics!
+\newpage
 \section{Basic Logic}
-Logic is the formal framework and rules of inference that ensure the validity and coherence of arguments in math. 
+Logic is the formal framework and rules of inference that ensure the validity and coherence of arguments in math.
 \begin{remark}
     We shall accept that sentences can be either true or false. Moreover, we assume that every English sentence can be stated in symbolic logic form.
 \end{remark} 
@@ -166,6 +169,7 @@ In the following sections, we shall assume readers are familiar with basic logic
     \end{enumerate} 
     Find the negation of each proposition. 
 \end{problem}
+\newpage
 \section{Some Axioms of Sets}
 \par
 In this section, we begin investigating sets, the most basic entities in mathematics. It is natural to ask: What is a set? There is no precise definition of sets. Intuitively, a \hdef{set} is a collection of objects that satisfy some property, and the objects are called \hdef{elements}.
@@ -415,9 +419,6 @@ It suffices to show a binary operation is indeed a set. Let $R$ be a binary oper
 \begin{problem}
     Let $X$ be a set. If $(\ps(X),\sub)$ is a linearly ordered set, prove that $X$ is either a singleton or the empty set.
 \end{problem}
-\begin{problem}
-    Let $L$ be a partially-ordered set in which the maximum length of a subchain is finite. Then $L$ can be partitioned into $n$ antichains.
-\end{problem}
 \begin{definition}
     Let $(X,\le)$ be a partially ordered set and let $Y\sub X$ be an nonempty subset. An element $a$ is the \hdef{upper bound} of $X$ if for all $x\in X$, $x\le a$. An element $b$ is the \hdef{lower bound} of $X$ if for all $x\in X$, $b\le x$. The least upper bound of $X$ is called the \hdef{supremum} and the greatest lower bound of $X$ is called the \hdef{infimum}.
 \end{definition}
@@ -441,10 +442,15 @@ The well-ordering theorem is equivalent to the axiom of choice, which will be di
 \begin{problem}
     Prove that given a subset $S\sub\N$ of the natural numbers with $0\in S$ and $\{0,1,\dots,n\}\sub S$ implies $n+1\in S$, then $S=\N$. This is known as the \hdef{complete finite induction}. Prove that the complete finite induction implies the finite induction, conclude that they are equivalent.
 \end{problem}
+\newpage
 \section{Functions}
+We have shown some properties in sets and how they could ``combine'' to form new sets. However, it is not clear 
 \begin{definition}
     Let $X$ and $Y$ be sets. A \hdef{function} $f$ is a binary operation $f\sub X\times Y$ such that for all $x\in X$, there exists a unique $y\in Y$ such that $(x,y)\in f$. We say $f$ is a function from $X$ to $Y$, denoted $f:X\to Y$. The set $Y$ is called the \hdef{codomain} of $f$, denoted $\cod(f)$.
 \end{definition}
+\begin{problem}
+    Given two sets $A$ and $B$, prove that the collection of functions from $A$ to $B$ is a subset of $\ps(A\times B)$, hence it is a set.
+\end{problem}
 \begin{definition}
     Let $f:X\to Y$ be a function, the \hdef{image} of $X$ under $f$, denoted $\im(f)$, is the range of $f$. For all $(x,y)\in f$, we write $f(x)=y$. The \hdef{preimage} of $Y$ under $f$, denoted $\inv{f}(Y)$, is the set $\{x\mid x\in X\ \text{and}\ f(x)\in Y\}$. Two functions $f$ and $g$ are the same if $\dom(f)=\dom(g)$, $\cod(f)=\cod(g)$, and for all $x\in\dom(f)$, $f(x)=g(x)$.
 \end{definition}
@@ -631,224 +637,81 @@ Consider a diagram, where every vertex is an object and every arrow preserves th
 \begin{proof}
     Define $\sim$ on $X$ by $x\sim y$, where $x,y\in X$, if and only if $f(x)\sim f(y)$. For all $x=y$, $f(x)=f(y)$. For all $x=y=z$, $f(x)=f(y)=f(z)$. Hence $\sim$ is a well-defined equivalence relation on $X$, and $f$ is trivially invariant under $\sim$.
 \end{proof}
-\section{Functions as Morphisms}
-Functions are the bridges to ``connect'' sets. According to the definition, a function takes a set to another while preserving the structure of sets. This property allows us to consider functions as morphisms between sets.
 \begin{definition}
-    A \hdef{category} $\cft{C}$ consists of:
-    \begin{enumerate}
-        \item a collection, denoted $\Ob(\cft{C})$, of \hdef{objects};
-        \item for each pair of objects $X$ and $Y$, there exists a collection of \hdef{morphisms} $f:X\to Y$, where $X$ is called the \hdef{domain} and $Y$ is called the \hdef{codomain};
-        \item a \hdef{composition operation}, which gives, for each pair of morphisms $f:X\to Y$ and $g:Y\to Z$, a morphism $g\comp f:X\to Z$,
-    \end{enumerate}
-    such that
-    \begin{enumerate}
-        \item given any $f:X\to Y$, $g:Y\to Z$, and $h:Z\to W$, we have the identity $(h\comp g)\comp f=h\comp(g\comp f)$;
-        \item for each object $X$, there exists an \hdef{identity morphism} ${\id}_{X}:X\to X$ with the property that $f\comp{\id}_{X}=f$ and ${\id}_{X}\comp g=g$ for any $f:X\to Y$ and $g:Z\to X$.
-    \end{enumerate}
-    The collection of morphisms from $X$ to $Y$ is denoted by ${\Hom}_{\cft{C}}(X,Y)$.
+    A set $S$ is said to be \hdef{transitive} if for all $s\in S$, $s\sub S$. A set is an \hdef{ordinal} if it is transitive and well-ordered by $\in$.
 \end{definition}
-\par
-Let sets be objects, let functions be morphisms, and let the composition of morphisms be the composition of functions. By our previous observations, it suffices to check this defines a category of sets, denoted $\cft{Set}$.
 \begin{example}
-    Let $X$ be a set, then ${\Hom}_{\cft{Set}}(X,X)$ is a category.
-\end{example}
-\begin{example}
-    In the following diagram, let each vertex be an object and let each arrow be a morphism. This defines a category.
-    \begin{center}
-        \begin{tikzcd}
-            \bullet && \bullet
-            \arrow[from=1-1, to=1-1, loop, in=145, out=215, distance=10mm]
-            \arrow[shift left, from=1-1, to=1-3]
-            \arrow[shift left, from=1-3, to=1-1]
-            \arrow[shift right, from=1-3, to=1-3, loop, in=35, out=325, distance=10mm]
-        \end{tikzcd}
-    \end{center}
+    The set $0\in\N$ is an ordinal.
 \end{example}
 \begin{problem}
-    Morphisms are not guaranteed to be functions. Let $(S,\le)$ be a partially ordered set. Let $\Ob(\cft{C})=S$ and $x\to y$ be a morphism if $x\le y$. Prove that $\cft{C}$ is a category.
+    Prove that if a set $S$ is transitive, then $\ps(S)$ is also transitive.
 \end{problem}
 \begin{problem}
-    Let $\cft{C}$ be a category. Let a system $\cop{C}$ consists of all objects in $\cft{C}$ and all morphisms $f:A\to B$ if $B\to A$ is a morphism in $\cft{C}$. Prove that $\cop{C}$ is indeed a category. This is called the \hdef{dual category} of $\cft{C}$.
-\end{problem}
-\begin{problem}
-    Prove that the identity morphism is unique for each object $A$ in a category $\cft{C}$.
+    Prove that the set of natural numbers $\N$ is an ordinal.
 \end{problem}
 \begin{definition}
-    Let $\cft{C}$ be a category. A morphism $f:A\to B$ is a \hdef{monomorphism} if for all $g,h:C\to A$, $f\comp g=g\comp h$ implies $g=h$. A morphism $f:A\to B$ is called an \hdef{epimorphism} if for all $i,j:B\to D$, $i\comp f=j\comp f$ implies $i=j$.
+    If $\vp(x,{p}_{1},{p}_{2},\dots)$ is some formula, then we say $C=\{x\mid\vp\}$ is a \hdef{class}, that is, $x$ is a member of $C$ if and only if $x$ satisfies $\vp$.
 \end{definition}
-\begin{proposition}
-    A function is injective if and only if it is a monomorphism in $\cft{Set}$.
-\end{proposition}
-\begin{proof}
-    $(\Ra)$ Let $f:A\to B$ be injective. If $A=\es$, then $f$ is the unique empty function. If $A\ne\es$, let $g:B\to A$ be the left inverse of $f$, 
-    $(\La)$ Let $f:A\to B$ be a monomorphism. If $A=\es$, then $f:\es\to B$ is vacuously injective. If $A\ne\es$, 
-\end{proof}
+\begin{example}
+    The collection of all sets is a class.
+\end{example}
 \begin{problem}
-    Prove that a function is surjective if and only if it is an epimorphism in $\cft{Set}$.
+    Prove that every set is a class.
 \end{problem}
-\begin{definition}
-    Let $\cft{C}$ be a category. A morphism $f:A\to B$ is an \hdef{isomorphism} if there exists $g\in{\Hom}_{\cft{C}}(B,A)$ such that $f\comp g={\id}_{B}$ and $g\comp f={\id}_{A}$. If there exists a morphism between two objects $A$ and $B$, then we say they are \hdef{isomorphic}, denoted $A\iso B$.
-\end{definition}
+\customtheorem{Axiom schema of replacement}
+\begin{Axiom schema of replacement}\index{Axiom schema of replacement}
+    If a class $F$ is a funciton, then for all $X$, there exists a set $Y=F(X)=\{F(x)\mid x\in X\}$.
+\end{Axiom schema of replacement}
 \begin{problem}
-    Prove that a morphism is an isomorphism if and only if it is a monomorphism and an epimorphism.
+    Prove that axiom schema of replacement implies axiom schema of separation.
 \end{problem}
-\begin{problem}
-    Let $A$ and $B$ be well-ordered sets that are isomorphic to each other. Prove that the isomorphism between them is unique.
-\end{problem}
-\begin{definition}
-    An \hdef{initial object} $0$ of a category $\cft{C}$ is an object in $\cft{C}$ such that for any object $A$, there is a unique morphism $0\to A$. A \hdef{terminal object} $1$ of a category $\cft{C}$ is an object of $\cft{C}$ such that for any object $B$, there is a unique morphism $A\to 1$. We say an object is a \hdef{zero object} if it is both an initial object and a terminal object.
-\end{definition}
-\begin{proposition}
-    Initial objects of a category $\cft{C}$ are unique up to isomorphism.
-\end{proposition}
-\begin{proof}
-    Let $0$ and $0'$ be initial objects in some category $\cft{C}$. Let $\vp:0\to 0'$ and $\psi:0'\to 0$. Since the diagram is commutative, we have $\vp\comp\psi\comp\vp=\vp\comp{\id}_{0}$, hence $\vp$ is an isomorphism. 
-\end{proof}
-\begin{center}
-    \begin{tikzcd}
-        0 && {0'} \\
-        \\
-        && 0 && {0'}
-        \arrow["\vp", from=1-1, to=1-3]
-        \arrow["{\id}_{0}"', from=1-1, to=3-3]
-        \arrow["\psi", from=1-3, to=3-3]
-        \arrow["{\id}_{0'}", from=1-3, to=3-5]
-        \arrow["\vp", from=3-3, to=3-5]
-    \end{tikzcd}
-\end{center}
-\begin{problem}
-    Prove that the initial object in a category $\cft{C}$ is a terminal object in $\cop{C}$, conclude that terminal objects in $\cft{C}$ are unique up to isomorphism.
-\end{problem}
-\begin{problem}
-    Prove that $\es$ is the initial object in $\cft{Set}$. Prove that any singleton is a terminal object in $\cft{Set}$. Hence the zero object does not exist in $\cat{Set}$.
-\end{problem}
-\customtheorem{Universal property for quotient sets}
-\begin{Universal property for quotient sets}\index{quotient set}
-    Let $X$ and $Y$ be sets. Let $\sim$ be an equivalence relation on $X$ and let $f:X\to Y$ be invariant under the equivalence relation. Then there exists a unique function $\wb{f}:{X}_{\sim}\to Y$ such that $f=\wb{f}\comp\pi$.
-\end{Universal property for quotient sets}
-\begin{center}
-    \begin{tikzcd}
-        {{X}_{\sim}} && X \\
-        \\
-        && Y
-        \arrow["{\wb{f}}"', dashed, from=1-1, to=3-3]
-        \arrow["\pi"', from=1-3, to=1-1]
-        \arrow["f", from=1-3, to=3-3]
-    \end{tikzcd}
-\end{center}
 \par
-The proof of the universal property has two parts. We first verify that a quotient set has the universal property. Then we verify that a quotient set is characterized by this universal property, that is, any set satisfying the universal property must be a quotient set. This proof will be separated into multiple propositions.
-\begin{proposition}
-    There exists a map $\wb{f}:{X}_{\sim}\to Y$ such that $f=\wb{f}\comp\pi$.
-\end{proposition}
-\begin{proof}
-    Define the relation $\{([x],y)\}\in\wb{f}$ if and only if $f(x)=y$. Let $[x]\in X$ and $y,z\in Y$. Suppose $([x],y),([x],z)\in\wb{f}$, then there exists $u,v\in X$ such that $[u]=[v]=[x]$, $f(u)=y$, and $f(v)=z$, so $u\sim v$. Since $f$ is invariant under $\sim$, $y=z$. Hence $\wb{f}$ is well-defined. For all $x\in X$, $(\wb{f}\comp\pi)(x)=\wb{f}([x])=f(y)$.
-\end{proof}
-\begin{problem}
-    Prove that such $\wb{f}$ is unique.
-\end{problem}
-\begin{problem}
-    Let $f:X\to Y$ be a function that induces an equivalence relation ${\sim_{f}}$ on $X$. Since ${X}_{{\sim}_{f}}$ satisfies the universal property, prove that ${X}_{{\sim}_{f}}\iso\im(f)$.
-\end{problem}
-\begin{proposition}
-    Let $S$ be any set satisfying the universal property for quotient sets. Let $X$ be a set and let ${\sim}_{1}$ be an equivalence relation on $X$, so ${\pi}_{1}:X\to{X}_{{\sim}_{1}}$ is invariant under the equivalence relation induced by ${\pi}_{2}:X\to S$. Then $S\iso{X}_{{\sim}_{1}}$.
-\end{proposition}
-\begin{center}
-    \begin{tikzcd}
-        S && X \\
-        \\
-        && {{X}_{{\sim}_{1}}}
-        \arrow["{\wb{{\pi}_{1}}}"', from=1-1, to=3-3]
-        \arrow["{{\pi}_{2}}"', from=1-3, to=1-1]
-        \arrow["{{\pi}_{1}}", from=1-3, to=3-3]
-    \end{tikzcd}
-\end{center}
-\begin{proof}
-    Since ${\pi}_{1}$ is surjective, $\wb{{\pi}_{1}}$ is surjective. Suppose $\wb{{\pi}_{1}}({s}_{1})=\wb{{\pi}_{1}}({s}_{2})$, where ${s}_{1}, {s}_{2}\in S$. Since $\pi_2$ is surjective, there exist $x,y\in X$ with ${s}_{1}={\pi}_{2}(x)$ and ${s}_{2}={\pi}_{2}(y)$. Then $\wb{{\pi}_{1}}({s}_{1})=\wb{{\pi}_{1}}({\pi}_{2}(x))={\pi}_{1}(x)$ and $\wb{{\pi}_{1}}({s}_{2})=\wb{{\pi}_{1}}({\pi}_{2}(y))={\pi}_{1}(y)$, which implies ${\pi}_{1}(x)={\pi}_{1}(y)$, so $[x]=[y]$. Since ${\pi}_{2}$ is invariant under ${\sim}_{1}$, it follows that ${\pi}_{2}(x)={\pi}_{2}(y)$, so ${s}_{1}={s}_{2}$. Hence $S\iso{X}_{{\sim}_{1}}$.        
-\end{proof}
-\par
-This completes our proof of the universal property for quotient sets.
-\begin{theorem}[canonical decomposition of functions]\index{canonical decomposition of functions}
-    Let $f:A\to B$ be a function, then there exists a surjective function $\pi$, a bijective function $g$, and an injective function $i$, such that $f=i\comp g\comp\pi$.
+Notice that the axiom schema of separation guarantees the existence of functions, so we need both axioms.
+\begin{theorem}[transfinite induction]
+    Let $C$ be a class of ordinals that satisfies:
+    \begin{enumerate}
+        \item $0\in C$;
+        \item if $\al\in C$, then $\al+1\in C$;
+        \item if $\al$ is 
+    \end{enumerate}
+    Then $C$ is the class of all ordinals.
 \end{theorem}
-\begin{center}
-    \begin{tikzcd}
-        A && {{A}_{\sim}} && {\im(f)} && B
-        \arrow["\pi", from=1-1, to=1-3]
-        \arrow["f", curve={height=-24pt}, from=1-1, to=1-7]
-        \arrow["g", from=1-3, to=1-5]
-        \arrow["i", from=1-5, to=1-7]
-    \end{tikzcd}    
-\end{center}
 \begin{proof}
-    Let $i:\im(f)\to B$ be the identity map, then $i$ is injective. The function $f:A\to B$ induces an equivalence relation $\sim$ on $X$, so $g$ is bijective. The projection map $\pi:A\to{A}_{\sim}$ is surjective. For all $a\in A$, $(i\comp g\comp\pi)(a)=(i\comp g)([a])=i(f(a))=f(a)$. 
+    
 \end{proof}
-\begin{definition}
-    Let $\cft{C}$ be a category. Let $A$ and $B$ be objects in $\cft{C}$. The \hdef{product} of $A$ and $B$, denoted $P$, is an object in $\cft{C}$ with morphisms ${p}_{1}:P\to A$ and ${p}_{2}:P\to B$ such that for all object $X$ in $\cft{C}$ with morphisms ${\vp}_{1}:X\to A$ and ${\vp}_{2}:X\to B$, there exists a unique $u:X\to P$ such that the following diagram commutes.
-\end{definition}
-\begin{center}
-    \begin{tikzcd}
-        && X \\
-        \\
-        A && P && B
-        \arrow["{{\vp}_{1}}"', from=1-3, to=3-1]
-        \arrow["u", dashed, from=1-3, to=3-3]
-        \arrow["{{\vp}_{2}}", from=1-3, to=3-5]
-        \arrow["{{p}_{1}}", from=3-3, to=3-1]
-        \arrow["{{p}_{2}}"', from=3-3, to=3-5]
-    \end{tikzcd}
-\end{center}
-\begin{problem}
-    Prove that in $\cft{Set}$, the Cartesian product satisfies the universal property for product.
-\end{problem}
-\begin{proposition}
-    Let $A$ and $B$ be objects in a category $\cft{C}$. Then their product is unique up to isomorphism.
-\end{proposition}
+\begin{theorem}[transfinite recursion]
+    
+\end{theorem}
 \begin{proof}
-    Let $P$ with ${p}_{1}:P\to A$ and ${p}_{2}:P\to B$ be the product of $A$ and $B$. Suppose $Q$ with ${\vp}_{1}:Q\to A$ and ${\vp}_{2}:Q\to B$ is another product of $A$ and $B$. By the universal property, $u:Q\to P$ and $v:P\to Q$ are unique such that ${p}_{1}\comp u={\vp}_{1}$, ${p}_{2}\comp u={\vp}_{2}$, ${\vp}_{1}\comp v={p}_{1}$, and ${\vp}_{2}\comp v={p}_{2}$. We have ${\vp}_{1}\comp u\comp v={\vp}_{1}$ and ${\vp}_{2}\comp u\comp v={\vp}_{2}$, then $u\comp v={\id}_{Q}$. Similarly, $v\comp u={\id}_{P}$. Hence $P\iso Q$.
+    
 \end{proof}
-\begin{center}
-    \begin{tikzcd}
-        && Q \\
-        \\
-        A && P && B \\
-        \\
-        && Q
-        \arrow["{{\vp}_{1}}"', from=1-3, to=3-1]
-        \arrow["u", from=1-3, to=3-3]
-        \arrow["{{\vp}_{2}}", from=1-3, to=3-5]
-        \arrow["{{p}_{1}}", from=3-3, to=3-1]
-        \arrow["{{p}_{2}}"', from=3-3, to=3-5]
-        \arrow["v"', from=3-3, to=5-3]
-        \arrow["{{\vp}_{1}}", from=5-3, to=3-1]
-        \arrow["{{\vp}_{2}}"', from=5-3, to=3-5]
-    \end{tikzcd}
-\end{center}
 \begin{problem}
-    Let $A$, $B$, and $C$ be sets. Use the universal property to prove that $A\times(B\times C)=(A\times B)\times C$.
+    
 \end{problem}
-\begin{definition}
-    Let $\cft{C}$ be a category. Let $A$ and $B$ be objects in $\cft{C}$. The \hdef{coproduct} of $A$ and $B$, denoted $Q$, is an object in $\cft{C}$ with morphisms ${q}_{1}:A\to Q$ and ${q}_{2}:B\to Q$ such that for all object $Y$ in $\cft{C}$ with morphisms ${\vp}_{1}:A\to Y$ and ${\vp}_{2}:B\to Y$, there exists a unique $v:Q\to Y$ such that the diagram commutes.
-\end{definition}
-\begin{center}
-    \begin{tikzcd}
-        && Y \\
-        \\
-        A && Q && B
-        \arrow["{{\vp}_{1}}", from=3-1, to=1-3]
-        \arrow["{{q}_{1}}"', from=3-1, to=3-3]
-        \arrow["v"', dashed, from=3-3, to=1-3]
-        \arrow["{{\vp}_{2}}"', from=3-5, to=1-3]
-        \arrow["{{q}_{2}}", from=3-5, to=3-3]
-    \end{tikzcd}
-\end{center}
+\customtheorem{Axiom of choice}
+\begin{Axiom of choice}\index{axiom of choice}
+
+\end{Axiom of choice}
+\begin{example}
+    
+\end{example}
 \begin{problem}
-    Prove that in $\cft{Set}$, the disjoint union satisfies the universal property for coproduct. Prove that the universal property characterizes disjoint union.
+    
 \end{problem}
-\begin{problem}
-    Describe the product and coproduct in $\cop{Set}$. 
-\end{problem}
+\begin{theorem}[well-ordering theorem]
+    Every set is well-orderable.
+\end{theorem}
+\begin{proof}
+ 
+\end{proof}
+\par
+By the well-ordering theorem, $\N$ is well-ordered, this is called the \hdef{well-ordering principle}.
+\begin{remark}
+    Well-ordering principle is based on ZF system, the set theory without axiom of choice. The well-ordering theorem is an equivalent form of axiom of choice, which is based on ZFC system.
+\end{remark}
+\newpage
 \section{Integers and Cardinality}
+Recall that we have constructed $\N$ by axiom of inifinity. By the convention of quotient sets, we could further construct the integers and rationals.
 \begin{theorem}[recursion]\index{recursion}
     Given a set $X$ and $x\in X$. Let $f:X\to X$ be a function, then there exists a unique function $F:\N\to X$ such that $F(0)=x$ and $F({n}^{+})=f(F(n))$ for all $n\in\N$.
 \end{theorem}
@@ -986,90 +849,250 @@ The function ${\id}_{\N}:\N\to\N$ is trivially bijective, so $\N$ is countable.
 %\begin{proof}
     Suppose for the sake of contradiction $|S|=|2^S|$ so there exists a bijection $f:S\to 2^S$. Now consider set $A:=\{x\in S \mid x\notin f(x)\}$. Note the set is well-defined since $f(x)\in 2^S\subseteq S$. Since $f$ is a bijiection, there must exists a $x\in S$ s.t. $f(x)=A$. Here are the two cases: if $x\in A$ then by definition $x\notin f(x) \implies x\notin A$; if $x\notin A$ then $x\notin f(x)$ and by definition $x\in A$, where both cases form a contradiction.
 %\end{proof}
+\begin{theorem}[Cantor-Schröder-Bernstein theorem]\index{Cantor-Schröder-Bernstein theorem}
+    Let $f:A\to B$ and $g:B\to A$ be injective functions. Then there exists a bijective function $h:A\to B$.
+\end{theorem}
+\begin{proof}
+    
+\end{proof}
 
-
-
-
-%%%%%%%%%%%%%%%%%%%
 \newpage
+
+
+\section{Vector Spaces and Linear Maps}
+
+\newpage
+
+\section{Functions as Morphisms}
+Functions are the bridges to ``connect'' sets. According to the definition, a function takes a set to another while preserving the structure of sets. This property allows us to consider functions as morphisms between sets.
 \begin{definition}
-    A set $S$ is said to be \hdef{transitive} if for all $s\in S$, $s\sub S$. A set is an \hdef{ordinal} if it is transitive and well-ordered by $\in$.
-\end{definition}
-\begin{example}
-    The set $0\in\N$ is an ordinal.
-\end{example}
-\begin{problem}
-    Prove that if a set $S$ is transitive, then $\ps(S)$ is also transitive.
-\end{problem}
-\begin{problem}
-    Prove that the set of natural numbers $\N$ is an ordinal.
-\end{problem}
-\begin{definition}
-    If $\vp(x,{p}_{1},{p}_{2},\dots)$ is some formula, then we say $C=\{x\mid\vp\}$ is a \hdef{class}, that is, $x$ is a member of $C$ if and only if $x$ satisfies $\vp$.
-\end{definition}
-\begin{example}
-    The collection of all sets is a class.
-\end{example}
-\begin{problem}
-    Prove that every set is a class.
-\end{problem}
-\customtheorem{Axiom schema of replacement}
-\begin{Axiom schema of replacement}\index{Axiom schema of replacement}
-    If a class $F$ is a funciton, then for all $X$, there exists a set $Y=F(X)=\{F(x)\mid x\in X\}$.
-\end{Axiom schema of replacement}
-\begin{problem}
-    Prove that axiom schema of replacement implies axiom schema of separation.
-\end{problem}
-\par
-Notice that the axiom schema of separation since it guarantees the existence of functions, so we need both axioms in ZFC system.
-\begin{theorem}[transfinite induction]
-    Let $C$ be a class of ordinals that satisfies:
+    A \hdef{category} $\cat{C}$ consists of:
     \begin{enumerate}
-        \item $0\in C$;
-        \item if $\al\in C$, then $\al+1\in C$;
-        \item if $\al$ is 
+        \item a collection, denoted $\Ob(\cat{C})$, of \hdef{objects};
+        \item for each pair of objects $X$ and $Y$, there exists a collection of \hdef{morphisms} $f:X\to Y$, where $X$ is called the \hdef{domain} and $Y$ is called the \hdef{codomain};
+        \item a \hdef{composition operation}, which gives, for each pair of morphisms $f:X\to Y$ and $g:Y\to Z$, a morphism $g\comp f:X\to Z$,
     \end{enumerate}
-    Then $C$ is the class of all ordinals.
-\end{theorem}
-\begin{proof}
-    
-\end{proof}
-\begin{theorem}[transfinite recursion]
-    
-\end{theorem}
-\begin{proof}
-    
-\end{proof}
-\begin{problem}
-    
-\end{problem}
-\customtheorem{Axiom of choice}
-\begin{Axiom of choice}\index{axiom of choice}
-
-\end{Axiom of choice}
+    such that
+    \begin{enumerate}
+        \item given any $f:X\to Y$, $g:Y\to Z$, and $h:Z\to W$, we have the identity $(h\comp g)\comp f=h\comp(g\comp f)$;
+        \item for each object $X$, there exists an \hdef{identity morphism} ${\id}_{X}:X\to X$ with the property that $f\comp{\id}_{X}=f$ and ${\id}_{X}\comp g=g$ for any $f:X\to Y$ and $g:Z\to X$.
+    \end{enumerate}
+    The collection of morphisms from $X$ to $Y$ is denoted by ${\Hom}_{\cat{C}}(X,Y)$. A category $\cat{C}$ is a \hdef{locally small category} if ${\Hom}_{\cat{C}}(A,B)$ is a set for all objects $A$ and $B$.
+\end{definition}
+\par
+Let sets be objects, let functions be morphisms, and let the composition of morphisms be the composition of functions. By our previous observations, it suffices to check this defines a category of sets, denoted $\cat{Set}$. Moreover, $\cat{Set}$ is locally small.
 \begin{example}
-    
+    Let $X$ be a set, then ${\Hom}_{\cat{Set}}(X,X)$ is a category.
+\end{example}
+\begin{example}
+    In the following diagram, let each vertex be an object and let each arrow be a morphism. This defines a category.
+    \begin{center}
+        \begin{tikzcd}
+            \bullet && \bullet
+            \arrow[from=1-1, to=1-1, loop, in=145, out=215, distance=10mm]
+            \arrow[shift left, from=1-1, to=1-3]
+            \arrow[shift left, from=1-3, to=1-1]
+            \arrow[shift right, from=1-3, to=1-3, loop, in=35, out=325, distance=10mm]
+        \end{tikzcd}
+    \end{center}
 \end{example}
 \begin{problem}
-    
+    Morphisms are not guaranteed to be functions. Let $(S,\le)$ be a partially ordered set. Let $\Ob(\cat{C})=S$ and $x\to y$ be a morphism if $x\le y$. Prove that $\cat{C}$ is a category.
 \end{problem}
-\begin{theorem}[well-ordering theorem]
-    Every set is well-orderable.
-\end{theorem}
+\begin{problem}
+    Let $\cat{C}$ be a category. Let a system $\cop{C}$ consists of all objects in $\cat{C}$ and all morphisms $f:A\to B$ if $B\to A$ is a morphism in $\cat{C}$. Prove that $\cop{C}$ is indeed a category. This is called the \hdef{dual category} of $\cat{C}$.
+\end{problem}
+\begin{problem}
+    Prove that the identity morphism is unique for each object $A$ in a category $\cat{C}$.
+\end{problem}
+\begin{definition}
+    Let $\cat{C}$ be a category. A morphism $f:A\to B$ is a \hdef{monomorphism} if for all $g,h:C\to A$, $f\comp g=g\comp h$ implies $g=h$. A morphism $f:A\to B$ is called an \hdef{epimorphism} if for all $i,j:B\to D$, $i\comp f=j\comp f$ implies $i=j$.
+\end{definition}
+\begin{proposition}
+    A function is injective if and only if it is a monomorphism in $\cat{Set}$.
+\end{proposition}
 \begin{proof}
- 
+    $(\Ra)$ Let $f:A\to B$ be injective. If $A=\es$, then $f$ is the unique empty function. If $A\ne\es$, let $g:B\to A$ be the left inverse of $f$, 
+    $(\La)$ Let $f:A\to B$ be a monomorphism. If $A=\es$, then $f:\es\to B$ is vacuously injective. If $A\ne\es$, 
+\end{proof}
+\begin{problem}
+    Prove that a function is surjective if and only if it is an epimorphism in $\cat{Set}$.
+\end{problem}
+\begin{definition}
+    Let $\cat{C}$ be a category. A morphism $f:A\to B$ is an \hdef{isomorphism} if there exists $g\in{\Hom}_{\cat{C}}(B,A)$ such that $f\comp g={\id}_{B}$ and $g\comp f={\id}_{A}$. If there exists a morphism between two objects $A$ and $B$, then we say they are \hdef{isomorphic}, denoted $A\iso B$.
+\end{definition}
+\begin{problem}
+    Prove that a morphism is an isomorphism if and only if it is a monomorphism and an epimorphism.
+\end{problem}
+\begin{problem}
+    Let $A$ and $B$ be well-ordered sets that are isomorphic to each other. Prove that the isomorphism between them is unique.
+\end{problem}
+\begin{definition}
+    An \hdef{initial object} $0$ of a category $\cat{C}$ is an object in $\cat{C}$ such that for any object $A$, there is a unique morphism $0\to A$. A \hdef{terminal object} $1$ of a category $\cat{C}$ is an object of $\cat{C}$ such that for any object $B$, there is a unique morphism $A\to 1$. We say an object is a \hdef{zero object} if it is both an initial object and a terminal object.
+\end{definition}
+\begin{proposition}
+    Initial objects of a category $\cat{C}$ are unique up to isomorphism.
+\end{proposition}
+\begin{proof}
+    Let $0$ and $0'$ be initial objects in some category $\cat{C}$. Let $\vp:0\to 0'$ and $\psi:0'\to 0$. Since the diagram is commutative, we have $\vp\comp\psi\comp\vp=\vp\comp{\id}_{0}$, hence $\vp$ is an isomorphism. 
+\end{proof}
+\begin{center}
+    \begin{tikzcd}
+        0 && {0'} \\
+        \\
+        && 0 && {0'}
+        \arrow["\vp", from=1-1, to=1-3]
+        \arrow["{\id}_{0}"', from=1-1, to=3-3]
+        \arrow["\psi", from=1-3, to=3-3]
+        \arrow["{\id}_{0'}", from=1-3, to=3-5]
+        \arrow["\vp", from=3-3, to=3-5]
+    \end{tikzcd}
+\end{center}
+\begin{problem}
+    Prove that the initial object in a category $\cat{C}$ is a terminal object in $\cop{C}$, conclude that terminal objects in $\cat{C}$ are unique up to isomorphism.
+\end{problem}
+\begin{problem}
+    Prove that the initial object in the category of partially ordered set is the $\le$-minimal element. Prove that the terminal object in this category is the $\le$-maximal element.
+\end{problem}
+\begin{proposition}
+    The initial object in $\cat{Set}$ is $\es$ and the terminal object in $\cat{Set}$ is a singleton.
+\end{proposition}
+\begin{proof}
+    
 \end{proof}
 \par
-By the well-ordering theorem, $\N$ is well-ordered, this is called the \hdef{well-ordering principle}.
-\begin{remark}
-    Well-ordering principle is based on ZF system, the set theory without axiom of choice. The well-ordering theorem is an equivalent form of axiom of choice, which is based on ZFC system.
-\end{remark}
-
-
-\newpage
-\section{Introduction to Groups}
+We conclude that there is no zero object in $\cat{Set}$.
+\customtheorem{Universal property for quotient sets}
+\begin{Universal property for quotient sets}\index{quotient set}
+    Let $X$ and $Y$ be sets. Let $\sim$ be an equivalence relation on $X$ and let $f:X\to Y$ be invariant under the equivalence relation. Then there exists a unique function $\wb{f}:{X}_{\sim}\to Y$ such that $f=\wb{f}\comp\pi$.
+\end{Universal property for quotient sets}
+\begin{center}
+    \begin{tikzcd}
+        {{X}_{\sim}} && X \\
+        \\
+        && Y
+        \arrow["{\wb{f}}"', dashed, from=1-1, to=3-3]
+        \arrow["\pi"', from=1-3, to=1-1]
+        \arrow["f", from=1-3, to=3-3]
+    \end{tikzcd}
+\end{center}
+\par
+The proof of the universal property has two parts. We first verify that a quotient set has the universal property. Then we verify that a quotient set is characterized by this universal property, that is, any set satisfying the universal property must be a quotient set. This proof will be separated into multiple propositions.
+\begin{proposition}
+    There exists a map $\wb{f}:{X}_{\sim}\to Y$ such that $f=\wb{f}\comp\pi$.
+\end{proposition}
+\begin{proof}
+    Define the relation $\{([x],y)\}\in\wb{f}$ if and only if $f(x)=y$. Let $[x]\in X$ and $y,z\in Y$. Suppose $([x],y),([x],z)\in\wb{f}$, then there exists $u,v\in X$ such that $[u]=[v]=[x]$, $f(u)=y$, and $f(v)=z$, so $u\sim v$. Since $f$ is invariant under $\sim$, $y=z$. Hence $\wb{f}$ is well-defined. For all $x\in X$, $(\wb{f}\comp\pi)(x)=\wb{f}([x])=f(y)$.
+\end{proof}
+\begin{problem}
+    Prove that such $\wb{f}$ is unique.
+\end{problem}
+\begin{problem}
+    Let $f:X\to Y$ be a function that induces an equivalence relation ${\sim_{f}}$ on $X$. Since ${X}_{{\sim}_{f}}$ satisfies the universal property, prove that ${X}_{{\sim}_{f}}\iso\im(f)$.
+\end{problem}
+\begin{proposition}
+    Let $S$ be any set satisfying the universal property for quotient sets. Let $X$ be a set and let ${\sim}_{1}$ be an equivalence relation on $X$, so ${\pi}_{1}:X\to{X}_{{\sim}_{1}}$ is invariant under the equivalence relation induced by ${\pi}_{2}:X\to S$. Then $S\iso{X}_{{\sim}_{1}}$.
+\end{proposition}
+\begin{center}
+    \begin{tikzcd}
+        S && X \\
+        \\
+        && {{X}_{{\sim}_{1}}}
+        \arrow["{\wb{{\pi}_{1}}}"', from=1-1, to=3-3]
+        \arrow["{{\pi}_{2}}"', from=1-3, to=1-1]
+        \arrow["{{\pi}_{1}}", from=1-3, to=3-3]
+    \end{tikzcd}
+\end{center}
+\begin{proof}
+    Since ${\pi}_{1}$ is surjective, $\wb{{\pi}_{1}}$ is surjective. Suppose $\wb{{\pi}_{1}}({s}_{1})=\wb{{\pi}_{1}}({s}_{2})$, where ${s}_{1}, {s}_{2}\in S$. Since $\pi_2$ is surjective, there exist $x,y\in X$ with ${s}_{1}={\pi}_{2}(x)$ and ${s}_{2}={\pi}_{2}(y)$. Then $\wb{{\pi}_{1}}({s}_{1})=\wb{{\pi}_{1}}({\pi}_{2}(x))={\pi}_{1}(x)$ and $\wb{{\pi}_{1}}({s}_{2})=\wb{{\pi}_{1}}({\pi}_{2}(y))={\pi}_{1}(y)$, which implies ${\pi}_{1}(x)={\pi}_{1}(y)$, so $[x]=[y]$. Since ${\pi}_{2}$ is invariant under ${\sim}_{1}$, it follows that ${\pi}_{2}(x)={\pi}_{2}(y)$, so ${s}_{1}={s}_{2}$. Hence $S\iso{X}_{{\sim}_{1}}$.        
+\end{proof}
+\par
+This completes our proof of the universal property for quotient sets.
+\begin{theorem}[canonical decomposition of functions]\index{canonical decomposition of functions}
+    Let $f:A\to B$ be a function, then there exists a surjective function $\pi$, a bijective function $g$, and an injective function $i$, such that $f=i\comp g\comp\pi$.
+\end{theorem}
+\begin{center}
+    \begin{tikzcd}
+        A && {{A}_{\sim}} && {\im(f)} && B
+        \arrow["\pi", from=1-1, to=1-3]
+        \arrow["f", curve={height=-24pt}, from=1-1, to=1-7]
+        \arrow["g", from=1-3, to=1-5]
+        \arrow["i", from=1-5, to=1-7]
+    \end{tikzcd}    
+\end{center}
+\begin{proof}
+    Let $i:\im(f)\to B$ be the identity map, then $i$ is injective. The function $f:A\to B$ induces an equivalence relation $\sim$ on $X$, so $g$ is bijective. The projection map $\pi:A\to{A}_{\sim}$ is surjective. For all $a\in A$, $(i\comp g\comp\pi)(a)=(i\comp g)([a])=i(f(a))=f(a)$. 
+\end{proof}
 \begin{definition}
-    A \hdef{monoid} is a triple ($M$,$\comp$,e), where $M$ is a set and $\comp:M\times M\to M$, called a \hdef{composition}, is a function such that
+    Let $\cat{C}$ be a category. Let $A$ and $B$ be objects in $\cat{C}$. The \hdef{product} of $A$ and $B$, denoted $P$, is an object in $\cat{C}$ with morphisms ${p}_{1}:P\to A$ and ${p}_{2}:P\to B$ such that for all object $X$ in $\cat{C}$ with morphisms ${\vp}_{1}:X\to A$ and ${\vp}_{2}:X\to B$, there exists a unique $u:X\to P$ such that the following diagram commutes.
+\end{definition}
+\begin{center}
+    \begin{tikzcd}
+        && X \\
+        \\
+        A && P && B
+        \arrow["{{\vp}_{1}}"', from=1-3, to=3-1]
+        \arrow["u", dashed, from=1-3, to=3-3]
+        \arrow["{{\vp}_{2}}", from=1-3, to=3-5]
+        \arrow["{{p}_{1}}", from=3-3, to=3-1]
+        \arrow["{{p}_{2}}"', from=3-3, to=3-5]
+    \end{tikzcd}
+\end{center}
+\begin{problem}
+    Prove that in $\cat{Set}$, the Cartesian product satisfies the universal property for product.
+\end{problem}
+\begin{proposition}
+    Let $A$ and $B$ be objects in a category $\cat{C}$. Then their product is unique up to isomorphism.
+\end{proposition}
+\begin{proof}
+    Let $P$ with ${p}_{1}:P\to A$ and ${p}_{2}:P\to B$ be the product of $A$ and $B$. Suppose $Q$ with ${\vp}_{1}:Q\to A$ and ${\vp}_{2}:Q\to B$ is another product of $A$ and $B$. By the universal property, $u:Q\to P$ and $v:P\to Q$ are unique such that ${p}_{1}\comp u={\vp}_{1}$, ${p}_{2}\comp u={\vp}_{2}$, ${\vp}_{1}\comp v={p}_{1}$, and ${\vp}_{2}\comp v={p}_{2}$. We have ${\vp}_{1}\comp u\comp v={\vp}_{1}$ and ${\vp}_{2}\comp u\comp v={\vp}_{2}$, then $u\comp v={\id}_{Q}$. Similarly, $v\comp u={\id}_{P}$. Hence $P\iso Q$.
+\end{proof}
+\begin{center}
+    \begin{tikzcd}
+        && Q \\
+        \\
+        A && P && B \\
+        \\
+        && Q
+        \arrow["{{\vp}_{1}}"', from=1-3, to=3-1]
+        \arrow["u", from=1-3, to=3-3]
+        \arrow["{{\vp}_{2}}", from=1-3, to=3-5]
+        \arrow["{{p}_{1}}", from=3-3, to=3-1]
+        \arrow["{{p}_{2}}"', from=3-3, to=3-5]
+        \arrow["v"', from=3-3, to=5-3]
+        \arrow["{{\vp}_{1}}", from=5-3, to=3-1]
+        \arrow["{{\vp}_{2}}"', from=5-3, to=3-5]
+    \end{tikzcd}
+\end{center}
+\begin{problem}
+    Let $A$, $B$, and $C$ be sets. Use the universal property to prove that $A\times(B\times C)=(A\times B)\times C$.
+\end{problem}
+\begin{definition}
+    Let $\cat{C}$ be a category. Let $A$ and $B$ be objects in $\cat{C}$. The \hdef{coproduct} of $A$ and $B$, denoted $Q$, is an object in $\cat{C}$ with morphisms ${q}_{1}:A\to Q$ and ${q}_{2}:B\to Q$ such that for all object $Y$ in $\cat{C}$ with morphisms ${\vp}_{1}:A\to Y$ and ${\vp}_{2}:B\to Y$, there exists a unique $v:Q\to Y$ such that the diagram commutes.
+\end{definition}
+\begin{center}
+    \begin{tikzcd}
+        && Y \\
+        \\
+        A && Q && B
+        \arrow["{{\vp}_{1}}", from=3-1, to=1-3]
+        \arrow["{{q}_{1}}"', from=3-1, to=3-3]
+        \arrow["v"', dashed, from=3-3, to=1-3]
+        \arrow["{{\vp}_{2}}"', from=3-5, to=1-3]
+        \arrow["{{q}_{2}}", from=3-5, to=3-3]
+    \end{tikzcd}
+\end{center}
+\begin{problem}
+    Prove that in $\cat{Set}$, the disjoint union satisfies the universal property for coproduct. Prove that the universal property characterizes disjoint union.
+\end{problem}
+\begin{problem}
+    Describe the product and coproduct in $\cop{Set}$. 
+\end{problem}
+\newpage
+\section{Groups}
+We have shown a general constructions of mathematical entities use the convention of categories. Groups are the ne
+\begin{definition}
+    A \hdef{monoid} is a triple ($M$,$\comp$,e), where $M$ is a set and $\comp:M\times M\to M$, called a \hdef{composition}, is a function such that:
     \begin{enumerate}
         \item for all $a,b,c\in M$, $a\comp(b\comp c)=(a\comp b)\comp c$;\hfill(associative)
         \item there exists $e\in M$ such that for all $x\in M$, $e\comp x=x=x\comp e$.\hfill(identity)
@@ -1080,11 +1103,10 @@ By the well-ordering theorem, $\N$ is well-ordered, this is called the \hdef{wel
     We will use $gf$ for $g\comp f$.
 \end{remark}
 \begin{example}
-    Here are some examples of monoids.
-    \begin{enumerate}
-        \item The natural numbers $(\N,+,0)$ is a monoid.
-        \item Given a set $S$, the set of all functions $f:S\to S$ forms a monoid with the usual composition of function, denoted $M(S)$.
-    \end{enumerate}
+    The natural numbers $(\N,+,0)$ is a monoid.
+\end{example}
+\begin{example}
+    Given a set $S$, the set of all functions $f:S\to S$ forms a monoid with the usual composition of function, denoted $M(S)$.
 \end{example}
 \begin{problem}
     Prove that the identity element is unique in any monoid.
@@ -1093,24 +1115,22 @@ By the well-ordering theorem, $\N$ is well-ordered, this is called the \hdef{wel
     A triple $(G,\comp,e)$ is a \hdef{group} if it is a monoid and for all $g\in G$, there exists $h\in G$ such that $h\comp g=e=g\comp h$. Such $f$ is called an \hdef{inverse} of $g$. If $\comp$ is commutative, then the group is \hdef{abelian}. The cardinality of a group is called its \hdef{order}, denoted $\card{G}$.
 \end{definition}
 \begin{example}
-    Here are some examples of groups.
-    \begin{enumerate}
-        \item The trivial group is the group of one element, that is, $\{e\}$.
-        \item Let $S$ be a set. All bijections $S\to S$ forms a group called the \hdef{symmetric group}. If $S$ is finite, then the symmetric group is denoted by ${\fr{S}}_{n}$. An element of the symmetric group is called a \hdef{permutation}.
-        \item Consider the set ${D}_{n}$ of all rotations and reflections that map a regular $n$-gon into itself, this is called the \hdef{dihedral group}. Let the reflection be $S$, which gives ${S}^{2}=e$. Multiply the rotations by $S$ on the left, then we have $n$ distinct rotational symmetries. Hence there are $n$ rotations and $n$ reflections, that is, $\card{{D}_{n}}=2n$.
-    \end{enumerate}    
+    The trivial group is the group of one element, that is, $\{e\}$.
 \end{example}
-\par
-Let $\pi$ be a permutation of ${\fr{S}}_{n}$. A permuatation can be expressed by two-line notation, that is, 
-\begin{center}
-    $\pi=
-    \begin{pmatrix}
-        1 & 2 & \cdots & n \\
-        \pi(1) & \pi(2) & \cdots & \pi(n)
-    \end{pmatrix}$.
-\end{center}
-\par
-The first line can be dropped to from an one-line notation. Given $1\le i\le n$ and $i\in\mathbb{Z}$, we can write $\pi$ in cycle notation, that is, $(i,\pi(i),{\pi}^{2}(i),\ldots,{\pi}^{p-1}(i))$, where $p$ is the first integer such that ${\pi}^{p}(i)=i$. Such a cycle means that $\pi$ sends $i$ to $\pi(i)$, $\pi(i)$ to ${\pi}^{2}(i)$, and eventually, ${\pi}^{p-1}(i)$ back to $i$. The cycle type of a permutation is an expression of the form $({1}^{{m}_{1}},{2}^{{m}_{2}},\ldots,{n}^{{m}_{n}})$, where ${m}_{k}$ is the number of cycles of length $k$ in $\pi$. An \hdef{involution} is a permutation $\pi$ such that ${\pi}^{2}=e$.
+\begin{example}
+    Consider the set ${D}_{n}$ of all rotations and reflections that map a regular $n$-gon into itself, this is called the \hdef{dihedral group}. Let the reflection be $S$, which gives ${S}^{2}=e$. Multiply the rotations by $S$ on the left, then we have $n$ distinct rotational symmetries. Hence there are $n$ rotations and $n$ reflections, that is, $\card{{D}_{n}}=2n$.
+\end{example}
+\begin{example}
+    Let $S$ be a set. All bijections $S\to S$ forms a group called the \hdef{symmetric group}. If $S$ is finite, then the symmetric group is denoted by ${\fr{S}}_{n}$. An element of the symmetric group is called a \hdef{permutation}. Let $\pi$ be a permutation of ${\fr{S}}_{n}$. A permuatation can be expressed by two-line notation, that is, 
+    \begin{center}
+        $\pi=
+        \begin{pmatrix}
+            1 & 2 & \cdots & n \\
+            \pi(1) & \pi(2) & \cdots & \pi(n)
+        \end{pmatrix}$.
+    \end{center}
+    The first line can be dropped to from an one-line notation. Given $1\le i\le n$ and $i\in\mathbb{Z}$, we can write $\pi$ in cycle notation, that is, $(i,\pi(i),{\pi}^{2}(i),\ldots,{\pi}^{p-1}(i))$, where $p$ is the first integer such that ${\pi}^{p}(i)=i$. Such a cycle means that $\pi$ sends $i$ to $\pi(i)$, $\pi(i)$ to ${\pi}^{2}(i)$, and eventually, ${\pi}^{p-1}(i)$ back to $i$. The cycle type of a permutation is an expression of the form $({1}^{{m}_{1}},{2}^{{m}_{2}},\ldots,{n}^{{m}_{n}})$, where ${m}_{k}$ is the number of cycles of length $k$ in $\pi$. An \hdef{involution} is a permutation $\pi$ such that ${\pi}^{2}=e$.
+\end{example}
 \begin{problem}
     Prove that every permutation in ${\fr{S}}_{n}$ can be written as a finite composition of involutions.
 \end{problem}
@@ -1129,12 +1149,7 @@ For all $g\in G$, where $G$ is a group, the inverse of $g$ is denoted by $\inv{g
     Let $G$ be a group and let $g\in G$. A \hdef{left inverse} of $g$ is an element $h\in G$ such that $hg=e$. Similarly, we can define a right inverse of $g$. Prove that a left inverse is equivalent to a right inverse, conclude that any left or right inverse of an element is its inverse.
 \end{problem}
 \begin{problem}
-    Let $G$ be a group and let $g,h\in G$. Prove that the following statements hold.
-    \begin{enumerate}
-        \item $(-e)g=-g$;
-        \item $-(-g)=g$;
-        \item $-g(-h)=gh$.
-    \end{enumerate}
+    Let $G$ be a group and let $g,h\in G$. Prove that $(-e)g=-g$, $-(-g)=g$, and $-g(-h)=gh$.
 \end{problem}
 \begin{problem}
     Let $G$ be a group and let ${g}_{i}\in G$, define the composition of finitely many elements by ${\prod}_{i=1}^{n}{x}_{1}\cdots{x}_{n}=({x}_{1}\cdots{x}_{n-1}){x}_{n}$, prove that ${\prod}_{i=1}^{m}{x}_{i}{\prod}_{j=1}^{n}{x}_{m+j}={\prod}_{j=1}^{m+n}{x}_{j}$. This is called the \hdef{generalized associativity}.
@@ -1143,10 +1158,10 @@ For all $g\in G$, where $G$ is a group, the inverse of $g$ is denoted by $\inv{g
     Prove that $\card{{\fr{S}}_{n}}=n$!
 \end{problem}
 \begin{definition}
-    Let $G$ and $H$ be monoids. A function $\vp:G\to H$ is called a \hdef{monoid homomorphism} if $\vp(ab)=\vp(a)\vp(b)$ and $\vp({e}_{G})={e}_{H}$ for all $a,b\in G$. Let $G$ and $H$ be groups, a function $\vp:G\to H$ is called a \hdef{group homomorphism} if $\vp$ is a monoid homomorphism.
+    Let $G$ and $H$ be monoids. A function $\vp:G\to H$ is called a \hdef{monoid homomorphism} if $\vp(ab)=\vp(a)\vp(b)$ and $\vp({e}_{G})={e}_{H}$ for all $a,b\in G$. Let $G$ and $H$ be groups, a function $\vp:G\to H$ is called a \hdef{group homomorphism} if $\vp$ is a monoid homomorphism. The set $\{x\in G\mid\vp(x)={e}_{H}\}$ is called the \hdef{kernel} of $\vp$, denoted $\ker(\vp)$.
 \end{definition}
 \begin{problem}
-    Let the objects be monoids and let the morphisms be monoid homomorphisms. Prove that this defines a category, denoted $\cft{Mon}$. Let the objects be groups and let the morphisms be group homomorphisms. Prove that this defines a category, denoted $\cft{Grp}$.
+    Let the objects be monoids and let the morphisms be monoid homomorphisms. Prove that this defines a category, denoted $\cat{Mon}$. Let the objects be groups and let the morphisms be group homomorphisms. Prove that this defines a category, denoted $\cat{Grp}$.
 \end{problem}
 \begin{problem}
     Prove that a group isomorphism is a bijective group homomorphism.
@@ -1167,7 +1182,7 @@ For all $g\in G$, where $G$ is a group, the inverse of $g$ is denoted by $\inv{g
     Let $G$ be a group. Prove that all subgroups of $G$ form a set. Prove that the set is partially ordered under $\sub$. This is called the \hdef{lattice of subgroups} of $G$.
 \end{problem}
 \begin{definition}
-    Let $H\le G$ be a subgroup. A \hdef{left coset} for $H$ is a set of the form $xH=\{xh\mid h\in H\}$. A right coset is of the form $Hx=\{hx\mid h\in H\}$. The set of all left cosets for $H$ is denoted by $G/H$ and the set of all right cosets for $H$ is denoted by $H\sm G$. The \hdef{index} of $H$ in $G$ is $[G:H]=\card{G/H}$.
+    Let $H\le G$ be a subgroup. A \hdef{left coset} for $H$ is a set of the form $xH=\{xh\mid h\in H\}$. A right coset is of the form $Hx=\{hx\mid h\in H\}$. The set of all left cosets for $H$ is denoted by $G/H$ and the set of all right cosets for $H$ is denoted by $H\sm G$. The \hdef{index} of $H$ in $G$, denotd $[G:H]$, is defined to be $\card{G/H}$.
 \end{definition}
 \begin{problem}
     Prove that there exists a bijection $\psi:G/H\to H\sm G$, conclude that $[G:H]=\card{H\sm G}$.
@@ -1211,8 +1226,43 @@ For all $g\in G$, where $G$ is a group, the inverse of $g$ is denoted by $\inv{g
     Let $a,b\in\ker(\vp)$, then $\vp(a\inv{b})=\vp(a)\vp(b)=\vp{\inv{b}}$. We have ${e}_{H}=\vp(b\inv{b})={e}_{H}\vp(\inv{b})$, then $\vp({\inv{b}})={e}_{H}$, which implies $\ker(\vp)\le G$. For all $g\in G$, $\vp(g\ker(\vp)\inv{g})=\vp(g)\vp(\ker(\vp))\vp(\inv{g})={e}_{H}$, then $g\ker(\vp)\inv{g}\sub\ker(\vp)$. For all $g\in\ker(\vp)$, we have 
 \end{proof}
 \begin{problem}
-    Let ${C}_{2}$ be a group of order 2. Prove that ${C}_{2}$ is unique up to isomorphism. Define the set ${C}_{2}=\{1,-1\}$, where $1$ is the identity. For all $\pi\in{\fr{S}}_{n}$, define $\vp:{\fr{S}}_{n}\to{C}_{2}$ by $\vp(\pi)=-1$ if $\pi$ is an odd permutation and $\vp(\pi)=1$ if it is an even permutation. Prove that $\sgn$ is a well-defined group homomorphism. The kernel of $\vp$ is called the \hdef{alternating group}, denoted ${\fr{A}}_{n}$. Prove that ${\fr{A}}_{n}$ is abelian if $n\le 3$ and prove that ${\fr{A}}_{n}$ is not abelian for $n>3$, conclude that a normal subgroup is not necessarily abelian.
+    Let ${C}_{2}$ be a group of order 2. Prove that ${C}_{2}$ is unique up to isomorphism. Define the set ${C}_{2}=\{1,-1\}$. Let $1$ be the identity. For all $\pi\in{\fr{S}}_{n}$, define $\vp:{\fr{S}}_{n}\to{C}_{2}$ by $\vp(\pi)=-1$ if $\pi$ is an odd permutation and $\vp(\pi)=1$ if it is an even permutation. Prove that $\sgn$ is a well-defined group homomorphism. The kernel of $\vp$ is called the \hdef{alternating group}, denoted ${\fr{A}}_{n}$. Prove that ${\fr{A}}_{n}$ is abelian if $n\le 3$ and prove that ${\fr{A}}_{n}$ is not abelian for $n>3$, conclude that a normal subgroup is not necessarily abelian.
 \end{problem}
+\par
+Now we show some categorical properties of $\cat{Grp}$.
+\begin{problem}
+    Prove that in $\cat{Grp}$, the product of two groups $G$ and $H$ is the Cartesian product $G\times H$.
+\end{problem}
+\begin{proposition}
+    In $\cat{Grp}$, the trivial group 1 is the zero object.
+\end{proposition}
+\begin{proof}
+    
+\end{proof}
+\begin{definition}
+    Let $\cat{C}$ be a category. A category $\cat{D}$ is a \hdef{subcategory} of $\cat{C}$ if the $\Ob(\cat{D})$ and the ${\Hom}_{\cat{D}}(X,Y)$ are subcollections of $\Ob(\cat{C})$ and ${\Hom}_{\cat{C}}(X,Y)$, respectively, for all objects $X$ and $Y$ in $\cat{C}$. The subcatgeory $\cat{D}$ is said to be \hdef{full} if for all objects $X$ and $Y$ in $\cat{D}$, ${\Hom}_{\cat{D}}(X,Y)$ is exactly ${\Hom}_{\cat{C}}(X,Y)$.
+\end{definition}
+\begin{example}
+    The category $\cat{Grp}$ is a subcategory of $\cat{Set}$.
+\end{example}
+\begin{problem}
+    Let the objects be abelian groups, let the morphisms be group homomorphisms, and let the composition of morphisms be the composition of functions. Prove that this defines a category, denoted $\cat{Ab}$. Prove that $\cat{Ab}$ is a full subcategory of $\cat{Grp}$.
+\end{problem}
+\begin{definition}
+    Let $\cat{C}$ be a category with zero object 0. The \hdef{zero morphism} ${0}_{A,B}$ between objects $A$ and $B$ is the unique morphism that factors through 0.
+\end{definition}
+\par
+Let $G$ and $H$ be groups. Since $0$ is the zero object, there exists unique group homomorphisms $\vp:G\to 0$ and $\psi:0\to H$, $\psi\comp\vp$ factors through the zero morphism ${0}_{G,H}$ and it is the desired zero morphism.
+\begin{definition}
+    Let $\cat{C}$ be a category and let $f:X\to Y$ be a morphism in $\cat{C}$. An object $\ker(f)$ is said to be the \hdef{kernel} of $f$ if for every object $Z$ and $h:Z\to X$ such that $f\comp g=0$, where $0$ is the zero morphism, there is a unique morphism $\vp:Z\to\ker(f)$ such that $h=g\comp\vp$.
+\end{definition}
+\begin{problem}
+    Prove the set-theoretic definition of kernels coincide with the categorical definition of kernels.
+\end{problem}
+
+
+
+
 \begin{definition}
     Let $G$ be a group and $N\nsg G$. The \hdef{quotient group} $G/N$ is defined to be $\{aN\mid a\in G\}$. 
 \end{definition}
@@ -1251,41 +1301,26 @@ For all $g\in G$, where $G$ is a group, the inverse of $g$ is denoted by $\inv{g
     \end{tikzcd}
 \end{center}
 \par
+
 We will first show the existence of free groups. 
 
 
 
-
-
-
 \begin{definition}
-    Let $G$ and $H$ be groups. A group $P$ is \hdef{projective} if $\ga:G\thra H$ and $\pi:P\to H$, then there exists a map $\vp:P\to G$ such that $\vp\ga=\pi$.
+    Let $G$ be a group with the presentation $\cyc{S\mid R}$, then the elements are called the \hdef{generators} of $G$. A group is said to be \hdef{cyclic} if $\card{S}=1$.
 \end{definition}
-\begin{center}
-    \begin{tikzcd}
-        G && H \\
-        \\
-        && P
-        \arrow["\ga", two heads, from=1-1, to=1-3]
-        \arrow["\vp", dashed, from=3-3, to=1-1]
-        \arrow["\pi"', from=3-3, to=1-3]
-    \end{tikzcd}
-\end{center}
-\begin{definition}
-    Let $S\le G$ be a subgroup. A map $\rho:G\thra S$ is a \hdef{retraction} if ${\rho}^{2}=\rho$, and $S$ is called a \hdef{retract} of $G$.
-\end{definition}
-\begin{proposition}
-    The projective groups are the retracts of free groups.
-\end{proposition}
-
-
-
 \begin{example}
-    The \hdef{quaternion group} ${Q}_{8}$ is a group
+    The presentation of a free group $F(S)$ is $\cyc{S\mid\es}$.
 \end{example}
-
 \par
-Group presentations 
+Group presentation of a group is not unique. 
+\begin{problem}
+    Prove that a finite cyclic group of order $n$ admits the presentation $\cyc{a\mid{a}^{n}}$. We denote it by ${C}_{n}$.
+\end{problem}
+
+
+
+
 \begin{problem}
     A \hdef{Tarski monster group} is a finitely generated infinite group, where every proper non-trivial subgroup is cyclic of order a fixed prime $p$. Prove that every Tarski monster group is simple.
 \end{problem}
@@ -1295,26 +1330,64 @@ Group presentations
 \begin{problem}
     A \hdef{Baumslag-Solitar group} $BS(m,n)$ admits the presentation $\cyc{a,b\mid b{a}^{m}\inv{b}={a}^{n}}$. Prove that $BS(1,1)\iso{C}_{2}$. Prove that $\vp:BS(2,3)\to BS(2,3)$ defined by $\vp(a)={a}^{2}$ and $\vp(b)=b$ is a group epimorphism.
 \end{problem}
-\begin{problem}
-    The group presentation of 
-\end{problem}
 
 
+
+\newpage
+\section{Rings}
 \newpage
 \section{Real Numbers}
 \newpage
 \section{General Topology}
 We have seen analytic properties of real numbers $\R$, now we offer the topological approach.
+\begin{definition}
+    A \hdef{metric} on a set $X$ is a function $d:X\times X\to[0,\infty)$ satisfying:
+    \begin{enumerate}
+        \item $d(x,y)=0$ if and only if $x=y$ for all $x,y\in X$;
+        \item $d(x,y)=d(y,x)$ for all $x,y\in X$;
+        \item $d(x,z)\le d(x,y)+d(y,z)$ for all $x,y,z\in X$.
+    \end{enumerate}
+    If $d$ is a metric on $X$, we say $(X,d)$ is a \hdef{metric space}.
+\end{definition}
+\begin{definition}
+    
+\end{definition}
+\begin{definition}
+    A \hdef{topology} on a set $X$ is a collection $\T$ of subsets of $X$ such that:
+    \begin{enumerate}
+        \item $\es$ and $X$ are in $\T$;
+        \item the union of the elements of any subcollection of $\T$ is in $\T$;
+        \item the intersection of the elements of any finite subcollection of $\T$ is in $\T$.
+    \end{enumerate}
+    If $\T$ is a topology on $X$, we say the pair $(X,\T)$ is a \hdef{topological space}.
+\end{definition}
+\begin{example}
+    Let $X$ be a set. The set $\ps(X)$ is a topology on $X$, called the \hdef{discrete topology}. The set $\{X,\es\}$ is also a topology on $X$, called the \hdef{trivial topology}.
+\end{example}
+\begin{proposition}
+    Any metric space is a topological space.
+\end{proposition}
 
 
 
 
 
-\newpage
-\section{Functors and Naturality}
-
-
-
-
-\hindex
+\vspace{\baselineskip}
+\begin{center}
+    \large\bfseries References\normalsize
+\end{center}
+[1] Awodey, S. \textit{Introduction to Category Theory}. 2nd ed. Oxford, Oxford University Press. 2008.
+\newline
+[2] Bradley, Tai-Danae, et al. \textit{Topology}. 1st ed. MIT Press. 2020.
+\newline
+[3] Gerstein, L. \textit{Introduction to Mathematical Structures and Proofs}. 2nd ed. Springer Science \& Business Media. 2012
+\newline
+[4] Jech, T. \textit{Set Theory}. 3rd ed. Berlin ; London, Springer. 2011.
+\newline
+[5] Lang, S. \textit{Algebra}. 3rd ed. New York, Springer. 2002.
+\newline
+[6] Lyndon, R., and Schupp, P. \textit{Combinatorial Group Theory}. 1st ed. Berlin, Heidelberg, New York Springer, 1977.
+\newline
+[7] Tao, T. \textit{Analysis I}. 3rd ed. Singapore Springer Singapore, Imprint: Springer. 2016.
+\hindex 
 \end{document}
