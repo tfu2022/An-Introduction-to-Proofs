@@ -18,7 +18,6 @@ You may notice that we use different names for the same object—a common practi
 Many people have contributed to this note.
 \par
 Finally, think deeper and enjoy mathematics!
-\newpage
 \section{Basic Logic}
 Logic is the formal framework and rules of inference that ensure the validity and coherence of arguments in math.
 \begin{remark}
@@ -169,7 +168,6 @@ In the following sections, we shall assume readers are familiar with basic logic
     \end{enumerate} 
     Find the negation of each proposition. 
 \end{problem}
-\newpage
 \section{Some Axioms of Sets}
 \par
 In this section, we begin investigating sets, the most basic entities in mathematics. It is natural to ask: What is a set? There is no precise definition of sets. Intuitively, a \hdef{set} is a collection of objects that satisfy some property, and the objects are called \hdef{elements}.
@@ -442,7 +440,6 @@ The well-ordering theorem is equivalent to the axiom of choice, which will be di
 \begin{problem}
     Prove that given a subset $S\sub\N$ of the natural numbers with $0\in S$ and $\{0,1,\dots,n\}\sub S$ implies $n+1\in S$, then $S=\N$. This is known as the \hdef{complete finite induction}. Prove that the complete finite induction implies the finite induction, conclude that they are equivalent.
 \end{problem}
-\newpage
 \section{Functions}
 We have shown some properties in sets and how they could ``combine'' to form new sets. However, it is not clear 
 \begin{definition}
@@ -638,20 +635,11 @@ Consider a diagram, where every vertex is an object and every arrow preserves th
     Define $\sim$ on $X$ by $x\sim y$, where $x,y\in X$, if and only if $f(x)\sim f(y)$. For all $x=y$, $f(x)=f(y)$. For all $x=y=z$, $f(x)=f(y)=f(z)$. Hence $\sim$ is a well-defined equivalence relation on $X$, and $f$ is trivially invariant under $\sim$.
 \end{proof}
 \begin{definition}
-    A set $S$ is said to be \hdef{transitive} if for all $s\in S$, $s\sub S$. A set is an \hdef{ordinal} if it is transitive and well-ordered by $\in$.
-\end{definition}
-\begin{example}
-    The set $0\in\N$ is an ordinal.
-\end{example}
-\begin{problem}
-    Prove that if a set $S$ is transitive, then $\ps(S)$ is also transitive.
-\end{problem}
-\begin{problem}
-    Prove that the set of natural numbers $\N$ is an ordinal.
-\end{problem}
-\begin{definition}
     If $\vp(x,{p}_{1},{p}_{2},\dots)$ is some formula, then we say $C=\{x\mid\vp\}$ is a \hdef{class}, that is, $x$ is a member of $C$ if and only if $x$ satisfies $\vp$.
 \end{definition}
+\begin{remark}
+    Although a class might not be a set, we extend the notion $\in$ to classes, that is, $x\in C$, where $C$ is a class, means $x$ satisfies the formula $\vp$ corresponding to $C$.
+\end{remark}
 \begin{example}
     The collection of all sets is a class.
 \end{example}
@@ -667,6 +655,34 @@ Consider a diagram, where every vertex is an object and every arrow preserves th
 \end{problem}
 \par
 Notice that the axiom schema of separation guarantees the existence of functions, so we need both axioms.
+\begin{definition}
+    A set $S$ is said to be \hdef{transitive} if for all $s\in S$, $s\sub S$. A set is an \hdef{ordinal} if it is transitive and well-ordered by $\in$. The \hdef{successor ordinal} of an ordinal $\al$ is defined to be $\al\cup\{\al\}$, and we denote it by $\al+1$. 
+\end{definition}
+\begin{proposition}
+    The successor ordinal of an ordinal is an ordinal.
+\end{proposition}
+\begin{proof}
+    Let $\al$ be an ordinal. For all $s\in\al+1$, if $s\in\al$, since $\al$ is an ordinal, $s\sub\al\sub\al+1$; if $s\in\{\al\}$, then $s=\al\sub\al+1$. Since $\al$ is well-ordered by $\in$, $\al$ is the $\in$-maximal element in $\al+1$, hence $\al+1$ is also well-ordered.
+\end{proof}
+\par
+Let $\al$ and $\be$ be ordinals. We define $\al<\be$ if and only if $\al\in\be$.
+\begin{example}
+    The set $0\in\N$ is an ordinal.
+\end{example}
+\begin{problem}
+    Prove that if a set $S$ is transitive, then $\ps(S)$ is also transitive.
+\end{problem}
+\begin{problem}
+    Prove that the set of natural numbers $\N$ is an ordinal.
+\end{problem}
+\begin{definition}
+    An ordinal $\al$ is said to be a \hdef{limit ordinal} if 
+\end{definition}
+\begin{proposition}
+    Every ordinal is either $\es$, a successor ordinal, or a limit ordinal.
+\end{proposition}
+
+
 \begin{theorem}[transfinite induction]
     Let $C$ be a class of ordinals that satisfies:
     \begin{enumerate}
@@ -679,15 +695,6 @@ Notice that the axiom schema of separation guarantees the existence of functions
 \begin{proof}
     
 \end{proof}
-\begin{theorem}[transfinite recursion]
-    
-\end{theorem}
-\begin{proof}
-    
-\end{proof}
-\begin{problem}
-    
-\end{problem}
 \customtheorem{Axiom of choice}
 \begin{Axiom of choice}\index{axiom of choice}
 
@@ -844,11 +851,14 @@ The function ${\id}_{\N}:\N\to\N$ is trivially bijective, so $\N$ is countable.
     Let $S$ be a set. Then any function $f:S\to\ps(S)$ is not bijective.
 \end{theorem}
 \begin{proof}
-    
+    Suppose there exists a bijection $f:S\to\ps(S)$. Consider the set $A=\{x\in S\mid x\notin f(x)\}$, since $A\sub S$, it is well-defined. Since $f$ is a bijection, there exists $x\in S$ such that $f(x)=A$.
 \end{proof}
 %\begin{proof}
-    Suppose for the sake of contradiction $|S|=|2^S|$ so there exists a bijection $f:S\to 2^S$. Now consider set $A:=\{x\in S \mid x\notin f(x)\}$. Note the set is well-defined since $f(x)\in 2^S\subseteq S$. Since $f$ is a bijiection, there must exists a $x\in S$ s.t. $f(x)=A$. Here are the two cases: if $x\in A$ then by definition $x\notin f(x) \implies x\notin A$; if $x\notin A$ then $x\notin f(x)$ and by definition $x\in A$, where both cases form a contradiction.
+   Now consider set $A:=\{x\in S \mid x\notin f(x)\}$. Note the set is well-defined since $f(x)\in 2^S\subseteq S$. Since $f$ is a bijiection, there must exists a $x\in S$ s.t. $f(x)=A$. Here are the two cases: if $x\in A$ then by definition $x\notin f(x) \implies x\notin A$; if $x\notin A$ then $x\notin f(x)$ and by definition $x\in A$, where both cases form a contradiction.
 %\end{proof}
+\begin{problem}
+    Use Cantor's theorem, prove that for all set $S$, there exists some element $x\notin S$.
+\end{problem}
 \begin{theorem}[Cantor-Schröder-Bernstein theorem]\index{Cantor-Schröder-Bernstein theorem}
     Let $f:A\to B$ and $g:B\to A$ be injective functions. Then there exists a bijective function $h:A\to B$.
 \end{theorem}
@@ -1088,7 +1098,6 @@ This completes our proof of the universal property for quotient sets.
 \begin{problem}
     Describe the product and coproduct in $\cop{Set}$. 
 \end{problem}
-\newpage
 \section{Groups}
 We have shown a general constructions of mathematical entities use the convention of categories. Groups are the ne
 \begin{definition}
@@ -1188,14 +1197,17 @@ For all $g\in G$, where $G$ is a group, the inverse of $g$ is denoted by $\inv{g
     Prove that there exists a bijection $\psi:G/H\to H\sm G$, conclude that $[G:H]=\card{H\sm G}$.
 \end{problem}
 \begin{proposition}
-    Let $H\le G$ be a subgroup. Then there exists a set of left cosets ${x}_{i}H$ such that ${x}_{n}H\cap{x}_{m}H=\es$ and $\Un{x}_{i}H=G$.
+    Let $H\le G$ be a subgroup. Then there exists a set of left cosets that partitions $G$.
 \end{proposition}
 \begin{proof}
     
 \end{proof}
-\begin{problem}
-    Let $H\le G$ be a subgroup and let 1 be the trivial group. Prove that $[G:1]=[G:H][H:1]$. Let $K\le G$ and $K\sub H$. Prove that $[G:K]=[G:H][H:K]$.
-\end{problem}
+\begin{proposition}
+    Let $H\le G$ be a subgroup and let 1 be the trivial group, then $[G:1]=[G:H][H:1]$.
+\end{proposition}
+\begin{proof}
+    
+\end{proof}
 \begin{theorem}[Cayley's theorem]\index{Cayley's theorem}
     Any monoid is isomorphic to a submonoid of $M(S)$ for some set $S$. Any group is isomorphic to a subgroup of some symmetric group.
 \end{theorem}
@@ -1259,9 +1271,15 @@ Let $G$ and $H$ be groups. Since $0$ is the zero object, there exists unique gro
 \begin{problem}
     Prove the set-theoretic definition of kernels coincide with the categorical definition of kernels.
 \end{problem}
-
-
-
+\begin{proposition}
+    A group homomorphism is an epimorphism if and only if it is surjective.    
+\end{proposition}
+\begin{proof}
+    $(\La)$ Let $f:G\to H$ be surjective, so $f$ is an epimorphism in $\cat{Set}$, since $\cat{Grp}$ is a subcategory of $\cat{Set}$ and $f$ is a group homomorphism, $f$ is a group epimorphism.
+\end{proof}
+\begin{problem}
+    
+\end{problem}
 
 \begin{definition}
     Let $G$ be a group and $N\nsg G$. The \hdef{quotient group} $G/N$ is defined to be $\{aN\mid a\in G\}$. 
@@ -1325,9 +1343,6 @@ Group presentation of a group is not unique.
     A \hdef{Tarski monster group} is a finitely generated infinite group, where every proper non-trivial subgroup is cyclic of order a fixed prime $p$. Prove that every Tarski monster group is simple.
 \end{problem}
 \begin{problem}
-    A \hdef{Burnside group} $B(m,n)$ is a group generated by $m$ elements such that for all $g\in B(m,n)$, ${g}^{n}=e$. Prove that $B(m,n)$ is finite if $B(m,n)$ is abelian.
-\end{problem}
-\begin{problem}
     A \hdef{Baumslag-Solitar group} $BS(m,n)$ admits the presentation $\cyc{a,b\mid b{a}^{m}\inv{b}={a}^{n}}$. Prove that $BS(1,1)\iso{C}_{2}$. Prove that $\vp:BS(2,3)\to BS(2,3)$ defined by $\vp(a)={a}^{2}$ and $\vp(b)=b$ is a group epimorphism.
 \end{problem}
 
@@ -1369,7 +1384,7 @@ We have seen analytic properties of real numbers $\R$, now we offer the topologi
 \end{proposition}
 
 
-
+\section{aaa}
 
 
 \vspace{\baselineskip}
