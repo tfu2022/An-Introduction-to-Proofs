@@ -15,7 +15,7 @@ The first four sections are the solid prerequisites for any kind of mathematics.
 \par
 You may notice that we use different names for the same object—a common practice in mathematics. For example, the set of all real numbers $\R$ can be viewed as a set, a group, a ring, a field, a topological space, a metric space $\dots$ (hopefully you will learn every term in this note) Each term highlights a particular aspect of the same structure. Math is one! As Poincaré famously said, ``Mathematics is the art of giving the same name to different things.''
 \par
-Many people have contributed to this note. Special thanks to Fung San Gaan, who wrote the real analysis part of this note and collaborate with me on section 10. I shall also thank to Tingyu Wu. She wrote the linear algebra part and collaborate with me on section 4.
+Many people have contributed to this note. Special thanks to my collaborators Fung San Gaan and Tingyu Wu. Fung San Gaan wrote the real analysis part of this note and collaborate with me on section 10. Tingyu Wu wrote the linear algebra part and collaborate with me on section 4. I shall also thank Bryce for reviewing my proofs and give suggestions on the contents.
 \par
 Finally, think deeper and enjoy mathematics!
 \section{Basic Logic}
@@ -880,8 +880,6 @@ Similarly, one could define $\card{X}\le\card{Y}$ by surjections, that is, if th
 \begin{proof}
     Since $\N$ is countable, $\N\times\N$ is countable. The natural projection $\N\times\N\to\Z$ is surjective, so $\Z$ is countable. Since $\Z$ is countable, $\Z\sm\{0\}\sub\Z$, so $\Z$ is countable. Now $\Z\times(\Z\sm\{0\})$ is countable, since $\Q$ is a quotient set of $\Z\times(\Z\sm\{0\})$, $\Q$ is countable.
 \end{proof}
-\par
-Finally, we present the Cantor-Schröder-Bernstein theorem. This proof is technical, you may skip it and remember the result.
 \begin{theorem}[Cantor-Schröder-Bernstein theorem]\index{Cantor-Schröder-Bernstein theorem}
     Let $f:A\to B$ and $g:B\to A$ be injective functions. Then there exists a bijective function $h:A\to B$.
 \end{theorem}
@@ -1416,11 +1414,11 @@ We have seen analytic properties of real numbers $\R$, now we offer the topologi
 
 
 \newsection{Suggested Readings}
-We tried to include many results in different area. However, this is just a short note, if you are interested in a certain area, we recommend some textbooks as supplementary sources.
+We tried to include many results in different area. However, this is just a short note, if you are interested in a certain area, we here recommend some textbooks as supplementary sources.
 \par
-Our treatments on sets largely follows from \textit{Set Theory} by Thomas Jech. You might notice that the discussions on sets only explain what the axiom tells. 
-
-Moreover, notice that this entire note is based on ZFC, but ZFC has its weaknesses. There are different systems of set theory, 
+We have mentioned several results of axiom of choice: well-ordering theorem, Tikhonov theorem. They are equivalence to axiom of choice. By equivalence of axiom, we mean that if axiom of choice is replaced with any of those results, we still obtain the ZFC system. Moreover, notice that this entire note is based on ZFC, but ZFC has its weaknesses. There are different systems of set theory, such as DB, ZF, $\dots$ The provability between systems is another essential idea in set theory. Our treatments on sets largely based on [3] and we encourage the readers to check further results. Another good source for learning functions and sets is [4]. Although this note 
+\par
+For vector spaces, we have discussed 
 
 
 \vspace{\baselineskip}
