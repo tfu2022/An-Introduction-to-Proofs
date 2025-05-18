@@ -712,6 +712,10 @@ By the well-ordering theorem, $\N$ is well-ordered, this is called the \hdef{wel
 \begin{remark}
     Well-ordering principle is based on ZF system, the set theory without axiom of choice. The well-ordering theorem is an equivalent form of axiom of choice, which is based on ZFC system.
 \end{remark}
+\customtheorem{axiom of regularity}
+\begin{axiom of regularity}
+
+\end{axiom of regularity}
 \newpage
 \section{Integers and Cardinality}
 Recall that we have constructed $\N$ by axiom of inifinity. By the convention of quotient sets, we could further construct the integers and rationals.
@@ -765,7 +769,7 @@ Let $n\in\Z$, the inverse of $n$ is denoted by $-n$.
     Prove that the multiplication on $\Z$ is well-defined.
 \end{problem}
 \begin{definition}
-    
+    Let $p\in\Z$. We say $p$ is a prime if 
 \end{definition}
 \begin{theorem}[fundamental theorem of arithmetic]\index{fundamental theorem of arithmetic}
     For all $n\in\Z$, $n$ can be factored as 
@@ -856,9 +860,9 @@ Similarly, one could define $\card{X}\le\card{Y}$ by surjections, that is, if th
 \begin{proposition}
     Let $X$ be a finite set and let $f:X\to Y$ be a function, then $\im(f)$ is finite and $\card{f(X)}\le\card{X}$.
 \end{proposition}
-\begin{problem}
+\begin{proof}
     Consider the function $g:x\to f(x)$, 
-\end{problem}
+\end{proof}
 \begin{problem}
     Let $X$ and $Y$ be finite sets. Prove that $\card{X\cup Y}\le\card{X}+\card{Y}$.
 \end{problem}
@@ -1214,9 +1218,9 @@ For all $g\in G$, where $G$ is a group, the inverse of $g$ is denoted by $\inv{g
 \begin{problem}
     Prove that there exists a bijection $\psi:G/H\to H\sm G$, conclude that $[G:H]=\card{H\sm G}$.
 \end{problem}
-\begin{proposition}
+\begin{problem}
     Let $H\le G$ be a subgroup. Then there exists a set of left cosets that partitions $G$.
-\end{proposition}
+\end{problem}
 \begin{proof}
     
 \end{proof}
@@ -1414,9 +1418,9 @@ We have seen analytic properties of real numbers $\R$, now we offer the topologi
 \newsection{Suggested Readings}
 We tried to include many results in different area. However, this is just a short note, if you are interested in a certain area, we recommend some textbooks as supplementary sources.
 \par
-All axioms in ZFC have been shown in the note except the axiom of regularity. This axiom is essential to 
+Our treatments on sets largely follows from \textit{Set Theory} by Thomas Jech. You might notice that the discussions on sets only explain what the axiom tells. 
 
-Our treatments on sets largely follows from \textit{Set Theory} by Thomas Jech. You might notice that our discussions on sets lack the . Notice that this entire note is based on ZFC, but ZFC has its weaknesses. 
+Moreover, notice that this entire note is based on ZFC, but ZFC has its weaknesses. There are different systems of set theory, 
 
 
 \vspace{\baselineskip}
