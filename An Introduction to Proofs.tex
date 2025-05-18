@@ -2,7 +2,7 @@
 \documentclass[10pt]{article}
 \input{/Users/mr.hassium/Desktop/Github/Hello-World/hassium.tex}
 \def\htitle{An Introduction to Proofs}
-\def\hauthor{Hassium, Fung San Gann, Tingyu Wu}
+\def\hauthor{Hassium, Fung San Gaan, Tingyu Wu}
 \def\hfauthor{HS, FSG, WTY}
 \begin{document}
 \hsetup
@@ -11,11 +11,11 @@
 \section*{Introduction}
 In higher-level mathematics, students need a certain level of ``mathematical maturity'' to understand and apply abstract ideas. However, there is no clear way to measure this maturity, nor a definitive method to teach someone how to write a proof. This note is intended to be a transition from high school math to proof-based formal mathematics.
 \par
-The first four sections are the solid prerequisites for any kind of mathematics. Sections 6 to 10 are selected topics that help students to prepare for advaneced math courses. There are mainly four parts: linear algebra, abstract algebra, real analysis, and general topology. For linear algebra, please read section 6. For abstract algebra, we recommend the readers to check section 6 and 7. For real analysis, we will use some basic ring theory to construct $\R$, so please check section 8 and 9. For general topology, please read section 6 and 10. Those parts are designed to be independent of each other.
+The first four sections are the solid prerequisites for any kind of mathematics. Sections 6 to 10 are selected topics that help students to prepare for advaneced math courses. There are mainly four parts: linear algebra, abstract algebra, real analysis, and general topology. For linear algebra, please read section 5. For abstract algebra, we recommend the readers to check section 6 and 7. For real analysis, we will use some basic ring theory to construct $\R$, so please check section 8 and 9. For general topology, please read section 6 and 10. Those parts are designed to be independent of each other.
 \par
 You may notice that we use different names for the same object—a common practice in mathematics. For example, the set of all real numbers $\R$ can be viewed as a set, a group, a ring, a field, a topological space, a metric space $\dots$ (hopefully you will learn every term in this note) Each term highlights a particular aspect of the same structure. Math is one! As Poincaré famously said, ``Mathematics is the art of giving the same name to different things.''
 \par
-Many people have contributed to this note.
+Many people have contributed to this note. Special thanks to Fung San Gaan, who wrote the real analysis part of this note and collaborate with me on section 10. I shall also thank to Tingyu Wu. She wrote the linear algebra part and collaborate with me on section 4.
 \par
 Finally, think deeper and enjoy mathematics!
 \section{Basic Logic}
@@ -441,7 +441,6 @@ The well-ordering theorem is equivalent to the axiom of choice, which will be di
     Prove that given a subset $S\sub\N$ of the natural numbers with $0\in S$ and $\{0,1,\dots,n\}\sub S$ implies $n+1\in S$, then $S=\N$. This is known as the \hdef{complete finite induction}. Prove that the complete finite induction implies the finite induction, conclude that they are equivalent.
 \end{problem}
 \section{Functions}
-We have shown some properties in sets and how they could ``combine'' to form new sets. However, it is not clear 
 \begin{definition}
     Let $X$ and $Y$ be sets. A \hdef{function} $f$ is a binary operation $f\sub X\times Y$ such that for all $x\in X$, there exists a unique $y\in Y$ such that $(x,y)\in f$. We say $f$ is a function from $X$ to $Y$, denoted $f:X\to Y$. The set $Y$ is called the \hdef{codomain} of $f$, denoted $\cod(f)$.
 \end{definition}
@@ -678,11 +677,6 @@ Let $\al$ and $\be$ be ordinals. We define $\al<\be$ if and only if $\al\in\be$.
 \begin{definition}
     An ordinal $\al$ is said to be a \hdef{limit ordinal} if 
 \end{definition}
-\begin{proposition}
-    Every ordinal is either $\es$, a successor ordinal, or a limit ordinal.
-\end{proposition}
-
-
 \begin{theorem}[transfinite induction]
     Let $C$ be a class of ordinals that satisfies:
     \begin{enumerate}
@@ -705,6 +699,8 @@ Let $\al$ and $\be$ be ordinals. We define $\al<\be$ if and only if $\al\in\be$.
 \begin{problem}
     
 \end{problem}
+\par
+Now we show that well-ordering theorem is a consequence of axiom of choice. This proof is technical, you may skip it and remember the result.
 \begin{theorem}[well-ordering theorem]
     Every set is well-orderable.
 \end{theorem}
@@ -768,6 +764,12 @@ Let $n\in\Z$, the inverse of $n$ is denoted by $-n$.
 \begin{problem}
     Prove that the multiplication on $\Z$ is well-defined.
 \end{problem}
+\begin{definition}
+    
+\end{definition}
+\begin{theorem}[fundamental theorem of arithmetic]\index{fundamental theorem of arithmetic}
+    For all $n\in\Z$, $n$ can be factored as 
+\end{theorem}
 \begin{problem}
     Consider the relation ${\sim}_{\Z\times}\sub\Z\times(\Z\sm\{0\})$ defined by $(a,b)\sim(b,c)$ if and only if $ad=bc$. Prove that ${\sim}_{\Z\times}$ is an equivalence relation.
 \end{problem}
@@ -822,53 +824,69 @@ Recall that we have defined $\le$ on $\N$ by the natural inclusion, that is, for
 \par
 Now we consider the cardinality of infinite sets. We have constructed $\Z$ and $\Q$ based on $\N$, and all of those sets are considered to have the same cardinality.
 \begin{definition}
-    A set $S$ is said to be \hdef{countable} if $S$ is finite or $S{\iso}_{\cat{Set}}\N$. If a set is not countable, then we say the set is \hdef{uncountable}.
+    A set $S$ is said to be \hdef{countable} if $S$ is finite or there exists a bijective function $f:S\to\N$. If a set is not countable, then we say the set is \hdef{uncountable}.
 \end{definition}
 \par
 The function ${\id}_{\N}:\N\to\N$ is trivially bijective, so $\N$ is countable.
+\begin{definition}
+    Let $X$ and $Y$ be sets. We say $X$ has smaller cardinality than $Y$, denoted $\card{X}\le\card{Y}$, if there exists an injection $f:X\to Y$.
+\end{definition}
+\begin{remark}
+    Since $\card{X}$ can be infinite, the symbol ``$\le$'' is not the typical ordering in $\N$.
+\end{remark}
+\par
+Similarly, one could define $\card{X}\le\card{Y}$ by surjections, that is, if there exists a surjection $f:Y\to X$, then $\card{X}\le\card{Y}$.
+\begin{theorem}[Cantor's theorem]\index{Cantor's theorem}
+    Let $S$ be a set. Then any function $f:S\to\ps(S)$ is not bijective.
+\end{theorem}
+\begin{proof}
+    Suppose there exists a bijection $f:S\to\ps(S)$.
+    
+
+\end{proof}
+\begin{problem}
+    Use Cantor's theorem, prove that for all set $S$, there exists some element $x\notin S$. Moreover, if $S$ is finite, let $x\notin S$, prove that $\card{S\cup\{x\}}=\card{X}+1$.
+\end{problem}
 \begin{proposition}
-    Let $X$ and $Y$ be sets. If there exists a function $f:X\to Y$ that is injective, then $\card{X}\le\card{Y}$.
-\end{proposition}
-\begin{proposition}
-    Let $X$ and $Y$ be sets. Then the following properties hold. \\
-    a). Let $X$ be a finite set, $x\notin X$ an element, then $X\cup\{x\}$ is finite and $| X\cup\{x\}| = |X|+1$\\
-    b). Let $X$ be a finite set, $Y\subseteq X$, then $Y$ is finite and $|Y|\leq|X|$\\
-    c). Let $X$ be a finite set, $f:X\to Y$ a function, then $f(X)$ is finite and $|f(X)|\leq|X|$\\
-    d). Let $X, Y$ be finite sets, then $X\cup Y$ is finite and $|X\cup Y|\leq |X|+|Y|$\\
-    e). Let $X, Y$ be finite sets, then their Cartesian product $X\times Y$ is finite and $|X\times Y|=|X|\cdot|Y|$\\
-    f). Let $X, Y$ be finite sets, then $Y^X$ is finite and $|Y^X|=|Y|^{|X|}$\\
+    Let $X$ be a finite set and let $Y\sub X$, then $Y$ is finite and $\card{Y}\le\card{X}$.
 \end{proposition}
 \begin{proof}
-    select some proofs here, maybe 2 or 3 
+    Let $f:Y\to X$ defined by $f(y)=y\in Y\sub X$, this map is trivially injective.
+\end{proof}
+\begin{proposition}
+    Let $X$ be a finite set and let $f:X\to Y$ be a function, then $\im(f)$ is finite and $\card{f(X)}\le\card{X}$.
+\end{proposition}
+\begin{problem}
+    Consider the function $g:x\to f(x)$, 
+\end{problem}
+\begin{problem}
+    Let $X$ and $Y$ be finite sets. Prove that $\card{X\cup Y}\le\card{X}+\card{Y}$.
+\end{problem}
+\begin{proposition}
+    The finite Cartesian product of countable set is countable.
+\end{proposition}
+\begin{proof}
+    Let ${A}_{1},{A}_{2},\dots,{A}_{n}$ be countable sets, then each ${A}_{i}$ itself is in bijection with $\N$. Suppose we pick $n$ distinct prime numbers ${p}_{1},{p}_{2},\dots,{p}_{n}$ and define $f:{\prod}_{i=1}^{n}\N\to\N$ such that $f({a}_{1}, a_2,..., a_n) = p_1^{a+1}\cdot p_2^{a+2}...p_n^{a+n}$.
+    Notice $f$ is injective as the prime factorization of a number is unique.
+    Thus, $\prod_{i=1}^{n}\N$ is countable then $\prod_{i=1}^{n}A_i$ is countable.
 \end{proof}
 \begin{proposition} 
     The sets $\Z$ and $\Q$ are countable.
 \end{proposition}
 \begin{proof}
-    Since $\N$ is countable, $\N\times\N$ is countable. The natural projection $\N\times\N\to\Z$ is surjective, so $\Z$ is countable. Similarly, $\Q$ is countable.
+    Since $\N$ is countable, $\N\times\N$ is countable. The natural projection $\N\times\N\to\Z$ is surjective, so $\Z$ is countable. Since $\Z$ is countable, $\Z\sm\{0\}\sub\Z$, so $\Z$ is countable. Now $\Z\times(\Z\sm\{0\})$ is countable, since $\Q$ is a quotient set of $\Z\times(\Z\sm\{0\})$, $\Q$ is countable.
 \end{proof}
-\begin{theorem}[Cantor's theorem]\index{Cantor's theorem}
-    Let $S$ be a set. Then any function $f:S\to\ps(S)$ is not bijective.
-\end{theorem}
-\begin{proof}
-    Suppose there exists a bijection $f:S\to\ps(S)$. Consider the set $A=\{x\in S\mid x\notin f(x)\}$, since $A\sub S$, it is well-defined. Since $f$ is a bijection, there exists $x\in S$ such that $f(x)=A$.
-\end{proof}
-%\begin{proof}
-   Now consider set $A:=\{x\in S \mid x\notin f(x)\}$. Note the set is well-defined since $f(x)\in 2^S\subseteq S$. Since $f$ is a bijiection, there must exists a $x\in S$ s.t. $f(x)=A$. Here are the two cases: if $x\in A$ then by definition $x\notin f(x) \implies x\notin A$; if $x\notin A$ then $x\notin f(x)$ and by definition $x\in A$, where both cases form a contradiction.
-%\end{proof}
-\begin{problem}
-    Use Cantor's theorem, prove that for all set $S$, there exists some element $x\notin S$.
-\end{problem}
+\par
+Finally, we present the Cantor-Schröder-Bernstein theorem. This proof is technical, you may skip it and remember the result.
 \begin{theorem}[Cantor-Schröder-Bernstein theorem]\index{Cantor-Schröder-Bernstein theorem}
     Let $f:A\to B$ and $g:B\to A$ be injective functions. Then there exists a bijective function $h:A\to B$.
 \end{theorem}
 \begin{proof}
     
 \end{proof}
-
+\par
+By Cantor-Schröder-Bernstein theorem, we conclude that if $\card{A}\le\card{B}$ and $\card{B}\le\card{A}$, then $\card{A}=\card{B}$.
 \newpage
-
-
 \section{Vector Spaces and Linear Maps}
 
 \newpage
@@ -1124,13 +1142,13 @@ We have shown a general constructions of mathematical entities use the conventio
     A triple $(G,\comp,e)$ is a \hdef{group} if it is a monoid and for all $g\in G$, there exists $h\in G$ such that $h\comp g=e=g\comp h$. Such $f$ is called an \hdef{inverse} of $g$. If $\comp$ is commutative, then the group is \hdef{abelian}. The cardinality of a group is called its \hdef{order}, denoted $\card{G}$.
 \end{definition}
 \begin{example}
-    The trivial group is the group of one element, that is, $\{e\}$.
+    The \hdef{trivial group} is the group of one element, that is, $\{e\}$.
 \end{example}
 \begin{example}
     Consider the set ${D}_{n}$ of all rotations and reflections that map a regular $n$-gon into itself, this is called the \hdef{dihedral group}. Let the reflection be $S$, which gives ${S}^{2}=e$. Multiply the rotations by $S$ on the left, then we have $n$ distinct rotational symmetries. Hence there are $n$ rotations and $n$ reflections, that is, $\card{{D}_{n}}=2n$.
 \end{example}
 \begin{example}
-    Let $S$ be a set. All bijections $S\to S$ forms a group called the \hdef{symmetric group}. If $S$ is finite, then the symmetric group is denoted by ${\fr{S}}_{n}$. An element of the symmetric group is called a \hdef{permutation}. Let $\pi$ be a permutation of ${\fr{S}}_{n}$. A permuatation can be expressed by two-line notation, that is, 
+    Let $S$ be a set. All bijections $S\to S$ forms a group called the \hdef{symmetric group}, denoted $\Sym(S)$. If $S$ is finite, then the symmetric group is denoted by ${\fr{S}}_{n}$, where $\card{S}=n$. An element of the symmetric group is called a \hdef{permutation}. Let $\pi$ be a permutation of ${\fr{S}}_{n}$. A permuatation can be expressed by two-line notation, that is, 
     \begin{center}
         $\pi=
         \begin{pmatrix}
@@ -1275,12 +1293,12 @@ Let $G$ and $H$ be groups. Since $0$ is the zero object, there exists unique gro
     A group homomorphism is an epimorphism if and only if it is surjective.    
 \end{proposition}
 \begin{proof}
+    $(\Ra)$ Let $f:H\to K$ be an epimorphism. Let $X=K/f(H)$ be the set of right cosets of $f(H)$ in $K$. Let $\al$ not in $X$. Consider the set $Y=X\cup\{\al\}$
+
+
+
     $(\La)$ Let $f:G\to H$ be surjective, so $f$ is an epimorphism in $\cat{Set}$, since $\cat{Grp}$ is a subcategory of $\cat{Set}$ and $f$ is a group homomorphism, $f$ is a group epimorphism.
 \end{proof}
-\begin{problem}
-    
-\end{problem}
-
 \begin{definition}
     Let $G$ be a group and $N\nsg G$. The \hdef{quotient group} $G/N$ is defined to be $\{aN\mid a\in G\}$. 
 \end{definition}
@@ -1319,33 +1337,42 @@ Let $G$ and $H$ be groups. Since $0$ is the zero object, there exists unique gro
     \end{tikzcd}
 \end{center}
 \par
+We will first show the existence of free groups. Consider 
 
-We will first show the existence of free groups. 
-
-
-
+\begin{problem}
+    Let ${X}_{1}$ and ${X}_{2}$ be bases of free groups ${F}_{1}$ and ${F}_{2}$, respectively. Prove that if ${X}_{1}{\iso}_{\cat{Set}}{X}_{2}$, then ${F}_{1}{\iso}_{\cat{Grp}}{F}_{2}$.
+\end{problem}
+\begin{definition}
+    A \hdef{group presentation} is a pair $(S,R)$ consisting of a set $S$ and a subset $R\sub F(S)$. The group presented by $(S,R)$ is defined to be $\cyc{S\mid R}=F(S)/N$, where $N$ is the smallest normal subgroup of $F(S)$ containing $R$.
+\end{definition}
 \begin{definition}
     Let $G$ be a group with the presentation $\cyc{S\mid R}$, then the elements are called the \hdef{generators} of $G$. A group is said to be \hdef{cyclic} if $\card{S}=1$.
 \end{definition}
 \begin{example}
     The presentation of a free group $F(S)$ is $\cyc{S\mid\es}$.
 \end{example}
+\begin{problem}
+    Prove that $\cyc{a,b\mid aba\inv{a}{b}^{-2},ba\inv{b}{a}^{-2}}$ is the trivial group.
+\end{problem}
 \par
 Group presentation of a group is not unique. 
+
+
+
+
+
 \begin{problem}
     Prove that a finite cyclic group of order $n$ admits the presentation $\cyc{a\mid{a}^{n}}$. We denote it by ${C}_{n}$.
 \end{problem}
-
-
-
-
 \begin{problem}
     A \hdef{Tarski monster group} is a finitely generated infinite group, where every proper non-trivial subgroup is cyclic of order a fixed prime $p$. Prove that every Tarski monster group is simple.
 \end{problem}
 \begin{problem}
     A \hdef{Baumslag-Solitar group} $BS(m,n)$ admits the presentation $\cyc{a,b\mid b{a}^{m}\inv{b}={a}^{n}}$. Prove that $BS(1,1)\iso{C}_{2}$. Prove that $\vp:BS(2,3)\to BS(2,3)$ defined by $\vp(a)={a}^{2}$ and $\vp(b)=b$ is a group epimorphism.
 \end{problem}
-
+\begin{definition}
+    
+\end{definition}
 
 
 \newpage
@@ -1384,7 +1411,12 @@ We have seen analytic properties of real numbers $\R$, now we offer the topologi
 \end{proposition}
 
 
-\section{aaa}
+\newsection{Suggested Readings}
+We tried to include many results in different area. However, this is just a short note, if you are interested in a certain area, we recommend some textbooks as supplementary sources.
+\par
+All axioms in ZFC have been shown in the note except the axiom of regularity. This axiom is essential to 
+
+Our treatments on sets largely follows from \textit{Set Theory} by Thomas Jech. You might notice that our discussions on sets lack the . Notice that this entire note is based on ZFC, but ZFC has its weaknesses. 
 
 
 \vspace{\baselineskip}
@@ -1395,14 +1427,12 @@ We have seen analytic properties of real numbers $\R$, now we offer the topologi
 \newline
 [2] Bradley, Tai-Danae, et al. \textit{Topology}. 1st ed. MIT Press. 2020.
 \newline
-[3] Gerstein, L. \textit{Introduction to Mathematical Structures and Proofs}. 2nd ed. Springer Science \& Business Media. 2012
+[3] Jech, T. \textit{Set Theory}. 3rd ed. Berlin ; London, Springer. 2011.
 \newline
-[4] Jech, T. \textit{Set Theory}. 3rd ed. Berlin ; London, Springer. 2011.
+[4] Kaplansky, I. \textit{Set Theory and Metric Spaces}. 1st ed. Chelsea Publishing Co., New York. 1977.
 \newline
 [5] Lang, S. \textit{Algebra}. 3rd ed. New York, Springer. 2002.
 \newline
-[6] Lyndon, R., and Schupp, P. \textit{Combinatorial Group Theory}. 1st ed. Berlin, Heidelberg, New York Springer, 1977.
-\newline
-[7] Tao, T. \textit{Analysis I}. 3rd ed. Singapore Springer Singapore, Imprint: Springer. 2016.
+[6] Tao, T. \textit{Analysis I}. 3rd ed. Singapore Springer Singapore, Imprint: Springer. 2016.
 \hindex 
 \end{document}
