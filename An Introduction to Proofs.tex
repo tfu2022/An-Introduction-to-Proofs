@@ -1378,8 +1378,410 @@ Group presentation of a group is not unique.
 
 \newpage
 \section{Rings}
-\newpage
+\begin{definition}
+    A triple $(G,\comp,e)$ is a \hdef{group} if it is a monoid and for all $g\in G$, there exists $h\in G$ such that $h\comp g=e=g\comp h$. Such $f$ is called an \hdef{inverse} of $g$. If $\comp$ is commutative, then the group is \hdef{abelian}. 
+\end{definition}
+\begin{hdefinition}[ring]
+    A ring is an abelian group $(R,+,0)$ with operation $\cdot$ such that
+    \begin{enumerate}
+        \item $\cdot$ is associative: for all $ a, b, c\in R$, $a\cdot (b\cdot c)=(a\cdot b)\cdot c$.
+        \item $\cdot$ distributes over $+$: for all $ a, b, c\in R, a\cdot (b+c)=a\cdot b+a\cdot c$ and $(a+b)\dot c=a\cdot c+b\cdot c$.
+        \item There exists $ 1_{R}\in R$ such that $1_{R}\cdot a=a=a\cdot 1_{R}$ for all $ a\in R$. We call ${1}_{R}$ the \hdef{multiplicative identity} of $R$.
+    \end{enumerate}
+\end{hdefinition}
+\begin{hdefinition}[unit]
+    An element $u$ of a ring $R$ is a unit if there exists $ v\in R$ such that $u\cdot v = 1_{R}=v\cdot u$.
+\end{hdefinition}
+\begin{remark}
+    A ring is a data $(R, +, \cdot)$ consisting of a set $R$, with two binary operations $+,\cdot$. $R$ is an abelian group under $+$. We use $R^\times$ to represent units of $R$.
+\end{remark}
+\begin{hdefinition}[commutative ring]
+    A ring $R$ is commutative if and only if for all $ a,b\in R$, $a\cdot b=b\cdot a$.
+\end{hdefinition}
+\begin{example}[ring of functions]
+    Let $X$ be a set, $R$ be a ring, $R^{X}$ is the set of all functions from $X$ to $R$. $R^{X}$ is a ring. For any $f,g\in R^X$, addition and multiplication are defined as
+    \begin{align*}
+        +&:\quad (f+g)(x)=f(x)+g(y)\\
+        \cdot&:\;\quad (f\cdot g)(x)=f(x)\cdot g(x)
+    \end{align*}
+    for all $x\in X$.
+\end{example}
+            %\textbf{Remark: }Polynomials are not functions\\\\
+\begin{hdefinition}[polynomial ring]
+    Let $R$ be a commutative ring. Define $R[x] = \{a_{0}+a_{1}x+...a_{n}x^{n}|n\geq 0, a_{i}\in R\}$. Assuming $n>m$, we define addition and multiplication as follows:
+    \begin{align*}
+        +&:\;\quad\qquad\sum_{i=0}^{n} a_{i}x^{i}+\sum_{i=0}^{n}b_{i}x^{i} = \sum_{i=0}^{n}(a_{i}+b_{i})x^{i}\\
+        \cdot&: \quad\left(\sum_{i=0}^{n} a_{i}x^{i}\right)\left(\sum_{j=0}^{m}b_{j}x^{j}\right) = \sum_{i=0}^{n+m} \left(\sum_{i+j=k}a_{i}b_{j}x^k\right)
+    \end{align*}
+\end{hdefinition}
+\begin{problem}
+    Prove that a polynomial ring is indeed a ring. What are 0 and 1 in $R[x]$?
+\end{problem}
+\begin{hdefinition}[degree]
+    The degree of $0\neq p(x)=a_{0} +a_{1}x+...+a_{n}x^{n}\in R[x]$ is $\text{deg}(p)=\text{max}\{n|a_{n}\neq 0\}$. If $p(x)= 0$, $\text{deg}(p)=-\infty$.
+\end{hdefinition}
+
+\begin{hdefinition}[field]
+    A commutative (non-zero) ring $F$ in which any non-zero element is a unit (i.e. for all $a\in F$, there exists $ b\in F$ such that $a\cdot b = 1 = b\cdot a$).
+\end{hdefinition}
+\begin{lemma}
+    For any ring $R$, any $a\in R$ satisfies $a\cdot 0=0=0\cdot a$.
+\end{lemma}
+\begin{proof}
+    $0=0+0$ implies $a\cdot 0 = a\cdot (0+0) = a\cdot 0+a\cdot 0$. Since $R$ is also a group, there exists an additive inverse $-a\cdot 0\in R$. We can add $-a\cdot 0$ to both sides:
+    \begin{align*}
+        a\cdot 0-a\cdot 0=(a\cdot 0+a\cdot 0)-a\cdot 0 = a\cdot 0+(a\cdot 0-a\cdot 0)  \iff {0 = a\cdot 0}
+    \end{align*}
+    Doing a symmetric argument to $0\cdot a = (0+0)\cdot a = 0\cdot a+0\cdot a$, we conclude that $a\cdot 0=0=0\cdot a$.
+\end{proof}
+\begin{corollary}
+    If $R$ is a ring and $0=1$, then $R=\{0\}$, we call $\{0\}$ the \hdef{zero ring}.
+\end{corollary}
+\begin{proof}
+    For all $a\in R$, $a = a\cdot 1 = a\cdot 0 = 0$.
+\end{proof}
+\begin{proposition}
+    Let $R$ be a commutative ring. If there exist nonzero $x, y\in R$ such that $x\cdot y=0$, then $x, y\notin R^\times$.
+\end{proposition}
+\begin{proof}
+    Assume $x$ is a unit. Then there exists some $x^{-1}\in R$ and $0 = x^{-1}\cdot 0 = x^{-1}\cdot (x\cdot y) = (x^{-1}\cdot x)\cdot y =1\cdot y = y$. This contradicts the assumption that $y\neq 0$. Therefore, $x$ is not a unit. By a similar argument, we can show $y$ is also not a unit.
+\end{proof}
+\begin{lemma}
+    Let $R$ be a commutative ring. For any $f, g\in R[x]$, $\text{deg}(f\cdot g)\leq \text{deg}(f)+\text{deg}(g)$.
+\end{lemma}
+\begin{proof}
+    {If $f$ or $g$ is $0$}, then $f\cdot g = 0$. And $\text{deg}(f\cdot g)$ is $-\infty$. $\text{deg}(f)+\text{deg}(g)$ is either $-\infty$ or $-\infty$ plus something. {If $f,g\neq 0$}, then let $f=\sum_{i=0}^{n}a_{i}x^{i}$ and $g=\sum_{j=0}^{m}b_{j}x^{j}$. Their product would be $\sum_{i=0}^{n+m}\left(\sum_{i+j=k} a_{i}b_{j}x^k \right)$. If $a_{n}, b_{m}\neq 0$, then $\text{deg}(f\cdot g)=n+m$ which is equal to $\text{deg}(f)+\text{deg}(g)$. Otherwise $\text{deg}(f\cdot g)< n+m = \text{deg}(f)+\text{deg}(g)$.
+\end{proof}
+\begin{remark}
+    $0(x)=0_{R}, \forall x\in X$ is the zero function. Constant function $1(x)=1_{R}, \forall x\in X$ is the unity.
+\end{remark}
+\begin{hdefinition}[subring]
+    A subset $S$ of a ring $R$ is a subring if and only if 
+    \begin{enumerate}
+        \item $S$ is a subgroup of $(R,+,0)$.
+        \item for all $a,b\in S$, $ab\in S$. This means $S$ is closed under multiplication. 
+    \end{enumerate}
+\end{hdefinition}
+\begin{hdefinition}[ring homomorphism]
+    Let $R,R'$ be two rings, a map $f: R\to R'$ is a ring homomorphism if and only if $f$ preserves both $+$ and $\cdot$:
+    \begin{align*}
+        f(a+b)&=f(a)+f(b)\\
+        f(ab)&=f(a)f(b)
+    \end{align*}
+    for all $a,b\in R$.
+\end{hdefinition}
+\begin{hdefinition}[unital homomorphism]
+    A ring homomorphism $f:R\to R'$ is unital if $f(1_R)=1_{R'}$.
+\end{hdefinition}
+\begin{hdefinition}[ideal]
+    An ideal $I$ in a ring is a subgroup of $(R,+,0)$ so that \circled{1} $I\neq\emptyset$ and \circled{2} for all $a,b\in I,ab^{-1}=a-b\in I$. Or equivalently, for any $r\in R$ and $i\in I$, $ri\in I$.
+\end{hdefinition}
 \section{Real Numbers}
+\begin{definition}[$\Q$ norm]
+    $|a|$ is a norm on $\mathbb{Q}$: $|a| = 
+    \begin{cases}
+        a &(a \geq 0) \\
+        -a &(a < 0)
+    \end{cases}$ that satisfies
+    \begin{enumerate}
+        \item $|a|\geq 0$.
+        \item $|a|=0$ implies $ a=0$.
+        \item $|ab|=|a||b|$.
+        \item Triangle inequality: $|a+b| \leq |a|+|b|$.
+    \end{enumerate}
+\end{definition}
+\begin{definition}[convergence]
+    A sequence $\{a_n\}_{n=1}^\infty$ of rationals converges to $a\in\Q$ if for all $ r\in\Q^+$, there exists $ N\in\N$, such that for all $ n\geq N$, $|a_n-a|<r$. A sequence $\{a_n\}$ converging to $a$ is denoted as $\{a_n\}\to a$. $a$ is called the limit (in rational) of $\{a_n\}$. In other words, the sequence $\{a_n\}$ can get arbitrarily close to $a$. A bad example would be $\left \{ 3.1, 3.14, 3.141, 3.1415... \right \}\to \pi\notin\mathbb{Q}$.
+\end{definition}
+\begin{definition}[Cauchy sequence]
+    A sequence $\{a_n\}^\infty_{n=1}$ of rationals is Cauchy if for all $r\in \mathbb{Q}^+$, there exists $N\in\mathbb{N}$ such that for all $n,m\geq N$ and $\card{ a_n-a_m}<r$. As the sequence proceeds, the difference between two elements gets smaller and smaller.
+\end{definition}
+\begin{proposition}
+    If $\{a_n\}$ converges in $\Q$, then $\{a_n\}$ is Cauchy.
+\end{proposition}
+\begin{proof}
+    Take some arbitrary $r\in\Q^+$. Since $\{a_n\}\rightarrow a$, there exists $ N\in\N$ such that for all $n\geq N$, $|a_n-a|<{r}/{2}$ and for all $m\geq N$, $|a_m-a|<{r}/{2}$. Then
+    \begin{align*}
+        |a_n-a_m|&=|a_n-a+a-a_m|=|(a_n-a)+(a-a_m)|\\
+                 &\leq|a_n-a|+|a_m-a|\tag{triangle inequality}\\
+                 &<\frac{r}{2}+\frac{r}{2}<r
+    \end{align*}
+    Therefore, $\{a_n\}$ is Cauchy.
+\end{proof}
+\begin{remark}
+    The converse of the above proposition is false.
+\end{remark}
+\begin{definition}[bounded]
+    A rational sequence $\{a_n\}$ is bounded if $S=\{ a_n\mid n\in \N \}$ is bounded in $\Q$: If $S$ is bounded, then there exist $ a,b\in\Q$ such that for all $a_n\in S$, $a\leq a_n$ and $b\geq a_n$.
+\end{definition}
+\begin{lemma}
+    If $\{a_n\}$ is a Cauchy sequence in $\Q$, then it is bounded in $\Q$.
+\end{lemma}
+\begin{proof}
+    Let $r=347$. If the sequence $\{a_n\}$ is cauchy, then there exists $N\in\N$ such that for all $m,n\geq N$, $|a_n-a_m|<347$. If $m=N$, then for all $n\geq N$, $|a_n-a_N|<347$. By definition, showing $\{a_n\}$ is bounded is the same as showing $|a_n|\leq M\in \Q$ for all $n$:
+    \begin{align*}
+        |a_n|=|a_n-a_N+a_N|\leq |a_n-a_N|+|a_N|\\
+        \Rightarrow |a_n|\leq |a_n-a_N|+|a_N|
+    \end{align*}
+    Since $|a_n-a_N|$ is strictly smaller than $347$, we can simply replace $|a_n-a_N|$ with $347$. When $n\geq N$, $|a_n|<347+|a_N|$. Let $U=\text{max}\{|a_1|,|a_2|,...,|a_{N-1}|, 347+|a_N|\}$. We have that $|a_n|\leq U$ for all $ n\in \N$. From there:
+    \begin{enumerate}
+        \item[\circled{1}] If $n\geq N$, then use $347+|a_N|$ as the bound. 
+        \item[\circled{2}] If $n<N$, then there finitely many values, and they are bounded by $\text{max}\{|a_1|,|a_2|,...,|a_{N-1}|\}$.
+    \end{enumerate}
+\end{proof}
+\begin{proposition}
+    The set of all rational Cauchy sequences is a commutative ring with 1.
+\end{proposition}
+\begin{proof}
+    We prove this proposition by checking ring axioms one by one. All indices are natural numbers. 
+    \begin{enumerate}
+        \item[\textbf{A1}] Assume $\{a_n\}$, $\{b_n\}$ are Cauchy. Fix $r\in\Q^+$. Since $\{a_n\}$ is Cauchy, there exists $N_1$ such that for all $n,m \geq N_1$, $|a_n-a_m| < r/2$. Since $\{b_n\}$ is Cauchy, there exists $N_2$ such that for all $n,m \geq N_2$, $|b_n-b_m| < r/2$. Let $N = \text{max}(N_1, N_2)$. For all $n,m \geq N$, 
+        $$
+            |(a_m+b_m)-(a_n+b_n)|=|a_m-a_n + b_m -b_n| \leq |a_m-a_n| + |b_m-b_n| < r/2 + r/2 = r
+        $$
+        Therefore, $\{a_n\}+\{b_n\}$ is Cauchy.
+        \item[\textbf{A2}] $\{a_n\} + (\{b_n\} + \{c_n\}) = \{a_n + (b_n + c_n)\} = \{(a_n + b_n) + c_n\} = (\{a_n\} + \{b_n\}) + \{c_n\}$.
+        \item[\textbf{A3}] $\{a_n\} + \{b_n\} = \{a_n + b_n\} = \{b_n + a_n\} = \{b_n\} + \{a_n\}$.
+        \item[\textbf{A4}] There exist a zero sequence $\{0\}$ such that $\{a_n\} + \{0\} = \{a_n + 0\} = \{a_n\}$ and $\{0\} + \{a_n\}  = \{0 + a_n\} = \{a_n\}$.
+        \item[\textbf{A5}] For any $\{a_n\}$, there exist $-\{a_n\} = \{-a_n\}$ such that $\{a_n\} + (-\{a_n\}) = \{a_n - a_n\} = \{0\}$ and $(-\{a_n\}) + \{a_n\} = \{- a_n + a_n\} = \{0\}$.
+        \item[\textbf{M1}] Let $\{a_k\}$ and $\{b_k\}$ be Cauchy sequences in $\Q$. Then 
+        \begin{align*}
+            |a_nb_n - a_mb_m| &= |a_nb_n - a_nb_m + a_nb_m - a_mb_m| \leq |a_n||b_n - b_m| + |b_m||a_n - a_m|\\ 
+            &\leq A|b_n - b_m| + B|a_n - a_m|
+        \end{align*}
+        where $A$ and $B$ are upper bounds for sequences $\{|a_k|\}$ and $\{|b_k|\}$. Since $\{|a_k|\}$ and $\{|b_k|\}$ are Cauchy sequences, for all $\epsilon({2A})^{-1}, \epsilon({2B})^{-1} > 0$, there exists $N \in \N$ such that for all $m, n \geq N$, $|a_m - a_n| < \epsilon({2B})^{-1}$ and $|b_m - b_n| < \epsilon({2A})^{-1}$. So $|a_mb_m - a_nb_n| < A \epsilon({2A})^{-1} + B \epsilon({2B})^{-1} = \epsilon$. Therefore, $\{a_n\}\{b_n\}$ is Cauchy.
+        \item[\textbf{M2}] $\{a_n\} \cdot (\{b_n\} \cdot \{c_n\}) = \{a_n \cdot (b_n \cdot c_n)\} = \{(a_n \cdot b_n) \cdot c_n\} = (\{a_n\} \cdot \{b_n\}) \cdot \{c_n\}$.
+        \item[\textbf{M3}] $\{a_n\} \cdot \{b_n\} = \{a_n \cdot b_n\} = \{b_n \cdot a_n\} = \{b_n\} \cdot \{a_n\}$.
+        \item[\textbf{M4}] There exist $\{1\}$ such that $\{a_n\} \cdot \{1\} = \{a_n \cdot 1\} = \{a_n\}$ and $\{1\} \cdot \{a_n\}  = \{1 \cdot a_n\} = \{a_n\}$.
+        \item[\textbf{D}] $\{a_n\} \cdot (\{b_n\} + \{c_n\}) = \{a_n \cdot (b_n + c_n)\} = \{a_n \cdot b_n + a_n \cdot c_n\} = \{a_n\} \cdot \{b_n\} + \{a_n\} \cdot \{c_n\}$.
+    \end{enumerate}
+\end{proof}
+\begin{notation}
+    The ring of rational Cauchy sequences is denoted as $\mathcal{C}$.
+\end{notation}
+\begin{remark}
+    Is $\mathcal{C}$ an integral domain? That is: does $ab=0$ imply $a=0$ or $b=0$? $\textbf{No}$, a counter example would be $a= (0,0.1,0,0.01,0,0.001....)$ and $b= (0.1,0,0.01,0,0.001,0....)$, but $ab = (0,0,0,0,...)$.
+\end{remark}
+\begin{proposition}
+    Let $I := \{\text{Cauchy sequences that converge to }0\}$. $I\subset \mathcal C$ is an ideal.
+\end{proposition}
+\begin{proof}[proof sketch]
+    Let $I$ be the set of sequences $\{a_k\}$ in $\mathcal C$ with the property that, given any rational $r > 0$, there exists an integer $N$ such that if $n \geq N$, then $|a_n| < r$. For any $c\in \mathcal{C}$ and $i\in I$, the sequence $ci$ can be eventually scaled down to 0 because $c$ is bounded. For any $i'\in I$, obviously $i+i'\in I$.
+\end{proof}
+\begin{proposition}
+    If $\{a_k\}\in \mathcal{C} \setminus I$, then there exist a positive rational number $r$ and an integer $N$ so that $|a_k|\geq r$ for all $n\geq N$. In other words, if a Cauchy sequence $\{a_k\}$ does not converge to 0, then after certain point $n\geq N$ the sequence stays at least $r$ distance away from 0.
+\end{proposition}
+\begin{proof}
+    If $\{a_k\}\nrightarrow 0$, then there exists $ r \in \Q^+$ such that for all $ N \in \N$ there exists $ k\geq N$ such that $|a_k| \geq 2r$ (the negation of converging to 0: there are some $r$ that $a_k$ is $2r$ away from 0). Since $\{a_k\}$ is Cauchy, for all $n, m \geq \N$ there exists $N \in \N$ such that $|a_n - a_m| < r$.
+    \begin{align*}
+        &\Rightarrow |a_m - a_n| < r\tag{ property of absolute value}\\
+        &\Rightarrow |a_m|-|a_n|\leq |a_m - a_n| < r\tag{reverse triangle inequality}\\
+        &\Rightarrow -|a_n|<-|a_m|+r \Rightarrow |a_n|>|a_m|-r
+    \end{align*}
+    Now fix $m \geq N$ and let $|a_m|\geq 2r$: $|a_n|>|a_m|-r\geq 2r-r$. This implies $|a_n|>r$ and holds for all $n\geq N$.
+\end{proof}
+\begin{corollary}
+    if a Cauchy sequence does not converge to 0, all terms of the sequence eventually have the same sign.
+\end{corollary}
+\begin{proof}
+    If $\{a_k\}$ is a Cauchy sequence that doesn't converge to 0, then $\{a_k\}\notin I$. By the above proposition, there exists some $ r>0$ and $N$ so that $| a_k|\geq r$ for all $n\geq N$. Since $\{a_k\}$ is Cauchy and $r>0$, there exists $M$ such that if $m,n \geq M$, then $| a_n-a_m|< r$. Assume without loss of generality that there is some $k>\text{max} (M,N)$ such that $a_k$ is positive. Fix $a_k$, pick any $n\geq k$ from the sequence:
+    \begin{enumerate}
+        \item[\circled{1}] If $a_n>a_k$, then we are done ($a_n$ is for sure positive).
+        \item[\circled{2}] If $a_n<a_k$, then $a_k-a_n<r$ which implies $a_n$ is positive for all $n$.
+    \end{enumerate}
+\end{proof}
+\begin{definition}[equivalence classes of Cauchy sequences]
+    Let $\{a_k\}$ and $\{b_k\}$ be Cauchy sequences in $\Q$. We say that $\{a_k\}$ is equivalent to $\{b_k\}$, denoted by $\{a_k\}\sim\{b_k\}$, if $\{c_k\} = \{a_k-b_k\}$is in $I$.
+\end{definition}
+\begin{proposition}
+    The "$\sim$" defined above gives an equivalence relation.
+\end{proposition}
+\begin{proof}
+    We need to check "$\sim$" is reflexive, symmetric, and transitive.
+    \begin{enumerate}
+        \item[] Reflexive: For all $\{a_k\}$, $\{a_k\} - \{a_k\} = \{0\} \in I$.
+        \item[] Symmetric: If $\{a_k - b_k\} \in I$, then for all $\epsilon > 0$, there exists some $N \in \N$ such that for all $ n \geq N$, $|a_n - b_n - 0| < \epsilon$. This means that $|b_n - a_n - 0| < \epsilon$, so $\{b_k - a_k\} \in I$.
+        \item[] Transitive: If $\{a_k - b_k\} \in I$, then for all $\epsilon / 2 > 0$, there exists $N_1 \in \N$ such that for all $ n \geq N_1$, $|a_n - b_n - 0| <  \epsilon/ 2$. If also $\{b_k - c_k\} \in I$, then for all $ \epsilon > 0$, there exists $ N_2 \in \N$ such that for all $n \geq N_2$, $|b_n - c_n - 0| < \epsilon/ 2$. Let $N = \text{max}(N_1, N_2)$. Then for all $n > N$, $|a_n - b_n - 0| <  \epsilon/ 2$ and $|b_n - c_n - 0| <  \epsilon/ 2$. It follows that $|a_n - b_n - 0 + b_n - c_n - 0| = |a_n - c_n - 0| < \epsilon$. So $\{a_k - c_k\} \in I$.
+    \end{enumerate}
+\end{proof}
+\begin{definition}[set of equivalence classes]
+    Define $\textbf{R}:=\mathcal{C}/I$ as the set of all equivalence classes in $\mathcal{C}$.
+\end{definition}
+\begin{proposition}
+    Term-wise addition and multiplication are well-defined on $\textbf{R}$: If $\{a_k\}$ is a Cauchy sequence, denote its equivalence class by $[a_k]$, then the sum and product of equivalence classes are defined as $[a_k] + [b_k] = [a_k + b_k]$ and $[a_k][b_k] = [a_kb_k]$.
+\end{proposition}
+\begin{proposition}
+    Assume $\mathbf{R} = \mathcal{C}/I$ is a commutative ring\footnote{This is not hard to show. But for right now, we do not have the construction needed to prove this fact.}. It turned out $\mathbf{R}$ is a field.
+\end{proposition}
+\begin{proof}
+    We only need to show that multiplicative inverses exist for nonzero elements of $\mathbf{R}$. Consider some arbitrary $[a_k] \neq I$. By Proposition ???, since $[a_k]\nrightarrow 0$, the absolute value of $[a_k]$ is eventually bounded below. In other words, there exists $N\in\N$ and $r > 0$, such that $|a_n| > r$ for all $n \geq N$. Therefore, we define $[b_k]$ as follows:
+    \begin{align*}
+        \{b_k\}=
+        \begin{cases}
+            1                   &(k < N)\\
+            \frac{1}{a_k}       &(k \geq N)
+        \end{cases}
+    \end{align*}
+    We include the $k < N$ case since $a_k$ may equal to $0$ when $k < N$. Now show $\{b_k\}$ is cauchy. Take some arbitrary $\epsilon>0$. Since $\{a_k\}$ is cauchy, there exists $M$ such that for all $n,m\geq M,|a_n-a_m|<\epsilon r^2$. Moreover,
+    \begin{align*}
+        |b_n-b_m|&=|\frac{1}{a_n} - \frac{1}{a_m}|=\frac{|a_n - a_m|}{|a_na_m|} \leq\frac{1}{r^2}|a_n - a_m|\leq\frac{1}{r^2}\epsilon r^2=\epsilon
+    \end{align*}
+    This implies that $\{b_k\}$ is Cauchy. Furthermore, $\{a_k\}\{b_k\}\rightarrow 1$, which means that $\{b_k\}$ is the multiplicative inverse of $\{a_k\}$. Therefore, $\mathbf{R}$ is a field.
+\end{proof}
+\begin{definition}[order of $\mathbf{R}$]
+    Let $a=[a_k]$,$b=[b_k]$ be distinct elements of $\textbf{R}$. We define $a<b$ if $a_k <b_k$ eventually and $b<a$ if $b_k <a_k$ eventually.
+\end{definition}
+\begin{definition}[order axioms]
+    Here are the order axioms
+    \begin{enumerate}
+        \item[\textbf{O1}] Trichotemy: Either $a = b$, $a < b$ or $b < a$;
+        \item[\textbf{O2}] Transitivity: If $a < b$ and $b < c$, then $a < c$;
+        \item[\textbf{O3}]Addition Law: $a < b$ if and only if $a + c < b + c$;
+        \item[\textbf{O4}] Multiplication Law: If $c > 0$, then $ac < bc$ if and only if $a < b$. If $c < 0$, then $ac < bc$ if and only if $b < a$.
+    \end{enumerate}
+\end{definition}
+\begin{proposition}
+    The order relation on $\textbf{R}$ is well-defined and makes $\textbf{R}$ an ordered field.
+\end{proposition}
+\begin{proof}
+    Suppose $\{a_k\}\sim \{a'_k\}$ and $\{b_k\}\sim \{b'_k\}$. We want to show $a_k<b_k$ implies $a'_k<b'_k$. Since $\{a_k\}\sim \{a'_k\}$ and $\{b_k\}\sim \{b'_k\}$, for all $r>0$, there exists $N_1$ such that for all $n>N$, $|a_n-a'_n|<r$. This gives \circled{1} $-r<a_n-a'_n<r$. Similarly, for all $r>0$, there exists $N_2$ such that for all $n>N$, $|b_n-b'_n|<r$. This gives \circled{2} $r<b_n-b'_n<r$.
+    Notice that if we subtract inequality \circled{1} from \circled{2}, we get $a'_k-b'_k<a_k-b_k$. Since $a_k<b_k$, $a_k-b_k<0$. Therefore, $a'_k<b'_k$. Now we check all the order axioms:
+    \begin{enumerate}
+        \item[\textbf{O1}] Only one of $a_k < b_k$, $a_k = b_k$, and $a_k > b_k$ holds. So only one of $[a_k] < [b_k]$, $[a_k] = [b_k]$, and $[a_k] > [b_k]$ holds.
+        \item[\textbf{O2}] If $[a_k] < [b_k]$ and $[b_k] < [c_k]$, then eventually $a_k < b_k$ and $b_k < c_k$, so $a_k < c_k$. Finally, $[a_k] < [c_k]$.
+        \item[\textbf{O3}] If $[a_k] < [b_k]$, then eventually $a_k < b_k$, so $a_k + c_k < b_k + c_k$. Hence $[a_k] + [c_k] < [b_k] + [c_k]$.
+        \item[\textbf{O4}] If $[a_k] < [b_k]$, then eventually $a_k < b_k$, so $a_kc_k < b_kc_k$ if $c_k$. Hence $[a_k][c_k] < [b_k][c_k]$.
+    \end{enumerate}
+\end{proof}
+\begin{definition}[Archimedean]
+    For all $x \in F$ in an ordered field, there exists $ N \in \Z$ such that $x < N$.
+\end{definition}
+\begin{proposition}
+    $\textbf{R}$ is an Archimedean ordered field.
+\end{proposition}
+\begin{proof}
+    Consider an arbitrary $[a_k]\in \mathbf{R}$. Since $\{a_k\}$ is Cauchy, it is bounded in $\Q$. Furthermore, $\Q$ is Archimedean. Therefore, there exists $U\in\Q$ and $N\in\N$, such that for all $n\in\N, a_n\leq U<N$. Therefore $[a_k]<[N,N,N,...]$, which means that $\mathbf{R}$ is Archimedean.
+\end{proof}
+%////////////////
+    %From $\I$ we can define an equivalence relation on $R$: $a \sim b \iff a - b \in I$. We have thus created a quotient ring $R/I$, we can denote equivalence classes as $[a]$.
+    %Define reals = $C/I$
+    
+    %Denote by \textbf{R} the set of equivalence classes in $\C$. We claim that, with appropriate definitions of addition and multiplication and order, \textbf{R} is an ordered field satisfying the least upper bound property.
+
+\begin{definition}[least upper bound]
+    Let $F$ be an ordered field, and let $A$ be a nonempty subset of $F$ that is bounded above. We say that $L\in F$ is a least upper bound for $A$ if the following two conditions hold:
+    \begin{enumerate}
+        \item $L$ is an upper bound for $A$;
+        \item If $M$ is any upper bound for $A$, then $L\leq M$.
+    \end{enumerate}
+\end{definition}
+\begin{definition}[least upper bound property]
+    Let $S\subseteq F$ be a nonempty set that is bounded above. Then $S$ has a least upper bound bound in $F$.  
+\end{definition}
+\begin{proposition}
+    The least upper bound property holds in $\mathbf{R}$.
+\end{proposition}
+\begin{proof}[proof sketch]
+    Let $\emptyset\neq A\subseteq\mathbf{R}=\mathcal{C}/{I}$, that is bounded above by $m$. Then there exists $ M\in\mathbb{Z}$ such that $m\leq M$. Since $A\neq\emptyset$, we can choose some $a\in A$. Hence there exists $ n\in\mathbb{Z}$ such that $n<a$. Consider 
+    $$
+        S_p=\left\{k2^{-p}\big|k\in\mathbb{Z},n\leq k2^{-p}\leq M\right\}
+    $$
+    Note that $S_p$ is nonempty and finite. Let $a_p=\text{min}\{x|x\in S_p \text{ and } x\text{ is an upper bound of } A\}$. If $q>p$ implies $a_q\leq a_p$, then $a_p-2^{-p}<a_q$. (Notice that $a_p$ is not an upper bound of $A$, and $a_q$ is an upper bound of $A$). Therefore, $|a_p-a_q|\leq 2^{-p}$,\ for all $p<q$. In other words, $\{a_p\}$ is Cauchy. So $[a_p]=$lub$(A)\in\mathcal{C}/{I}=\mathbf{R}$.
+\end{proof}
+\begin{definition}[real number]
+    Real number is $\mathbf{R}$. Now denoted as $\R$.
+\end{definition}
+\begin{proposition}
+    Real numbers are not countable.
+\end{proposition}
+\begin{proof}
+    Use Cantor's diagonal argument on real numbers.
+\end{proof}
+\begin{proposition}
+    Real numbers are Archimedean. That is for any $a,b\in\R^+$, there exists some $n\in\N$ such that $an>b$.
+\end{proposition}
+\begin{proof}
+    If $a>b$, this is trivial. If $a<b$, assume for contradiction that we do not have an $n\in\N$ such that $an>b$. This is the same as saying for all $n\in\N$, $an<b$. Consider the set 
+    $$
+        S=\left\{an\big|n\in\N\right\}
+    $$
+    Since all $an<b$, $S$ is bounded above by $b$. By the least upper bound property, $S$ has a least upper bound denoted as $L$. Now consider $L-a$. Because $a>0$, $L-a<L$. Since $L$ is the \textbf{least} upper bound, $L-a$ is not an upper bound of $S$. In other words, $L-a<an_0$, for some $n_0\in\N$. Therefore
+    \[
+        L<an_0+a \qquad \text{and}\qquad L<a(n_0+1)
+    \]
+    Since $n_0\in\N$, $n_0+1\in\N$. Therefore, $a(n_0+1)\in S$. But $a(n_0+1)>L$ is a contradiction. We conclude that there must exist some $n\in\N$ such that $an>b$.
+\end{proof}
+\begin{remark}
+    Ordered fields without the least upper bound property may not be Archimedean.
+\end{remark}
+\begin{proposition}
+    The least upper bound is unique. 
+\end{proposition}
+\begin{proof}
+    Suppose $L_1$ and $L_2$ are least upper bounds for $\emptyset \nsubseteq A\subseteq F$. By definition 6.1, $L_1\leq L_2$ and $L_1\geq L_2$. By order axiom \textbf{O1}, $L_1=L_2$.
+\end{proof}
+\begin{proposition}
+    Every real is between two consecutive integers. Formally, if $a\in\R$, there exists $N\in\Z$ such that $N-1\leq a\leq N$.
+\end{proposition}
+\begin{proof}
+    Let $S=\{n\in\Z|n>a\}$. Then by the Archimedean property, $S\neq \emptyset$ and $S$ is bounded below. By the well-ordering principle, $S$ has a least element. Then $N-1\notin S$, so $N-1\leq a\leq N$.
+\end{proof}
+\begin{theorem}[rationals are dense]
+    Let $a,b\in \R$. If $a<b$, there exists some $ r\in\Q$ such that $a<r<b$.
+\end{theorem}
+\begin{proof}
+    Intuitively, if you multiply $a$ and $b$ by a large enough integer $q$, then the gap between them will be big enough to contain another integer, $p$. Let $a,b$ be arbitrary real numbers such that $a<b$.
+    \begin{center}
+    \begin{tikzpicture}[>=stealth,scale=1.2]
+        % draw a horizontal axis
+        \draw[->] (0,0) -- (6.5,0);
+        % place and label the five key points
+        \coordinate (O)  at (0,0);
+        \coordinate (a)  at (1,0);
+        \coordinate (b)  at (1.8,0);
+        \coordinate (qa) at (4,0);
+        \coordinate (qb) at (5.2,0);
+        % tick marks & labels
+        \foreach \point/\label in {O/0, a/a, b/b, qa/qa, qb/qb} {
+            \draw (\point) -- +(0,0.1);
+            \node[below] at (\point) {\label};
+            \fill (\point) circle(1pt);
+        }
+        %--- Arrow pointing downward to the midpoint of (x,y)
+        \coordinate (midxy) at ($(a)!0.5!(b)$);
+        % Arrow tip lands at 'midxy' from 0.5 units above
+        \draw[->] ($(midxy)+(0,0.5)$) -- (midxy)
+            node[midway,right] {\(\tfrac{p}{q}\)};
+        %--- Arrow pointing downward to the midpoint of (nx,ny)
+        \coordinate (midnxny) at ($(qa)!0.5!(qb)$);
+        % Arrow tip lands at 'midnxny' from 0.5 units above
+        \draw[->] ($(midnxny)+(0,0.5)$) -- (midnxny)
+            node[midway,right] {\(p\)};
+    \end{tikzpicture}
+    \end{center}
+    \textit{Step 1}: We claim that there exists a $q\in\N$ such that $qb-qa>1$. Notice that $qb-qa=q(b-a)$. Since $b-a>0$ and they are both reals, by the Archimedean property, there exists $q\in\N$ such that $q(b-a)>1$.\\
+    \textit{Step 2}: We claim that there exists a $p\in\Z$, such that $qa<p<qb$. Since every real is between two consecutive integers, we know that there exists $p\in Z$ such that $p-1\leq qa<p$. Since $qb-qa>1$, we know that $qb>qa+1$. And because $p-1\leq qa$, we know that $p\leq qa+1$. This means that $qa<p<qb$, which is what we needed to show.\\
+    \textit{Step 3}: Since $qa<p<qb$, if we divide the inequality by $q$, we get $a<{p}/{q}<b$. Moreover, since $p,q$ are both integers, ${p}/{q}\in\Q$. This is all we need to show.
+\end{proof}
+\begin{corollary}
+    The irrationals are dense over the reals. In other words, if $a<b\in\R$, there exists $ r\in\Q^c$ such that $a<r<b$.
+\end{corollary}
+\begin{proof}
+    Let $a,b$ be arbitrary real numbers such that $a<b$. Since $\sqrt{2}>0$, we know that ${a}/{\sqrt{2}}<{b}/{\sqrt{2}}$. Because the rational numbers are dense, we know that there exists some ${p}/{q}\in\Q$ such that ${a}/{\sqrt{2}}<{p}/{q}<{b}/{\sqrt{2}}$. Therefore, \(a<\sqrt{2}({p}/{q})<b\). Because ${p}/{q}$ is rational and $\sqrt{2}$ is irrational, we know that their product $\sqrt{2}({p}/{q})$ is irrational. Let $r=\sqrt{2}({p}/{q})$. We have
+    \(a<r<b,r\in\Q^c\), which is what we needed to show.
+\end{proof}
+\begin{proposition}
+    Let $([a_n,b_n])_{n\in \mathbb{N}}$ be a nested sequence of closed bounded intervals in $\mathbb{R}$. That is, for any $n$, we have $[a_{n+1},b_{n+1}]\subseteq [a_{n},b_{n}]$, or equivalently, $a_n\leq a_{n+1}\leq b_{n+1}\leq b_n$ for all $n$. Then $\bigcap_{n\in \mathbb{N}}^{} [a_n,b_n]\neq \emptyset $.
+\end{proposition}
+\begin{proof}
+    Let $A=\left \{ a_n\mid n\in \mathbb{N} \right \}$. $A$ is bounded above by some $b_1$, which implies for every $a_n\in A$, $a_n\leq b_1$. If $a_m$=lub($A$), $a_n\leq a_m\leq b_1$. $a_m\in [a_n,b_1]$ and $a_m\in \bigcap_{n\in \mathbb{N}}^{} [a_n,b_n]$.
+\end{proof}
+\begin{remark}
+    What happens if we replace $[a_n,b_n]$ with $(a_n,b_n]$ and assume $a_n<b_n$? Does the proposition still hold?
+    {No}. An example would be $a_n=0$ and $b_n={1}/{n}$ for all $n\in\N$. The intersection is empty (this is "clear" but can be proved using the Archimedean property).
+\end{remark}
+
+
 \newpage
 \section{General Topology}
 We have seen analytic properties of real numbers $\R$, now we offer the topological approach.
