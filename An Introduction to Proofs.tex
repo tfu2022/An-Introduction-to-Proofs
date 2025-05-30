@@ -675,14 +675,23 @@ Let $\al$ and $\be$ be ordinals. We define $\al<\be$ if and only if $\al\in\be$.
     Prove that the set of natural numbers $\N$ is an ordinal.
 \end{problem}
 \begin{definition}
-    An ordinal $\al$ is said to be a \hdef{limit ordinal} if 
+    An ordinal $\la$ is said to be a \hdef{limit ordinal} if $\la\ne\es$ and for all $\al<\la$, $\al+1<\la$.
 \end{definition}
+\begin{problem}
+    Prove that every limit ordinal is an ordinal.
+\end{problem}
+\begin{proposition}
+    Every non-empty ordinal is either a successor ordinal or a limit ordinal.
+\end{proposition}
+\begin{proof}
+    Let $\al$ be an ordinal and $\al\ne\es$. Suppose $\al$ is not a successor ordinal, then $\al\ne\be+1$ for all ordinal $\be$.
+\end{proof}
 \begin{theorem}[transfinite induction]
     Let $C$ be a class of ordinals that satisfies:
     \begin{enumerate}
         \item $0\in C$;
         \item if $\al\in C$, then $\al+1\in C$;
-        \item if $\al$ is 
+        \item if $\al$ is a limit ordinal and $\be\in C$ for all $\be<\al$, then $\al\in C$.
     \end{enumerate}
     Then $C$ is the class of all ordinals.
 \end{theorem}
@@ -696,9 +705,6 @@ Let $\al$ and $\be$ be ordinals. We define $\al<\be$ if and only if $\al\in\be$.
 \begin{example}
     
 \end{example}
-\begin{problem}
-    
-\end{problem}
 \par
 Now we show that well-ordering theorem is a consequence of axiom of choice. This proof is technical, you may skip it and remember the result.
 \begin{theorem}[well-ordering theorem]
@@ -712,11 +718,12 @@ By the well-ordering theorem, $\N$ is well-ordered, this is called the \hdef{wel
 \begin{remark}
     Well-ordering principle is based on ZF system, the set theory without axiom of choice. The well-ordering theorem is an equivalent form of axiom of choice, which is based on ZFC system.
 \end{remark}
-\customtheorem{axiom of regularity}
-\begin{axiom of regularity}
-
-\end{axiom of regularity}
-\newpage
+\begin{theorem}[Cantor-Schröder-Bernstein theorem]\index{Cantor-Schröder-Bernstein theorem}
+    Let $f:A\to B$ and $g:B\to A$ be injective functions. Then there exists a bijective function $h:A\to B$.
+\end{theorem}
+\begin{proof}
+    By well-ordering theorem, $A$ and $B$ are well-ordered.
+\end{proof}
 \section{Integers and Cardinality}
 Recall that we have constructed $\N$ by axiom of inifinity. By the convention of quotient sets, we could further construct the integers and rationals.
 \begin{theorem}[recursion]\index{recursion}
@@ -883,6 +890,9 @@ Similarly, one could define $\card{X}\le\card{Y}$ by surjections, that is, if th
 \begin{theorem}[Cantor-Schröder-Bernstein theorem]\index{Cantor-Schröder-Bernstein theorem}
     Let $f:A\to B$ and $g:B\to A$ be injective functions. Then there exists a bijective function $h:A\to B$.
 \end{theorem}
+\begin{remark}
+    We already gave a proof of this theorem as a consequence of axiom of choice. However, axiom of choice is not necessary to prove this theorem, and we will give an alternative prove of it in ZF. 
+\end{remark}
 \begin{proof}
     
 \end{proof}
@@ -1218,7 +1228,7 @@ For all $g\in G$, where $G$ is a group, the inverse of $g$ is denoted by $\inv{g
 \end{problem}
 \begin{problem}
     Let $H\le G$ be a subgroup. Prove that there exists a set of left cosets that partitions $G$.
-\end{problem}x
+\end{problem}
 \begin{proposition}
     Let $H\le G$ be a subgroup and let 1 be the trivial group, then $[G:1]=[G:H][H:1]$.
 \end{proposition}
