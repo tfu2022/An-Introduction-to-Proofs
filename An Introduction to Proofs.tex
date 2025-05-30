@@ -232,7 +232,7 @@ It suffices to check that axiom schema of separation guarantees that subsets are
     Let $A$ be any set, then $\es\sub A$.
 \end{proposition}
 \begin{proof}
-    Suppose $\es\nsub A$, then there exists $x\in\es$ such that $x\notin A$, since $x\in\es$ is false, contradiction.
+    Suppose $\es\nsub A$, then there exists $x\in\es$ such that $x\notin A$, since $x\in\es$ is false, a contradiction.
 \end{proof}
 \begin{problem}
     Prove that a set is independent of the order of its elements. For example, $\{1,2,3\}=\{3,2,1\}$.
@@ -296,14 +296,14 @@ The definition of ordered pairs can be extended to multiple elements. We call $(
 \begin{proof}
     Let $x\in C\sm(A\cap B)$, then $x\in C$ and $x\notin A\cap B$, that is, $x\notin A$ and $x\notin B$. If $x\notin C\sm A$, then $x\notin A$, so $x\notin B$ and $x\in C\sm B$. Hence $C\sm(A\cap B)\sub(C\sm A)\cup(C\sm B)$. Now let $x\in(C\sm A)\cup(C\sm B)$, then $x\in C$ and $x\notin A$ or $x\notin B$, so $x\notin A\cap B$, that is, $x\in C\sm(A\cap B)$, hence $(C\sm A)\cup(C\sm B)\sub C\sm(A\cap B)$. The proof of the second part is left as an exercise.
 \end{proof}
+\par
+Some texts assume the existence of an ``universal set'', denoted $U$, which has all objects as elements including itself, so we can define complements of any set $S$ as the set $U\sm S$. However, this assumption leads to a paradox. Consider the set $S$, defined as the set of all sets that are not members of themselves, that is, $S=\{X\mid X\notin X\}$. Does $S$ belong to $S$? This is known as Russell's Paradox. Assume $S\in S$, then by the definition of $S$, $S\in S$ implies $S\notin S$, a contradiction. Assume $S\notin S$, then $S\in S$. This is also a contradiction.
 \begin{definition}
     Let $X$ be a set. A \hdef{partition} of $X$ is a set $\{{X}_{i}\}$ of non-empty subsets of $X$ such that every elements $x\in X$ lies in exactly one of there subsets.
 \end{definition}
 \begin{problem}
     Prove that a partition is a set.
 \end{problem}
-\par
-Some texts assume the existence of an ``universal set'', denoted $U$, which has all objects as elements including itself, so we can define complements of any set $S$ as the set $U\sm S$. However, this assumption leads to a paradox. Consider the set $S$, defined as the set of all sets that are not members of themselves, that is, $S=\{X\mid X\notin X\}$. Does $S$ belong to $S$? This is known as Russell's Paradox. Assume $S\in S$, then by the definition of $S$, $S\in S$ implies $S\notin S$, a contradiction. Assume $S\notin S$, then $S\in S$. This is also a contradiction.
 \begin{definition}
     Let $X$ be a set, and let the \hdef{successor} of $X$ be ${X}^{+}=X\cup\{X\}$. A set $S$ is called an \hdef{inductive set} if $\es\in S$ and for all $X\in S$, ${X}^{+}\in S$.
 \end{definition}
@@ -385,7 +385,7 @@ It suffices to show a binary operation is indeed a set. Let $R$ be a binary oper
     Prove that an equivalence class is a set.
 \end{problem}
 \begin{problem}
-    Prove that $=$ is an equivalence relation in $\N$.
+    Prove that ``$=$'' is an equivalence relation in $\N$.
 \end{problem}
 \begin{problem}
     Let $R$ be a binary operation on a set $X$. For all $a,b\in A$, prove that ${S}_{a}\cap{S}_{b}$ is either $\es$ or ${S}_{a}$. Prove that the collection of ${S}_{a}$ forms a partition of $X$.
@@ -451,11 +451,10 @@ The well-ordering theorem is equivalent to the axiom of choice, which will be di
     Let $f:X\to Y$ be a function, the \hdef{image} of $X$ under $f$, denoted $\im(f)$, is the range of $f$. For all $(x,y)\in f$, we write $f(x)=y$. The \hdef{preimage} of $Y$ under $f$, denoted $\inv{f}(Y)$, is the set $\{x\mid x\in X\ \text{and}\ f(x)\in Y\}$. Two functions $f$ and $g$ are the same if $\dom(f)=\dom(g)$, $\cod(f)=\cod(g)$, and for all $x\in\dom(f)$, $f(x)=g(x)$.
 \end{definition}
 \begin{example}
-    Here are some examples of functions.
-    \begin{enumerate}
-        \item $f:\N\to\N$ defined by $f(n)={n}^{+}$, where $n\in\N$, is a function.
-        \item $f:\R\to\R\times\R$ defined by $f(x)=(x,x)$, where $x\in\R$, is a function.
-    \end{enumerate}
+    The operation $f:\N\to\N$ defined by $f(n)={n}^{+}$, where $n\in\N$, is a function.
+\end{example}
+\begin{example}
+    The operation $f:\R\to\R\times\R$ defined by $f(x)=(x,x)$, where $x\in\R$, is a function.
 \end{example}
 \begin{problem}
     Let $f$ be a function, prove that $\ran(f)\sub\cod(f)$.
@@ -716,7 +715,7 @@ Now we show that well-ordering theorem is a consequence of axiom of choice. This
 \par
 By the well-ordering theorem, $\N$ is well-ordered, this is called the \hdef{well-ordering principle}.
 \begin{remark}
-    Well-ordering principle is based on ZF system, the set theory without axiom of choice. The well-ordering theorem is an equivalent form of axiom of choice, which is based on ZFC system.
+    Well-ordering principle is based on ZF system, the set theory without axiom of choice. The well-ordering theorem is an equivalent form of axiom of choice, which is based on ZFC system. One can find a proof of the converse in [3].
 \end{remark}
 \begin{theorem}[Cantor-Schröder-Bernstein theorem]\index{Cantor-Schröder-Bernstein theorem}
     Let $f:A\to B$ and $g:B\to A$ be injective functions. Then there exists a bijective function $h:A\to B$.
@@ -893,6 +892,8 @@ Similarly, one could define $\card{X}\le\card{Y}$ by surjections, that is, if th
 \begin{remark}
     We already gave a proof of this theorem as a consequence of axiom of choice. However, axiom of choice is not necessary to prove this theorem, and we will give an alternative prove of it in ZF. 
 \end{remark}
+\par
+This proof is technical, you may skip this part.
 \begin{proof}
     
 \end{proof}
@@ -1351,7 +1352,7 @@ Let $G$ and $H$ be groups. Since $0$ is the zero object, there exists unique gro
 We will first show the existence of free groups. Consider 
 
 \begin{problem}
-    Let ${X}_{1}$ and ${X}_{2}$ be bases of free groups ${F}_{1}$ and ${F}_{2}$, respectively. Prove that if ${X}_{1}{\iso}_{\cat{Set}}{X}_{2}$, then ${F}_{1}{\iso}_{\cat{Grp}}{F}_{2}$.
+    Let ${X}_{1}$ and ${X}_{2}$ be bases of free groups ${F}_{1}$ and ${F}_{2}$, respectively. Prove that if ${X}_{1}\iso{X}_{2}$ as sets, then ${F}_{1}\iso{F}_{2}$ as groups.
 \end{problem}
 \begin{definition}
     A \hdef{group presentation} is a pair $(S,R)$ consisting of a set $S$ and a subset $R\sub F(S)$. The group presented by $(S,R)$ is defined to be $\cyc{S\mid R}=F(S)/N$, where $N$ is the smallest normal subgroup of $F(S)$ containing $R$.
