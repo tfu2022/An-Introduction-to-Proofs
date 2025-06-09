@@ -13,11 +13,9 @@ In higher-level mathematics, students need a certain level of ``mathematical mat
 \par
 The first four sections are the solid prerequisites for any kind of mathematics. Sections 6 to 10 are selected topics that help students to prepare for advaneced math courses. There are mainly four parts: linear algebra, abstract algebra, real analysis, and general topology. For linear algebra, please read section 5. For abstract algebra, we recommend the readers to check section 6 and 7. For real analysis, we will use some basic ring theory to construct $\R$, so please check section 8 and 9. For general topology, please read section 6 and 10. Those parts are designed to be independent of each other.
 \par
-You may notice that we use different names for the same object—a common practice in mathematics. For example, the set of all real numbers $\R$ can be viewed as a set, a group, a ring, a field, a topological space, a metric space $\dots$ (hopefully you will learn every term in this note) Each term highlights a particular aspect of the same structure. Math is one! As Poincaré famously said, ``Mathematics is the art of giving the same name to different things.''
+You may notice that we use different names for the same object—a common practice in mathematics. For example, the set of all real numbers $\R$ can be viewed as a set, a group, a ring, a field, a topological space, a metric space $\dots$ (hopefully you will learn every term in this note) Each term highlights a particular aspect of the same structure. As Poincaré famously said, ``Mathematics is the art of giving the same name to different things.''
 \par
 Many people have contributed to this note. Special thanks to my collaborators Fung San Gaan and Tingyu Wu. Fung San Gaan wrote the real analysis part of this note and collaborate with me on section 10. Tingyu Wu wrote the linear algebra part and collaborate with me on section 4. I shall also thank Bryce for his suggestions on the contents.
-\par
-Finally, think deeper and enjoy mathematics!
 \section{Basic Logic}
 Logic is the formal framework and rules of inference that ensure the validity and coherence of arguments in math.
 \begin{remark}
@@ -298,6 +296,16 @@ The definition of ordered pairs can be extended to multiple elements. We call $(
 \end{proof}
 \par
 Some texts assume the existence of an ``universal set'', denoted $U$, which has all objects as elements including itself, so we can define complements of any set $S$ as the set $U\sm S$. However, this assumption leads to a paradox. Consider the set $S$, defined as the set of all sets that are not members of themselves, that is, $S=\{X\mid X\notin X\}$. Does $S$ belong to $S$? This is known as Russell's Paradox. Assume $S\in S$, then by the definition of $S$, $S\in S$ implies $S\notin S$, a contradiction. Assume $S\notin S$, then $S\in S$. This is also a contradiction.
+\customtheorem{Axiom of regularity}
+\begin{Axiom of regularity}\index{axiom of regularity}
+    For all nonempty sets, there is an element of the set that shares no element with the set.
+\end{Axiom of regularity}
+\begin{proposition}
+    A set is not an element of itself.
+\end{proposition}
+\begin{proof}
+    Suppose $X$ is a set such that $X\in X$ and $X\in\{X\}$. By contradiction, $X\ne\es$. We have $X\cap\{X\}=\{x\mid x\in X,\ x\in\{X\}\}=X$. By the axiom of regularity, $X\cap\{X\}=\es$, then $X=\es$, a contradiction.
+\end{proof}
 \begin{definition}
     Let $X$ be a set. A \hdef{partition} of $X$ is a set $\{{X}_{i}\}$ of non-empty subsets of $X$ such that every elements $x\in X$ lies in exactly one of there subsets.
 \end{definition}
@@ -618,7 +626,7 @@ Consider a diagram, where every vertex is an object and every arrow preserves th
     Let $S=\{a,b,c,d\}$. Let $\sim$ be an equivalence relation on $S$ such that $a\sim b$ and $c\sim d$. The quotient set ${S}_{\sim}$ is $\{a,c\}$.
 \end{example}
 \begin{problem}
-    Consider the set of all integers $\Z$. Fix $n\in\Z$, Let ${\sim}_{n}$ be an equivalence relation on $\Z$ such that $a{\sim}_{n}b$ if and only if $a-b=kn$ for some $k\in\Z$. Prove that ${\sim}_{n}$ is indeed an equivalence relation. Find the quotient set ${\Z}_{{\sim}_{2}}$. Find the quotient set ${\Z}_{{\sim}_{n}}$ for all $n$.
+    Consider the set of all integers $\Z$. Fix $n\in\Z$, Let ${\sim}_{n}$ be an equivalence relation on $\Z$ such that $a{\sim}_{n}b$ if and only if $a-b=kn$ for some $k\in\Z$. Prove that ${\sim}_{n}$ is indeed an equivalence relation. Find the quotient set ${\Z}_{{\sim}_{2}}$. Find the quotient set ${\Z}_{{\sim}_{n}}$ for all $n$. We also denote it 
 \end{problem}
 \begin{definition}
     Let $X$ and $Y$ be sets. Let $\sim$ be an equivalence relation on $X$. A function $f:X\to Y$ is \hdef{invariant} under the equivalence relation such that, $x\sim y$ if and only if $f(x)=f(y)$.
@@ -656,6 +664,9 @@ Notice that the axiom schema of separation guarantees the existence of functions
 \begin{definition}
     A set $S$ is said to be \hdef{transitive} if for all $s\in S$, $s\sub S$. A set is an \hdef{ordinal} if it is transitive and well-ordered by $\in$. The \hdef{successor ordinal} of an ordinal $\al$ is defined to be $\al\cup\{\al\}$, and we denote it by $\al+1$. 
 \end{definition}
+\begin{problem}
+    Prove that the element of an ordinal is an ordinal.
+\end{problem}
 \begin{proposition}
     The successor ordinal of an ordinal is an ordinal.
 \end{proposition}
@@ -668,17 +679,22 @@ Let $\al$ and $\be$ be ordinals. We define $\al<\be$ if and only if $\al\in\be$.
     The set $0\in\N$ is an ordinal.
 \end{example}
 \begin{problem}
-    Prove that if a set $S$ is transitive, then $\ps(S)$ is also transitive.
+    The intersection of ordinals is an ordinal.
 \end{problem}
-\begin{problem}
-    Prove that the set of natural numbers $\N$ is an ordinal.
-\end{problem}
+\begin{proposition}
+    Every well-ordered set is isomorphic to an ordinal.
+\end{proposition}
+\begin{proof}
+    
+\end{proof}
 \begin{definition}
     An ordinal $\la$ is said to be a \hdef{limit ordinal} if $\la\ne\es$ and for all $\al<\la$, $\al+1<\la$.
 \end{definition}
 \begin{problem}
     Prove that every limit ordinal is an ordinal.
 \end{problem}
+\par
+Suppose there exists a set of all ordinals, denoted $\text{On}$. Since every element of an ordinal is an ordinal, $\text{On}$ is transitive. Let ``$<$'' be the ordering on $\text{On}$, then it is trivially a partial ordering. Let $S$ be a nonempty subset of $\text{On}$. Consider $\In{s}_{i}\sub{s}_{i}$, where ${s}_{i}\in S$, if $T\notin S$, then $T\sub{s}_{i}$, so $T\sub s$. Now we have $T\in\In{s}_{i}=T$, a contradiction. Hence $T\in S$ and $S$ is $T$ is trivially the desired infimum. This proves $\text{On}$ is an ordinal, so $\text{On}\in\text{On}$. Recall that $\text{On}$ is a set, so $\text{On}\notin\text{On}$, a contradiction. This is known as the \hdef{Burali-Forti paradox}.
 \begin{proposition}
     Every non-empty ordinal is either a successor ordinal or a limit ordinal.
 \end{proposition}
@@ -695,35 +711,26 @@ Let $\al$ and $\be$ be ordinals. We define $\al<\be$ if and only if $\al\in\be$.
     Then $C$ is the class of all ordinals.
 \end{theorem}
 \begin{proof}
-    Suppose $\al$ is an ordinal and $\al\notin C$, then $\al$ is not a successor ordinal and $\al$ is non-empty, so $\al$ is a limit ordinal. 
+    
 \end{proof}
 
 \customtheorem{Axiom of choice}
 \begin{Axiom of choice}\index{axiom of choice}
-
+    Let $X$ be a set and $X\ne\es$. Then there exists a map $f:\ps(X)\to X$ such that for every $x\subn X$, where $x\ne\es$, $f(x)\in x$. 
 \end{Axiom of choice}
-\begin{example}
-    
-\end{example}
 \par
-Now we show that well-ordering theorem is a consequence of axiom of choice. This proof is technical, you may skip it and remember the result.
+We call such a function $f$ a \hdef{choice function}. Therefore, we can reformulate axiom of choice as: for every nonempty set $X$, there exists a choice function.
 \begin{theorem}[well-ordering theorem]
     Every set is well-orderable.
 \end{theorem}
 \begin{proof}
- 
+    Let $S$ be a set, by the axiom of choice, there exists a choice function $f:\ps(S)\sm\{\es\}\to S$. Let an ordinal $\al=0$ and let ${s}_{0}=f(S)$, this is the basis for the transfinite induction. Assume ${s}_{\be}$ has been defined, where $\be<\al$. If $S\sm\{{s}_{\be}\}=\es$, then the map $f:\{{s}_{\be}\}\to\al$ defined by $f(\be)={s}_{\be}$ is a bijection, so $S$ is well-ordered. If $S\sm\{{s}_{\be}\}\ne\es$, define ${s}_{\al}=f(S\sm\{{s}_{\be}\})$. Suppose the process does not stop, then we have an injection from the class of all ordinal to the set $S$, by Burali-Forti paradox, this is a contradiction. Hence we have a bijection between $\al$ and $S$, so $S$ is well-ordered.
 \end{proof}
 \par
 By the well-ordering theorem, $\N$ is well-ordered, this is called the \hdef{well-ordering principle}.
 \begin{remark}
-    Well-ordering principle is based on ZF system, the set theory without axiom of choice. The well-ordering theorem is an equivalent form of axiom of choice, which is based on ZFC system. One can find a proof of the converse in [3].
+    Well-ordering principle is based on ZF system, the system without axiom of choice. The well-ordering theorem is an equivalent form of axiom of choice. For more information, we recommend you to check [3].
 \end{remark}
-\begin{theorem}[Cantor-Schröder-Bernstein theorem]\index{Cantor-Schröder-Bernstein theorem}
-    Let $f:A\to B$ and $g:B\to A$ be injective functions. Then there exists a bijective function $h:A\to B$.
-\end{theorem}
-\begin{proof}
-    By well-ordering theorem, $A$ and $B$ are well-ordered.
-\end{proof}
 \section{Integers and Cardinality}
 Recall that we have constructed $\N$ by axioms. By the convention of quotient sets, we could further construct the integers and rational numbers.
 \begin{theorem}[recursion]\index{recursion}
@@ -880,9 +887,7 @@ Similarly, one could define $\card{X}\le\card{Y}$ by surjections, that is, if th
     The finite Cartesian product of countable set is countable.
 \end{proposition}
 \begin{proof}
-    Let ${A}_{1},{A}_{2},\dots,{A}_{n}$ be countable sets, then each ${A}_{i}$ itself is in bijection with $\N$. Suppose we pick $n$ distinct prime numbers ${p}_{1},{p}_{2},\dots,{p}_{n}$ and define $f:{\prod}_{i=1}^{n}\N\to\N$ such that $f({a}_{1}, a_2,..., a_n) = p_1^{a+1}\cdot p_2^{a+2}...p_n^{a+n}$.
-    Notice $f$ is injective as the prime factorization of a number is unique.
-    Thus, $\prod_{i=1}^{n}\N$ is countable then $\prod_{i=1}^{n}A_i$ is countable.
+    Let ${A}_{1},{A}_{2},\dots,{A}_{n}$ be countable sets, then each ${A}_{i}$ itself is in bijection with $\N$. Suppose we pick $n$ distinct prime numbers ${p}_{1},{p}_{2},\dots,{p}_{n}$ and define $f:{\prod}_{i=1}^{n}\N\to\N$ such that $f({a}_{1},{a}_{2},\dots,{a}_{n})={p}_{1}^{a+1}\cdot{p}_{2}^{a+2}\cdots{p}_{n}^{a+n}$. Notice $f$ is injective as the prime factorization of a number is unique. Hence ${\prod}_{i=1}^{n}\N$ is countable then ${\prod}_{i=1}^{n}{A}_{i}$ is countable.
 \end{proof}
 \begin{proposition} 
     The sets $\Z$ and $\Q$ are countable.
@@ -894,10 +899,8 @@ Similarly, one could define $\card{X}\le\card{Y}$ by surjections, that is, if th
     Let $f:A\to B$ and $g:B\to A$ be injective functions. Then there exists a bijective function $h:A\to B$.
 \end{theorem}
 \begin{remark}
-    We already gave a proof of this theorem as a consequence of axiom of choice. However, axiom of choice is not necessary to prove this theorem, and we will give an alternative prove of it in ZF. 
+    Cantor-Schröder-Bernstein theorem was originally proved as a consequence of the axiom of choice. However, it is provable in ZF, 
 \end{remark}
-\par
-This proof is technical, you may skip this part.
 \begin{proof}
     
 \end{proof}
@@ -913,8 +916,8 @@ Functions are the bridges to ``connect'' sets. According to the definition, a fu
 \begin{definition}
     A \hdef{category} $\cat{C}$ consists of:
     \begin{enumerate}
-        \item a collection, denoted $\Ob(\cat{C})$, of \hdef{objects};
-        \item for each pair of objects $X$ and $Y$, there exists a collection of \hdef{morphisms} $f:X\to Y$, where $X$ is called the \hdef{domain} and $Y$ is called the \hdef{codomain};
+        \item a class, denoted $\Ob(\cat{C})$, of \hdef{objects};
+        \item for each pair of objects $X$ and $Y$, there exists a class of \hdef{morphisms} $f:X\to Y$, where $X$ is called the \hdef{domain} and $Y$ is called the \hdef{codomain};
         \item a \hdef{composition operation}, which gives, for each pair of morphisms $f:X\to Y$ and $g:Y\to Z$, a morphism $g\comp f:X\to Z$,
     \end{enumerate}
     such that
@@ -922,7 +925,7 @@ Functions are the bridges to ``connect'' sets. According to the definition, a fu
         \item given any $f:X\to Y$, $g:Y\to Z$, and $h:Z\to W$, we have the identity $(h\comp g)\comp f=h\comp(g\comp f)$;
         \item for each object $X$, there exists an \hdef{identity morphism} ${\id}_{X}:X\to X$ with the property that $f\comp{\id}_{X}=f$ and ${\id}_{X}\comp g=g$ for any $f:X\to Y$ and $g:Z\to X$.
     \end{enumerate}
-    The collection of morphisms from $X$ to $Y$ is denoted by ${\Hom}_{\cat{C}}(X,Y)$. A category $\cat{C}$ is a \hdef{locally small category} if ${\Hom}_{\cat{C}}(A,B)$ is a set for all objects $A$ and $B$.
+    The class of morphisms from $X$ to $Y$ is denoted by ${\Hom}_{\cat{C}}(X,Y)$. A category $\cat{C}$ is a \hdef{locally small category} if ${\Hom}_{\cat{C}}(A,B)$ is a set for all objects $A$ and $B$.
 \end{definition}
 \par
 Let sets be objects, let functions be morphisms, and let the composition of morphisms be the composition of functions. By our previous observations, it suffices to check this defines a category of sets, denoted $\cat{Set}$. Moreover, $\cat{Set}$ is locally small.
@@ -945,7 +948,7 @@ Let sets be objects, let functions be morphisms, and let the composition of morp
     Morphisms are not guaranteed to be functions. Let $(S,\le)$ be a partially ordered set. Let $\Ob(\cat{C})=S$ and $x\to y$ be a morphism if $x\le y$. Prove that $\cat{C}$ is a category.
 \end{problem}
 \begin{problem}
-    Let $\cat{C}$ be a category. Let a system $\cop{C}$ consists of all objects in $\cat{C}$ and all morphisms $f:A\to B$ if $B\to A$ is a morphism in $\cat{C}$. Prove that $\cop{C}$ is indeed a category. This is called the \hdef{dual category} of $\cat{C}$.
+    Let $\cat{C}$ be a category. Let a system $\catop{C}$ consists of all objects in $\cat{C}$ and all morphisms $f:A\to B$ if $B\to A$ is a morphism in $\cat{C}$. Prove that $\catop{C}$ is indeed a category. This is called the \hdef{dual category} of $\cat{C}$.
 \end{problem}
 \begin{problem}
     Prove that the identity morphism is unique for each object $A$ in a category $\cat{C}$.
@@ -994,7 +997,7 @@ Let sets be objects, let functions be morphisms, and let the composition of morp
     \end{tikzcd}
 \end{center}
 \begin{problem}
-    Prove that the initial object in a category $\cat{C}$ is a terminal object in $\cop{C}$, conclude that terminal objects in $\cat{C}$ are unique up to isomorphism.
+    Prove that the initial object in a category $\cat{C}$ is a terminal object in $\catop{C}$, conclude that terminal objects in $\cat{C}$ are unique up to isomorphism.
 \end{problem}
 \begin{problem}
     Prove that the initial object in the category of partially ordered set is the $\le$-minimal element. Prove that the terminal object in this category is the $\le$-maximal element.
@@ -1058,12 +1061,14 @@ This completes our proof of the universal property for quotient sets.
 \end{theorem}
 \begin{center}
     \begin{tikzcd}
-        A && {{A}_{\sim}} && {\im(f)} && B
+        A && {{A}_{\sim}} && {\im(f)} \\
+        \\
+        &&&& B
         \arrow["\pi", from=1-1, to=1-3]
-        \arrow["f", curve={height=-24pt}, from=1-1, to=1-7]
+        \arrow["f"', from=1-1, to=3-5]
         \arrow["g", from=1-3, to=1-5]
-        \arrow["i", from=1-5, to=1-7]
-    \end{tikzcd}    
+        \arrow["i", from=1-5, to=3-5]
+    \end{tikzcd}   
 \end{center}
 \begin{proof}
     Let $i:\im(f)\to B$ be the identity map, then $i$ is injective. The function $f:A\to B$ induces an equivalence relation $\sim$ on $X$, so $g$ is bijective. The projection map $\pi:A\to{A}_{\sim}$ is surjective. For all $a\in A$, $(i\comp g\comp\pi)(a)=(i\comp g)([a])=i(f(a))=f(a)$. 
@@ -1131,7 +1136,7 @@ This completes our proof of the universal property for quotient sets.
     Prove that in $\cat{Set}$, the disjoint union satisfies the universal property for coproduct. Prove that the universal property characterizes disjoint union.
 \end{problem}
 \begin{problem}
-    Describe the product and coproduct in $\cop{Set}$. 
+    Describe the product and coproduct in $\catop{Set}$. 
 \end{problem}
 \section{Groups}
 We have shown a general constructions of mathematical entities use the convention of categories. Groups are the ne
