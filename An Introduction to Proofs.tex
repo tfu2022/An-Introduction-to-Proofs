@@ -713,7 +713,6 @@ Suppose there exists a set of all ordinals, denoted $\text{On}$. Since every ele
 \begin{proof}
     
 \end{proof}
-
 \customtheorem{Axiom of choice}
 \begin{Axiom of choice}\index{axiom of choice}
     Let $X$ be a set and $X\ne\es$. Then there exists a map $f:\ps(X)\to X$ such that for every $x\subn X$, where $x\ne\es$, $f(x)\in x$. 
@@ -1401,12 +1400,12 @@ Group presentation of a group is not unique.
 \begin{definition}
     A triple $(G,\comp,e)$ is a \hdef{group} if it is a monoid and for all $g\in G$, there exists $h\in G$ such that $h\comp g=e=g\comp h$. Such $f$ is called an \hdef{inverse} of $g$. If $\comp$ is commutative, then the group is \hdef{abelian}. 
 \end{definition}
-\begin{hdefinition}[ring]
-    A ring is an abelian group $(R,+,0)$ with operation $\cdot$ such that
+\begin{hdefinition}
+    A \hdef{ring} is an abelian group $(R,+,0)$ with the operation $\cdot$ satisfies the following properties.
     \begin{enumerate}
-        \item $\cdot$ is associative: for all $ a, b, c\in R$, $a\cdot (b\cdot c)=(a\cdot b)\cdot c$.
-        \item $\cdot$ distributes over $+$: for all $ a, b, c\in R, a\cdot (b+c)=a\cdot b+a\cdot c$ and $(a+b)\dot c=a\cdot c+b\cdot c$.
-        \item There exists $ 1_{R}\in R$ such that $1_{R}\cdot a=a=a\cdot 1_{R}$ for all $ a\in R$. We call ${1}_{R}$ the \hdef{multiplicative identity} of $R$.
+        \item For all $a,b,c\in R$, $a\cdot(b\cdot c)=(a\cdot b)\cdot c$.\hfill(associativity)
+        \item For all $a,b,c\in R$, $a\cdot(b+c)=a\cdot b+a\cdot c$ and $(a+b)\cdot c=a\cdot c+b\cdot c$.\hfill(distributivity)
+        \item There exists ${1}_{R}\in R$ such that ${1}{R}\cdot a=a=a\cdot{1}_{R}$ for all $ a\in R$. We call ${1}_{R}$ the \hdef{multiplicative identity} of $R$.
     \end{enumerate}
 \end{hdefinition}
 \begin{hdefinition}[unit]
@@ -1496,6 +1495,8 @@ Group presentation of a group is not unique.
 \begin{hdefinition}[ideal]
     An ideal $I$ in a ring is a subgroup of $(R,+,0)$ so that \circled{1} $I\neq\emptyset$ and \circled{2} for all $a,b\in I,ab^{-1}=a-b\in I$. Or equivalently, for any $r\in R$ and $i\in I$, $ri\in I$.
 \end{hdefinition}
+
+\newpage
 \section{Real Numbers}
 \begin{definition}[$\Q$ norm]
     $|a|$ is a norm on $\mathbb{Q}$: $|a| = 
