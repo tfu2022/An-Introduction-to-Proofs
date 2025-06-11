@@ -693,7 +693,7 @@ Suppose there exists a set of all ordinals, denoted $\text{On}$. Since every ele
     Every non-empty ordinal is either a successor ordinal or a limit ordinal.
 \end{proposition}
 \begin{proof}
-    Let $\al$ be an ordinal and $\al\ne\es$. Suppose $\al$ is not a successor ordinal, then $\al\ne\be+1$ for all ordinal $\be$.
+    Let $\al$ be an ordinal and $\al\ne\es$. Suppose $\al$ is not a successor ordinal, then $\al\ne\be+1$ for all ordinal $\be$. Suppose $\al<\be+1$ and $\al>\be$ for some ordinal $\be$, then $\al+1> $
 \end{proof}
 \begin{theorem}[transfinite induction]
     Let $C$ be a class of ordinals that satisfies:
@@ -705,7 +705,7 @@ Suppose there exists a set of all ordinals, denoted $\text{On}$. Since every ele
     Then $C$ is the class of all ordinals.
 \end{theorem}
 \begin{proof}
-    
+    Let $\al$ be the $<$-minimal ordinal such that $\al\notin C$, then $\al\ne 0$ and $\al$ is not a successor ordinal, so $\al$ is a limit ordinal. 
 \end{proof}
 \customtheorem{Axiom of choice}
 \begin{Axiom of choice}\index{axiom of choice}
@@ -776,13 +776,13 @@ Let $n\in\Z$, the inverse of $n$ is denoted by $-n$.
     Prove that the multiplication on $\Z$ is well-defined.
 \end{problem}
 \begin{definition}
-    Let $p\in\Z$. We say $p$ is a prime if 
+    Let $p\in\Z$. We say $p$ is a \hdef{prime} if $p\ne a\cdot b$ for all $a,b\in\Z$ and $a,b\ne p$.
 \end{definition}
 \begin{theorem}[fundamental theorem of arithmetic]\index{fundamental theorem of arithmetic}
     For all $n\in\Z$, $n$ can be factored as a product of prime numbers and the factorization is unique.
 \end{theorem}
 \begin{proof}
-    
+    Suppose $\prod{p}_{i}$ and $\prod{q}_{i}$ are prime factorizations of $n$.  
 \end{proof}
 \begin{problem}
     Consider the relation ${\sim}_{\Z\times}\sub\Z\times(\Z\sm\{0\})$ defined by $(a,b)\sim(b,c)$ if and only if $ad=bc$. Prove that ${\sim}_{\Z\times}$ is an equivalence relation.
