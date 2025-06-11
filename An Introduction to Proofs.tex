@@ -693,7 +693,7 @@ Suppose there exists a set of all ordinals, denoted $\text{On}$. Since every ele
     Every non-empty ordinal is either a successor ordinal or a limit ordinal.
 \end{proposition}
 \begin{proof}
-    Let $\al$ be an ordinal and $\al\ne\es$. Suppose $\al$ is not a successor ordinal, then $\al\ne\be+1$ for all ordinal $\be$. Suppose $\al<\be+1$ and $\al>\be$ for some ordinal $\be$, then $\al+1> $
+    Let $\al$ be an ordinal and $\al\ne\es$. Suppose $\al$ is not a successor ordinal, then $\al\ne\be+1$ for all ordinal $\be$. Suppose $\al<\be+1$ and $\al>\be$ for some ordinal $\be$, then $\al+1>\be+1$, 
 \end{proof}
 \begin{theorem}[transfinite induction]
     Let $C$ be a class of ordinals that satisfies:
@@ -1799,7 +1799,6 @@ Group presentation of a group is not unique.
 
 \newpage
 \section{General Topology}
-We have seen analytic properties of real numbers $\R$, now we offer the topological approach.
 \begin{definition}
     A \hdef{metric} on a set $X$ is a function $d:X\times X\to[0,\infty)$ satisfying:
     \begin{enumerate}
@@ -1810,10 +1809,10 @@ We have seen analytic properties of real numbers $\R$, now we offer the topologi
     If $d$ is a metric on $X$, we say $(X,d)$ is a \hdef{metric space}.
 \end{definition}
 \begin{definition}
-    
+    Let $(X,d)$ be a metric space and let ${x}_{0}\in X$. An \hdef{open ball} centered at ${x}_{0}$ with radius $r$, where $r\ge 0$, is the set $B({x}_{0},r)=\{x\mid x\in X,d(x,{x}_{0})<r\}$. An \hdef{open set} is a subset of $X$ that can be written as a union of open balls.
 \end{definition}
 \begin{definition}
-    A \hdef{topology} on a set $X$ is a collection $\T$ of subsets of $X$ such that:
+    A \hdef{topology} on a set $X$ is a set $\T$ of subsets of $X$ such that:
     \begin{enumerate}
         \item $\es$ and $X$ are in $\T$;
         \item the union of the elements of any subcollection of $\T$ is in $\T$;
@@ -1821,21 +1820,126 @@ We have seen analytic properties of real numbers $\R$, now we offer the topologi
     \end{enumerate}
     If $\T$ is a topology on $X$, we say the pair $(X,\T)$ is a \hdef{topological space}.
 \end{definition}
+\par
+It is trivial that $\T$ must be a subcollection of $\ps(X)$, so $\T$ is a set.
 \begin{example}
     Let $X$ be a set. The set $\ps(X)$ is a topology on $X$, called the \hdef{discrete topology}. The set $\{X,\es\}$ is also a topology on $X$, called the \hdef{trivial topology}.
 \end{example}
+\begin{definition}
+    Let $\T$ be a topology on $X$. A subset $U\sub X$ is said to be \hdef{open} if $U\in\T$. A subset $V$ is said to be \hdef{closed} if $X\sm V$ is open.
+\end{definition}
+\begin{definition}
+    Let $\T$ and ${\T}^{'}$ be topologies on $X$. If $\T\sub{\T}^{'}$, $\T$ is said to be \hdef{coarser} than ${\T}^{'}$; if ${\T}^{'}\sub\T$, $\T$ is said to be \hdef{finer} than ${\T}^{'}$.
+\end{definition}
 \begin{proposition}
-    Any metric space is a topological space.
+    Every metric space is a topological space.
 \end{proposition}
+\begin{proof}
+    Denote the family of all open sets in $X$ by $\T$. Fix ${x}_{0}\in X$, then the open ball $B({x}_{0},0)=\es$. There exists an open set consisting of all open balls in $X$, which is $X$. Let ${U}_{1}$ and ${U}_{2}$ be open sets, we can express them as unions of open balls, and the union of open balls is again an open set, similarly, the finite intersection is an open set, so $(X,d)$ induces a topology.
+\end{proof}
+\begin{problem}
+    Let $(X,{\T}_{1})$ and $(X,{\T}_{2})$ be two topological spaces. Are $(X,{\T}_{1}\cap{\T}_{2})$ and $(X,{\T}_{1}\cup{\T}_{2})$ topological spaces? Prove or state counterexamples.
+\end{problem}
+\begin{remark}
+    Given a topological space $(X,\T)$, we will denote it by $X$ for convenience.
+\end{remark}
+\begin{definition}
+    A function $f:X\to Y$ between two topological spaces is \hdef{continuous} if $\inv{f}(U)$ is open in $X$ whenever $U$ is open in $Y$. A continuous function with a left and right inverse is called a \hdef{homeomorphism}.
+\end{definition}
+\begin{problem}
+    Let $(X,{\T}_{X})$ and $(Y,{\T}_{Y})$ be topological spaces. Let $f:X\to Y$ be a function, prove that $f$ is continuous if and only if for any closed set $C\in Y$, $\inv{f}(C)$ is closed in $X$.
+\end{problem}
+\begin{problem}
+    Not every continuous bijection between topological spaces is a homeomorphism. Consider the identity function $\id:(\R,{\T}_{1})\to(\R,{\T}_{2})$, where ${\T}_{1}$ is the discrete topology and ${\T}_{2}$ is the standard topology. Prove that $\id$ is not a continuous bijection but not a homeomorphism.
+\end{problem}
+\begin{definition}
+    Let $(X,{\T}_{X})$ be a topological space and $Y\sub X$. The \hdef{subspace topology} on $Y$ is ${\T}_{Y}=\{U\cap Y\mid U\in{\T}_{X}\}$.
+\end{definition}
+\begin{problem}
+    Prove that a subspace topology is indeed a topology.
+\end{problem}
+\begin{problem}
+    Let $Y$ be a subspace of $X$. If $U$ is open in $Y$ and $Y$ is open in $X$, then $U$ is open in $X$.
+\end{problem}
+\begin{proposition}
+    Let $(X,{\T}_{X})$ be a topological space and $Y\sub X$. The subspace topology on $Y$ is the coarsest topology on $Y$ for which the canonical inclusion $i:Y\hra X$ is continuous.
+\end{proposition}
+\begin{proof}
+    Given a topological space $(X,{\T})$ and an arbitrary set $Y$, consider the topology on $Y$ that makes $f:Y\to X$ continuous. There exists such topology and the discrete topology is an example. Therefore, the intersection of topologies such that $f:Y\to X$ is continuous is trivially the coarsest such topology, denoted ${\T}_{f}$. Now let $Y\sub X$ and $f=i$, the inclusion map, then ${\T}_{i}=\{\inv{i}(U)\mid U\in{\T}_{X}\}$, where ${\T}_{X}$ is the topology on $X$ and $\inv{i}(U)=U\cap Y$, hence ${\T}_{i}$ is the subspace topology.
+\end{proof}
+\customtheorem{Universal property for subspace topology}
+\begin{Universal property for subspace topology}
+    Let $(X,{\T}_{X})$ be a topological space, let $Y$ be a subset of $X$, and let $i: Y\hra X$ be the natural inclusion. For every topological space $(Z,{\T}_{Z})$ and every function $f:Z\to Y$, $f$ is continuous if and only if $i\comp f:Z\to X$ is continuous.
+\end{Universal property for subspace topology}
+\begin{center}
+    \begin{tikzcd}
+        Z && Y \\
+        \\
+        && X
+        \arrow["f", from=1-1, to=1-3]
+        \arrow["{i\comp f}"', from=1-1, to=3-3]
+        \arrow["i", from=1-3, to=3-3]
+    \end{tikzcd}
+\end{center}
+\begin{problem}
+    Prove that the composition of two continuous functions is continuous.
+\end{problem}
+\begin{proposition}
+    Any topology satisfies this property is the subspace topology.
+\end{proposition}
+\begin{center}
+    \begin{tikzcd}
+        \T && \T \\
+        \\
+        && {{\T}_{X}}
+        \arrow["{{\id}_{Y}}", from=1-1, to=1-3]
+        \arrow["i"', from=1-1, to=3-3]
+        \arrow["i", from=1-3, to=3-3]
+    \end{tikzcd}
+    \hspace{2.5cm}
+    \begin{tikzcd}
+        {{\T}_{Y}} && \T \\
+        \\
+        && {{\T}_{X}}
+        \arrow["{{\id}_{Y}}", from=1-1, to=1-3]
+        \arrow["i"', from=1-1, to=3-3]
+        \arrow["i", from=1-3, to=3-3]
+    \end{tikzcd}
+\end{center}
+\begin{proof}
+    Let $i\comp f$ be a continuous function. Since $i$ is continuous, for all $U\in{\T}_{X}$, there exists $V\in{\T}_{Y}$ and $W\in{\T}_{Z}$ such that $\inv{(i\comp f)}(U)=W$ and $\inv{i}(U)=V$, so $\inv{f}(V)=W$, so $f$ is continuous. Let $\T$ be any topology on $Y$ with the property and let ${\T}_{Y}$ be the subspace topology. Consider the left diagram, since ${\id}_{Y}$ is continuous, $i\comp{\id}_{Y}=i$ is continuous, then ${\T}_{Y}\sub\T$. Now consider the right diagram, since $i$ is continuous, ${\id}_{Y}$ is continuous, then $\T\sub{\T}_{Y}$. Hence $\T={\T}_{Y}$.
+\end{proof}
+\begin{definition}
+    Let $(X,{\T}_{X})$ be a topological space, let $S$ be a set, and let $\pi:X\thra S$ be surjective. The \hdef{quotient topology} on $S$ is the finest topology for which $\pi$ is continuous, and $\pi$ is called a \hdef{quotient map}.
+\end{definition}
+\customtheorem{Universal property for quotient topology}
+\begin{Universal property for quotient topology}
+    Let $(X,{\T}_{X})$ be a topological space, let $S$ be a set, and let $\pi:X\thra S$ be surjective. For every topological space $(Z,{\T}_{Z})$ and every function $f:S\to Z$, $f$ is continuous if and only if $f\pi:X\to Z$ is continuous.
+\end{Universal property for quotient topology}
+\begin{center}
+    \begin{tikzcd}
+        X && S \\
+        \\
+        && Z
+        \arrow["\pi", from=1-1, to=1-3]
+        \arrow["{f\pi}"', from=1-1, to=3-3]
+        \arrow["f", from=1-3, to=3-3]
+    \end{tikzcd}
+\end{center}
+\begin{problem}
+    Prove that the quotient topology satisfies the universal property. Prove that any topology satisfies this property is the quotient topology.
+\end{problem}
+
+
+
+
+
 
 
 \newsection{Suggested Readings}
 We tried to include many results in different area. However, this is just a short note, if you are interested in a certain area, we here recommend some textbooks as supplementary sources.
 \par
 We have mentioned several results of axiom of choice: well-ordering theorem, Tikhonov theorem. They are equivalence to axiom of choice. By equivalence of axiom, we mean that if axiom of choice is replaced with any of those results, we still obtain the ZFC system. Moreover, notice that this entire note is based on ZFC, but ZFC has its weaknesses. There are different systems of set theory, such as DB, ZF, $\dots$ The provability between systems is another essential idea in set theory. Our treatments on sets largely based on [3] and we encourage the readers to check further results. Another good source for learning functions and sets is [4], which is comprehensive and terse. 
-\par
-
-\par
 
 
 \vspace{\baselineskip}
