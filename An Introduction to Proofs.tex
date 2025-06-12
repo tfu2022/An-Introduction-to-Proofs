@@ -193,7 +193,7 @@ Elements determine a set. One way to describe a set is to explicitly list the el
     \begin{enumerate}
         \item the set $S=\{\es,\{\es\},\{\{\es\}\}\}$ has three elements;
         \item the set $\{2n\mid n\in\N\}$ is the set of all even numbers, where $\N$ is the set of natural numbers;
-        \item the set $\Q=\{a/b\mid a,b\in\Z\ \text{and}\ b\ne 0\}$ is the set of rational numbers, where $\Z$ is the set of integers.
+        \item the set $\Q=\{a/b\mid a,b\in\Z,b\ne 0\}$ is the set of rational numbers, where $\Z$ is the set of integers.
     \end{enumerate}
     We shall provide constructions for $\N$ and $\Z$ later.
 \end{example}
@@ -267,7 +267,7 @@ The definition of ordered pairs can be extended to multiple elements. We call $(
     For all set $X$, there exists a set $Y=\Un X$, the union of all elements of $X$.
 \end{Axiom of union}
 \begin{definition}
-    Let $A$ and $B$ be sets. The \hdef{union} of $A$ and $B$ is the set $\{x\mid x\in A\ \text{or}\ x\in B\}$, denoted $A\cup B$. The \hdef{intersection} of $A$ and $B$ is the set $\{x\mid x\in A\ \text{and}\ x\in B\}$. We say $A$ and $B$ are \hdef{disjoint} if $A\cap B=\es$. The \hdef{complement} of $A$ in $B$ is the set $\{x\mid x\in B\ \text{and}\ x\notin A\}$, denoted $B\sm A$.
+    Let $A$ and $B$ be sets. The \hdef{union} of $A$ and $B$ is the set $\{x\mid x\in A\ \text{or}\ x\in B\}$, denoted $A\cup B$. The \hdef{intersection} of $A$ and $B$ is the set $\{x\mid x\in A,x\in B\}$. We say $A$ and $B$ are \hdef{disjoint} if $A\cap B=\es$. The \hdef{complement} of $A$ in $B$ is the set $\{x\mid x\in B,x\notin A\}$, denoted $B\sm A$.
 \end{definition}
 \begin{problem}
     Let $A$ and $B$ be sets. Prove that $A\cup B$, $A\cap B$, and $A\sm B$ are sets based on the axioms.
@@ -276,15 +276,15 @@ The definition of ordered pairs can be extended to multiple elements. We call $(
     Let $A$ and $B$ be sets, then $A\cup B=B\cup A$.
 \end{proposition}
 \begin{proof}
-    For all $x\in A\cup B$, if $x\in A$, then $x\in B\cup A$; if $x\in B$, then $x\in B$, hence $A\cup B=B\cup A$.
+    For all $x\in A\cup B$, if $x\in A$, then $x\in B\cup A$. If $x\in B$, then $x\in B$, hence $A\cup B=B\cup A$.
 \end{proof}
 \begin{problem}
     Let $A$, $B$, and $C$ be sets. Prove the following propositions.
     \begin{enumerate}
-        \item $A\cap B=B\cap A$;
-        \item $A\cup(B\cup C)=(A\cup B)\cup C$;
-        \item $A\cap(B\cap C)=(A\cap B)\cap C$;
-        \item $A\cap(B\cup C)=(A\cap B)\cup(A\cap C)$;
+        \item $A\cap B=B\cap A$.
+        \item $A\cup(B\cup C)=(A\cup B)\cup C$.
+        \item $A\cap(B\cap C)=(A\cap B)\cap C$.
+        \item $A\cap(B\cup C)=(A\cap B)\cup(A\cap C)$.
         \item $A\cup(B\cap C)=(A\cup B)\cap(A\cup C)$.
     \end{enumerate}
 \end{problem}
@@ -347,8 +347,11 @@ We denote $0=\es$, $1={0}^{+}$, $2={1}^{+}$, $\dots$
 \begin{definition}
     Let $X$ and $Y$ be sets. The \hdef{Cartesian product} $X\times Y$ is the set of all ordered pairs $(a,b)$, where $a\in X$ and $b\in Y$.
 \end{definition}
+\begin{remark}
+    Let $S$ be a set. We denote $S\times\cdots\times S$, the Cartesian product of $n$ times of $S$, by ${S}^{n}$.
+\end{remark}
 \begin{problem}
-    Let $X$ and $Y$ be sets. Write out the set $\ps(\ps(X\cup Y))$. Prove that $X\times Y=\{z\in\ps(\ps(X\cup Y))\mid\text{there exists}\ x\in X\ \text{and}\ y\in Y\ \text{such that}\ z=(x,y)\}\sub\ps(\ps(X\cup Y))$, hence $X\times Y$ is a set.
+    Let $X$ and $Y$ be sets. Write out the set $\ps(\ps(X\cup Y))$. Prove that $X\times Y=\{z\in\ps(\ps(X\cup Y))\mid\text{there exists}\ x\in X,y\in Y\ \text{such that}\ z=(x,y)\}\sub\ps(\ps(X\cup Y))$, hence $X\times Y$ is a set.
 \end{problem}
 \begin{problem}
     Let $S$ be a set, prove that $S\subn\ps(S)$. 
@@ -356,10 +359,10 @@ We denote $0=\es$, $1={0}^{+}$, $2={1}^{+}$, $\dots$
 \begin{problem}
     Let $A$, $B$, and $C$ be sets. Prove the following propositions.
     \begin{enumerate}
-        \item $A\times B=B\times A$ if and only if $A=B$;
-        \item $A\times(B\times C)=(A\times B)\times C$;
-        \item $(A\cup B)\times C=(A\times C)\cup(B\times C)$;
-        \item $(A\cap B)\times C=(A\times C)\cap(B\times C)$;
+        \item $A\times B=B\times A$ if and only if $A=B$.
+        \item $A\times(B\times C)=(A\times B)\times C$.
+        \item $(A\cup B)\times C=(A\times C)\cup(B\times C)$.
+        \item $(A\cap B)\times C=(A\times C)\cap(B\times C)$.
         \item $(A\sm B)\times C=(A\times C)\sm(B\times C)$.
     \end{enumerate}
 \end{problem}
@@ -378,7 +381,7 @@ We denote $0=\es$, $1={0}^{+}$, $2={1}^{+}$, $\dots$
 \par
 It suffices to show a binary operation is indeed a set. Let $R$ be a binary operation, then $R\sub X\times Y$ for some sets $X$ and $Y$. By the axiom schema of separation, $R$ is a set. 
 \begin{problem}
-    Let $R$ be a binary operation. Prove that $\dom(R),\ran(R)\sub\Un(\Un R)$, hence, by axiom of union, $\dom(R)$ and $\ran(R)$ are sets.
+    Let $R$ be a binary operation. Prove that $\dom(R),\ran(R)\sub\Un(\Un R)$, hence, by the axiom of union, $\dom(R)$ and $\ran(R)$ are sets.
 \end{problem}
 \begin{definition}
     Let $R$ be a binary operation on a set $S$, that is, $R\sub S\times S$. We say $R$ is an \hdef{equivalence relation} if the following properties hold.
@@ -653,7 +656,7 @@ Consider a diagram, where every vertex is an object and every arrow preserves th
     Prove that every set is a class.
 \end{problem}
 \customtheorem{Axiom schema of replacement}
-\begin{Axiom schema of replacement}\index{Axiom schema of replacement}
+\begin{Axiom schema of replacement}\index{axiom schema of replacement}
     If a class $F$ is a funciton, then for all $X$, there exists a set $Y=F(X)=\{F(x)\mid x\in X\}$.
 \end{Axiom schema of replacement}
 \begin{problem}
@@ -775,14 +778,25 @@ Let $n\in\Z$, the inverse of $n$ is denoted by $-n$.
 \begin{problem}
     Prove that the multiplication on $\Z$ is well-defined.
 \end{problem}
+\par
+Recall that we have defined $\le$ on $\N$ by the natural inclusion, that is, for all $a,b\in\N$, $a\le b$ if and only if $a\sub b$. Let $[(a,b)],[(c,d)]\in\Z$, we say $[(a,b)]\le[(c,d)]$ if and only if $a+d<b+c$.
 \begin{definition}
     Let $p\in\Z$. We say $p$ is a \hdef{prime} if $p\ne a\cdot b$ for all $a,b\in\Z$ and $a,b\ne p$.
 \end{definition}
+\begin{problem}
+    Let $n\in\N$ and $n\ne 0$. Prove that if there exists $a,b\in\N\sm\{0\}$ such that $ab=n$, then $a,b\le n$.
+\end{problem}
 \begin{theorem}[fundamental theorem of arithmetic]\index{fundamental theorem of arithmetic}
-    For all $n\in\Z$, $n$ can be factored as a product of prime numbers and the factorization is unique.
+    For all $n\in\N$ and $n\ge 2$, $n$ can be factored as a product of prime numbers and the factorization is unique.
 \end{theorem}
 \begin{proof}
-    Suppose $\prod{p}_{i}$ and $\prod{q}_{i}$ are prime factorizations of $n$.  
+    It is trivial that $2=2$, $3=3$, $4=2\cdot 2$, $\dots$. Suppose every number $n\le k$ for a given $k$ admits a prime factorization. If $k+1$ is prime, then $k+1=k+1$. If $k+1$ is not prime, then there exists ${n}_{1},{n}_{2}\in\Z$ such that ${n}_{1}{n}_{2}=k+1$. Since ${n}_{1}$ and ${n}_{2}$ admits prime factorization, $k+1$ admits prime factorization. Suppose $\prod{p}_{i}$ and $\prod{q}_{j}$ are prime factorizations of $n$. Rewrite those factorizations such that ${p}_{i}\le{p}_{i+1}$ and ${q}_{j}\le{q}_{j+1}$. 
+\end{proof}
+\begin{theorem}[Euclid's theorem]\index{Euclid's theorem}
+    There are infinitely many primes.
+\end{theorem}
+\begin{proof}
+    Suppose there are finitely many primes, denoted ${p}_{1},\dots,{p}_{n}$, where ${p}_{i}\le{p}_{i+1}$. Define $x=1+{\prod}_{1}^{n}{p}_{i}$, then $N$ is not prime. Let ${p}_{x}$ be a prime in the factorization, then ${p}_{i}$ lies in the factorization of $N-{p}_{1}\cdot{p}_{2}=1$, a contradiction.
 \end{proof}
 \begin{problem}
     Consider the relation ${\sim}_{\Z\times}\sub\Z\times(\Z\sm\{0\})$ defined by $(a,b)\sim(b,c)$ if and only if $ad=bc$. Prove that ${\sim}_{\Z\times}$ is an equivalence relation.
@@ -796,20 +810,20 @@ Let $n\in\Z$, the inverse of $n$ is denoted by $-n$.
 \begin{problem}
     Let $0$ be the element $[(0,x)]\in\Q$ and let $1$ be the element $[(x,x)]\in\Q$ for any $x$. Verify the following algebraic properties of $\Q$.
     \begin{enumerate}
-        \item $a+b=b+a$ and $ab=ba$ for all $a,b\in\Q$.\hfill(\hdef{commutativity})
-        \item $a+b+c=a+(b+c)$ and $abc=a(bc)$ for all $a,b,c\in\Q$.\hfill(\hdef{associativity})
-        \item $a+0=a$ for all $a\in\Q$.\hfill(\hdef{additive identity})
-        \item $a\cdot 1=a$ for all $a\in\Q$.\hfill(\hdef{multiplicative identity})
-        \item For all $a\in\Q$, there exists a unique $-a\in\Q$ such that $a+(-a)=0$.\hfill(\hdef{additive inverse})
-        \item For all $a\in\Q$ and $a\ne 0$, there exists a unique $\inv{a}\in\Q$ such that $a\inv{a}=1$.\hfill(\hdef{multiplicative inverse})
-        \item $a(b+c)=ab+ac$.\hfill(\hdef{distributivity}) 
+        \item $a+b=b+a$ and $ab=ba$ for all $a,b\in\Q$.\hfill(commutativity)
+        \item $a+b+c=a+(b+c)$ and $abc=a(bc)$ for all $a,b,c\in\Q$.\hfill(associativity)
+        \item $a+0=a$ for all $a\in\Q$.\hfill(additive identity)
+        \item $a\cdot 1=a$ for all $a\in\Q$.\hfill(multiplicative identity)
+        \item For all $a\in\Q$, there exists a unique $-a\in\Q$ such that $a+(-a)=0$.\hfill(additive inverse)
+        \item For all $a\in\Q$ and $a\ne 0$, there exists a unique $\inv{a}\in\Q$ such that $a\inv{a}=1$.\hfill(multiplicative inverse)
+        \item $a(b+c)=ab+ac$.\hfill(distributivity) 
     \end{enumerate}
 \end{problem}
 \begin{definition}
     Let $a,b\in\Q$ and $b\ne 0$. The \hdef{subtraction} on $\Q$ is defined to be $a-b=a+(-b)$. The \hdef{division} on $\Q$ is defined to be $a/b=a\cdot\inv{b}$.
 \end{definition}
 \par
-Recall that we have defined $\le$ on $\N$ by the natural inclusion, that is, for all $a,b\in\N$, $a\le b$ if and only if $a\sub b$. Let $[(a,b)],[(c,d)]\in\Z$, we say $[(a,b)]\le[(c,d)]$ if and only if $a+d<b+c$. Let $[(a,b)],[(c,d)]\in\Q$ with $b,d\ge 0$ and $b,d\ne 0$, then $[(a,b)]\le[(c,d)]$ if and only if $ad\le bc$.
+Let $[(a,b)],[(c,d)]\in\Q$ with $b,d\ge 0$ and $b,d\ne 0$, then $[(a,b)]\le[(c,d)]$ if and only if $ad\le bc$.
 \begin{proposition}
     For all $a,b,c\in\Q$, the following properties hold.
     \begin{enumerate}
@@ -851,12 +865,10 @@ The function ${\id}_{\N}:\N\to\N$ is trivially bijective, so $\N$ is countable.
 \par
 Similarly, one could define $\card{X}\le\card{Y}$ by surjections, that is, if there exists a surjection $f:Y\to X$, then $\card{X}\le\card{Y}$.
 \begin{theorem}[Cantor's theorem]\index{Cantor's theorem}
-    Let $S$ be a set. Then any function $f:S\to\ps(S)$ is not bijective.
+    Let $S$ be a set. Then any function $f:S\to\ps(S)$ is not surjective.
 \end{theorem}
 \begin{proof}
-    Suppose there exists a bijection $f:S\to\ps(S)$.
-    
-
+    Suppose there exists a bijection $f:S\to\ps(S)$. Define $X=\{s\in S\mid s\notin f(x)\}$, this is a subset of $S$, so $X\in\ps(S)$ and $X=f(x)$ for some $x\in S$. If $x\in X$, then $x\notin f(x)=X$, so $x\notin X$, a contradiction. If $x\notin X$, then $x\in f(x)=X$, so $x\in S$, a contradiction.
 \end{proof}
 \begin{problem}
     Use Cantor's theorem, prove that for all set $S$, there exists some element $x\notin S$. Moreover, if $S$ is finite, let $x\notin S$, prove that $\card{S\cup\{x\}}=\card{X}+1$.
@@ -867,12 +879,9 @@ Similarly, one could define $\card{X}\le\card{Y}$ by surjections, that is, if th
 \begin{proof}
     Let $f:Y\to X$ defined by $f(y)=y\in Y\sub X$, this map is trivially injective.
 \end{proof}
-\begin{proposition}
-    Let $X$ be a finite set and let $f:X\to Y$ be a function, then $\im(f)$ is finite and $\card{f(X)}\le\card{X}$.
-\end{proposition}
-\begin{proof}
-    Consider the function $g:x\to f(x)$, 
-\end{proof}
+\begin{problem}
+    Let $X$ be a finite set and let $f:X\to Y$ be a function. Prove that $\im(f)$ is finite and $\card{f(X)}\le\card{X}$.
+\end{problem}
 \begin{problem}
     Let $X$ and $Y$ be finite sets. Prove that $\card{X\cup Y}\le\card{X}+\card{Y}$.
 \end{problem}
@@ -880,7 +889,7 @@ Similarly, one could define $\card{X}\le\card{Y}$ by surjections, that is, if th
     The finite Cartesian product of countable set is countable.
 \end{proposition}
 \begin{proof}
-    Let ${A}_{1},{A}_{2},\dots,{A}_{n}$ be countable sets, then each ${A}_{i}$ itself is in bijection with $\N$. Suppose we pick $n$ distinct prime numbers ${p}_{1},{p}_{2},\dots,{p}_{n}$ and define $f:{\prod}_{i=1}^{n}\N\to\N$ such that $f({a}_{1},{a}_{2},\dots,{a}_{n})={p}_{1}^{a+1}\cdot{p}_{2}^{a+2}\cdots{p}_{n}^{a+n}$. Notice $f$ is injective as the prime factorization of a number is unique. Hence ${\prod}_{i=1}^{n}\N$ is countable then ${\prod}_{i=1}^{n}{A}_{i}$ is countable.
+    Let ${A}_{1},{A}_{2},\dots,{A}_{n}$ be countable sets, then each ${A}_{i}$ itself is in bijection with $\N$. Suppose we pick $n$ distinct prime numbers ${p}_{1},{p}_{2},\dots,{p}_{n}$ and define $f:{\N}^{n}\to\N$ such that $f({a}_{1},{a}_{2},\dots,{a}_{n})={p}_{1}^{a+1}\cdot{p}_{2}^{a+2}\cdots{p}_{n}^{a+n}$. Notice $f$ is injective as the prime factorization of a number is unique. Hence ${\N}^{n}$ is countable then ${\prod}_{1}^{n}{A}_{i}$ is countable.
 \end{proof}
 \begin{proposition} 
     The sets $\Z$ and $\Q$ are countable.
@@ -895,7 +904,7 @@ Similarly, one could define $\card{X}\le\card{Y}$ by surjections, that is, if th
     Cantor-Schröder-Bernstein theorem was originally proved as a consequence of the axiom of choice. However, it is provable in ZF, the system without the axiom of choice. In the next proof, assume we have all axioms except for the axiom of choice.
 \end{remark}
 \begin{proof}
-    
+    Let ${f}_{1}:A\to B$ and ${f}_{2}:B\to A$ are injective. Let $B'={f}_{2}(B)$ and ${A}_{1}={f}_{2}({f}_{1}(A))$, then ${A}_{1}\sub B'\sub A$ and $\card{A}=\card{{A}_{1}}$. Assume ${A}_{1}\sub B\sub A$ and $f:A\to{A}_{1}$ be an injection. inductively, we define ${A}_{0}=A$, ${A}_{n+1}=f({A}_{n})$, ${B}_{0}=B$, and ${B}_{n+1}=f({B}_{n})$. Define $g:A\to B$ by $g(a)=f(a)$ if $x\in{A}_{n}\sm{B}_{n}$, otherwise, let $g(x)=x$. 
 \end{proof}
 \par
 By Cantor-Schröder-Bernstein theorem, we conclude that if $\card{A}\le\card{B}$ and $\card{B}\le\card{A}$, then $\card{A}=\card{B}$.
@@ -1012,7 +1021,7 @@ We conclude that there is no zero object in $\cat{Set}$.
         {{X}_{\sim}} && X \\
         \\
         && Y
-        \arrow["{\wb{f}}"', dashed, from=1-1, to=3-3]
+        \arrow["{\wb{f}}"', from=1-1, to=3-3]
         \arrow["\pi"', from=1-3, to=1-1]
         \arrow["f", from=1-3, to=3-3]
     \end{tikzcd}
@@ -1075,7 +1084,7 @@ This completes our proof of the universal property for quotient sets.
         \\
         A && P && B
         \arrow["{{\vp}_{1}}"', from=1-3, to=3-1]
-        \arrow["u", dashed, from=1-3, to=3-3]
+        \arrow["u", from=1-3, to=3-3]
         \arrow["{{\vp}_{2}}", from=1-3, to=3-5]
         \arrow["{{p}_{1}}", from=3-3, to=3-1]
         \arrow["{{p}_{2}}"', from=3-3, to=3-5]
@@ -1120,7 +1129,7 @@ This completes our proof of the universal property for quotient sets.
         A && Q && B
         \arrow["{{\vp}_{1}}", from=3-1, to=1-3]
         \arrow["{{q}_{1}}"', from=3-1, to=3-3]
-        \arrow["v"', dashed, from=3-3, to=1-3]
+        \arrow["v"', from=3-3, to=1-3]
         \arrow["{{\vp}_{2}}"', from=3-5, to=1-3]
         \arrow["{{q}_{2}}", from=3-5, to=3-3]
     \end{tikzcd}
@@ -1328,7 +1337,7 @@ Let $G$ and $H$ be groups. Since $0$ is the zero object, there exists unique gro
         {G/N} && G \\
         \\
         && H
-        \arrow["{\wb{\vp}}"', dashed, from=1-1, to=3-3]
+        \arrow["{\wb{\vp}}"', from=1-1, to=3-3]
         \arrow["\pi"', from=1-3, to=1-1]
         \arrow["\vp", from=1-3, to=3-3]
     \end{tikzcd}
