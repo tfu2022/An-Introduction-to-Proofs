@@ -425,13 +425,16 @@ It suffices to show a binary operation is indeed a set. Let $R$ be a binary oper
 \end{problem}
 \begin{problem}
     Let $X$ be a set. If $(\ps(X),\sub)$ is a linearly ordered set, prove that $X$ is either a singleton or the empty set.
-\end{problem}\
+\end{problem}
 \begin{definition}
     Let $(X,\le)$ be a partially ordered set and let $Y\sub X$ be an nonempty subset. An element $a$ is the \hdef{upper bound} of $X$ if for all $x\in X$, $x\le a$. An element $b$ is the \hdef{lower bound} of $X$ if for all $x\in X$, $b\le x$. The least upper bound of $X$ is called the \hdef{supremum} and the greatest lower bound of $X$ is called the \hdef{infimum}.
 \end{definition}
 \begin{definition}
     Let $(X,\le)$ be a partially ordered set. The set is \hdef{well-ordered} if for every nonempty subset $S$ of $X$, there exists $a\in S$ such that for all $s\in S$, $a\le s$.
 \end{definition}
+\begin{problem}
+    Prove that every well-ordered set has a smallest element.
+\end{problem}
 \begin{theorem}[well-ordering theorem]\index{well-ordering theorem}
     Every set is well-orderable.
 \end{theorem}
@@ -627,7 +630,7 @@ Consider a diagram, where every vertex is an object and every arrow preserves th
     Let $S=\{a,b,c,d\}$. Let $\sim$ be an equivalence relation on $S$ such that $a\sim b$ and $c\sim d$. The quotient set ${S}_{\sim}$ is $\{a,c\}$.
 \end{example}
 \begin{problem}
-    Consider the set of all integers $\Z$. Fix $n\in\Z$, Let ${\sim}_{n}$ be an equivalence relation on $\Z$ such that $a{\sim}_{n}b$ if and only if $a-b=kn$ for some $k\in\Z$. Prove that ${\sim}_{n}$ is indeed an equivalence relation. Find the quotient set ${\Z}_{{\sim}_{2}}$. Find the quotient set ${\Z}_{{\sim}_{n}}$ for all $n$. We also denote it 
+    Consider the set of all integers $\Z$. Fix $n\in\Z$, Let ${\sim}_{n}$ be an equivalence relation on $\Z$ such that $a{\sim}_{n}b$ if and only if $a-b=kn$ for some $k\in\Z$. Prove that ${\sim}_{n}$ is indeed an equivalence relation. Find the quotient set ${\Z}_{{\sim}_{2}}$. Find the quotient set ${\Z}_{{\sim}_{n}}$ for all $n$. 
 \end{problem}
 \begin{definition}
     Let $X$ and $Y$ be sets. Let $\sim$ be an equivalence relation on $X$. A function $f:X\to Y$ is \hdef{invariant} under the equivalence relation such that, $x\sim y$ if and only if $f(x)=f(y)$.
@@ -645,7 +648,7 @@ Consider a diagram, where every vertex is an object and every arrow preserves th
     If $\vp(x,{p}_{1},{p}_{2},\dots)$ is some formula, then we say $C=\{x\mid\vp\}$ is a \hdef{class}, that is, $x$ is a member of $C$ if and only if $x$ satisfies $\vp$.
 \end{definition}
 \begin{remark}
-    Although a class might not be a set, we extend the notion $\in$ to classes, that is, $x\in C$, where $C$ is a class, means $x$ satisfies the formula $\vp$ corresponding to $C$.
+    Although a class might not be a set, we extend the notion ``$\in$'' to classes. Let $C$ is a class, we write $x\in C$ if $x$ satisfies the formula $\vp$ corresponding to $C$.
 \end{remark}
 \begin{example}
     The collection of all sets is a class.
@@ -713,7 +716,7 @@ Suppose there exists a set of all ordinals, denoted $\text{On}$. Since every ele
     Let $X$ be a set and $X\ne\es$. Then there exists a map $f:\ps(X)\to X$ such that for every $x\subn X$, where $x\ne\es$, $f(x)\in x$. 
 \end{Axiom of choice}
 \par
-We call such a function $f$ a \hdef{choice function}. Therefore, we can reformulate axiom of choice as: for every nonempty set $X$, there exists a choice function.
+We call such a function $f$ a \hdef{choice function}. Therefore, we can reformulate the axiom of choice as: for every nonempty set $X$, there exists a choice function.
 \begin{theorem}[well-ordering theorem]
     Every set is well-orderable.
 \end{theorem}
@@ -726,7 +729,7 @@ By the well-ordering theorem, $\N$ is well-ordered, this is called the \hdef{wel
     Well-ordering principle is based on ZF system, the system without axiom of choice. The well-ordering theorem is an equivalent form of axiom of choice. For more information, we recommend you to check [3].
 \end{remark}
 \section{Integers and Cardinality}
-Recall that we have constructed $\N$ by axioms. By the convention of quotient sets, we could further construct the integers and rational numbers.
+Recall that we have constructed $\N$ by axioms. By the convention of quotient sets, we could further construct the set of integers and rational numbers.
 \begin{theorem}[recursion]\index{recursion}
     Given a set $X$ and $x\in X$. Let $f:X\to X$ be a function, then there exists a unique function $F:\N\to X$ such that $F(0)=x$ and $F({n}^{+})=f(F(n))$ for all $n\in\N$.
 \end{theorem}
@@ -782,7 +785,7 @@ Recall that we have defined $\le$ on $\N$ by the natural inclusion, that is, for
     Let $p\in\Z$. We say $p$ is a \hdef{prime} if $p\ne a\cdot b$ for all $a,b\in\Z$ and $a,b\ne p$.
 \end{definition}
 \begin{problem}
-    Let $n\in\N$ and $n\ne 0$. Prove that if there exists $a,b\in\N\sm\{0\}$ such that $ab=n$, then $a,b\le n$.
+    Let $n\in\N$ and $n\ne 0$. Prove that if there exists $a,b\in\N\sm\{0\}$ such that $a\cdot b=n$, then $a,b\le n$.
 \end{problem}
 \begin{theorem}[fundamental theorem of arithmetic]\index{fundamental theorem of arithmetic}
     For all $n\in\N$ and $n\ge 2$, $n$ can be factored as a product of prime numbers and the factorization is unique.
@@ -794,7 +797,7 @@ Recall that we have defined $\le$ on $\N$ by the natural inclusion, that is, for
     There are infinitely many primes.
 \end{theorem}
 \begin{proof}
-    Suppose there are finitely many primes, denoted ${p}_{1},\dots,{p}_{n}$, where ${p}_{i}\le{p}_{i+1}$. Define $x=1+{\prod}_{1}^{n}{p}_{i}$, then $N$ is not prime. Let ${p}_{x}$ be a prime in the factorization, then ${p}_{i}$ lies in the factorization of $N-{p}_{1}\cdot{p}_{2}=1$, a contradiction.
+    Suppose there are finitely many primes, denoted ${p}_{1},\dots,{p}_{n}$, where ${p}_{i}\le{p}_{i+1}$. Define $x=1+{\prod}_{1}^{n}{p}_{i}$, then $N$ is not prime. Let ${p}_{x}$ be a prime in the factorization, then ${p}_{i}$ lies in the factorization of $N-{\prod}{p}_{i}=1$, a contradiction.
 \end{proof}
 \begin{problem}
     Consider the relation ${\sim}_{\Z\times}\sub\Z\times(\Z\sm\{0\})$ defined by $(a,b)\sim(b,c)$ if and only if $ad=bc$. Prove that ${\sim}_{\Z\times}$ is an equivalence relation.
@@ -904,6 +907,9 @@ Similarly, one could define $\card{X}\le\card{Y}$ by surjections, that is, if th
 \begin{proof}
     Let ${f}_{1}:A\to B$ and ${f}_{2}:B\to A$ are injective. Let $B'={f}_{2}(B)$ and ${A}_{1}={f}_{2}({f}_{1}(A))$, then ${A}_{1}\sub B'\sub A$ and $\card{A}=\card{{A}_{1}}$. Assume ${A}_{1}\sub B\sub A$ and $f:A\to{A}_{1}$ be an injection. inductively, we define ${A}_{0}=A$, ${A}_{n+1}=f({A}_{n})$, ${B}_{0}=B$, and ${B}_{n+1}=f({B}_{n})$. Define $g:A\to B$ by $g(a)=f(a)$ if $x\in{A}_{n}\sm{B}_{n}$, otherwise, let $g(x)=x$. 
 \end{proof}
+\begin{problem}
+    Prove the Cantor-Schröder-Bernstein theorem using the axiom of choice.
+\end{problem}
 \par
 By Cantor-Schröder-Bernstein theorem, we conclude that if $\card{A}\le\card{B}$ and $\card{B}\le\card{A}$, then $\card{A}=\card{B}$.
 \newpage
@@ -925,7 +931,7 @@ Functions are the bridges to ``connect'' sets. According to the definition, a fu
         \item given any $f:X\to Y$, $g:Y\to Z$, and $h:Z\to W$, we have the identity $(h\comp g)\comp f=h\comp(g\comp f)$;
         \item for each object $X$, there exists an \hdef{identity morphism} ${\id}_{X}:X\to X$ with the property that $f\comp{\id}_{X}=f$ and ${\id}_{X}\comp g=g$ for any $f:X\to Y$ and $g:Z\to X$.
     \end{enumerate}
-    The class of morphisms from $X$ to $Y$ is denoted by ${\Hom}_{\cat{C}}(X,Y)$. A category $\cat{C}$ is a \hdef{locally small category} if ${\Hom}_{\cat{C}}(A,B)$ is a set for all objects $A$ and $B$.
+    The class of morphisms from $X$ to $Y$ is denoted by ${\Hom}_{\cat{C}}(X,Y)$. A category $\cat{C}$ is a \hdef{locally small category} if ${\Hom}_{\cat{C}}(A,B)$ is a set for all objects $A$ and $B$ in $\cat{C}$.
 \end{definition}
 \par
 Let sets be objects, let functions be morphisms, and let the composition of morphisms be the composition of functions. By our previous observations, it suffices to check this defines a category of sets, denoted $\cat{Set}$. Moreover, $\cat{Set}$ is locally small.
@@ -1141,8 +1147,11 @@ This completes our proof of the universal property for quotient sets.
 \par
 Categorically, we can restate the axiom of choice as follows.
 \begin{Axiom of choice}
-    Given an epimorphism in $\cat{Set}$, there exists a 
+    Any epimorphism in $\cat{Set}$ has a right inverse.
 \end{Axiom of choice}
+\par
+We will show how axiom of choice implies our categorical reformulation. 
+
 \section{Groups}
 We have shown a general constructions of mathematical entities use the convention of categories. Groups are the ne
 \begin{definition}
@@ -1369,7 +1378,7 @@ We will first show the existence of free groups. Consider
     Let ${X}_{1}$ and ${X}_{2}$ be bases of free groups ${F}_{1}$ and ${F}_{2}$, respectively. Prove that if ${X}_{1}\iso{X}_{2}$ as sets, then ${F}_{1}\iso{F}_{2}$ as groups.
 \end{problem}
 \begin{definition}
-    A \hdef{group presentation} is a pair $(S,R)$ consisting of a set $S$ and a subset $R\sub F(S)$. The group presented by $(S,R)$ is defined to be $\cyc{S\mid R}=F(S)/N$, where $N$ is the smallest normal subgroup of $F(S)$ containing $R$.
+    A \hdef{group presentation} is a pair $(S,R)$, where $S$ is a set and $R\sub F(S)$. The group presented by $(S,R)$ is defined to be $\cyc{S\mid R}=F(S)/N$, where $N$ is the smallest normal subgroup of $F(S)$ containing $R$.
 \end{definition}
 \begin{definition}
     Let $G$ be a group with the presentation $\cyc{S\mid R}$, then the elements are called the \hdef{generators} of $G$. A group is said to be \hdef{cyclic} if $\card{S}=1$.
@@ -1377,27 +1386,23 @@ We will first show the existence of free groups. Consider
 \begin{example}
     The presentation of a free group $F(S)$ is $\cyc{S\mid\es}$.
 \end{example}
-\begin{problem}
-    Prove that $\cyc{a,b\mid aba\inv{a}{b}^{-2},ba\inv{b}{a}^{-2}}$ is the trivial group.
-\end{problem}
-\par
-Given a group $G$, its group presentation might not be unique. Consider ${S}_{3}$ and ${D}_{6}$. 
-
-
-
-
-
+\begin{example}
+    The presentation of the trivial group is $\cyc{a,b\mid aba\inv{a}{b}^{-2},ba\inv{b}{a}^{-2}}$.
+\end{example}
 \begin{problem}
     Prove that a finite cyclic group of order $n$ admits the presentation $\cyc{a\mid{a}^{n}}$. We denote it by ${C}_{n}$.
 \end{problem}
 \begin{problem}
-    A \hdef{Tarski monster group} is a finitely generated infinite group, where every proper non-trivial subgroup is cyclic of order a fixed prime $p$. Prove that every Tarski monster group is simple.
+    A \hdef{Tarski monster group} is a finitely generated infinite group where every proper non-trivial subgroup is cyclic of order $p$, a fixed prime. Prove that every Tarski monster group is simple.
 \end{problem}
 \begin{problem}
-    A \hdef{Baumslag-Solitar group} $BS(m,n)$ admits the presentation $\cyc{a,b\mid b{a}^{m}\inv{b}={a}^{n}}$. Prove that $BS(1,1)\iso{C}_{2}$. Prove that $\vp:BS(2,3)\to BS(2,3)$ defined by $\vp(a)={a}^{2}$ and $\vp(b)=b$ is a group epimorphism.
+    A \hdef{Baumslag-Solitar group} $BS(m,n)$ admits the presentation $\cyc{a,b\mid b{a}^{m}\inv{b}={a}^{n}}$. Prove that $BS(1,1)\iso{C}_{2}$. This shows that the group presentation of a group is not necessarily unique.
 \end{problem}
 \begin{problem}
-    A \hdef{Burnside group} $B(m,n)$ of rank $m$ and exponent $n$ is admits the presentation $B(m,n)=\cyc{{x}_{1},\dots,{x}_{m}\mid}$
+    Prove that $\vp:BS(2,3)\to BS(2,3)$ defined by $\vp(a)={a}^{2}$ and $\vp(b)=b$ is a group epimorphism.
+\end{problem}
+\begin{problem}
+    A \hdef{Burnside group} $B(m,n)$ of rank $m$ and exponent $n$ admits the presentation $B(m,n)=\cyc{{x}_{1},\dots,{x}_{m}\mid}$. Prove $B(m,2)$ is finite and give a formula of its order.
 \end{problem}
 \begin{definition}
     
@@ -1952,13 +1957,8 @@ It is trivial that $\T$ must be a subcollection of $\ps(X)$, so $\T$ is a set.
 
 
 
+\section{Reformulation of Groups and Topologies}
 
-
-
-\newsection{Suggested Readings}
-We tried to include many results in different area. However, this is just a short note, if you are interested in a certain area, we here recommend some textbooks as supplementary sources.
-\par
-We have mentioned several results of axiom of choice: well-ordering theorem, Tikhonov theorem. They are equivalence to axiom of choice. By equivalence of axiom, we mean that if axiom of choice is replaced with any of those results, we still obtain the ZFC system. Moreover, notice that this entire note is based on ZFC, but ZFC has its weaknesses. There are different systems of set theory, such as DB, ZF, $\dots$ The provability between systems is another essential idea in set theory. Our treatments on sets largely based on [3] and we encourage the readers to check further results. Another good source for learning functions and sets is [4], which is comprehensive and terse. 
 
 
 \vspace{\baselineskip}
