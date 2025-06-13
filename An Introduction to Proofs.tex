@@ -427,7 +427,7 @@ It suffices to show a binary operation is indeed a set. Let $R$ be a binary oper
 \end{problem}
 \begin{problem}
     Let $X$ be a set. If $(\ps(X),\sub)$ is a linearly ordered set, prove that $X$ is either a singleton or the empty set.
-\end{problem}
+\end{problem}\
 \begin{definition}
     Let $(X,\le)$ be a partially ordered set and let $Y\sub X$ be an nonempty subset. An element $a$ is the \hdef{upper bound} of $X$ if for all $x\in X$, $x\le a$. An element $b$ is the \hdef{lower bound} of $X$ if for all $x\in X$, $b\le x$. The least upper bound of $X$ is called the \hdef{supremum} and the greatest lower bound of $X$ is called the \hdef{infimum}.
 \end{definition}
@@ -1140,6 +1140,11 @@ This completes our proof of the universal property for quotient sets.
 \begin{problem}
     Describe the product and coproduct in $\cat{{Set}^{op}}$. 
 \end{problem}
+\par
+Categorically, we can restate the axiom of choice as follows.
+\begin{Axiom of choice}
+    Given an epimorphism in $\cat{Set}$, there exists a 
+\end{Axiom of choice}
 \section{Groups}
 We have shown a general constructions of mathematical entities use the convention of categories. Groups are the ne
 \begin{definition}
@@ -1163,7 +1168,7 @@ We have shown a general constructions of mathematical entities use the conventio
     Prove that the identity element is unique in any monoid.
 \end{problem}
 \begin{definition}
-    A triple $(G,\comp,e)$ is a \hdef{group} if it is a monoid and for all $g\in G$, there exists $h\in G$ such that $h\comp g=e=g\comp h$. Such $f$ is called an \hdef{inverse} of $g$. If $\comp$ is commutative, then the group is \hdef{abelian}. The cardinality of a group is called its \hdef{order}, denoted $\card{G}$.
+    A triple $(G,\comp,e)$ is a \hdef{group} if it is a monoid and for all $g\in G$, there exists $h\in G$ such that $h\comp g=e=g\comp h$. Such $f$ is called an \hdef{inverse} of $g$. If $\comp$ is commutative, then the group is \hdef{abelian}. The \hdef{order} of a group $G$. denoted $\card{G}$, is the cardinality of the set $G$.
 \end{definition}
 \begin{example}
     The \hdef{trivial group} is the group of one element, that is, $\{e\}$.
@@ -1266,14 +1271,14 @@ Let $H,K\le G$ and let $H\sub K$, then $[G:1]=[G:H][H:1]=$
 \end{theorem}
 \begin{center}
     \begin{tikzcd}
-        G &&&& H \\
+        G && {G/\ker(\vp)} && {\im(\vp)} \\
         \\
-        & {G/\ker(\vp)} && {\im(\vp)}
-        \arrow["\vp", from=1-1, to=1-5]
-        \arrow["\pi"', from=1-1, to=3-2]
-        \arrow[from=3-2, to=3-4]
-        \arrow["i"', from=3-4, to=1-5]
-    \end{tikzcd}    
+        &&&& H
+        \arrow["\pi", from=1-1, to=1-3]
+        \arrow["\vp"', from=1-1, to=3-5]
+        \arrow[from=1-3, to=1-5]
+        \arrow["i", from=1-5, to=3-5]
+    \end{tikzcd}   
 \end{center}
 \begin{proof}
     Let $a,b\in\ker(\vp)$, then $\vp(a\inv{b})=\vp(a)\vp(b)=\vp{\inv{b}}$. We have ${e}_{H}=\vp(b\inv{b})={e}_{H}\vp(\inv{b})$, then $\vp({\inv{b}})={e}_{H}$, which implies $\ker(\vp)\le G$. For all $g\in G$, $\vp(g\ker(\vp)\inv{g})=\vp(g)\vp(\ker(\vp))\vp(\inv{g})={e}_{H}$, then $g\ker(\vp)\inv{g}\sub\ker(\vp)$. For all $g\in\ker(\vp)$, we have 
@@ -1378,7 +1383,7 @@ We will first show the existence of free groups. Consider
     Prove that $\cyc{a,b\mid aba\inv{a}{b}^{-2},ba\inv{b}{a}^{-2}}$ is the trivial group.
 \end{problem}
 \par
-Group presentation of a group is not unique. 
+Given a group $G$, its group presentation might not be unique. Consider ${S}_{3}$ and ${D}_{6}$. 
 
 
 
@@ -1941,7 +1946,11 @@ It is trivial that $\T$ must be a subcollection of $\ps(X)$, so $\T$ is a set.
 \begin{problem}
     Prove that the quotient topology satisfies the universal property. Prove that any topology satisfies this property is the quotient topology.
 \end{problem}
+\begin{example}
+    A \hdef{torus} is 
 
+    We denote a torus by ${T}^{2}$.
+\end{example}
 
 
 
