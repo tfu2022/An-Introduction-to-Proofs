@@ -5,9 +5,7 @@
 \def\hauthor{Hassium, Fung San Gaan, Tingyu Wu}
 \def\hfauthor{HS, FSG, WTY}
 \begin{document}
-\hsetup
-\htoc
-\hmain
+\hstart
 \section*{Introduction}
 In higher-level mathematics, students need a certain level of ``mathematical maturity'' to understand and apply abstract ideas. However, there is no clear way to measure this maturity, nor a definitive method to teach someone how to write a proof. This note is intended to be a transition from high school math to proof-based formal mathematics.
 \par
@@ -1276,7 +1274,7 @@ Let $H,K\le G$ and let $H\sub K$, then $[G:1]=[G:H][H:1]=$
         &&&& H
         \arrow["\pi", from=1-1, to=1-3]
         \arrow["\vp"', from=1-1, to=3-5]
-        \arrow[from=1-3, to=1-5]
+        \arrow[from=1-3, to=1-5] 
         \arrow["i", from=1-5, to=3-5]
     \end{tikzcd}   
 \end{center}
