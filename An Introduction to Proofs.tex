@@ -14,6 +14,10 @@ The first four sections are the solid prerequisites for any kind of mathematics.
 You may notice that we use different names for the same object—a common practice in mathematics. For example, the set of all real numbers $\R$ can be viewed as a set, a group, a ring, a field, a topological space, a metric space $\dots$ (hopefully you will learn every term in this note) Each term highlights a particular aspect of the same structure. As Poincaré famously said, ``Mathematics is the art of giving the same name to different things.''
 \par
 Many people have contributed to this note. Special thanks to my collaborators Fung San Gaan and Tingyu Wu. Fung San Gaan wrote the real analysis part of this note and collaborate with me on section 10. Tingyu Wu wrote the linear algebra part and collaborate with me on section 4. I shall also thank Bryce for his suggestions on the contents.
+
+\newpage
+
+
 \section{Basic Logic}
 Logic is the formal framework and rules of inference that ensure the validity and coherence of arguments in math.
 \begin{remark}
@@ -164,6 +168,11 @@ In the following sections, we shall assume readers are familiar with basic logic
     \end{enumerate} 
     Find the negation of each proposition. 
 \end{problem}
+
+\newpage
+
+
+
 \section{Some Axioms of Sets}
 \par
 In this section, we begin investigating sets, the most basic entities in mathematics. It is natural to ask: What is a set? There is no precise definition of sets. Intuitively, a \hdef{set} is a collection of objects that satisfy some property, and the objects are called \hdef{elements}.
@@ -408,6 +417,11 @@ It suffices to show a binary operation is indeed a set. Let $R$ be a binary oper
     \end{enumerate}
     The set with a partial ordering is called a \hdef{partially ordered set}.
 \end{definition}
+\par
+Let $(X,\le)$ be a partially ordered set. Let $Y\sub X$ and $Y\ne\es$. We say $a\in Y$ is the greatest element of $Y$ if for all $y\in Y$, $a\ge y$. Similarly, we could define the smallest element of a nonempty subset of $X$.
+\begin{definition}
+    Let $(X,\le)$ be a partially ordered set and let $Y$ be a nonempty subset of $X$. An element $a\in X$ is said to be an \hdef{upper bound} of $Y$ if for all $y\in Y$, $y\le a$. An element $a\in X$ is said to be a \hdef{lower bound} of $Y$ if for all $y\in Y$, $a\le y$. We call the least upper bound of $Y$ the \hdef{supremum} and we call the greatest lower bound of $Y$ the \hdef{infimum}.
+\end{definition}
 \begin{definition}
     A partially ordered set $(X,\le)$ is \hdef{linearly ordered} if for all $p,q\in X$, either $p\le q$ or $q\le p$.
 \end{definition}
@@ -452,6 +466,11 @@ The well-ordering theorem is equivalent to the axiom of choice, which will be di
 \begin{problem}
     Prove that given a subset $S\sub\N$ of the natural numbers with $0\in S$ and $\{0,1,\dots,n\}\sub S$ implies $n+1\in S$, then $S=\N$. This is known as the \hdef{complete finite induction}. Prove that the complete finite induction implies the finite induction, conclude that they are equivalent.
 \end{problem}
+
+
+\newpage
+
+
 \section{Functions}
 \begin{definition}
     Let $X$ and $Y$ be sets. A \hdef{function} $f$ is a binary operation $f\sub X\times Y$ such that for all $x\in X$, there exists a unique $y\in Y$ such that $(x,y)\in f$. We say $f$ is a function from $X$ to $Y$, denoted $f:X\to Y$. The set $Y$ is called the \hdef{codomain} of $f$, denoted $\cod(f)$.
@@ -554,16 +573,13 @@ Consider a diagram, where every vertex is an object and every arrow preserves th
     For all $x\in X$, define $\vp=(f(x)-f(-x))/2$ and $\psi=(f(x)+f(-x))/2$, then $\vp(-x)=(f(-x)-f(x))/2=-\vp(x)$ and $\psi(-x)=(f(-x)+f(x))/2=\psi(x)$. Moreover, $\vp(x)+\psi(x)=(f(x)-f(-x)+f(x)+f(-x))/2=f(x)$.
 \end{proof}
 \begin{problem}
-    Write a function $f:\R\to\R$ that is neither odd nor even. Decompose $f$ as a sum of an even and an odd function.
-\end{problem}
-\begin{problem}
     Prove that such decomposition for each $f:X\to Y$, where $X,Y\sub\R$, is unique.
 \end{problem}
 \begin{definition}
     Let $f:A\to B$ be a function. We say $f$ is \hdef{injective} if for all $x,y\in B$ and $x=y$, then $\inv{f}(x)=\inv{f}(y)$. We say $f$ is \hdef{surjective} if $\ran(f)=\cod(f)$. The function $f$ is said to be \hdef{bijective} if it is both injective and surjective.
 \end{definition}
 \begin{problem}
-    State an example if such a function exists.
+    State examples if such functions exist.
     \begin{enumerate}
         \item $f:\{1,2,3\}\to\{4,5,6\}$ that is injective but not surjective.
         \item $f:\{1,2,3\}\to\{4,5,6\}$ that is surjective but not injective.
@@ -643,7 +659,12 @@ Consider a diagram, where every vertex is an object and every arrow preserves th
 \end{proposition}
 \begin{proof}
     Define $\sim$ on $X$ by $x\sim y$, where $x,y\in X$, if and only if $f(x)\sim f(y)$. For all $x=y$, $f(x)=f(y)$. For all $x=y=z$, $f(x)=f(y)=f(z)$. Hence $\sim$ is a well-defined equivalence relation on $X$, and $f$ is trivially invariant under $\sim$.
-\end{proof}
+\end{proof} 
+\par
+Intuitively, functions preserve the structure of sets. Now we require them to preserve more structure on sets.
+\begin{definition}
+    Let $(P,{\le}_{1})$ and $(Q,{\le}_{2})$ be partially ordered set and let $f:P\to Q$ be a function. We say $f$ is \hdef{order-preserving} if $x{\le}_{1}y$ implies $f(x){\le}_{2}f(y)$. If $f$ is also bijective, then we say $P$ and $Q$ have the same \hdef{order-type}.
+\end{definition}
 \begin{definition}
     If $\vp(x,{p}_{1},{p}_{2},\dots)$ is some formula, then we say $C=\{x\mid\vp\}$ is a \hdef{class}, that is, $x$ is a member of $C$ if and only if $x$ satisfies $\vp$.
 \end{definition}
@@ -685,6 +706,15 @@ Let $\al$ and $\be$ be ordinals. We define $\al<\be$ if and only if $\al\in\be$.
 \begin{problem}
     The intersection of ordinals is an ordinal.
 \end{problem}
+\begin{proposition}
+    If a set is well ordered, then it has the same order-type as an ordinal.
+\end{proposition}
+\begin{proof}
+    
+\end{proof}
+
+
+
 \begin{definition}
     An ordinal $\la$ is said to be a \hdef{limit ordinal} if $\la\ne\es$ and for all $\al<\la$, $\al+1<\la$.
 \end{definition}
@@ -728,6 +758,12 @@ By the well-ordering theorem, $\N$ is well-ordered, this is called the \hdef{wel
 \begin{remark}
     Well-ordering principle is based on ZF system, the system without axiom of choice. The well-ordering theorem is an equivalent form of axiom of choice. For more information, we recommend you to check [3].
 \end{remark}
+
+
+\newpage 
+
+
+
 \section{Integers and Cardinality}
 Recall that we have constructed $\N$ by axioms. By the convention of quotient sets, we could further construct the set of integers and rational numbers.
 \begin{theorem}[recursion]\index{recursion}
