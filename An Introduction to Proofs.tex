@@ -471,7 +471,7 @@ The well-ordering theorem is equivalent to the axiom of choice, which will be di
 \newpage
 
 
-\section{Functions}
+\section{Functions and Well-Ordering}
 \begin{definition}
     Let $X$ and $Y$ be sets. A \hdef{function} $f$ is a binary operation $f\sub X\times Y$ such that for all $x\in X$, there exists a unique $y\in Y$ such that $(x,y)\in f$. We say $f$ is a function from $X$ to $Y$, denoted $f:X\to Y$. The set $Y$ is called the \hdef{codomain} of $f$, denoted $\cod(f)$.
 \end{definition}
@@ -665,11 +665,14 @@ Intuitively, functions preserve the structure of sets. Now we require them to pr
 \begin{definition}
     Let $(P,{\le}_{1})$ and $(Q,{\le}_{2})$ be partially ordered set and let $f:P\to Q$ be a function. We say $f$ is \hdef{order-preserving} if $x{\le}_{1}y$ implies $f(x){\le}_{2}f(y)$. If $f$ is also bijective, then we say $P$ and $Q$ have the same \hdef{order-type}.
 \end{definition}
+\begin{problem}
+    Prove that if $f:P\to Q$ is order-preserving and bijective, then $\inv{f}$ is also order-preserving.
+\end{problem}
 \begin{definition}
     If $\vp(x,{p}_{1},{p}_{2},\dots)$ is some formula, then we say $C=\{x\mid\vp\}$ is a \hdef{class}, that is, $x$ is a member of $C$ if and only if $x$ satisfies $\vp$.
 \end{definition}
 \begin{remark}
-    Although a class might not be a set, we extend the notion ``$\in$'' to classes. Let $C$ is a class, we write $x\in C$ if $x$ satisfies the formula $\vp$ corresponding to $C$.
+    Although a class might not be a set, we extend the notion ``$\in$'' to classes. Let $C$ is a class, we write $x\in C$ if $x$ satisfies the formula $\vp$ correspond to $C$.
 \end{remark}
 \begin{example}
     The collection of all sets is a class.
@@ -707,14 +710,21 @@ Let $\al$ and $\be$ be ordinals. We define $\al<\be$ if and only if $\al\in\be$.
     The intersection of ordinals is an ordinal.
 \end{problem}
 \begin{proposition}
-    If a set is well ordered, then it has the same order-type as an ordinal.
+    Two different ordinals do not have the same order-type.
 \end{proposition}
 \begin{proof}
-    
+    Let $\al$ and $\be$ be ordinals such that $\al\ne\be$. Let $f:\al\to\be$ be order-preserving. Suppose $f$ is bijective. 
+
+
 \end{proof}
-
-
-
+\begin{proposition}
+    If a set is well-ordered, then it has the same order-type as an ordinal.
+\end{proposition}
+\begin{proof}
+    Let $P$ be well-ordered. For all $x\in P$, consider the initial segement ${I}_{x}$ given by $x$. If ${I}_{x}$ has the same order-type with some ordinal $\al$, then define $F(x)=\al$.
+    
+    define $F(x)=\al$
+\end{proof}
 \begin{definition}
     An ordinal $\la$ is said to be a \hdef{limit ordinal} if $\la\ne\es$ and for all $\al<\la$, $\al+1<\la$.
 \end{definition}
@@ -796,7 +806,7 @@ Recall that we have constructed $\N$ by axioms. By the convention of quotient se
     The set of all \hdef{integers}, denoted $\Z$, is defined to be ${(\N\times{\N})}_{{\sim}_{\N+}}$. Let $[(a,b)]\in\Z$, the \hdef{inverse} of $[(a,b)]$ is defined to be $[(b,a)]$.
 \end{definition}
 \begin{problem}
-    Prove that there exists a bijection between $\{[(a,b)]\mid a,b\in\N\ \text{and}\ a\subn b\}$ and $\{[(b,a)]\mid a,b\in\N\ \text{and}\ b\subn a\}$, conclude that the inverse of an integer is unique.
+    Prove that there exists a bijection between $\{[(a,b)]\mid a,b\in\N, a\subn b\}$ and $\{[(b,a)]\mid a,b\in\N, b\subn a\}$, conclude that the inverse of an integer is unique.
 \end{problem}
 \par
 Let $n\in\Z$, the inverse of $n$ is denoted by $-n$.
@@ -1188,8 +1198,8 @@ Categorically, we can restate the axiom of choice as follows.
 \par
 We will show how axiom of choice implies our categorical reformulation. 
 
+\newpage
 \section{Groups}
-We have shown a general constructions of mathematical entities use the convention of categories. Groups are the ne
 \begin{definition}
     A \hdef{monoid} is a triple $(M,\comp,e)$, where $M$ is a set and $\comp:M\times M\to M$, called a \hdef{composition}, is a function such that:
     \begin{enumerate}
@@ -1257,11 +1267,8 @@ For all $g\in G$, where $G$ is a group, the inverse of $g$ is denoted by $\inv{g
     Prove that $\card{{\fr{S}}_{n}}=n$!
 \end{problem}
 \begin{definition}
-    Let $G$ and $H$ be monoids. A function $\vp:G\to H$ is called a \hdef{monoid homomorphism} if $\vp(ab)=\vp(a)\vp(b)$ and $\vp({e}_{G})={e}_{H}$ for all $a,b\in G$. Let $G$ and $H$ be groups, a function $\vp:G\to H$ is called a \hdef{group homomorphism} if $\vp$ is a monoid homomorphism. The set $\{x\in G\mid\vp(x)={e}_{H}\}$ is called the \hdef{kernel} of $\vp$, denoted $\ker(\vp)$.
+    Let $G$ and $H$ be monoids. A function $\vp:G\to H$ is called a \hdef{monoid homomorphism} if $\vp(ab)=\vp(a)\vp(b)$ and $\vp({e}_{G})={e}_{H}$ for all $a,b\in G$. Let $G$ and $H$ be groups, a function $\vp:G\to H$ is called a \hdef{group homomorphism} if $\vp$ is a monoid homomorphism. The set $\{x\in G\mid\vp(x)={e}_{H}\}$ is called the \hdef{kernel} of $\vp$, denoted $\ker(\vp)$. If two groups $G$ and $H$ are isomorphic to each other, then we write $G\iso H$.
 \end{definition}
-\begin{problem}
-    Let the objects be monoids and let the morphisms be monoid homomorphisms. Prove that this defines a category, denoted $\cat{Mon}$. Let the objects be groups and let the morphisms be group homomorphisms. Prove that this defines a category, denoted $\cat{Grp}$.
-\end{problem}
 \begin{problem}
     Prove that a group isomorphism is a bijective group homomorphism.
 \end{problem}
@@ -1278,7 +1285,7 @@ For all $g\in G$, where $G$ is a group, the inverse of $g$ is denoted by $\inv{g
     If $A\le B\le G$, prove that $A\le G$.
 \end{problem}
 \begin{problem}
-    Let $G$ be a group. Prove that all subgroups of $G$ form a set. Prove that the set is partially ordered under $\sub$. This is called the \hdef{lattice of subgroups} of $G$.
+    Let $G$ be a group. Prove that all subgroups of $G$ form a set. Prove that the set is partially ordered under ``$\sub$''. This is called the \hdef{lattice of subgroups} of $G$.
 \end{problem}
 \begin{definition}
     Let $H\le G$ be a subgroup. A \hdef{left coset} for $H$ is a set of the form $xH=\{xh\mid h\in H\}$. A right coset is of the form $Hx=\{hx\mid h\in H\}$. The set of all left cosets for $H$ is denoted by $G/H$ and the set of all right cosets for $H$ is denoted by $H\sm G$. The \hdef{index} of $H$ in $G$, denotd $[G:H]$, is defined to be $\card{G/H}$.
@@ -1329,74 +1336,15 @@ Let $H,K\le G$ and let $H\sub K$, then $[G:1]=[G:H][H:1]=$
 \begin{problem}
     Let ${C}_{2}$ be a group of order 2. Prove that ${C}_{2}$ is unique up to isomorphism. Define the set ${C}_{2}=\{1,-1\}$. Let $1$ be the identity. For all $\pi\in{\fr{S}}_{n}$, define $\vp:{\fr{S}}_{n}\to{C}_{2}$ by $\vp(\pi)=-1$ if $\pi$ is an odd permutation and $\vp(\pi)=1$ if it is an even permutation. Prove that $\sgn$ is a well-defined group homomorphism. The kernel of $\vp$ is called the \hdef{alternating group}, denoted ${\fr{A}}_{n}$. Prove that ${\fr{A}}_{n}$ is abelian if $n\le 3$ and prove that ${\fr{A}}_{n}$ is not abelian for $n>3$, conclude that a normal subgroup is not necessarily abelian.
 \end{problem}
-\par
-Now we show some categorical properties of $\cat{Grp}$.
-\begin{problem}
-    Prove that in $\cat{Grp}$, the product of two groups $G$ and $H$ is the Cartesian product $G\times H$.
-\end{problem}
-\begin{proposition}
-    In $\cat{Grp}$, the trivial group 1 is the zero object.
-\end{proposition}
-\begin{proof}
-    
-\end{proof}
-\begin{definition}
-    Let $\cat{C}$ be a category. A category $\cat{D}$ is a \hdef{subcategory} of $\cat{C}$ if the $\Ob(\cat{D})$ and the ${\Hom}_{\cat{D}}(X,Y)$ are subcollections of $\Ob(\cat{C})$ and ${\Hom}_{\cat{C}}(X,Y)$, respectively, for all objects $X$ and $Y$ in $\cat{C}$. The subcatgeory $\cat{D}$ is said to be \hdef{full} if for all objects $X$ and $Y$ in $\cat{D}$, ${\Hom}_{\cat{D}}(X,Y)$ is exactly ${\Hom}_{\cat{C}}(X,Y)$.
-\end{definition}
-\begin{example}
-    The category $\cat{Grp}$ is a subcategory of $\cat{Set}$.
-\end{example}
-\begin{problem}
-    Let the objects be abelian groups, let the morphisms be group homomorphisms, and let the composition of morphisms be the composition of functions. Prove that this defines a category, denoted $\cat{Ab}$. Prove that $\cat{Ab}$ is a full subcategory of $\cat{Grp}$.
-\end{problem}
-\begin{definition}
-    Let $\cat{C}$ be a category with zero object 0. The \hdef{zero morphism} ${0}_{A,B}$ between objects $A$ and $B$ is the unique morphism that factors through 0.
-\end{definition}
-\par
-Let $G$ and $H$ be groups. Since $0$ is the zero object, there exists unique group homomorphisms $\vp:G\to 0$ and $\psi:0\to H$, $\psi\comp\vp$ factors through the zero morphism ${0}_{G,H}$ and it is the desired zero morphism.
-\begin{definition}
-    Let $\cat{C}$ be a category and let $f:X\to Y$ be a morphism in $\cat{C}$. An object $\ker(f)$ is said to be the \hdef{kernel} of $f$ if for every object $Z$ and $h:Z\to X$ such that $f\comp g=0$, where $0$ is the zero morphism, there is a unique morphism $\vp:Z\to\ker(f)$ such that $h=g\comp\vp$.
-\end{definition}
-\begin{problem}
-    Prove the set-theoretic definition of kernels coincide with the categorical definition of kernels.
-\end{problem}
-\begin{proposition}
-    A group homomorphism is an epimorphism if and only if it is surjective.    
-\end{proposition}
-\begin{proof}
-    $(\Ra)$ Let $f:H\to K$ be an epimorphism. Let $X=K/f(H)$ be the set of right cosets of $f(H)$ in $K$. Let $\al$ not in $X$. Consider the set $Y=X\cup\{\al\}$
-
-
-
-    $(\La)$ Let $f:G\to H$ be surjective, so $f$ is an epimorphism in $\cat{Set}$, since $\cat{Grp}$ is a subcategory of $\cat{Set}$ and $f$ is a group homomorphism, $f$ is a group epimorphism.
-\end{proof}
 \begin{definition}
     Let $G$ be a group and $N\nsg G$. The \hdef{quotient group} $G/N$ is defined to be $\{aN\mid a\in G\}$. 
 \end{definition}
 \begin{problem}
-    Prove that $(aN)(bN)=(ab)N$. Take this as a composition on $G/N$, prove that $G/N$ is indeed a group. Prove that $\pi:G\to G/N$ defined by $\pi(g)=gN$ is a group epimorphism.
+    Take $(aN)(bN)=(ab)N$ as a composition on $G/N$, prove that $G/N$ is indeed a group.
 \end{problem}
-\customtheorem{Universal property for quotient groups}
-\begin{Universal property for quotient groups}\index{quotient group}
-    Let $G$ be a group and let $N\nsg G$. Let $\pi:G\to G/N$ be the quotient epimorphism. For all group homomorphism $\vp:G\to H$ with $N\sub\ker(\vp)$, there exists a unique group homomorphism $\wb{\vp}:G/N\to H$ such that $\wb{\vp}\comp\pi=\vp$.
-\end{Universal property for quotient groups}
-\begin{center}
-    \begin{tikzcd}
-        {G/N} && G \\
-        \\
-        && H
-        \arrow["{\wb{\vp}}"', from=1-1, to=3-3]
-        \arrow["\pi"', from=1-3, to=1-1]
-        \arrow["\vp", from=1-3, to=3-3]
-    \end{tikzcd}
-\end{center}
-\begin{problem}
-    Prove that the quotient groups satisfy the universal property and the universal property characterizes quotient groups.
-\end{problem}
-\customtheorem{Universal property for free groups}
-\begin{Universal property for free groups}
-    Let $X$ be a subset of a group $F$. Then $F$ is a \hdef{free group} with \hdef{basis} $X$ if for any function $\vp:X\to G$, where $G$ is a group, there exists a unique extension $\wb{\vp}:F\to G$.
-\end{Universal property for free groups}
+\begin{definition}
+    Let $X$ be a subset of a group $F$. Then $F$ is a \hdef{free group} with \hdef{basis} $X$ if for any function $\vp:X\to G$, where $G$ is a group, there exists a unique extension $\wb{\vp}:F\to G$ such that $i\comp\wb{\vp}=\vp$.
+\end{definition}
 \begin{center}
     \begin{tikzcd}
         F && X \\
@@ -1408,7 +1356,17 @@ Let $G$ and $H$ be groups. Since $0$ is the zero object, there exists unique gro
     \end{tikzcd}
 \end{center}
 \par
-We will first show the existence of free groups. Consider 
+We will first show the existence of free groups. Intuitively, there are no relations, except for the group axioms, among elements of the free group. 
+\par
+Consider an arbitrary set $X$. The elements of $X$ are called \hdef{generators}. Let $Y$ be a disjoint copy of $X$ with a bijection $f:X\to Y$. For all $x\in X$, if $f(x)=y$, then we say $y$ is the \hdef{inverse} of $x$, denoted $\inv{x}$. We can rewrite $Y=\inv{X}$ and denote ${X}^{\pm 1}=X\cup\inv{X}$.
+\begin{definition}
+    Let $X$ be a set. The elements of ${X}^{\pm 1}$ are called \hdef{letters}. A \hdef{word} $w$ is a finite sequence $({l}_{1},\dots,{l}_{n})$ of letters. The \hdef{length} of $w=({l}_{1},\dots,{l}_{n})$, denoted $\card{w}$, is the value $n$. If $n=0$, we call it the \hdef{empty word}, denoted 1. A word is \hdef{reduced} if it contains no part in the form $a\inv{a}$.
+\end{definition}
+\par
+Let the set $F(X)$ be the set of all reduced words.
+
+
+
 
 \begin{problem}
     Let ${X}_{1}$ and ${X}_{2}$ be bases of free groups ${F}_{1}$ and ${F}_{2}$, respectively. Prove that if ${X}_{1}\iso{X}_{2}$ as sets, then ${F}_{1}\iso{F}_{2}$ as groups.
@@ -1435,14 +1393,14 @@ We will first show the existence of free groups. Consider
     A \hdef{Baumslag-Solitar group} $BS(m,n)$ admits the presentation $\cyc{a,b\mid b{a}^{m}\inv{b}={a}^{n}}$. Prove that $BS(1,1)\iso{C}_{2}$. This shows that the group presentation of a group is not necessarily unique.
 \end{problem}
 \begin{problem}
-    Prove that $\vp:BS(2,3)\to BS(2,3)$ defined by $\vp(a)={a}^{2}$ and $\vp(b)=b$ is a group epimorphism.
+    Prove that $\vp:BS(2,3)\to BS(2,3)$ defined by $\vp(a)={a}^{2}$ and $\vp(b)=b$ is a surjective group homomorphism.
 \end{problem}
 \begin{problem}
     A \hdef{Burnside group} $B(m,n)$ of rank $m$ and exponent $n$ admits the presentation $B(m,n)=\cyc{{x}_{1},\dots,{x}_{m}\mid}$. Prove $B(m,2)$ is finite and give a formula of its order.
 \end{problem}
-\begin{definition}
-    
-\end{definition}
+\par
+Every group can be written as a group presentation. We will show this later. 
+
 
 
 \newpage
@@ -1993,8 +1951,67 @@ It is trivial that $\T$ must be a subcollection of $\ps(X)$, so $\T$ is a set.
 
 
 
-\section{Reformulation of Groups and Topologies}
+\section{Categorical Reformulations}
+Now we show some categorical properties of $\cat{Grp}$.
+\begin{problem}
+    Let the objects be monoids and let the morphisms be monoid homomorphisms. Prove that this defines a category, denoted $\cat{Mon}$. Let the objects be groups and let the morphisms be group homomorphisms. Prove that this defines a category, denoted $\cat{Grp}$.
+\end{problem}
+\begin{problem}
+    Prove that in $\cat{Grp}$, the product of two groups $G$ and $H$ is the Cartesian product $G\times H$.
+\end{problem}
+\begin{proposition}
+    In $\cat{Grp}$, the trivial group 1 is the zero object.
+\end{proposition}
+\begin{proof}
+    
+\end{proof}
+\begin{definition}
+    Let $\cat{C}$ be a category. A category $\cat{D}$ is a \hdef{subcategory} of $\cat{C}$ if the $\Ob(\cat{D})$ and the ${\Hom}_{\cat{D}}(X,Y)$ are subcollections of $\Ob(\cat{C})$ and ${\Hom}_{\cat{C}}(X,Y)$, respectively, for all objects $X$ and $Y$ in $\cat{C}$. The subcatgeory $\cat{D}$ is said to be \hdef{full} if for all objects $X$ and $Y$ in $\cat{D}$, ${\Hom}_{\cat{D}}(X,Y)$ is exactly ${\Hom}_{\cat{C}}(X,Y)$.
+\end{definition}
+\begin{example}
+    The category $\cat{Grp}$ is a subcategory of $\cat{Set}$.
+\end{example}
+\begin{problem}
+    Let the objects be abelian groups, let the morphisms be group homomorphisms, and let the composition of morphisms be the composition of functions. Prove that this defines a category, denoted $\cat{Ab}$. Prove that $\cat{Ab}$ is a full subcategory of $\cat{Grp}$.
+\end{problem}
+\begin{definition}
+    Let $\cat{C}$ be a category with zero object 0. The \hdef{zero morphism} ${0}_{A,B}$ between objects $A$ and $B$ is the unique morphism that factors through 0.
+\end{definition}
+\par
+Let $G$ and $H$ be groups. Since $0$ is the zero object, there exists unique group homomorphisms $\vp:G\to 0$ and $\psi:0\to H$, $\psi\comp\vp$ factors through the zero morphism ${0}_{G,H}$ and it is the desired zero morphism.
+\begin{definition}
+    Let $\cat{C}$ be a category and let $f:X\to Y$ be a morphism in $\cat{C}$. An object $\ker(f)$ is said to be the \hdef{kernel} of $f$ if for every object $Z$ and $h:Z\to X$ such that $f\comp g=0$, where $0$ is the zero morphism, there is a unique morphism $\vp:Z\to\ker(f)$ such that $h=g\comp\vp$.
+\end{definition}
+\begin{problem}
+    Prove the set-theoretic definition of kernels coincide with the categorical definition of kernels.
+\end{problem}
+\begin{proposition}
+    A group homomorphism is an epimorphism if and only if it is surjective.    
+\end{proposition}
+\begin{proof}
+    $(\Ra)$ Let $f:H\to K$ be an epimorphism. Let $X=K/f(H)$ be the set of right cosets of $f(H)$ in $K$. Let $\al$ not in $X$. Consider the set $Y=X\cup\{\al\}$
 
+
+
+    $(\La)$ Let $f:G\to H$ be surjective, so $f$ is an epimorphism in $\cat{Set}$, since $\cat{Grp}$ is a subcategory of $\cat{Set}$ and $f$ is a group homomorphism, $f$ is a group epimorphism.
+\end{proof}
+\customtheorem{Universal property for quotient groups}
+\begin{Universal property for quotient groups}\index{quotient group}
+    Let $G$ be a group and let $N\nsg G$. Let $\pi:G\to G/N$ be the quotient epimorphism. For all group homomorphism $\vp:G\to H$ with $N\sub\ker(\vp)$, there exists a unique group homomorphism $\wb{\vp}:G/N\to H$ such that $\wb{\vp}\comp\pi=\vp$.
+\end{Universal property for quotient groups}
+\begin{center}
+    \begin{tikzcd}
+        {G/N} && G \\
+        \\
+        && H
+        \arrow["{\wb{\vp}}"', from=1-1, to=3-3]
+        \arrow["\pi"', from=1-3, to=1-1]
+        \arrow["\vp", from=1-3, to=3-3]
+    \end{tikzcd}
+\end{center}
+\begin{problem}
+    Prove that the quotient groups satisfy the universal property and the universal property characterizes quotient groups.
+\end{problem}
 
 
 \vspace{\baselineskip}
