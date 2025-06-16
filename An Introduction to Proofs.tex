@@ -997,6 +997,9 @@ Let sets be objects, let functions be morphisms, and let the composition of morp
     \end{center}
 \end{example}
 \begin{problem}
+    Let the objects be monoids and let the morphisms be monoid homomorphisms. Prove that this defines a category, denoted $\cat{Mon}$. Let the objects be groups and let the morphisms be group homomorphisms. Prove that this defines a category, denoted $\cat{Grp}$. Let the objects be topological spaces and let the morphisms be continuous maps. Prove that this defines a category, denoted $\cat{Top}$.
+\end{problem}
+\begin{problem}
     Morphisms are not guaranteed to be functions. Let $(S,\le)$ be a partially ordered set. Let $\Ob(\cat{C})=S$ and $x\to y$ be a morphism if $x\le y$. Prove that $\cat{C}$ is a category.
 \end{problem}
 \begin{problem}
@@ -1004,6 +1007,15 @@ Let sets be objects, let functions be morphisms, and let the composition of morp
 \end{problem}
 \begin{problem}
     Prove that the identity morphism is unique for each object $A$ in a category $\cat{C}$.
+\end{problem}
+\begin{definition}
+    Let $\cat{C}$ be a category. A category $\cat{D}$ is a \hdef{subcategory} of $\cat{C}$ if the $\Ob(\cat{D})$ and the ${\Hom}_{\cat{D}}(X,Y)$ are subcollections of $\Ob(\cat{C})$ and ${\Hom}_{\cat{C}}(X,Y)$, respectively, for all objects $X$ and $Y$ in $\cat{C}$. The subcatgeory $\cat{D}$ is said to be \hdef{full} if for all objects $X$ and $Y$ in $\cat{D}$, ${\Hom}_{\cat{D}}(X,Y)$ is exactly ${\Hom}_{\cat{C}}(X,Y)$.
+\end{definition}
+\begin{example}
+    The category $\cat{Grp}$ is a subcategory of $\cat{Set}$.
+\end{example}
+\begin{problem}
+    Let the objects be abelian groups, let the morphisms be group homomorphisms, and let the composition of morphisms be the composition of functions. Prove that this defines a category, denoted $\cat{Ab}$. Prove that $\cat{Ab}$ is a full subcategory of $\cat{Grp}$.
 \end{problem}
 \begin{definition}
     Let $\cat{C}$ be a category. A morphism $f:A\to B$ is a \hdef{monomorphism} if for all $g,h:C\to A$, $f\comp g=g\comp h$ implies $g=h$. A morphism $f:A\to B$ is called an \hdef{epimorphism} if for all $i,j:B\to D$, $i\comp f=j\comp f$ implies $i=j$.
@@ -1363,7 +1375,7 @@ Consider an arbitrary set $X$. The elements of $X$ are called \hdef{generators}.
     Let $X$ be a set. The elements of ${X}^{\pm 1}$ are called \hdef{letters}. A \hdef{word} $w$ is a finite sequence $({l}_{1},\dots,{l}_{n})$ of letters. The \hdef{length} of $w=({l}_{1},\dots,{l}_{n})$, denoted $\card{w}$, is the value $n$. If $n=0$, we call it the \hdef{empty word}, denoted 1. A word is \hdef{reduced} if it contains no part in the form $a\inv{a}$.
 \end{definition}
 \par
-Let the set $F(X)$ be the set of all reduced words.
+Let the set $F(X)$ be the set of all reduced words. 
 
 
 
@@ -1386,6 +1398,17 @@ Let the set $F(X)$ be the set of all reduced words.
 \begin{problem}
     Prove that a finite cyclic group of order $n$ admits the presentation $\cyc{a\mid{a}^{n}}$. We denote it by ${C}_{n}$.
 \end{problem}
+\begin{proposition}
+    Let $X$ be a set, then $\cyc{X\mid\es}$ is the smallest group containing $X$.
+\end{proposition}
+\begin{proof}
+    
+\end{proof}
+
+
+
+
+
 \begin{problem}
     A \hdef{Tarski monster group} is a finitely generated infinite group where every proper non-trivial subgroup is cyclic of order $p$, a fixed prime. Prove that every Tarski monster group is simple.
 \end{problem}
@@ -1395,12 +1418,8 @@ Let the set $F(X)$ be the set of all reduced words.
 \begin{problem}
     Prove that $\vp:BS(2,3)\to BS(2,3)$ defined by $\vp(a)={a}^{2}$ and $\vp(b)=b$ is a surjective group homomorphism.
 \end{problem}
-\begin{problem}
-    A \hdef{Burnside group} $B(m,n)$ of rank $m$ and exponent $n$ admits the presentation $B(m,n)=\cyc{{x}_{1},\dots,{x}_{m}\mid}$. Prove $B(m,2)$ is finite and give a formula of its order.
-\end{problem}
 \par
-Every group can be written as a group presentation. We will show this later. 
-
+Every group can be written as a group presentation. We will later show an equivalent statement: every group is a quotient group of a free group.
 
 
 \newpage
@@ -1812,7 +1831,7 @@ Every group can be written as a group presentation. We will show this later.
 
 
 \newpage
-\section{General Topology}
+\section{Topological Spaces}
 \begin{definition}
     A \hdef{metric} on a set $X$ is a function $d:X\times X\to[0,\infty)$ satisfying:
     \begin{enumerate}
@@ -1952,10 +1971,8 @@ It is trivial that $\T$ must be a subcollection of $\ps(X)$, so $\T$ is a set.
 
 
 \section{Categorical Reformulations}
-Now we show some categorical properties of $\cat{Grp}$.
-\begin{problem}
-    Let the objects be monoids and let the morphisms be monoid homomorphisms. Prove that this defines a category, denoted $\cat{Mon}$. Let the objects be groups and let the morphisms be group homomorphisms. Prove that this defines a category, denoted $\cat{Grp}$.
-\end{problem}
+\par
+Recall that $\cat{Set}$ does not have a zero object. We will take $\cat{Grp}$ as an example to show more categorical definitions and reformulate our notions of $\cat{Grp}$ and $\cat{Top}$.
 \begin{problem}
     Prove that in $\cat{Grp}$, the product of two groups $G$ and $H$ is the Cartesian product $G\times H$.
 \end{problem}
@@ -1965,15 +1982,6 @@ Now we show some categorical properties of $\cat{Grp}$.
 \begin{proof}
     
 \end{proof}
-\begin{definition}
-    Let $\cat{C}$ be a category. A category $\cat{D}$ is a \hdef{subcategory} of $\cat{C}$ if the $\Ob(\cat{D})$ and the ${\Hom}_{\cat{D}}(X,Y)$ are subcollections of $\Ob(\cat{C})$ and ${\Hom}_{\cat{C}}(X,Y)$, respectively, for all objects $X$ and $Y$ in $\cat{C}$. The subcatgeory $\cat{D}$ is said to be \hdef{full} if for all objects $X$ and $Y$ in $\cat{D}$, ${\Hom}_{\cat{D}}(X,Y)$ is exactly ${\Hom}_{\cat{C}}(X,Y)$.
-\end{definition}
-\begin{example}
-    The category $\cat{Grp}$ is a subcategory of $\cat{Set}$.
-\end{example}
-\begin{problem}
-    Let the objects be abelian groups, let the morphisms be group homomorphisms, and let the composition of morphisms be the composition of functions. Prove that this defines a category, denoted $\cat{Ab}$. Prove that $\cat{Ab}$ is a full subcategory of $\cat{Grp}$.
-\end{problem}
 \begin{definition}
     Let $\cat{C}$ be a category with zero object 0. The \hdef{zero morphism} ${0}_{A,B}$ between objects $A$ and $B$ is the unique morphism that factors through 0.
 \end{definition}
@@ -2012,6 +2020,16 @@ Let $G$ and $H$ be groups. Since $0$ is the zero object, there exists unique gro
 \begin{problem}
     Prove that the quotient groups satisfy the universal property and the universal property characterizes quotient groups.
 \end{problem}
+\begin{proposition}
+    Every group can be written as a quotient group of a free group.
+\end{proposition}
+\begin{proof}
+    
+\end{proof}
+
+
+
+
 
 
 \vspace{\baselineskip}
