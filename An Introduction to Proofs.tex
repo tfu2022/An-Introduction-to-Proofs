@@ -1970,23 +1970,6 @@ It is trivial that $\T$ must be a subcollection of $\ps(X)$, so $\T$ is a set.
 \begin{definition}
     Let $(X,{\T}_{X})$ be a topological space, let $S$ be a set, and let $\pi:X\thra S$ be surjective. The \hdef{quotient topology} on $S$ is the finest topology for which $\pi$ is continuous, and $\pi$ is called a \hdef{quotient map}.
 \end{definition}
-\customtheorem{Universal property for quotient topology}
-\begin{Universal property for quotient topology}
-    Let $(X,{\T}_{X})$ be a topological space, let $S$ be a set, and let $\pi:X\thra S$ be surjective. For every topological space $(Z,{\T}_{Z})$ and every function $f:S\to Z$, $f$ is continuous if and only if $f\pi:X\to Z$ is continuous.
-\end{Universal property for quotient topology}
-\begin{center}
-    \begin{tikzcd}
-        X && S \\
-        \\
-        && Z
-        \arrow["\pi", from=1-1, to=1-3]
-        \arrow["{f\pi}"', from=1-1, to=3-3]
-        \arrow["f", from=1-3, to=3-3]
-    \end{tikzcd}
-\end{center}
-\begin{problem}
-    Prove that the quotient topology satisfies the universal property. Prove that any topology satisfies this property is the quotient topology.
-\end{problem}
 \begin{example}
     A \hdef{torus} is 
 
@@ -2055,7 +2038,23 @@ Let $G$ and $H$ be groups. Since $0$ is the zero object, there exists unique gro
 
 
 
-
+\customtheorem{Universal property for quotient topology}
+\begin{Universal property for quotient topology}
+    Let $(X,{\T}_{X})$ be a topological space, let $S$ be a set, and let $\pi:X\thra S$ be surjective. For every topological space $(Z,{\T}_{Z})$ and every function $f:S\to Z$, $f$ is continuous if and only if $f\pi:X\to Z$ is continuous.
+\end{Universal property for quotient topology}
+\begin{center}
+    \begin{tikzcd}
+        X && S \\
+        \\
+        && Z
+        \arrow["\pi", from=1-1, to=1-3]
+        \arrow["{f\pi}"', from=1-1, to=3-3]
+        \arrow["f", from=1-3, to=3-3]
+    \end{tikzcd}
+\end{center}
+\begin{problem}
+    Prove that the quotient topology satisfies the universal property. Prove that any topology satisfies this property is the quotient topology.
+\end{problem}
 
 \vspace{\baselineskip}
 \begin{center}
