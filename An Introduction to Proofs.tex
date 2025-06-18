@@ -20,8 +20,6 @@ Many people have contributed to this note. Special thanks to my collaborators. F
 ? 
 Tingyu Wu collaborated with me on section 4. I shall also thank Bryce for his suggestions on the contents.
 
-\newpage
-
 
 \section{Basic Logic}
 Logic is the formal framework and rules of inference that ensure the validity and coherence of arguments in math.
@@ -572,6 +570,9 @@ Consider a diagram, where every vertex is an object and every arrow preserves th
     For all $x\in X$, define $\vp=(f(x)-f(-x))/2$ and $\psi=(f(x)+f(-x))/2$, then $\vp(-x)=(f(-x)-f(x))/2=-\vp(x)$ and $\psi(-x)=(f(-x)+f(x))/2=\psi(x)$. Moreover, $\vp(x)+\psi(x)=(f(x)-f(-x)+f(x)+f(-x))/2=f(x)$.
 \end{proof}
 \begin{problem}
+    Given an example of a function that is neither odd nor even. Decompose it as a sum of an odd function and an even function.
+\end{problem}
+\begin{problem}
     Prove that such decomposition for each $f:X\to Y$, where $X,Y\sub\R$, is unique.
 \end{problem}
 \begin{definition}
@@ -688,7 +689,14 @@ Recall that we have defined partial ordering by ``$\le$''. From now on, we requi
     \end{enumerate}
 \end{proposition}
 \begin{proof}
-    
+    Denote the initial segement of ${W}_{i}$ by $x$ by ${I}_{i,x}$. Let $f:{W}_{1}\to{W}_{2}$ be a function defined by $f(x)=y$ if ${I}_{1,x}$ has the same order-type as ${I}_{2,y}$. 
+
+
+
+
+
+
+
 \end{proof}
 \begin{definition}
     If $\vp(x,{p}_{1},{p}_{2},\dots)$ is some formula, then we say $C=\{x\mid\vp\}$ is a \hdef{class}, that is, $x$ is a member of $C$ if and only if $x$ satisfies $\vp$.
@@ -731,14 +739,9 @@ Let $\al$ and $\be$ be ordinals. We define $\al<\be$ if and only if $\al\in\be$.
 \begin{problem}
     The intersection of ordinals is an ordinal.
 \end{problem}
-\begin{proposition}
-    Two different ordinals do not have the same order-type.
-\end{proposition}
-\begin{proof}
-    Let $\al$ and $\be$ be ordinals such that $\al\ne\be$. Let $f:\al\to\be$ be order-preserving. Suppose $f$ is bijective. 
-
-
-\end{proof}
+\begin{problem}
+    Prove that two different ordinals do not have the same order-type.
+\end{problem}
 \begin{proposition}
     If a set is well-ordered, then it has the same order-type as an ordinal.
 \end{proposition}
