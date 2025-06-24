@@ -1548,93 +1548,101 @@ Every group can be written as a group presentation. We will later show an equiva
     An ideal $I$ in a ring is a subgroup of $(R,+,0)$ so that \circled{1} $I\neq\emptyset$ and \circled{2} for all $a,b\in I,ab^{-1}=a-b\in I$. Or equivalently, for any $r\in R$ and $i\in I$, $ri\in I$.
 \end{hdefinition}
 
+
+
+
+
 \newpage
 \section{Real Numbers}
-\begin{definition}[$\Q$ norm]
-    $|a|$ is a norm on $\mathbb{Q}$: $|a| = 
-    \begin{cases}
-        a &(a \geq 0) \\
-        -a &(a < 0)
-    \end{cases}$ that satisfies
+Consider the function $\card{\cdot}:\Q\to\Q$ defined by $\card{a}=a$ if $a\ge 0$ and $\card{a}=-a$ if $a<0$.
+\begin{problem}
+    Use the definition of $\card{\cdot}$, prove that for all $a,b\in\Q$, the following conditions hold.
     \begin{enumerate}
-        \item $|a|\geq 0$.
-        \item $|a|=0$ implies $ a=0$.
-        \item $|ab|=|a||b|$.
-        \item Triangle inequality: $|a+b| \leq |a|+|b|$.
+        \item $\card{a}\ge 0$.
+        \item If $\card{a}=0$, then $a=0$.
+        \item $\card{ab}=\card{a}\card{b}$.
+        \item $\card{a+b}\le\card{a}+\card{b}$.
     \end{enumerate}
+\end{problem}
+\begin{definition}
+    A \hdef{sequence} of rationals is a function $a:\{n\in\Z\mid n\ge 1\}\to\Q$. We denote a sequence by ${\{{a}_{n}\}}_{n=1}^{\infty}$.
 \end{definition}
-\begin{definition}[convergence]
-    A sequence $\{a_n\}_{n=1}^\infty$ of rationals converges to $a\in\Q$ if for all $ r\in\Q^+$, there exists $ N\in\N$, such that for all $ n\geq N$, $|a_n-a|<r$. A sequence $\{a_n\}$ converging to $a$ is denoted as $\{a_n\}\to a$. $a$ is called the limit (in rational) of $\{a_n\}$. In other words, the sequence $\{a_n\}$ can get arbitrarily close to $a$. A bad example would be $\left \{ 3.1, 3.14, 3.141, 3.1415... \right \}\to \pi\notin\mathbb{Q}$.
-\end{definition}
-\begin{definition}[Cauchy sequence]
-    A sequence $\{a_n\}^\infty_{n=1}$ of rationals is Cauchy if for all $r\in \mathbb{Q}^+$, there exists $N\in\mathbb{N}$ such that for all $n,m\geq N$ and $\card{ a_n-a_m}<r$. As the sequence proceeds, the difference between two elements gets smaller and smaller.
+\begin{remark}
+    We will use the notation $\{{a}_{n}\}$ for a sequence ${\{{a}_{n}\}}_{n=1}^{\infty}$.
+\end{remark}
+\begin{definition}
+    A sequence $\{{a}_{n}\}$ \hdef{converges} to $a\in\Q$ if for all $r\in{\Q}^{+}$, there exists $N\in\N$ such that for all $n\ge N$, $\card{{a}_{n}-a}<r$. If a sequence $\{{a}_{n}\}$ converges to $a$, then we write $\{{a}_{n}\}\to a$. Here $a$ is called the \hdef{limit} of $\{{a}_{n}\}$.
 \end{definition}
 \begin{proposition}
-    If $\{a_n\}$ converges in $\Q$, then $\{a_n\}$ is Cauchy.
+    If a sequence converges to a limit, then this limit is unique.
 \end{proposition}
 \begin{proof}
-    Take some arbitrary $r\in\Q^+$. Since $\{a_n\}\rightarrow a$, there exists $ N\in\N$ such that for all $n\geq N$, $|a_n-a|<{r}/{2}$ and for all $m\geq N$, $|a_m-a|<{r}/{2}$. Then
-    \begin{align*}
-        |a_n-a_m|&=|a_n-a+a-a_m|=|(a_n-a)+(a-a_m)|\\
-                 &\leq|a_n-a|+|a_m-a|\tag{triangle inequality}\\
-                 &<\frac{r}{2}+\frac{r}{2}<r
-    \end{align*}
-    Therefore, $\{a_n\}$ is Cauchy.
+    Suppose $\{{a}_{n}\}\to a$ and $\{{a}_{n}\}\to b$. Fix $r=\card{a-b}/3$, then for sufficiently large $n$, we have $\card{{a}_{n}-a}<r$ and $\card{{a}_{n}-b}<r$. Then $\card{a-b}\le\card{a-{a}_{n}}+\card{{a}_{n}-b}<2\card{a-b}/3$, a contradiction.
 \end{proof}
-\begin{remark}
-    The converse of the above proposition is false.
-\end{remark}
-\begin{definition}[bounded]
-    A rational sequence $\{a_n\}$ is bounded if $S=\{ a_n\mid n\in \N \}$ is bounded in $\Q$: If $S$ is bounded, then there exist $ a,b\in\Q$ such that for all $a_n\in S$, $a\leq a_n$ and $b\geq a_n$.
+\begin{example}
+    Consider the sequence ${a}_{n}=1+1/n$. We claim it converges to 1. Choose some $r$, and we want $\card{{a}_{n}-1}<r$ always hold. Notice that $\card{{a}_{n}-1}=\card{1/n}=1/n$. Let the integer part of $1/r$ be $c$, so $c\le 1/r<c+1$, pick $N=c+1$.
+\end{example}
+\begin{example}
+    Not every sequence of rationals has a limit. Consider $\{3.1,3.14,3.141,3.1415,\dots\}\to\pi\notin\Q$.
+\end{example}
+\begin{problem}
+    Find the limits of the following sequences. If some limit does not exist, prove it.
+    \begin{enumerate}
+        \item ${a}_{n}=1/n$.
+        \item ${a}_{n}={\sum}_{i=1}^{n}{2}^{-k}$.
+        \item ${a}_{n}={(-1)}^{n}$.
+    \end{enumerate}
+\end{problem}
+\begin{definition}
+    A sequence $\{{a}_{n}\}$ of rationals is \hdef{Cauchy} if for all $r\in{\Q}^{+}$, there exists $N\in\N$ such that for all $n,m\ge N$ and $\card{{a}_{n}-{a}_{m}}<r$.
 \end{definition}
-\begin{lemma}
-    If $\{a_n\}$ is a Cauchy sequence in $\Q$, then it is bounded in $\Q$.
-\end{lemma}
-\begin{proof}
-    Let $r=347$. If the sequence $\{a_n\}$ is cauchy, then there exists $N\in\N$ such that for all $m,n\geq N$, $|a_n-a_m|<347$. If $m=N$, then for all $n\geq N$, $|a_n-a_N|<347$. By definition, showing $\{a_n\}$ is bounded is the same as showing $|a_n|\leq M\in \Q$ for all $n$:
-    \begin{align*}
-        |a_n|=|a_n-a_N+a_N|\leq |a_n-a_N|+|a_N|\\
-        \Rightarrow |a_n|\leq |a_n-a_N|+|a_N|
-    \end{align*}
-    Since $|a_n-a_N|$ is strictly smaller than $347$, we can simply replace $|a_n-a_N|$ with $347$. When $n\geq N$, $|a_n|<347+|a_N|$. Let $U=\text{max}\{|a_1|,|a_2|,...,|a_{N-1}|, 347+|a_N|\}$. We have that $|a_n|\leq U$ for all $ n\in \N$. From there:
-    \begin{enumerate}
-        \item[\circled{1}] If $n\geq N$, then use $347+|a_N|$ as the bound. 
-        \item[\circled{2}] If $n<N$, then there finitely many values, and they are bounded by $\text{max}\{|a_1|,|a_2|,...,|a_{N-1}|\}$.
-    \end{enumerate}
-\end{proof}
 \begin{proposition}
-    The set of all rational Cauchy sequences is a commutative ring with 1.
+    If $\{{a}_{n}\}$ converges in $\Q$, then $\{{a}_{n}\}$ is Cauchy.
 \end{proposition}
 \begin{proof}
-    We prove this proposition by checking ring axioms one by one. All indices are natural numbers. 
-    \begin{enumerate}
-        \item[\textbf{A1}] Assume $\{a_n\}$, $\{b_n\}$ are Cauchy. Fix $r\in\Q^+$. Since $\{a_n\}$ is Cauchy, there exists $N_1$ such that for all $n,m \geq N_1$, $|a_n-a_m| < r/2$. Since $\{b_n\}$ is Cauchy, there exists $N_2$ such that for all $n,m \geq N_2$, $|b_n-b_m| < r/2$. Let $N = \text{max}(N_1, N_2)$. For all $n,m \geq N$, 
-        $$
-            |(a_m+b_m)-(a_n+b_n)|=|a_m-a_n + b_m -b_n| \leq |a_m-a_n| + |b_m-b_n| < r/2 + r/2 = r
-        $$
-        Therefore, $\{a_n\}+\{b_n\}$ is Cauchy.
-        \item[\textbf{A2}] $\{a_n\} + (\{b_n\} + \{c_n\}) = \{a_n + (b_n + c_n)\} = \{(a_n + b_n) + c_n\} = (\{a_n\} + \{b_n\}) + \{c_n\}$.
-        \item[\textbf{A3}] $\{a_n\} + \{b_n\} = \{a_n + b_n\} = \{b_n + a_n\} = \{b_n\} + \{a_n\}$.
-        \item[\textbf{A4}] There exist a zero sequence $\{0\}$ such that $\{a_n\} + \{0\} = \{a_n + 0\} = \{a_n\}$ and $\{0\} + \{a_n\}  = \{0 + a_n\} = \{a_n\}$.
-        \item[\textbf{A5}] For any $\{a_n\}$, there exist $-\{a_n\} = \{-a_n\}$ such that $\{a_n\} + (-\{a_n\}) = \{a_n - a_n\} = \{0\}$ and $(-\{a_n\}) + \{a_n\} = \{- a_n + a_n\} = \{0\}$.
-        \item[\textbf{M1}] Let $\{a_k\}$ and $\{b_k\}$ be Cauchy sequences in $\Q$. Then 
-        \begin{align*}
-            |a_nb_n - a_mb_m| &= |a_nb_n - a_nb_m + a_nb_m - a_mb_m| \leq |a_n||b_n - b_m| + |b_m||a_n - a_m|\\ 
-            &\leq A|b_n - b_m| + B|a_n - a_m|
-        \end{align*}
-        where $A$ and $B$ are upper bounds for sequences $\{|a_k|\}$ and $\{|b_k|\}$. Since $\{|a_k|\}$ and $\{|b_k|\}$ are Cauchy sequences, for all $\epsilon({2A})^{-1}, \epsilon({2B})^{-1} > 0$, there exists $N \in \N$ such that for all $m, n \geq N$, $|a_m - a_n| < \epsilon({2B})^{-1}$ and $|b_m - b_n| < \epsilon({2A})^{-1}$. So $|a_mb_m - a_nb_n| < A \epsilon({2A})^{-1} + B \epsilon({2B})^{-1} = \epsilon$. Therefore, $\{a_n\}\{b_n\}$ is Cauchy.
-        \item[\textbf{M2}] $\{a_n\} \cdot (\{b_n\} \cdot \{c_n\}) = \{a_n \cdot (b_n \cdot c_n)\} = \{(a_n \cdot b_n) \cdot c_n\} = (\{a_n\} \cdot \{b_n\}) \cdot \{c_n\}$.
-        \item[\textbf{M3}] $\{a_n\} \cdot \{b_n\} = \{a_n \cdot b_n\} = \{b_n \cdot a_n\} = \{b_n\} \cdot \{a_n\}$.
-        \item[\textbf{M4}] There exist $\{1\}$ such that $\{a_n\} \cdot \{1\} = \{a_n \cdot 1\} = \{a_n\}$ and $\{1\} \cdot \{a_n\}  = \{1 \cdot a_n\} = \{a_n\}$.
-        \item[\textbf{D}] $\{a_n\} \cdot (\{b_n\} + \{c_n\}) = \{a_n \cdot (b_n + c_n)\} = \{a_n \cdot b_n + a_n \cdot c_n\} = \{a_n\} \cdot \{b_n\} + \{a_n\} \cdot \{c_n\}$.
-    \end{enumerate}
+    Take some arbitrary $r\in{\Q}^{+}$. Since $\{{a}_{n}\}\to a$, there exists $ N\in\N$ such that for all $n\ge N$, $\card{{a}_{n}-a}<r/2$ and for all $m\ge N$, $\card{{a}_{m}-a}<r/2$. Then $\card{{a}_{n}-{a}_{m}}=\card{({a}_{n}-a)+(a-{a}_{m})}\le\card{{a}_{n}-a}+\card{{a}_{m}-a}<r$. Therefore, $\{{a}_{n}\}$ is Cauchy.
 \end{proof}
-\begin{notation}
-    The ring of rational Cauchy sequences is denoted as $\mathcal{C}$.
-\end{notation}
-\begin{remark}
-    Is $\mathcal{C}$ an integral domain? That is: does $ab=0$ imply $a=0$ or $b=0$? $\textbf{No}$, a counter example would be $a= (0,0.1,0,0.01,0,0.001....)$ and $b= (0.1,0,0.01,0,0.001,0....)$, but $ab = (0,0,0,0,...)$.
-\end{remark}
+\begin{problem}
+    Not every Cauchy sequence in $\Q$ is bounded. Consider our previous example $\{3.1,3.14,3.141,\dots\}$, prove it is Cauchy but does not converge in $\Q$.
+\end{problem}
+\begin{definition}
+    Let $S\sub\Q$. We say $S$ is \hdef{bounded} if there exists $L>0$ such that $\card{x}\le M$ for all $x\in S$.
+\end{definition}
+\begin{definition}
+    A rational sequence $\{{a}_{n}\}$ is \hdef{bounded} if $S=\{{a}_{n}\mid n\in\N\}$ is bounded in $\Q$.
+\end{definition}
+\begin{proposition}
+    If $\{{a}_{n}\}$ is a Cauchy sequence in $\Q$, then it is bounded in $\Q$.
+\end{proposition}
+\begin{proof}
+    Let $r=347$. If the sequence $\{{a}_{n}\}$ is Cauchy, then there exists $N\in\N$ such that for all $m,n\ge N$, $\card{{a}_{n}-{a}_{m}}<347$. If $m=N$, then for all $n\ge N$, $\card{{a}_{n}-{a}_{N}}<347$. Since $\card{{a}_{n}-{a}_{N}}<347$, replace $\card{{a}_{n}-{a}_{N}}$ with $347$. When $n\ge N$, $\card{{a}_{n}}<347+\card{{a}_{N}}$. Let $U=\max\{\card{{a}_{1}},\dots,\card{{a}_{N-1}},347+\card{{a}_{N}}\}$. We have that $\card{{a}_{n}}\le U$ for all $n\in\N$. If $n\ge N$, then use $347+\card{{a}_{N}}$ as the bound. If $n<N$, then there finitely many values, and they are bounded by $\max\{\card{{a}_{1}},\dots,\card{{a}_{N-1}}\}$.
+\end{proof}
+\par
+Let $\{{a}_{n}\}$ and $\{{b}_{n}\}$ be sequences. Define the addition as $\{{a}_{n}\}+\{{b}_{n}\}=\{{a}_{n}+{b}_{n}\}$. Define the multiplication as $\{{a}_{n}\}\cdot\{{b}_{n}\}=\{{a}_{n}{b}_{n}\}$. 
+\begin{proposition}
+    The set of all rational Cauchy sequence is closed under addition and multiplication.
+\end{proposition}
+\begin{proof}
+    Let $\{{a}_{n}\}$ and $\{{b}_{n}\}$ be Cauchy. Fix $r$. Since $\{{a}_{n}\}$ is Cauchy, there exists ${N}_{1}$ such that for all $n,m\ge{N}_{1}$, $\card{{a}_{n}-{a}_{m}}<r/2$. Similarly, we have ${N}_{2}$ for $\{{b}_{n}\}$. Let $N=\max({N}_{1},{N}_{2})$. For all $n,m\ge N$, $\card{({a}_{m}+{b}_{m})-({a}_{n}+{b}_{n})}\le\card{{a}_{m}-{a}_{n}}+\card{{b}_{m}-{b}_{n}}=r$. Let $\{{a}_{k}\}$ and $\{{b}_{k}\}$ be Cauchy sequences in $\Q$. Then $\card{{a}_{n}{b}_{n}-{a}_{m}{b}_{m}}\le\card{{a}_{n}}\card{{b}_{n}-{b}_{m}}+\card{{b}_{m}}\card{{a}_{n}-{a}_{m}}\le A\card{{b}_{n}-{b}_{m}}+B\card{{a}_{n}-{a}_{m}}$, where $A$ and $B$ are upper bounds for sequences $\{\card{{a}_{k}}\}$ and $\{\card{{b}_{k}}\}$. For all $\ve\inv{(2A)},\ve\inv{(2B)}>0$, there exists $N\in \N$ such that for all $m,n\ge N$, $\card{{a}_{m}-{a}_{n}}<\ve\inv{(2B)}$ and $\card{{b}_{m}-{b}_{n}}<\ve\inv{(2A)}$. Now $\card{{a}_{m}{b}_{m}-{a}_{n}{b}_{n}}<A\ve\inv{(2A)}+B\ve\inv{(2B)}= \ve$.
+\end{proof}
+\begin{problem}
+    Prove that the addition and multiplication satisfies commutativity, associativity, and distributivity.
+\end{problem}
+\par
+Define the sequence 1 as ${a}_{n}=1$ and define the sequence 0 as ${a}_{n}=0$.
+\begin{problem}
+    Prove 1 and 0 are the identities of multiplication and addition, respectively. Moreover, prove that additive inverse of a Cauchy sequence is Cauchy.
+\end{problem}
+\par
+We conclude that the set of all rational Cauchy sequences is a commutative ring with 1, denoted $\ca{C}$.
+\begin{problem}
+    Prove that $\ca{C}$ is not an integral domain.
+\end{problem}
+
+
+
+\newpage
+
 \begin{proposition}
     Let $I := \{\text{Cauchy sequences that converge to }0\}$. $I\subset \mathcal C$ is an ideal.
 \end{proposition}
