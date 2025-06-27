@@ -689,7 +689,9 @@ Recall that we have defined partial ordering by ``$\le$''. From now on, we requi
     \end{enumerate}
 \end{proposition}
 \begin{proof}
-    Denote the initial segement of ${W}_{i}$ by $x$ by ${I}_{i,x}$. Let $f:{W}_{1}\to{W}_{2}$ be a function defined by $f(x)=y$ if ${I}_{1,x}$ has the same order-type as ${I}_{2,y}$. 
+    Denote the initial segement of ${W}_{i}$ by $x$ by ${I}_{i,x}$. Let $f:{W}_{1}\to{W}_{2}$ be a function defined by $f(x)=y$ if ${I}_{1,x}$ has the same order-type as ${I}_{2,y}$. Suppose $f$ is not injective, then 
+
+    Let $g$ be an order-preserving 
 
 
 
@@ -746,10 +748,12 @@ Let $\al$ and $\be$ be ordinals. We define $\al<\be$ if and only if $\al\in\be$.
     If a set is well-ordered, then it has the same order-type as an ordinal.
 \end{proposition}
 \begin{proof}
-    Let $P$ be well-ordered. For all $x\in P$, consider the initial segement ${I}_{x}$ given by $x$. If ${I}_{x}$ has the same order-type with some ordinal $\al$, then define $F(x)=\al$.
+    Let $W$ be well-ordered. For all $x\in W$, consider the initial segement ${I}_{x}$ given by $x$. If ${I}_{x}$ has the same order-type with some ordinal $\al$, then define $F(x)=\al$. If $\al$ exists, then it must be unique, so $F$ is well-defined. By the axiom of replacement, $F(W)$ is a set. For all $x,y\in W$ and $x<y$, 
     
-    define $F(x)=\al$
+
 \end{proof}
+\par
+We can conclude that every well-ordered set has the same order-type as a unique ordinal.
 \begin{definition}
     An ordinal $\la$ is said to be a \hdef{limit ordinal} if $\la\ne\es$ and for all $\al<\la$, $\al+1<\la$.
 \end{definition}
@@ -764,18 +768,15 @@ Suppose there exists a set of all ordinals, denoted $\text{On}$. Since every ele
 \begin{proof}
     Let $\al$ be an ordinal and $\al\ne\es$. Suppose $\al$ is not a successor ordinal, then $\al\ne\be+1$ for all ordinal $\be$. Suppose $\al<\be+1$ and $\al>\be$ for some ordinal $\be$, then $\al+1>\be+1$, 
 \end{proof}
-\begin{theorem}[transfinite induction]
+\begin{problem}
     Let $C$ be a class of ordinals that satisfies:
     \begin{enumerate}
         \item $0\in C$;
         \item if $\al\in C$, then $\al+1\in C$;
         \item if $\al$ is a limit ordinal and $\be\in C$ for all $\be<\al$, then $\al\in C$.
     \end{enumerate}
-    Then $C$ is the class of all ordinals.
-\end{theorem}
-\begin{proof}
-    Let $\al$ be the $<$-minimal ordinal such that $\al\notin C$, then $\al\ne 0$ and $\al$ is not a successor ordinal, so $\al$ is a limit ordinal. 
-\end{proof}
+    Use the previous proposition, prove that $C$ is the class of all ordinals. This is called the \hdef{transfinite induction}.
+\end{problem}
 \customtheorem{Axiom of choice}
 \begin{Axiom of choice}\index{axiom of choice}
     Let $X$ be a set and $X\ne\es$. Then there exists a map $f:\ps(X)\to X$ such that for every $x\subn X$, where $x\ne\es$, $f(x)\in x$. 
@@ -862,7 +863,7 @@ Recall that we have defined $\le$ on $\N$ by the natural inclusion, that is, for
     For all $n\in\N$ and $n\ge 2$, $n$ can be factored as a product of prime numbers and the factorization is unique.
 \end{theorem}
 \begin{proof}
-    It is trivial that $2=2$, $3=3$, $4=2\cdot 2$, $\dots$. Suppose every number $n\le k$ for a given $k$ admits a prime factorization. If $k+1$ is prime, then $k+1=k+1$. If $k+1$ is not prime, then there exists ${n}_{1},{n}_{2}\in\Z$ such that ${n}_{1}{n}_{2}=k+1$. Since ${n}_{1}$ and ${n}_{2}$ admits prime factorization, $k+1$ admits prime factorization. Suppose $\prod{p}_{i}$ and $\prod{q}_{j}$ are prime factorizations of $n$. Rewrite those factorizations such that ${p}_{i}\le{p}_{i+1}$ and ${q}_{j}\le{q}_{j+1}$. 
+    It is trivial that $2=2$, $3=3$, $4=2\cdot 2$, $\dots$. Suppose every number $n\le k$ for a given $k$ admits a prime factorization. If $k+1$ is prime, then $k+1=k+1$. If $k+1$ is not prime, then there exists ${n}_{1},{n}_{2}\in\Z$ such that ${n}_{1}{n}_{2}=k+1$. Since ${n}_{1}$ and ${n}_{2}$ admits prime factorization, $k+1$ admits prime factorization. We have the trivial case $2=2$. Assume the factorization is unique for all $m$ with $2\le m<n$. Suppose $\prod{p}_{i}$ and $\prod{q}_{j}$ are prime factorizations of $n$. Rewrite those factorizations such that ${p}_{i}\le{p}_{i+1}$ and ${q}_{j}\le{q}_{j+1}$. Since ${p}_{1}$ divides $\prod{q}_{j}$ and ${p}_{1}$ is prime, it must divide one of the ${q}_{j}$, so ${p}_{1}\le{q}_{1}\le{q}_{j}$. Apply the same argument, ${q}_{1}\le{p}_{1}$, so ${q}_{1}={p}_{1}$. Now ${p}_{2}\cdots{p}_{r}={q}_{2}\cdots{q}_{s}<n$. Hence, by induction, $r=s$ and ${p}_{i}={q}_{i}$, the factorization is unique.
 \end{proof}
 \begin{theorem}[Euclid's theorem]\index{Euclid's theorem}
     There are infinitely many primes.
@@ -973,10 +974,10 @@ Similarly, one could define $\card{X}\le\card{Y}$ by surjections, that is, if th
     Let $f:A\to B$ and $g:B\to A$ be injective functions. Then there exists a bijective function $h:A\to B$.
 \end{theorem}
 \begin{remark}
-    Cantor-Schröder-Bernstein theorem was originally proved as a consequence of the axiom of choice. However, it is provable in ZF, the system without the axiom of choice. In the next proof, assume we have all axioms except for the axiom of choice.
+    Cantor-Schröder-Bernstein theorem was originally proved as a consequence of the axiom of choice. However, it is provable in ZF, the system without the axiom of choice. In the next proof, assume we have all axioms except for the axiom of choice. This proof is technical and you may skip it.
 \end{remark}
 \begin{proof}
-    Let ${f}_{1}:A\to B$ and ${f}_{2}:B\to A$ are injective. Let $B'={f}_{2}(B)$ and ${A}_{1}={f}_{2}({f}_{1}(A))$, then ${A}_{1}\sub B'\sub A$ and $\card{A}=\card{{A}_{1}}$. Assume ${A}_{1}\sub B\sub A$ and $f:A\to{A}_{1}$ be an injection. inductively, we define ${A}_{0}=A$, ${A}_{n+1}=f({A}_{n})$, ${B}_{0}=B$, and ${B}_{n+1}=f({B}_{n})$. Define $g:A\to B$ by $g(a)=f(a)$ if $x\in{A}_{n}\sm{B}_{n}$, otherwise, let $g(x)=x$. 
+    Let $f:A\to B$ and $g:B\to A$ be injections. Define ${A}_{0}=A\sm g(B)$. For any $n\ge 0$, let ${B}_{n}=f({A}_{n})$ and let ${A}_{n+1}=g({B}_{n})$. Since $g$ is injective, $g({B}_{n})$ are pairwise disjoint. It is clear that by induction, ${A}_{n}$ are pairwise disjoint. Similarly, ${B}_{n}$ are pairwise disjoint. Let $U=\Un{A}_{n}$ and $V=A\sm U$. We have $B\sm{B}_{0}=B\sm f({A}_{0})$, $V\sub A\sm{A}_{1}=g(B\sm f({A}_{0}))$. Here there exists a bijection between $B\sm f({A}_{0})$ and $g(B\sm f({A}_{0}))$. The restriction $g{\vert}_{V}:V\to A$ is a bijection between $B\sm{B}_{0}$ and $V$. Now let $h:A\to B$ be a function defined by $h(x)=f(x)$ if $x\in U$ and $h(x)=\inv{g}(x)$ if $x\in V$. Suppose $h({x}_{1})=h({x}_{2})$. If ${x}_{1},{x}_{2}\in U$, then $h({x}_{i})=f({x}_{i})\in{B}_{n}$ for some $n$. The restriction of $f$ on every ${A}_{n}$ is injective, so ${x}_{1}={x}_{2}$. Similarly, if ${x}_{1},{x}_{2}\in V$, ${x}_{1}={x}_{2}$. If ${x}_{1}\in U$ and ${x}_{2}\in V$, then $h({x}_{1})\sub{B}_{n}$ for some $n$, where ${B}_{n}\cap(B\sm{B}_{0})=\es$. Hence $h$ is injective. Pick some $y\in B$. If $y\in{B}_{n}$ for some $n$, then there is a unique $x\in{A}_{n}$ such that $f(x)=y$, so $h(x)=f(x)=y$. If $y\notin{B}_{n}$, then $y\in B\sm{B}_{0}$. Consider $x=g(y)\in V$, then $h(x)=h(g(y))=\inv{g}(g(y))=y$. Hence $h$ is surjective, conclude that $h$ is a bijection.
 \end{proof}
 \begin{problem}
     Prove the Cantor-Schröder-Bernstein theorem using the axiom of choice.
