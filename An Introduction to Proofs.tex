@@ -9,12 +9,10 @@
 \par
 In higher-level mathematics, students need a certain level of ``mathematical maturity'' to understand and apply abstract ideas. However, there is no clear way to measure this maturity, nor a definitive method to teach someone how to write a proof. This note is intended to be a transition from elementary math to proof-based formal mathematics. The beauty of mathematics is hidden behind the craft of abstraction and  the search to common forms between entities. It is not merely about techniques of solving problems, but about a way of thinking. As Poincaré famously said, ``Mathematics is the art of giving the same name to different things.''
 \par
-The first section is a quick review of basic logic, the language we used in proofs. Sections 2 to 4 are set-theoretic constructions that are essential in any kind of math. Those sections discuss the axioms of sets in ZFC and their consequence. This part largely follows from [?] and [?].  In the later sections, those properties will be frequently used. Section 5 is an introduction to linear algebra. 
-
-. The next two sections are introductory abstract algebra. We include discussions on groups, rings, and relations between rings and matrices. Section 8 is an algebraic construction of the real numbers $\R$. This section is entirely adopted from professor Lerman's Math 347 lectures given in 
-
-In the last two sections, we offer a more general theory to think about every entity in mathematics, the theory of categories. Every 
-
+The first section is a quick review of basic logic, the language we used in proofs. Sections 2 to 4 are set-theoretic constructions that are essential in any kind of math. Those sections discuss the axioms of sets in ZFC and their consequences. This part largely follows from [?] and [?].  In the later sections, those properties will be frequently used.
+\par
+Section 5 is an introduction to linear algebra.
+The next two sections are introductory abstract algebra. We include discussions on groups, rings, and relations between rings and matrices. Section 8 is an algebraic construction of the real numbers $\R$. This section is entirely adopted from professor Lerman's Math 347 lectures given in . We will also use the construction to verify some analytic properties of $\R$. Section 9 talks about general topology. This section includes several examples of topologies and the Tikhonov theorem. In the last two sections, we offer a more general theory to think about every entity in mathematics, the theory of categories. Our goal is to reformulate some results we proved before in a more elegant and general way by using categorical definitions. You may skip those sections if you think they are too ``formal''.
 \par
 Many people have contributed to this note. Special thanks to my collaborators. Fung San Gaan wrote the entire section 8 and part of section 7. 
 ? 
@@ -663,7 +661,7 @@ Consider a diagram, where every vertex is an object and every arrow preserves th
 \par
 Recall that we have defined partial ordering by ``$\le$''. From now on, we require that every partial-ordering to be a strict ordering.
 \begin{definition}
-    Let $(P,{<}_{1})$ and $(Q,{<}_{2})$ be partially ordered set and let $f:P\to Q$ be a function. We say $f$ is \hdef{order-preserving} if $x{<}_{1}y$ implies $f(x){<}_{2}f(y)$. If $f$ is also bijective, then we say $P$ and $Q$ have the same \hdef{order-type}.
+    Let $(P,<)$ and $(Q,<)$ be partially ordered set and let $f:P\to Q$ be a function. We say $f$ is \hdef{order-preserving} if $x<y$ implies $f(x)<f(y)$. If $f$ is also bijective, then we say $P$ and $Q$ have the same \hdef{order-type}, denoted $P\iso Q$.
 \end{definition}
 \begin{problem}
     Prove that if $f:P\to Q$ is order-preserving and bijective, then $\inv{f}$ is also order-preserving.
@@ -689,16 +687,7 @@ Recall that we have defined partial ordering by ``$\le$''. From now on, we requi
     \end{enumerate}
 \end{proposition}
 \begin{proof}
-    Denote the initial segement of ${W}_{i}$ by $x$ by ${I}_{i,x}$. Let $f:{W}_{1}\to{W}_{2}$ be a function defined by $f(x)=y$ if ${I}_{1,x}$ has the same order-type as ${I}_{2,y}$. Suppose $f$ is not injective, then 
-
-    Let $g$ be an order-preserving 
-
-
-
-
-
-
-
+    Denote the initial segement of ${W}_{i}$ by $x$ by ${W}_{i}(x)$. Let $f:{W}_{1}\to{W}_{2}$ be a function defined by $f(x)=y$ if ${W}_{1}(x)$ has the same order-type as ${W}_{2}(y)$. It is trivial that this map is well-defined and order-preserving. Let ${y}_{1}={y}_{2}$, then there exist ${x}_{1},{x}_{2}\in{W}_{1}$ such that ${W}_{1}({x}_{1})\iso{W}_{2}({y}_{1})={W}_{2}({y}_{2})\iso{W}_{1}({x}_{2})$, so ${W}_{1}({x}_{1})\iso{W}_{1}({x}_{2})$, which implies ${x}_{1}={x}_{2}$. Hence $f$ is injective. Let $h:{W}_{1}(x)\to{W}_{2}(y)$ be an order-preserving bijection. If $x'<x$, since $f$ is order-preserving, ${W}_{1}(x')\iso{W}_{2}(h(x'))$. If $\dom(f)={W}_{1}$ and $\ran(f)={W}_{2}$, then it is exactly case (\rom1). If $\ran(f)\ne{W}_{2}$. Let ${y}_{0}$ be the least element in ${W}_{2}\sm\ran(f)$, then ${W}_{2}({y}_{0})=\ran(f)$. Suppose $\dom(f)\ne{W}_{1}$, then pick the least element of ${W}_{1}\sm\dom(f)$, denoted ${x}_{0}$. It is trivial that $f({x}_{0})={y}_{0}$, a contradiction. This is case (\rom2). Similarly, if $\dom(f)\ne{W}_{1}$, define the same ${x}_{0}$. By contradiction, we have case (\rom3).
 \end{proof}
 \begin{definition}
     If $\vp(x,{p}_{1},{p}_{2},\dots)$ is some formula, then we say $C=\{x\mid\vp\}$ is a \hdef{class}, that is, $x$ is a member of $C$ if and only if $x$ satisfies $\vp$.
@@ -714,7 +703,7 @@ Recall that we have defined partial ordering by ``$\le$''. From now on, we requi
 \end{problem}
 \customtheorem{Axiom schema of replacement}
 \begin{Axiom schema of replacement}\index{axiom schema of replacement}
-    If a class $F$ is a funciton, then for all $X$, there exists a set $Y=F(X)=\{F(x)\mid x\in X\}$.
+    If a class $F$ is a funciton, then there exists a set $Y=F(X)=\{F(x)\mid x\in X\}$ for all $X$.
 \end{Axiom schema of replacement}
 \begin{problem}
     Prove that axiom schema of replacement implies axiom schema of separation.
@@ -741,19 +730,6 @@ Let $\al$ and $\be$ be ordinals. We define $\al<\be$ if and only if $\al\in\be$.
 \begin{problem}
     The intersection of ordinals is an ordinal.
 \end{problem}
-\begin{problem}
-    Prove that two different ordinals do not have the same order-type.
-\end{problem}
-\begin{proposition}
-    If a set is well-ordered, then it has the same order-type as an ordinal.
-\end{proposition}
-\begin{proof}
-    Let $W$ be well-ordered. For all $x\in W$, consider the initial segement ${I}_{x}$ given by $x$. If ${I}_{x}$ has the same order-type with some ordinal $\al$, then define $F(x)=\al$. If $\al$ exists, then it must be unique, so $F$ is well-defined. By the axiom of replacement, $F(W)$ is a set. For all $x,y\in W$ and $x<y$, 
-    
-
-\end{proof}
-\par
-We can conclude that every well-ordered set has the same order-type as a unique ordinal.
 \begin{definition}
     An ordinal $\la$ is said to be a \hdef{limit ordinal} if $\la\ne\es$ and for all $\al<\la$, $\al+1<\la$.
 \end{definition}
@@ -762,11 +738,24 @@ We can conclude that every well-ordered set has the same order-type as a unique 
 \end{problem}
 \par
 Suppose there exists a set of all ordinals, denoted $\text{On}$. Since every element of an ordinal is an ordinal, $\text{On}$ is transitive. Let ``$<$'' be the ordering on $\text{On}$, then it is trivially a partial ordering. Let $S$ be a nonempty subset of $\text{On}$. Consider $\In{s}_{i}\sub{s}_{i}$, where ${s}_{i}\in S$, if $T\notin S$, then $T\sub{s}_{i}$, so $T\sub s$. Now we have $T\in\In{s}_{i}=T$, a contradiction. Hence $T\in S$ and $S$ is $T$ is trivially the desired infimum. This proves $\text{On}$ is an ordinal, so $\text{On}\in\text{On}$. Recall that $\text{On}$ is a set, so $\text{On}\notin\text{On}$, a contradiction. This is known as the \hdef{Burali-Forti paradox}.
+\begin{problem}
+    Prove that two different ordinals do not have the same order-type.
+\end{problem}
+\begin{proposition}
+    If a set is well-ordered, then it has the same order-type as an ordinal.
+\end{proposition}
+\par
+This proof is slightly technical, you may skip the proof and remember the result.
+\begin{proof}
+    Let $W$ be well-ordered. For all $x\in W$, consider the initial segement ${I}_{x}$ given by $x$. If ${I}_{x}\iso{\al}_{x}$, where ${\al}_{x}$ is some ordinal, then define $F(x)={\al}_{x}$. Suppose we have a set $M\sub W$ consisting of elements $x\in W$ such that ${I}_{x}$ does not exist. Let $m$ be the least element in $M$. Consider the set $\{{\al}_{y}\mid y<m\}$, this is a set of ordinals. Define $\al=\sup\{{\al}_{y}\mid y<m\}$. It is trivial that ${I}_{m}\iso\al$, a contradiction. Hence $F:W\to\text{On}$ is well-defined, by the axiom of replacement, $F(W)=\{{\al}_{x}\}$ is a set. For all $x,y\in W$ and $x<y$, ${I}_{x}\subn{I}_{y}$, so ${\al}_{x}\in{\al}_{y}$, which is $F(x)<F(y)$. This also shows $F$ is injective. Let $\ga=\min(\text{On}\sm F(W))$, then $F(W)\sub\ga$. If $\be<\ga$ is an ordinal, then $\be\in F(W)$, so $F(W)=\{\be\mid\be<\ga\}=\ga$. Hence $F:W\to\ga$ is an order-preserving bijection.
+\end{proof}
+\par
+We can conclude that every well-ordered set has the same order-type as a unique ordinal.
 \begin{proposition}
     Every non-empty ordinal is either a successor ordinal or a limit ordinal.
 \end{proposition}
 \begin{proof}
-    Let $\al$ be an ordinal and $\al\ne\es$. Suppose $\al$ is not a successor ordinal, then $\al\ne\be+1$ for all ordinal $\be$. Suppose $\al<\be+1$ and $\al>\be$ for some ordinal $\be$, then $\al+1>\be+1$, 
+    Let $\la$ be an ordinal and $\la\ne\es$. Assume $\la$ is not a successor ordinal, then $\la\ne\al+1$ for any ordinal $\al$. Now suppose $\la$ is not a limit ordinal, then there exists $\be$ such that $\be<\la\nless\be+1$. Since $\la\ne\al+1$ for all $\al$, $\la<\be+1$, then either $\la\in\be$ or $\la=\be$, a contradiction.
 \end{proof}
 \begin{problem}
     Let $C$ be a class of ordinals that satisfies:
@@ -794,12 +783,6 @@ By the well-ordering theorem, $\N$ is well-ordered, this is called the \hdef{wel
 \begin{remark}
     Well-ordering principle is based on ZF system, the system without axiom of choice. The well-ordering theorem is an equivalent form of axiom of choice. For more information, we recommend you to check [3].
 \end{remark}
-
-
-\newpage 
-
-
-
 \section{Integers and Cardinality}
 Recall that we have constructed $\N$ by axioms. By the convention of quotient sets, we could further construct the set of integers and rational numbers.
 \begin{theorem}[recursion]\index{recursion}
@@ -863,7 +846,7 @@ Recall that we have defined $\le$ on $\N$ by the natural inclusion, that is, for
     For all $n\in\N$ and $n\ge 2$, $n$ can be factored as a product of prime numbers and the factorization is unique.
 \end{theorem}
 \begin{proof}
-    It is trivial that $2=2$, $3=3$, $4=2\cdot 2$, $\dots$. Suppose every number $n\le k$ for a given $k$ admits a prime factorization. If $k+1$ is prime, then $k+1=k+1$. If $k+1$ is not prime, then there exists ${n}_{1},{n}_{2}\in\Z$ such that ${n}_{1}{n}_{2}=k+1$. Since ${n}_{1}$ and ${n}_{2}$ admits prime factorization, $k+1$ admits prime factorization. We have the trivial case $2=2$. Assume the factorization is unique for all $m$ with $2\le m<n$. Suppose $\prod{p}_{i}$ and $\prod{q}_{j}$ are prime factorizations of $n$. Rewrite those factorizations such that ${p}_{i}\le{p}_{i+1}$ and ${q}_{j}\le{q}_{j+1}$. Since ${p}_{1}$ divides $\prod{q}_{j}$ and ${p}_{1}$ is prime, it must divide one of the ${q}_{j}$, so ${p}_{1}\le{q}_{1}\le{q}_{j}$. Apply the same argument, ${q}_{1}\le{p}_{1}$, so ${q}_{1}={p}_{1}$. Now ${p}_{2}\cdots{p}_{r}={q}_{2}\cdots{q}_{s}<n$. Hence, by induction, $r=s$ and ${p}_{i}={q}_{i}$, the factorization is unique.
+    It is trivial that $2=2$, $3=3$, $4=2\cdot 2$, $\dots$. Suppose every number $n\le k$ for a given $k$ admits a prime factorization. If $k+1$ is prime, then $k+1=k+1$. If $k+1$ is not prime, then there exists ${n}_{1},{n}_{2}\in\Z$ such that ${n}_{1}{n}_{2}=k+1$. Since ${n}_{1}$ and ${n}_{2}$ admits prime factorization, $k+1$ admits prime factorization. We have the trivial case $2=2$. Assume the factorization is unique for all $m$ with $2\le m<n$. Suppose $\prod{p}_{i}$ and $\prod{q}_{j}$ are prime factorizations of $n$. Rewrite those factorizations such that ${p}_{i}\le{p}_{i+1}$ and ${q}_{j}\le{q}_{j+1}$. Since ${p}_{1}$ divides $\prod{q}_{j}$ and ${p}_{1}$ is prime, it must divide one of the ${q}_{j}$, so ${p}_{1}\le{q}_{1}\le{q}_{j}$. Apply the same argument, ${q}_{1}\le{p}_{1}$, so ${q}_{1}={p}_{1}$. Now ${p}_{2}\cdots{p}_{r}={q}_{2}\cdots{q}_{s}<n$. Hence, by induction, ${p}_{i}={q}_{i}$, the factorization is unique.
 \end{proof}
 \begin{theorem}[Euclid's theorem]\index{Euclid's theorem}
     There are infinitely many primes.
@@ -1259,7 +1242,7 @@ We will show how axiom of choice implies our categorical reformulation.
     Prove that the identity element is unique in any monoid.
 \end{problem}
 \begin{definition}
-    A triple $(G,\comp,e)$ is a \hdef{group} if it is a monoid and for all $g\in G$, there exists $h\in G$ such that $h\comp g=e=g\comp h$. Such $f$ is called an \hdef{inverse} of $g$. If $\comp$ is commutative, then the group is \hdef{abelian}. The \hdef{order} of a group $G$. denoted $\card{G}$, is the cardinality of the set $G$.
+    A triple $(G,\comp,e)$ is a \hdef{group} if it is a monoid and for all $g\in G$, there exists $h\in G$ such that $hg=e=gh$. Such $f$ is called an \hdef{inverse} of $g$. If $\comp$ is commutative, then the group is \hdef{abelian}. The \hdef{order} of a group $G$. denoted $\card{G}$, is the cardinality of the set $G$.
 \end{definition}
 \begin{example}
     The \hdef{trivial group} is the group of one element, that is, $\{e\}$.
@@ -1279,7 +1262,7 @@ We will show how axiom of choice implies our categorical reformulation.
     The first line can be dropped to from an one-line notation. Given $1\le i\le n$ and $i\in\mathbb{Z}$, we can write $\pi$ in cycle notation, that is, $(i,\pi(i),{\pi}^{2}(i),\ldots,{\pi}^{p-1}(i))$, where $p$ is the first integer such that ${\pi}^{p}(i)=i$. Such a cycle means that $\pi$ sends $i$ to $\pi(i)$, $\pi(i)$ to ${\pi}^{2}(i)$, and eventually, ${\pi}^{p-1}(i)$ back to $i$. The cycle type of a permutation is an expression of the form $({1}^{{m}_{1}},{2}^{{m}_{2}},\ldots,{n}^{{m}_{n}})$, where ${m}_{k}$ is the number of cycles of length $k$ in $\pi$. An \hdef{involution} is a permutation $\pi$ such that ${\pi}^{2}=e$.
 \end{example}
 \begin{problem}
-    Prove that every permutation in ${\fr{S}}_{n}$ can be written as a finite composition of involutions.
+    Prove that every permutation in ${\fr{S}}_{n}$ can be written as a finite composition of involutions. Is this expression unique?
 \end{problem}
 \begin{definition}
     A permutation $\pi\in{\fr{S}}_{n}$ is called an \hdef{odd permutation} if it can be written as the composition of an odd number of involutions. A permutation $\pi\in{\fr{S}}_{n}$ is called an \hdef{even permutation} if it can be written as the composition of an even number of involutions.
@@ -1313,6 +1296,12 @@ For all $g\in G$, where $G$ is a group, the inverse of $g$ is denoted by $\inv{g
 \begin{definition}
     A \hdef{subgroup} of a group $(G,\comp,e)$ is a subset $H\sub G$ containing $e$ such that $(H,\comp,e)$ is a group. If $H$ is a subgroup of $G$, we write $H\le G$.
 \end{definition}
+\begin{definition}
+    Let $G$ be a group. Every homomorphism $f:G\to G$ is called an \hdef{automorphism}. The set of all automorphisms onto a group $G$ is denoted by $\Aut(G)$.
+\end{definition}
+\begin{problem}
+    Let $G$ be a group and let $\comp$ be the composition of functions. Prove that $(\Aut(G),\comp,{\id}_{G})$ is a group. This is called the \hdef{automorphism group}.
+\end{problem}
 \begin{proposition}
     Let $G$ be a group, then $H\le G$ if and only if $e\in H\sub G$, for all $g,f\in H$, $g\inv{f}\in H$. 
 \end{proposition}
@@ -1340,8 +1329,12 @@ For all $g\in G$, where $G$ is a group, the inverse of $g$ is denoted by $\inv{g
 \begin{proof}
     
 \end{proof}
-\par
-Let $H,K\le G$ and let $H\sub K$, then $[G:1]=[G:H][H:1]=$
+\begin{problem}
+    Based on the previous proposition, prove a more general form: 
+\end{problem}
+
+
+
 \begin{theorem}[Cayley's theorem]\index{Cayley's theorem}
     Any monoid is isomorphic to a submonoid of $M(S)$ for some set $S$. Any group is isomorphic to a subgroup of some symmetric group.
 \end{theorem}
@@ -1378,7 +1371,7 @@ Let $H,K\le G$ and let $H\sub K$, then $[G:1]=[G:H][H:1]=$
     Let $G$ be a group and $N\nsg G$. The \hdef{quotient group} $G/N$ is defined to be $\{aN\mid a\in G\}$. 
 \end{definition}
 \begin{problem}
-    Take $(aN)(bN)=(ab)N$ as a composition on $G/N$, prove that $G/N$ is indeed a group.
+    Take $(aN)(bN)=(ab)N$ as the composition on $G/N$, prove that $G/N$ is indeed a group.
 \end{problem}
 \begin{definition}
     Let $X$ be a subset of a group $F$. Then $F$ is a \hdef{free group} with \hdef{basis} $X$ if for any function $\vp:X\to G$, where $G$ is a group, there exists a unique extension $\wb{\vp}:F\to G$ such that $i\comp\wb{\vp}=\vp$.
@@ -1394,20 +1387,38 @@ Let $H,K\le G$ and let $H\sub K$, then $[G:1]=[G:H][H:1]=$
     \end{tikzcd}
 \end{center}
 \par
-We will first show the existence of free groups. Intuitively, there are no relations, except for the group axioms, among elements of the free group. 
-\par
-Consider an arbitrary set $X$. The elements of $X$ are called \hdef{generators}. Let $Y$ be a disjoint copy of $X$ with a bijection $f:X\to Y$. For all $x\in X$, if $f(x)=y$, then we say $y$ is the \hdef{inverse} of $x$, denoted $\inv{x}$. We can rewrite $Y=\inv{X}$ and denote ${X}^{\pm 1}=X\cup\inv{X}$.
+We will first show the existence of free groups. Consider an arbitrary set $X$. The elements of $X$ are called \hdef{generators}. Let $Y$ be a disjoint copy of $X$ with a bijection $f:X\to Y$. For all $x\in X$, if $f(x)=y$, then we say $y$ is the \hdef{inverse} of $x$, denoted $\inv{x}$. We can rewrite $Y=\inv{X}$ and denote ${X}^{\pm 1}=X\cup\inv{X}$.
 \begin{definition}
     Let $X$ be a set. The elements of ${X}^{\pm 1}$ are called \hdef{letters}. A \hdef{word} $w$ is a finite sequence $({l}_{1},\dots,{l}_{n})$ of letters. The \hdef{length} of $w=({l}_{1},\dots,{l}_{n})$, denoted $\card{w}$, is the value $n$. If $n=0$, we call it the \hdef{empty word}, denoted 1. A word is \hdef{reduced} if it contains no part in the form $a\inv{a}$.
 \end{definition}
 \par
-Let the set $F(X)$ be the set of all reduced words. 
-
-
-
-
+Let the set $F(X)$ be the set of all reduced words. Let $x=({x}_{1},\dots,{x}_{m}),y=({y}_{1},\dots,{y}_{n})\in F(X)$. Pick the largest $k$ such that $0\le k\le\min(m,n)$ and ${x}_{m-i}={y}_{i+1}^{-1}$ for all $i\le k$. Define the composition $\cdot:F(X)\times F(X)\to F(X)$ to be the following function:
+\begin{center}
+    $x\cdot y=\begin{cases}
+        ({x}_{1},\dots,{x}_{m-k},{y}_{k+1},\dots,{y}_{n}) & \text{if}\ k<\min(m,n) \\
+        ({x}_{1},\dots,{x}_{m-k}) & \text{if}\ k=n<m \\
+        ({y}_{k+1},\dots,{y}_{n}) & \text{if}\ k=m<n \\
+        1 & \text{if}\ k=m=n
+    \end{cases}$
+\end{center}
 \begin{problem}
-    Let ${X}_{1}$ and ${X}_{2}$ be bases of free groups ${F}_{1}$ and ${F}_{2}$, respectively. Prove that if ${X}_{1}\iso{X}_{2}$ as sets, then ${F}_{1}\iso{F}_{2}$ as groups.
+    Prove that $\cdot$ is a well-defined composition and prove that $1$ is the identity. Prove that the inverse of a reduced word is also reduced.
+\end{problem}
+\begin{proposition}
+    The triple $(F(S),\cdot,1)$ is a group.
+\end{proposition}
+\begin{proof}
+    It is left to show that $\cdot$ is associative. 
+\end{proof}
+
+\begin{proposition}
+    The group $F(S)$ is satisfies the definition of a free group.
+\end{proposition}
+\begin{proof}
+    
+\end{proof}
+\begin{problem}
+    Prove that $F(S)$ is the unique group, up to group isomorphism, that satisfies the definition.
 \end{problem}
 \begin{definition}
     A \hdef{group presentation} is a pair $(S,R)$, where $S$ is a set and $R\sub F(S)$. The group presented by $(S,R)$ is defined to be $\cyc{S\mid R}=F(S)/N$, where $N$ is the smallest normal subgroup of $F(S)$ containing $R$.
@@ -1416,25 +1427,25 @@ Let the set $F(X)$ be the set of all reduced words.
     Let $G$ be a group with the presentation $\cyc{S\mid R}$, then the elements are called the \hdef{generators} of $G$. A group is said to be \hdef{cyclic} if $\card{S}=1$.
 \end{definition}
 \begin{example}
-    The presentation of a free group $F(S)$ is $\cyc{S\mid\es}$.
+    The presentation of a free group $F(S)$ is $\cyc{S\mid\es}$. If $R=\es$, we denote $\cyc{S\mid R}$ by $\cyc{S}$. By our construction, $\cyc{S\mid\es}=\{\prod{s}_{i}\mid{s}_{i}\in{S}^{\pm 1}\}$.
 \end{example}
+\par
+Let $G$ be a group and let $S\sub G$. If $\cyc{S}=G$, then we say $G$ is \hdef{generated by} $S$.
 \begin{example}
     The presentation of the trivial group is $\cyc{a,b\mid aba\inv{a}{b}^{-2},ba\inv{b}{a}^{-2}}$.
 \end{example}
 \begin{problem}
     Prove that a finite cyclic group of order $n$ admits the presentation $\cyc{a\mid{a}^{n}}$. We denote it by ${C}_{n}$.
 \end{problem}
-\begin{proposition}
-    Let $X$ be a set, then $\cyc{X\mid\es}$ is the smallest group containing $X$.
-\end{proposition}
-\begin{proof}
-    
-\end{proof}
-
-
-
-
-
+\begin{problem}
+    Prove that $\cyc{X\mid\es}$ is the smallest group that contains $X$.
+\end{problem}
+\begin{definition}
+    Let $G$ be a group. A \hdef{commutator} of $G$ is an element of the form $xy\inv{x}\inv{y}$, where $x,y\in G$. Let ${G}^{c}$ be the subgroup of $G$ generated by all commutators in $G$. Here ${G}^{c}$ is called the \hdef{commutator subgroup} of $G$.
+\end{definition}
+\begin{problem}
+    Prove ${G}^{c}$ is normal in $G$. Prove that $G/{G}^{c}$ is abelian.
+\end{problem}
 \begin{problem}
     A \hdef{Tarski monster group} is a finitely generated infinite group where every proper non-trivial subgroup is cyclic of order $p$, a fixed prime. Prove that every Tarski monster group is simple.
 \end{problem}
