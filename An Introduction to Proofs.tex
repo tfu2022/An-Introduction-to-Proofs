@@ -972,252 +972,7 @@ By Cantor-Schröder-Bernstein theorem, we conclude that if $\card{A}\le\card{B}$
 
 \newpage
 
-\section{Functions as Morphisms}
-Functions are the bridges to ``connect'' sets. According to the definition, a function takes a set to another while preserving the structure of sets. This property allows us to consider functions as morphisms between sets.
-\begin{definition}
-    A \hdef{category} $\cat{C}$ consists of:
-    \begin{enumerate}
-        \item a class, denoted $\Ob(\cat{C})$, of \hdef{objects};
-        \item for each pair of objects $X$ and $Y$, there exists a class of \hdef{morphisms} $f:X\to Y$, where $X$ is called the \hdef{domain} and $Y$ is called the \hdef{codomain};
-        \item a \hdef{composition operation}, which gives, for each pair of morphisms $f:X\to Y$ and $g:Y\to Z$, a morphism $g\comp f:X\to Z$,
-    \end{enumerate}
-    such that
-    \begin{enumerate}
-        \item given any $f:X\to Y$, $g:Y\to Z$, and $h:Z\to W$, we have the identity $(h\comp g)\comp f=h\comp(g\comp f)$;
-        \item for each object $X$, there exists an \hdef{identity morphism} ${\id}_{X}:X\to X$ with the property that $f\comp{\id}_{X}=f$ and ${\id}_{X}\comp g=g$ for any $f:X\to Y$ and $g:Z\to X$.
-    \end{enumerate}
-    The class of morphisms from $X$ to $Y$ is denoted by ${\Hom}_{\cat{C}}(X,Y)$. A category $\cat{C}$ is a \hdef{locally small category} if ${\Hom}_{\cat{C}}(A,B)$ is a set for all objects $A$ and $B$ in $\cat{C}$.
-\end{definition}
-\par
-Let sets be objects, let functions be morphisms, and let the composition of morphisms be the composition of functions. By our previous observations, it suffices to check this defines a category of sets, denoted $\cat{Set}$. Moreover, $\cat{Set}$ is locally small.
-\begin{example}
-    Let $X$ be a set, then ${\Hom}_{\cat{Set}}(X,X)$ is a category.
-\end{example}
-\begin{example}
-    In the following diagram, let each vertex be an object and let each arrow be a morphism. This defines a category.
-    \begin{center}
-        \begin{tikzcd}
-            \bullet && \bullet
-            \arrow[from=1-1, to=1-1, loop, in=145, out=215, distance=10mm]
-            \arrow[shift left, from=1-1, to=1-3]
-            \arrow[shift left, from=1-3, to=1-1]
-            \arrow[shift right, from=1-3, to=1-3, loop, in=35, out=325, distance=10mm]
-        \end{tikzcd}
-    \end{center}
-\end{example}
-\begin{problem}
-    Let the objects be monoids and let the morphisms be monoid homomorphisms. Prove that this defines a category, denoted $\cat{Mon}$. Let the objects be groups and let the morphisms be group homomorphisms. Prove that this defines a category, denoted $\cat{Grp}$. Let the objects be topological spaces and let the morphisms be continuous maps. Prove that this defines a category, denoted $\cat{Top}$.
-\end{problem}
-\begin{problem}
-    Morphisms are not guaranteed to be functions. Let $(S,\le)$ be a partially ordered set. Let $\Ob(\cat{C})=S$ and $x\to y$ be a morphism if $x\le y$. Prove that $\cat{C}$ is a category.
-\end{problem}
-\begin{problem}
-    Let $\cat{C}$ be a category. Let a system $\cat{{C}^{op}}$ consists of all objects in $\cat{C}$ and all morphisms $f:A\to B$ if $B\to A$ is a morphism in $\cat{C}$. Prove that $\cat{{C}^{op}}$ is indeed a category. This is called the \hdef{dual category} of $\cat{C}$.
-\end{problem}
-\begin{problem}
-    Prove that the identity morphism is unique for each object $A$ in a category $\cat{C}$.
-\end{problem}
-\begin{definition}
-    Let $\cat{C}$ be a category. A category $\cat{D}$ is a \hdef{subcategory} of $\cat{C}$ if the $\Ob(\cat{D})$ and the ${\Hom}_{\cat{D}}(X,Y)$ are subcollections of $\Ob(\cat{C})$ and ${\Hom}_{\cat{C}}(X,Y)$, respectively, for all objects $X$ and $Y$ in $\cat{C}$. The subcatgeory $\cat{D}$ is said to be \hdef{full} if for all objects $X$ and $Y$ in $\cat{D}$, ${\Hom}_{\cat{D}}(X,Y)$ is exactly ${\Hom}_{\cat{C}}(X,Y)$.
-\end{definition}
-\begin{example}
-    The category $\cat{Grp}$ is a subcategory of $\cat{Set}$.
-\end{example}
-\begin{problem}
-    Let the objects be abelian groups, let the morphisms be group homomorphisms, and let the composition of morphisms be the composition of functions. Prove that this defines a category, denoted $\cat{Ab}$. Prove that $\cat{Ab}$ is a full subcategory of $\cat{Grp}$.
-\end{problem}
-\begin{definition}
-    Let $\cat{C}$ be a category. A morphism $f:A\to B$ is a \hdef{monomorphism} if for all $g,h:C\to A$, $f\comp g=g\comp h$ implies $g=h$. A morphism $f:A\to B$ is called an \hdef{epimorphism} if for all $i,j:B\to D$, $i\comp f=j\comp f$ implies $i=j$.
-\end{definition}
-\begin{proposition}
-    A function is injective if and only if it is a monomorphism in $\cat{Set}$.
-\end{proposition}
-\begin{proof}
-    $(\Ra)$ Let $f:A\to B$ be injective. If $A=\es$, then $f$ is the unique empty function. If $A\ne\es$, let $g:B\to A$ be the left inverse of $f$, 
-    $(\La)$ Let $f:A\to B$ be a monomorphism. If $A=\es$, then $f:\es\to B$ is vacuously injective. If $A\ne\es$, 
-\end{proof}
-\begin{problem}
-    Prove that a function is surjective if and only if it is an epimorphism in $\cat{Set}$.
-\end{problem}
-\begin{definition}
-    Let $\cat{C}$ be a category. A morphism $f:A\to B$ is an \hdef{isomorphism} if there exists $g\in{\Hom}_{\cat{C}}(B,A)$ such that $f\comp g={\id}_{B}$ and $g\comp f={\id}_{A}$. If there exists a morphism between two objects $A$ and $B$, then we say they are \hdef{isomorphic}, denoted $A\iso B$.
-\end{definition}
-\begin{problem}
-    Prove that a morphism is an isomorphism if and only if it is a monomorphism and an epimorphism.
-\end{problem}
-\begin{problem}
-    Let $A$ and $B$ be well-ordered sets that are isomorphic to each other. Prove that the isomorphism between them is unique.
-\end{problem}
-\begin{definition}
-    An \hdef{initial object} $0$ of a category $\cat{C}$ is an object in $\cat{C}$ such that for any object $A$, there is a unique morphism $0\to A$. A \hdef{terminal object} $1$ of a category $\cat{C}$ is an object of $\cat{C}$ such that for any object $B$, there is a unique morphism $A\to 1$. We say an object is a \hdef{zero object} if it is both an initial object and a terminal object.
-\end{definition}
-\begin{proposition}
-    Initial objects of a category $\cat{C}$ are unique up to isomorphism.
-\end{proposition}
-\begin{proof}
-    Let $0$ and $0'$ be initial objects in some category $\cat{C}$. Let $\vp:0\to 0'$ and $\psi:0'\to 0$. Since the diagram is commutative, we have $\vp\comp\psi\comp\vp=\vp\comp{\id}_{0}$, hence $\vp$ is an isomorphism. 
-\end{proof}
-\begin{center}
-    \begin{tikzcd}
-        0 && {0'} \\
-        \\
-        && 0 && {0'}
-        \arrow["\vp", from=1-1, to=1-3]
-        \arrow["{\id}_{0}"', from=1-1, to=3-3]
-        \arrow["\psi", from=1-3, to=3-3]
-        \arrow["{\id}_{0'}", from=1-3, to=3-5]
-        \arrow["\vp", from=3-3, to=3-5]
-    \end{tikzcd}
-\end{center}
-\begin{problem}
-    Prove that the initial object in a category $\cat{C}$ is a terminal object in $\cat{{C}^{op}}$, conclude that terminal objects in $\cat{C}$ are unique up to isomorphism.
-\end{problem}
-\begin{problem}
-    Prove that the initial object in the category of partially ordered set is the $\le$-minimal element. Prove that the terminal object in this category is the $\le$-maximal element.
-\end{problem}
-\begin{proposition}
-    The initial object in $\cat{Set}$ is $\es$ and the terminal object in $\cat{Set}$ is a singleton.
-\end{proposition}
-\begin{proof}
-    
-\end{proof}
-\par
-We conclude that there is no zero object in $\cat{Set}$.
-\customtheorem{Universal property for quotient sets}
-\begin{Universal property for quotient sets}\index{quotient set}
-    Let $X$ and $Y$ be sets. Let $\sim$ be an equivalence relation on $X$ and let $f:X\to Y$ be invariant under the equivalence relation. Then there exists a unique function $\wb{f}:{X}_{\sim}\to Y$ such that $f=\wb{f}\comp\pi$.
-\end{Universal property for quotient sets}
-\begin{center}
-    \begin{tikzcd}
-        {{X}_{\sim}} && X \\
-        \\
-        && Y
-        \arrow["{\wb{f}}"', from=1-1, to=3-3]
-        \arrow["\pi"', from=1-3, to=1-1]
-        \arrow["f", from=1-3, to=3-3]
-    \end{tikzcd}
-\end{center}
-\par
-The proof of the universal property has two parts. We first verify that a quotient set has the universal property. Then we verify that a quotient set is characterized by this universal property, that is, any set satisfying the universal property must be a quotient set. This proof will be separated into multiple propositions.
-\begin{proposition}
-    There exists a map $\wb{f}:{X}_{\sim}\to Y$ such that $f=\wb{f}\comp\pi$.
-\end{proposition}
-\begin{proof}
-    Define the relation $\{([x],y)\}\in\wb{f}$ if and only if $f(x)=y$. Let $[x]\in X$ and $y,z\in Y$. Suppose $([x],y),([x],z)\in\wb{f}$, then there exists $u,v\in X$ such that $[u]=[v]=[x]$, $f(u)=y$, and $f(v)=z$, so $u\sim v$. Since $f$ is invariant under $\sim$, $y=z$. Hence $\wb{f}$ is well-defined. For all $x\in X$, $(\wb{f}\comp\pi)(x)=\wb{f}([x])=f(y)$.
-\end{proof}
-\begin{problem}
-    Prove that such $\wb{f}$ is unique.
-\end{problem}
-\begin{problem}
-    Let $f:X\to Y$ be a function that induces an equivalence relation ${\sim_{f}}$ on $X$. Since ${X}_{{\sim}_{f}}$ satisfies the universal property, prove that ${X}_{{\sim}_{f}}\iso\im(f)$.
-\end{problem}
-\begin{proposition}
-    Let $S$ be any set satisfying the universal property for quotient sets. Let $X$ be a set and let ${\sim}_{1}$ be an equivalence relation on $X$, so ${\pi}_{1}:X\to{X}_{{\sim}_{1}}$ is invariant under the equivalence relation induced by ${\pi}_{2}:X\to S$. Then $S\iso{X}_{{\sim}_{1}}$.
-\end{proposition}
-\begin{center}
-    \begin{tikzcd}
-        S && X \\
-        \\
-        && {{X}_{{\sim}_{1}}}
-        \arrow["{\wb{{\pi}_{1}}}"', from=1-1, to=3-3]
-        \arrow["{{\pi}_{2}}"', from=1-3, to=1-1]
-        \arrow["{{\pi}_{1}}", from=1-3, to=3-3]
-    \end{tikzcd}
-\end{center}
-\begin{proof}
-    Since ${\pi}_{1}$ is surjective, $\wb{{\pi}_{1}}$ is surjective. Suppose $\wb{{\pi}_{1}}({s}_{1})=\wb{{\pi}_{1}}({s}_{2})$, where ${s}_{1}, {s}_{2}\in S$. Since $\pi_2$ is surjective, there exist $x,y\in X$ with ${s}_{1}={\pi}_{2}(x)$ and ${s}_{2}={\pi}_{2}(y)$. Then $\wb{{\pi}_{1}}({s}_{1})=\wb{{\pi}_{1}}({\pi}_{2}(x))={\pi}_{1}(x)$ and $\wb{{\pi}_{1}}({s}_{2})=\wb{{\pi}_{1}}({\pi}_{2}(y))={\pi}_{1}(y)$, which implies ${\pi}_{1}(x)={\pi}_{1}(y)$, so $[x]=[y]$. Since ${\pi}_{2}$ is invariant under ${\sim}_{1}$, it follows that ${\pi}_{2}(x)={\pi}_{2}(y)$, so ${s}_{1}={s}_{2}$. Hence $S\iso{X}_{{\sim}_{1}}$.        
-\end{proof}
-\par
-This completes our proof of the universal property for quotient sets.
-\begin{theorem}[canonical decomposition of functions]\index{canonical decomposition of functions}
-    Let $f:A\to B$ be a function, then there exists a surjective function $\pi$, a bijective function $g$, and an injective function $i$, such that $f=i\comp g\comp\pi$.
-\end{theorem}
-\begin{center}
-    \begin{tikzcd}
-        A && {{A}_{\sim}} && {\im(f)} \\
-        \\
-        &&&& B
-        \arrow["\pi", from=1-1, to=1-3]
-        \arrow["f"', from=1-1, to=3-5]
-        \arrow["g", from=1-3, to=1-5]
-        \arrow["i", from=1-5, to=3-5]
-    \end{tikzcd}   
-\end{center}
-\begin{proof}
-    Let $i:\im(f)\to B$ be the identity map, then $i$ is injective. The function $f:A\to B$ induces an equivalence relation $\sim$ on $X$, so $g$ is bijective. The projection map $\pi:A\to{A}_{\sim}$ is surjective. For all $a\in A$, $(i\comp g\comp\pi)(a)=(i\comp g)([a])=i(f(a))=f(a)$. 
-\end{proof}
-\begin{definition}
-    Let $\cat{C}$ be a category. Let $A$ and $B$ be objects in $\cat{C}$. The \hdef{product} of $A$ and $B$, denoted $P$, is an object in $\cat{C}$ with morphisms ${p}_{1}:P\to A$ and ${p}_{2}:P\to B$ such that for all object $X$ in $\cat{C}$ with morphisms ${\vp}_{1}:X\to A$ and ${\vp}_{2}:X\to B$, there exists a unique $u:X\to P$ such that the following diagram commutes.
-\end{definition}
-\begin{center}
-    \begin{tikzcd}
-        && X \\
-        \\
-        A && P && B
-        \arrow["{{\vp}_{1}}"', from=1-3, to=3-1]
-        \arrow["u", from=1-3, to=3-3]
-        \arrow["{{\vp}_{2}}", from=1-3, to=3-5]
-        \arrow["{{p}_{1}}", from=3-3, to=3-1]
-        \arrow["{{p}_{2}}"', from=3-3, to=3-5]
-    \end{tikzcd}
-\end{center}
-\begin{problem}
-    Prove that in $\cat{Set}$, the Cartesian product satisfies the universal property for product.
-\end{problem}
-\begin{proposition}
-    Let $A$ and $B$ be objects in a category $\cat{C}$. Then their product is unique up to isomorphism.
-\end{proposition}
-\begin{proof}
-    Let $P$ with ${p}_{1}:P\to A$ and ${p}_{2}:P\to B$ be the product of $A$ and $B$. Suppose $Q$ with ${\vp}_{1}:Q\to A$ and ${\vp}_{2}:Q\to B$ is another product of $A$ and $B$. By the universal property, $u:Q\to P$ and $v:P\to Q$ are unique such that ${p}_{1}\comp u={\vp}_{1}$, ${p}_{2}\comp u={\vp}_{2}$, ${\vp}_{1}\comp v={p}_{1}$, and ${\vp}_{2}\comp v={p}_{2}$. We have ${\vp}_{1}\comp u\comp v={\vp}_{1}$ and ${\vp}_{2}\comp u\comp v={\vp}_{2}$, then $u\comp v={\id}_{Q}$. Similarly, $v\comp u={\id}_{P}$. Hence $P\iso Q$.
-\end{proof}
-\begin{center}
-    \begin{tikzcd}
-        && Q \\
-        \\
-        A && P && B \\
-        \\
-        && Q
-        \arrow["{{\vp}_{1}}"', from=1-3, to=3-1]
-        \arrow["u", from=1-3, to=3-3]
-        \arrow["{{\vp}_{2}}", from=1-3, to=3-5]
-        \arrow["{{p}_{1}}", from=3-3, to=3-1]
-        \arrow["{{p}_{2}}"', from=3-3, to=3-5]
-        \arrow["v"', from=3-3, to=5-3]
-        \arrow["{{\vp}_{1}}", from=5-3, to=3-1]
-        \arrow["{{\vp}_{2}}"', from=5-3, to=3-5]
-    \end{tikzcd}
-\end{center}
-\begin{problem}
-    Let $A$, $B$, and $C$ be sets. Use the universal property to prove that $A\times(B\times C)=(A\times B)\times C$.
-\end{problem}
-\begin{definition}
-    Let $\cat{C}$ be a category. Let $A$ and $B$ be objects in $\cat{C}$. The \hdef{coproduct} of $A$ and $B$, denoted $Q$, is an object in $\cat{C}$ with morphisms ${q}_{1}:A\to Q$ and ${q}_{2}:B\to Q$ such that for all object $Y$ in $\cat{C}$ with morphisms ${\vp}_{1}:A\to Y$ and ${\vp}_{2}:B\to Y$, there exists a unique $v:Q\to Y$ such that the diagram commutes.
-\end{definition}
-\begin{center}
-    \begin{tikzcd}
-        && Y \\
-        \\
-        A && Q && B
-        \arrow["{{\vp}_{1}}", from=3-1, to=1-3]
-        \arrow["{{q}_{1}}"', from=3-1, to=3-3]
-        \arrow["v"', from=3-3, to=1-3]
-        \arrow["{{\vp}_{2}}"', from=3-5, to=1-3]
-        \arrow["{{q}_{2}}", from=3-5, to=3-3]
-    \end{tikzcd}
-\end{center}
-\begin{problem}
-    Prove that in $\cat{Set}$, the disjoint union satisfies the universal property for coproduct. Prove that the universal property characterizes disjoint union.
-\end{problem}
-\begin{problem}
-    Describe the product and coproduct in $\cat{{Set}^{op}}$. 
-\end{problem}
-\par
-Categorically, we can restate the axiom of choice as follows.
-\begin{Axiom of choice}
-    Any epimorphism in $\cat{Set}$ has a right inverse.
-\end{Axiom of choice}
-\par
-We will show how axiom of choice implies our categorical reformulation. 
+ 
 
 \newpage
 \section{Groups}
@@ -1996,6 +1751,255 @@ It is trivial that $\T$ must be a subcollection of $\ps(X)$, so $\T$ is a set.
     We denote a torus by ${T}^{2}$.
 \end{example}
 
+
+\newpage
+\section{Functions as Morphisms}
+\begin{definition}
+    A \hdef{category} $\cat{C}$ consists of:
+    \begin{enumerate}
+        \item a class, denoted $\Ob(\cat{C})$, of \hdef{objects};
+        \item for each pair of objects $X$ and $Y$, there exists a class of \hdef{morphisms} $f:X\to Y$, where $X$ is called the \hdef{domain} and $Y$ is called the \hdef{codomain};
+        \item a \hdef{composition operation}, which gives, for each pair of morphisms $f:X\to Y$ and $g:Y\to Z$, a morphism $g\comp f:X\to Z$,
+    \end{enumerate}
+    such that
+    \begin{enumerate}
+        \item given any $f:X\to Y$, $g:Y\to Z$, and $h:Z\to W$, we have the identity $(h\comp g)\comp f=h\comp(g\comp f)$;
+        \item for each object $X$, there exists an \hdef{identity morphism} ${\id}_{X}:X\to X$ with the property that $f\comp{\id}_{X}=f$ and ${\id}_{X}\comp g=g$ for any $f:X\to Y$ and $g:Z\to X$.
+    \end{enumerate}
+    The class of morphisms from $X$ to $Y$ is denoted by ${\Hom}_{\cat{C}}(X,Y)$. A category $\cat{C}$ is a \hdef{locally small category} if ${\Hom}_{\cat{C}}(A,B)$ is a set for all objects $A$ and $B$ in $\cat{C}$.
+\end{definition}
+\par
+Let sets be objects, let functions be morphisms, and let the composition of morphisms be the composition of functions. By our previous observations, it suffices to check this defines a category of sets, denoted $\cat{Set}$. Moreover, $\cat{Set}$ is locally small.
+\begin{example}
+    Let $X$ be a set, then ${\Hom}_{\cat{Set}}(X,X)$ is a category.
+\end{example}
+\begin{example}
+    In the following diagram, let each vertex be an object and let each arrow be a morphism. This defines a category.
+    \begin{center}
+        \begin{tikzcd}
+            \bullet && \bullet
+            \arrow[from=1-1, to=1-1, loop, in=145, out=215, distance=10mm]
+            \arrow[shift left, from=1-1, to=1-3]
+            \arrow[shift left, from=1-3, to=1-1]
+            \arrow[shift right, from=1-3, to=1-3, loop, in=35, out=325, distance=10mm]
+        \end{tikzcd}
+    \end{center}
+\end{example}
+\begin{problem}
+    Let the objects be monoids and let the morphisms be monoid homomorphisms. Prove that this defines a category, denoted $\cat{Mon}$. Let the objects be groups and let the morphisms be group homomorphisms. Prove that this defines a category, denoted $\cat{Grp}$. Let the objects be topological spaces and let the morphisms be continuous maps. Prove that this defines a category, denoted $\cat{Top}$.
+\end{problem}
+\begin{problem}
+    Morphisms are not guaranteed to be functions. Let $(S,\le)$ be a partially ordered set. Let $\Ob(\cat{C})=S$ and $x\to y$ be a morphism if $x\le y$. Prove that $\cat{C}$ is a category.
+\end{problem}
+\begin{problem}
+    Let $\cat{C}$ be a category. Let a system $\cat{{C}^{op}}$ consists of all objects in $\cat{C}$ and all morphisms $f:A\to B$ if $B\to A$ is a morphism in $\cat{C}$. Prove that $\cat{{C}^{op}}$ is indeed a category. This is called the \hdef{dual category} of $\cat{C}$.
+\end{problem}
+\begin{problem}
+    Prove that the identity morphism is unique for each object $A$ in a category $\cat{C}$.
+\end{problem}
+\begin{definition}
+    Let $\cat{C}$ be a category. A category $\cat{D}$ is a \hdef{subcategory} of $\cat{C}$ if the $\Ob(\cat{D})$ and the ${\Hom}_{\cat{D}}(X,Y)$ are subcollections of $\Ob(\cat{C})$ and ${\Hom}_{\cat{C}}(X,Y)$, respectively, for all objects $X$ and $Y$ in $\cat{C}$. The subcatgeory $\cat{D}$ is said to be \hdef{full} if for all objects $X$ and $Y$ in $\cat{D}$, ${\Hom}_{\cat{D}}(X,Y)$ is exactly ${\Hom}_{\cat{C}}(X,Y)$.
+\end{definition}
+\begin{example}
+    The category $\cat{Grp}$ is a subcategory of $\cat{Set}$.
+\end{example}
+\begin{problem}
+    Let the objects be abelian groups, let the morphisms be group homomorphisms, and let the composition of morphisms be the composition of functions. Prove that this defines a category, denoted $\cat{Ab}$. Prove that $\cat{Ab}$ is a full subcategory of $\cat{Grp}$.
+\end{problem}
+\begin{definition}
+    Let $\cat{C}$ be a category. A morphism $f:A\to B$ is a \hdef{monomorphism} if for all $g,h:C\to A$, $f\comp g=g\comp h$ implies $g=h$. A morphism $f:A\to B$ is called an \hdef{epimorphism} if for all $i,j:B\to D$, $i\comp f=j\comp f$ implies $i=j$.
+\end{definition}
+\begin{proposition}
+    A function is injective if and only if it is a monomorphism in $\cat{Set}$.
+\end{proposition}
+\begin{proof}
+    $(\Ra)$ Let $f:A\to B$ be injective. If $A=\es$, then $f$ is the unique empty function. If $A\ne\es$, let $g:B\to A$ be the left inverse of $f$, 
+
+    
+    $(\La)$ Let $f:A\to B$ be a monomorphism. If $A=\es$, then $f:\es\to B$ is vacuously injective. If $A\ne\es$, 
+\end{proof}
+\begin{problem}
+    Prove that a function is surjective if and only if it is an epimorphism in $\cat{Set}$.
+\end{problem}
+\begin{definition}
+    Let $\cat{C}$ be a category. A morphism $f:A\to B$ is an \hdef{isomorphism} if there exists $g\in{\Hom}_{\cat{C}}(B,A)$ such that $f\comp g={\id}_{B}$ and $g\comp f={\id}_{A}$. If there exists a morphism between two objects $A$ and $B$, then we say they are \hdef{isomorphic}, denoted $A\iso B$.
+\end{definition}
+\begin{problem}
+    Prove that a morphism is an isomorphism if and only if it is a monomorphism and an epimorphism.
+\end{problem}
+\begin{problem}
+    Let $A$ and $B$ be well-ordered sets that are isomorphic to each other. Prove that the isomorphism between them is unique.
+\end{problem}
+\begin{definition}
+    An \hdef{initial object} $0$ of a category $\cat{C}$ is an object in $\cat{C}$ such that for any object $A$, there is a unique morphism $0\to A$. A \hdef{terminal object} $1$ of a category $\cat{C}$ is an object of $\cat{C}$ such that for any object $B$, there is a unique morphism $A\to 1$. We say an object is a \hdef{zero object} if it is both an initial object and a terminal object.
+\end{definition}
+\begin{proposition}
+    Initial objects of a category $\cat{C}$ are unique up to isomorphism.
+\end{proposition}
+\begin{proof}
+    Let $0$ and $0'$ be initial objects in some category $\cat{C}$. Let $\vp:0\to 0'$ and $\psi:0'\to 0$. Since the diagram is commutative, we have $\vp\comp\psi\comp\vp=\vp\comp{\id}_{0}$, hence $\vp$ is an isomorphism. 
+\end{proof}
+\begin{center}
+    \begin{tikzcd}
+        0 && {0'} \\
+        \\
+        && 0 && {0'}
+        \arrow["\vp", from=1-1, to=1-3]
+        \arrow["{\id}_{0}"', from=1-1, to=3-3]
+        \arrow["\psi", from=1-3, to=3-3]
+        \arrow["{\id}_{0'}", from=1-3, to=3-5]
+        \arrow["\vp", from=3-3, to=3-5]
+    \end{tikzcd}
+\end{center}
+\begin{problem}
+    Prove that the initial object in a category $\cat{C}$ is a terminal object in $\cat{{C}^{op}}$, conclude that terminal objects in $\cat{C}$ are unique up to isomorphism.
+\end{problem}
+\begin{problem}
+    Prove that the initial object in the category of partially ordered set is the $\le$-minimal element. Prove that the terminal object in this category is the $\le$-maximal element.
+\end{problem}
+\begin{proposition}
+    The initial object in $\cat{Set}$ is $\es$ and the terminal object in $\cat{Set}$ is a singleton.
+\end{proposition}
+\begin{proof}
+    
+\end{proof}
+\par
+We conclude that there is no zero object in $\cat{Set}$.
+\customtheorem{Universal property for quotient sets}
+\begin{Universal property for quotient sets}\index{quotient set}
+    Let $X$ and $Y$ be sets. Let $\sim$ be an equivalence relation on $X$ and let $f:X\to Y$ be invariant under the equivalence relation. Then there exists a unique function $\wb{f}:{X}_{\sim}\to Y$ such that $f=\wb{f}\comp\pi$.
+\end{Universal property for quotient sets}
+\begin{center}
+    \begin{tikzcd}
+        {{X}_{\sim}} && X \\
+        \\
+        && Y
+        \arrow["{\wb{f}}"', from=1-1, to=3-3]
+        \arrow["\pi"', from=1-3, to=1-1]
+        \arrow["f", from=1-3, to=3-3]
+    \end{tikzcd}
+\end{center}
+\par
+The proof of the universal property has two parts. We first verify that a quotient set has the universal property. Then we verify that a quotient set is characterized by this universal property, that is, any set satisfying the universal property must be a quotient set. This proof will be separated into multiple propositions.
+\begin{proposition}
+    There exists a map $\wb{f}:{X}_{\sim}\to Y$ such that $f=\wb{f}\comp\pi$.
+\end{proposition}
+\begin{proof}
+    Define the relation $\{([x],y)\}\in\wb{f}$ if and only if $f(x)=y$. Let $[x]\in X$ and $y,z\in Y$. Suppose $([x],y),([x],z)\in\wb{f}$, then there exists $u,v\in X$ such that $[u]=[v]=[x]$, $f(u)=y$, and $f(v)=z$, so $u\sim v$. Since $f$ is invariant under $\sim$, $y=z$. Hence $\wb{f}$ is well-defined. For all $x\in X$, $(\wb{f}\comp\pi)(x)=\wb{f}([x])=f(y)$.
+\end{proof}
+\begin{problem}
+    Prove that such $\wb{f}$ is unique.
+\end{problem}
+\begin{problem}
+    Let $f:X\to Y$ be a function that induces an equivalence relation ${\sim_{f}}$ on $X$. Since ${X}_{{\sim}_{f}}$ satisfies the universal property, prove that ${X}_{{\sim}_{f}}\iso\im(f)$.
+\end{problem}
+\begin{proposition}
+    Let $S$ be any set satisfying the universal property for quotient sets. Let $X$ be a set and let ${\sim}_{1}$ be an equivalence relation on $X$, so ${\pi}_{1}:X\to{X}_{{\sim}_{1}}$ is invariant under the equivalence relation induced by ${\pi}_{2}:X\to S$. Then $S\iso{X}_{{\sim}_{1}}$.
+\end{proposition}
+\begin{center}
+    \begin{tikzcd}
+        S && X \\
+        \\
+        && {{X}_{{\sim}_{1}}}
+        \arrow["{\wb{{\pi}_{1}}}"', from=1-1, to=3-3]
+        \arrow["{{\pi}_{2}}"', from=1-3, to=1-1]
+        \arrow["{{\pi}_{1}}", from=1-3, to=3-3]
+    \end{tikzcd}
+\end{center}
+\begin{proof}
+    Since ${\pi}_{1}$ is surjective, $\wb{{\pi}_{1}}$ is surjective. Suppose $\wb{{\pi}_{1}}({s}_{1})=\wb{{\pi}_{1}}({s}_{2})$, where ${s}_{1}, {s}_{2}\in S$. Since $\pi_2$ is surjective, there exist $x,y\in X$ with ${s}_{1}={\pi}_{2}(x)$ and ${s}_{2}={\pi}_{2}(y)$. Then $\wb{{\pi}_{1}}({s}_{1})=\wb{{\pi}_{1}}({\pi}_{2}(x))={\pi}_{1}(x)$ and $\wb{{\pi}_{1}}({s}_{2})=\wb{{\pi}_{1}}({\pi}_{2}(y))={\pi}_{1}(y)$, which implies ${\pi}_{1}(x)={\pi}_{1}(y)$, so $[x]=[y]$. Since ${\pi}_{2}$ is invariant under ${\sim}_{1}$, it follows that ${\pi}_{2}(x)={\pi}_{2}(y)$, so ${s}_{1}={s}_{2}$. Hence $S\iso{X}_{{\sim}_{1}}$.        
+\end{proof}
+\par
+This completes our proof of the universal property for quotient sets.
+\begin{theorem}[canonical decomposition of functions]\index{canonical decomposition of functions}
+    Let $f:A\to B$ be a function, then there exists a surjective function $\pi$, a bijective function $g$, and an injective function $i$, such that $f=i\comp g\comp\pi$.
+\end{theorem}
+\begin{center}
+    \begin{tikzcd}
+        A && {{A}_{\sim}} && {\im(f)} \\
+        \\
+        &&&& B
+        \arrow["\pi", from=1-1, to=1-3]
+        \arrow["f"', from=1-1, to=3-5]
+        \arrow["g", from=1-3, to=1-5]
+        \arrow["i", from=1-5, to=3-5]
+    \end{tikzcd}   
+\end{center}
+\begin{proof}
+    Let $i:\im(f)\to B$ be the identity map, then $i$ is injective. The function $f:A\to B$ induces an equivalence relation $\sim$ on $X$, so $g$ is bijective. The projection map $\pi:A\to{A}_{\sim}$ is surjective. For all $a\in A$, $(i\comp g\comp\pi)(a)=(i\comp g)([a])=i(f(a))=f(a)$. 
+\end{proof}
+\begin{definition}
+    Let $\cat{C}$ be a category. Let $A$ and $B$ be objects in $\cat{C}$. The \hdef{product} of $A$ and $B$, denoted $P$, is an object in $\cat{C}$ with morphisms ${p}_{1}:P\to A$ and ${p}_{2}:P\to B$ such that for all object $X$ in $\cat{C}$ with morphisms ${\vp}_{1}:X\to A$ and ${\vp}_{2}:X\to B$, there exists a unique $u:X\to P$ such that the following diagram commutes.
+\end{definition}
+\begin{center}
+    \begin{tikzcd}
+        && X \\
+        \\
+        A && P && B
+        \arrow["{{\vp}_{1}}"', from=1-3, to=3-1]
+        \arrow["u", from=1-3, to=3-3]
+        \arrow["{{\vp}_{2}}", from=1-3, to=3-5]
+        \arrow["{{p}_{1}}", from=3-3, to=3-1]
+        \arrow["{{p}_{2}}"', from=3-3, to=3-5]
+    \end{tikzcd}
+\end{center}
+\begin{problem}
+    Prove that in $\cat{Set}$, the Cartesian product satisfies the universal property for product.
+\end{problem}
+\begin{proposition}
+    Let $A$ and $B$ be objects in a category $\cat{C}$. Then their product is unique up to isomorphism.
+\end{proposition}
+\begin{proof}
+    Let $P$ with ${p}_{1}:P\to A$ and ${p}_{2}:P\to B$ be the product of $A$ and $B$. Suppose $Q$ with ${\vp}_{1}:Q\to A$ and ${\vp}_{2}:Q\to B$ is another product of $A$ and $B$. By the universal property, $u:Q\to P$ and $v:P\to Q$ are unique such that ${p}_{1}\comp u={\vp}_{1}$, ${p}_{2}\comp u={\vp}_{2}$, ${\vp}_{1}\comp v={p}_{1}$, and ${\vp}_{2}\comp v={p}_{2}$. We have ${\vp}_{1}\comp u\comp v={\vp}_{1}$ and ${\vp}_{2}\comp u\comp v={\vp}_{2}$, then $u\comp v={\id}_{Q}$. Similarly, $v\comp u={\id}_{P}$. Hence $P\iso Q$.
+\end{proof}
+\begin{center}
+    \begin{tikzcd}
+        && Q \\
+        \\
+        A && P && B \\
+        \\
+        && Q
+        \arrow["{{\vp}_{1}}"', from=1-3, to=3-1]
+        \arrow["u", from=1-3, to=3-3]
+        \arrow["{{\vp}_{2}}", from=1-3, to=3-5]
+        \arrow["{{p}_{1}}", from=3-3, to=3-1]
+        \arrow["{{p}_{2}}"', from=3-3, to=3-5]
+        \arrow["v"', from=3-3, to=5-3]
+        \arrow["{{\vp}_{1}}", from=5-3, to=3-1]
+        \arrow["{{\vp}_{2}}"', from=5-3, to=3-5]
+    \end{tikzcd}
+\end{center}
+\begin{problem}
+    Let $A$, $B$, and $C$ be sets. Use the universal property to prove that $A\times(B\times C)=(A\times B)\times C$.
+\end{problem}
+\begin{definition}
+    Let $\cat{C}$ be a category. Let $A$ and $B$ be objects in $\cat{C}$. The \hdef{coproduct} of $A$ and $B$, denoted $Q$, is an object in $\cat{C}$ with morphisms ${q}_{1}:A\to Q$ and ${q}_{2}:B\to Q$ such that for all object $Y$ in $\cat{C}$ with morphisms ${\vp}_{1}:A\to Y$ and ${\vp}_{2}:B\to Y$, there exists a unique $v:Q\to Y$ such that the diagram commutes.
+\end{definition}
+\begin{center}
+    \begin{tikzcd}
+        && Y \\
+        \\
+        A && Q && B
+        \arrow["{{\vp}_{1}}", from=3-1, to=1-3]
+        \arrow["{{q}_{1}}"', from=3-1, to=3-3]
+        \arrow["v"', from=3-3, to=1-3]
+        \arrow["{{\vp}_{2}}"', from=3-5, to=1-3]
+        \arrow["{{q}_{2}}", from=3-5, to=3-3]
+    \end{tikzcd}
+\end{center}
+\begin{problem}
+    Prove that in $\cat{Set}$, the disjoint union satisfies the universal property for coproduct. Prove that the universal property characterizes disjoint union.
+\end{problem}
+\begin{problem}
+    Describe the product and coproduct in $\cat{{Set}^{op}}$. 
+\end{problem}
+\par
+Categorically, we can restate the axiom of choice as follows.
+\begin{Axiom of choice}
+    Any epimorphism in $\cat{Set}$ has a right inverse.
+\end{Axiom of choice}
+\par
+We will show how axiom of choice implies our categorical reformulation.
 
 
 \section{Categorical Reformulations}
