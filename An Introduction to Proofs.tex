@@ -448,7 +448,7 @@ Let $a,b\in X$, where $X$ is well-ordered. If $a\ge b$ and $a\ne b$, then we wri
     Let $(X,\le)$ be a well-ordered set. Let $x\in X$. Then the set $\{a\mid a\le x\}$ is called an \hdef{initial segment} of $X$ given by $x$.
 \end{definition}
 \par
-It is trivial that any initial segement of a well-ordered set is well-ordered.
+It is trivial that any initial segment of a well-ordered set is well-ordered.
 \begin{theorem}[well-ordering theorem]\index{well-ordering theorem}
     Every set is well-orderable.
 \end{theorem}
@@ -676,18 +676,18 @@ Recall that we have defined partial ordering by ``$\le$''. From now on, we requi
     Suppose $\{x\in X\mid f(x)<x\}\ne\es$, then it is well-ordered. Let $z$ be the least element of this set and let $f(z)=w$, then $f(w)<w$, a contradiction.
 \end{proof}
 \begin{problem}
-    Prove that any well-ordered set cannot have the same order-type as any of its initial segement.
+    Prove that any well-ordered set cannot have the same order-type as any of its initial segment.
 \end{problem}
 \begin{proposition}
     If ${W}_{1}$ and ${W}_{2}$ are well-ordered, then one of the following conditions hold.
     \begin{enumerate}
         \item ${W}_{1}$ and ${W}_{2}$ have the same order-type.
-        \item ${W}_{1}$ has the same order-type as an initial segement of ${W}_{2}$.
-        \item ${W}_{2}$ has the same order-type as an initial segement of ${W}_{1}$.
+        \item ${W}_{1}$ has the same order-type as an initial segment of ${W}_{2}$.
+        \item ${W}_{2}$ has the same order-type as an initial segment of ${W}_{1}$.
     \end{enumerate}
 \end{proposition}
 \begin{proof}
-    Denote the initial segement of ${W}_{i}$ by $x$ by ${W}_{i}(x)$. Let $f:{W}_{1}\to{W}_{2}$ be a function defined by $f(x)=y$ if ${W}_{1}(x)$ has the same order-type as ${W}_{2}(y)$. It is trivial that this map is well-defined and order-preserving. Let ${y}_{1}={y}_{2}$, then there exist ${x}_{1},{x}_{2}\in{W}_{1}$ such that ${W}_{1}({x}_{1})\iso{W}_{2}({y}_{1})={W}_{2}({y}_{2})\iso{W}_{1}({x}_{2})$, so ${W}_{1}({x}_{1})\iso{W}_{1}({x}_{2})$, which implies ${x}_{1}={x}_{2}$. Hence $f$ is injective. Let $h:{W}_{1}(x)\to{W}_{2}(y)$ be an order-preserving bijection. If $x'<x$, since $f$ is order-preserving, ${W}_{1}(x')\iso{W}_{2}(h(x'))$. If $\dom(f)={W}_{1}$ and $\ran(f)={W}_{2}$, then it is exactly case (\rom1). If $\ran(f)\ne{W}_{2}$. Let ${y}_{0}$ be the least element in ${W}_{2}\sm\ran(f)$, then ${W}_{2}({y}_{0})=\ran(f)$. Suppose $\dom(f)\ne{W}_{1}$, then pick the least element of ${W}_{1}\sm\dom(f)$, denoted ${x}_{0}$. It is trivial that $f({x}_{0})={y}_{0}$, a contradiction. This is case (\rom2). Similarly, if $\dom(f)\ne{W}_{1}$, define the same ${x}_{0}$. By contradiction, we have case (\rom3).
+    Denote the initial segment of ${W}_{i}$ by $x$ by ${W}_{i}(x)$. Let $f:{W}_{1}\to{W}_{2}$ be a function defined by $f(x)=y$ if ${W}_{1}(x)$ has the same order-type as ${W}_{2}(y)$. It is trivial that this map is well-defined and order-preserving. Let ${y}_{1}={y}_{2}$, then there exist ${x}_{1},{x}_{2}\in{W}_{1}$ such that ${W}_{1}({x}_{1})\iso{W}_{2}({y}_{1})={W}_{2}({y}_{2})\iso{W}_{1}({x}_{2})$, so ${W}_{1}({x}_{1})\iso{W}_{1}({x}_{2})$, which implies ${x}_{1}={x}_{2}$. Hence $f$ is injective. Let $h:{W}_{1}(x)\to{W}_{2}(y)$ be an order-preserving bijection. If $x'<x$, since $f$ is order-preserving, ${W}_{1}(x')\iso{W}_{2}(h(x'))$. If $\dom(f)={W}_{1}$ and $\ran(f)={W}_{2}$, then it is exactly case (\rom1). If $\ran(f)\ne{W}_{2}$. Let ${y}_{0}$ be the least element in ${W}_{2}\sm\ran(f)$, then ${W}_{2}({y}_{0})=\ran(f)$. Suppose $\dom(f)\ne{W}_{1}$, then pick the least element of ${W}_{1}\sm\dom(f)$, denoted ${x}_{0}$. It is trivial that $f({x}_{0})={y}_{0}$, a contradiction. This is case (\rom2). Similarly, if $\dom(f)\ne{W}_{1}$, define the same ${x}_{0}$. By contradiction, we have case (\rom3).
 \end{proof}
 \begin{definition}
     If $\vp(x,{p}_{1},{p}_{2},\dots)$ is some formula, then we say $C=\{x\mid\vp\}$ is a \hdef{class}, that is, $x$ is a member of $C$ if and only if $x$ satisfies $\vp$.
@@ -747,7 +747,7 @@ Suppose there exists a set of all ordinals, denoted $\text{On}$. Since every ele
 \par
 This proof is slightly technical, you may skip the proof and remember the result.
 \begin{proof}
-    Let $W$ be well-ordered. For all $x\in W$, consider the initial segement ${I}_{x}$ given by $x$. If ${I}_{x}\iso{\al}_{x}$, where ${\al}_{x}$ is some ordinal, then define $F(x)={\al}_{x}$. Suppose we have a set $M\sub W$ consisting of elements $x\in W$ such that ${I}_{x}$ does not exist. Let $m$ be the least element in $M$. Consider the set $\{{\al}_{y}\mid y<m\}$, this is a set of ordinals. Define $\al=\sup\{{\al}_{y}\mid y<m\}$. It is trivial that ${I}_{m}\iso\al$, a contradiction. Hence $F:W\to\text{On}$ is well-defined, by the axiom of replacement, $F(W)=\{{\al}_{x}\}$ is a set. For all $x,y\in W$ and $x<y$, ${I}_{x}\subn{I}_{y}$, so ${\al}_{x}\in{\al}_{y}$, which is $F(x)<F(y)$. This also shows $F$ is injective. Let $\ga=\min(\text{On}\sm F(W))$, then $F(W)\sub\ga$. If $\be<\ga$ is an ordinal, then $\be\in F(W)$, so $F(W)=\{\be\mid\be<\ga\}=\ga$. Hence $F:W\to\ga$ is an order-preserving bijection.
+    Let $W$ be well-ordered. For all $x\in W$, consider the initial segment ${I}_{x}$ given by $x$. If ${I}_{x}\iso{\al}_{x}$, where ${\al}_{x}$ is some ordinal, then define $F(x)={\al}_{x}$. Suppose we have a set $M\sub W$ consisting of elements $x\in W$ such that ${I}_{x}$ does not exist. Let $m$ be the least element in $M$. Consider the set $\{{\al}_{y}\mid y<m\}$, this is a set of ordinals. Define $\al=\sup\{{\al}_{y}\mid y<m\}$. It is trivial that ${I}_{m}\iso\al$, a contradiction. Hence $F:W\to\text{On}$ is well-defined, by the axiom of replacement, $F(W)=\{{\al}_{x}\}$ is a set. For all $x,y\in W$ and $x<y$, ${I}_{x}\subn{I}_{y}$, so ${\al}_{x}\in{\al}_{y}$, which is $F(x)<F(y)$. This also shows $F$ is injective. Let $\ga=\min(\text{On}\sm F(W))$, then $F(W)\sub\ga$. If $\be<\ga$ is an ordinal, then $\be\in F(W)$, so $F(W)=\{\be\mid\be<\ga\}=\ga$. Hence $F:W\to\ga$ is an order-preserving bijection.
 \end{proof}
 \par
 We can conclude that every well-ordered set has the same order-type as a unique ordinal.
@@ -846,7 +846,7 @@ Recall that we have defined $\le$ on $\N$ by the natural inclusion, that is, for
     For all $n\in\N$ and $n\ge 2$, $n$ can be factored as a product of prime numbers and the factorization is unique.
 \end{theorem}
 \begin{proof}
-    It is trivial that $2=2$, $3=3$, $4=2\cdot 2$, $\dots$. Suppose every number $n\le k$ for a given $k$ admits a prime factorization. If $k+1$ is prime, then $k+1=k+1$. If $k+1$ is not prime, then there exists ${n}_{1},{n}_{2}\in\Z$ such that ${n}_{1}{n}_{2}=k+1$. Since ${n}_{1}$ and ${n}_{2}$ admits prime factorization, $k+1$ admits prime factorization. We have the trivial case $2=2$. Assume the factorization is unique for all $m$ with $2\le m<n$. Suppose $\prod{p}_{i}$ and $\prod{q}_{j}$ are prime factorizations of $n$. Rewrite those factorizations such that ${p}_{i}\le{p}_{i+1}$ and ${q}_{j}\le{q}_{j+1}$. Since ${p}_{1}$ divides $\prod{q}_{j}$ and ${p}_{1}$ is prime, it must divide one of the ${q}_{j}$, so ${p}_{1}\le{q}_{1}\le{q}_{j}$. Apply the same argument, ${q}_{1}\le{p}_{1}$, so ${q}_{1}={p}_{1}$. Now ${p}_{2}\cdots{p}_{r}={q}_{2}\cdots{q}_{s}<n$. Hence, by induction, ${p}_{i}={q}_{i}$, the factorization is unique.
+    It is trivial that $2=2$, $3=3$, $4=2\cdot 2$, $\dots$. Suppose every number $n\le k$ for a given $k$ admits a prime factorization. If $k+1$ is prime, then $k+1=k+1$. If $k+1$ is not prime, then there exist ${n}_{1},{n}_{2}\in\Z$ such that ${n}_{1}{n}_{2}=k+1$. Since ${n}_{1}$ and ${n}_{2}$ admits prime factorization, $k+1$ admits prime factorization. We have the trivial case $2=2$. Assume the factorization is unique for all $m$ with $2\le m<n$. Suppose $\prod{p}_{i}$ and $\prod{q}_{j}$ are prime factorizations of $n$. Rewrite those factorizations such that ${p}_{i}\le{p}_{i+1}$ and ${q}_{j}\le{q}_{j+1}$. Since ${p}_{1}$ divides $\prod{q}_{j}$ and ${p}_{1}$ is prime, it must divide one of the ${q}_{j}$, so ${p}_{1}\le{q}_{1}\le{q}_{j}$. Apply the same argument, ${q}_{1}\le{p}_{1}$, so ${q}_{1}={p}_{1}$. Now ${p}_{2}\cdots{p}_{r}={q}_{2}\cdots{q}_{s}<n$. Hence, by induction, ${p}_{i}={q}_{i}$, the factorization is unique.
 \end{proof}
 \begin{theorem}[Euclid's theorem]\index{Euclid's theorem}
     There are infinitely many primes.
@@ -2000,9 +2000,12 @@ Categorically, we can restate the axiom of choice as follows.
 \end{Axiom of choice}
 \par
 We will show how axiom of choice implies our categorical reformulation.
+\begin{proof}
+    
+\end{proof}
 
 
-\section{Categorical Reformulations}
+
 \par
 Recall that $\cat{Set}$ does not have a zero object. We will take $\cat{Grp}$ as an example to show more categorical definitions and reformulate our notions of $\cat{Grp}$ and $\cat{Top}$.
 \begin{problem}
