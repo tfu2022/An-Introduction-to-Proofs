@@ -1405,59 +1405,38 @@ We conclude that the set of all rational Cauchy sequences is a commutative ring 
 \begin{problem}
     Prove that $\ca{C}$ is not an integral domain.
 \end{problem}
-
-
+\begin{problem}
+    Let $I$ be the set of all Cauchy sequences in $\ca{C}$ that converge to 0. Prove $I$ is an ideal of $\ca{C}$.
+\end{problem}
+\begin{proposition}
+    If $\{{a}_{k}\}$ is a sequence in $\ca{C}\sm I$, then there exist a positive rational number $r$ and $N\in\N$ such that $\card{{a}_{k}}\ge r$ for all $n\ge N$.
+\end{proposition}
+\begin{proof}
+    If $\{{a}_{k}\}$ does not converge to 0, then there exists $r\in{\Q}^{+}$ such that for all $N\in\N$ there exists $k\ge N$ such that $\card{{a}_{k}}\ge 2r$. Since $\{{a}_{k}\}$ is Cauchy, for all $n,m\ge\N$, there exists $N\in\N$ such that $\card{{a}_{n}-{a}_{m}}<r$. Now we have $\card{{a}_{m}-{a}_{n}}<r$, then $\card{{a}_{m}-{a}_{n}}\le\card{{a}_{m}-{a}_{n}}<r$, which implies $\card{{a}_{n}}>\card{{a}_{m}}-r$. Fix $m\ge N$ and let $\card{{a}_{m}}\ge 2r$, then $\card{{a}_{n}}>\card{{a}_{m}}-r\ge 2r-r=r$.
+\end{proof}
+\par
+In other words, if a Cauchy sequence $\{{a}_{k}\}$ does not converge to 0, then after certain point $n\ge N$ the sequence stays at least $r$ distance away from 0.
+\begin{proposition}
+    If a Cauchy sequence does not converge to 0, all terms of the sequence eventually have the same sign.
+\end{proposition}
+\begin{proof}
+    If $\{{a}_{k}\}$ is a Cauchy sequence that does not converge to 0, then $\{{a}_{}k\}\notin I$. There exists some $r>0$ and $N$ so that $\card{{a}_{k}}\ge r$ for all $n\ge N$. Since $\{{a}_{k}\}$ is Cauchy and $r>0$, there exists $M$ such that if $m,n\ge M$, then $\card{{a}_{n}-{a}_{m}}< r$. Assume without loss of generality that there is some $k>\max(M,N)$ such that ${a}_{k}$ is positive. Fix ${a}_{k}$, pick any $n\ge k$ from the sequence. If ${a}_{n}>{a}_{k}$, then we are done. If ${a}_{n}<{a}_{k}$, then ${a}_{k}-{a}_{n}<r$ which implies ${a}_{n}$ is positive for all $n$.
+\end{proof}
+\par
+Let $\{{a}_{k}\}$ and $\{{b}_{k}\}$ be Cauchy sequences in $\Q$. Define an relation $\sim$ on $\ca{C}$ as follows: $\{{a}_{k}\}\sim\{{b}_{k}\}$ if and only if $\{{a}_{k}-{b}_{k}\}\in I$. 
+\begin{problem}
+    Prove that $\sim$ is indeed an equivalence relation.
+\end{problem}
+\par
+Now we denote $\ca{C}/I$ by $\ca{R}$. If $\{{a}_{k}\}$ and $\{{b}_{k}\}$ are Cauchy sequences, define the addition and multiplication to be $[{a}_{k}]+[{b}_{k}]=[{a}_{k}+{b}_{k}]$ and $[{a}_{k}][{b}_{k}]=[{a}_{k}{b}_{k}]$.
+\begin{problem}
+    Prove that the addition and multiplication are well-defined on $\ca{C}/I$.
+\end{problem}
 
 \newpage
 
-\begin{proposition}
-    Let $I := \{\text{Cauchy sequences that converge to }0\}$. $I\subset \mathcal C$ is an ideal.
-\end{proposition}
-\begin{proof}[proof sketch]
-    Let $I$ be the set of sequences $\{a_k\}$ in $\mathcal C$ with the property that, given any rational $r > 0$, there exists an integer $N$ such that if $n \geq N$, then $|a_n| < r$. For any $c\in \mathcal{C}$ and $i\in I$, the sequence $ci$ can be eventually scaled down to 0 because $c$ is bounded. For any $i'\in I$, obviously $i+i'\in I$.
-\end{proof}
-\begin{proposition}
-    If $\{a_k\}\in \mathcal{C} \setminus I$, then there exist a positive rational number $r$ and an integer $N$ so that $|a_k|\geq r$ for all $n\geq N$. In other words, if a Cauchy sequence $\{a_k\}$ does not converge to 0, then after certain point $n\geq N$ the sequence stays at least $r$ distance away from 0.
-\end{proposition}
-\begin{proof}
-    If $\{a_k\}\nrightarrow 0$, then there exists $ r \in \Q^+$ such that for all $ N \in \N$ there exists $ k\geq N$ such that $|a_k| \geq 2r$ (the negation of converging to 0: there are some $r$ that $a_k$ is $2r$ away from 0). Since $\{a_k\}$ is Cauchy, for all $n, m \geq \N$ there exists $N \in \N$ such that $|a_n - a_m| < r$.
-    \begin{align*}
-        &\Rightarrow |a_m - a_n| < r\tag{ property of absolute value}\\
-        &\Rightarrow |a_m|-|a_n|\leq |a_m - a_n| < r\tag{reverse triangle inequality}\\
-        &\Rightarrow -|a_n|<-|a_m|+r \Rightarrow |a_n|>|a_m|-r
-    \end{align*}
-    Now fix $m \geq N$ and let $|a_m|\geq 2r$: $|a_n|>|a_m|-r\geq 2r-r$. This implies $|a_n|>r$ and holds for all $n\geq N$.
-\end{proof}
-\begin{corollary}
-    if a Cauchy sequence does not converge to 0, all terms of the sequence eventually have the same sign.
-\end{corollary}
-\begin{proof}
-    If $\{a_k\}$ is a Cauchy sequence that doesn't converge to 0, then $\{a_k\}\notin I$. By the above proposition, there exists some $ r>0$ and $N$ so that $| a_k|\geq r$ for all $n\geq N$. Since $\{a_k\}$ is Cauchy and $r>0$, there exists $M$ such that if $m,n \geq M$, then $| a_n-a_m|< r$. Assume without loss of generality that there is some $k>\text{max} (M,N)$ such that $a_k$ is positive. Fix $a_k$, pick any $n\geq k$ from the sequence:
-    \begin{enumerate}
-        \item[\circled{1}] If $a_n>a_k$, then we are done ($a_n$ is for sure positive).
-        \item[\circled{2}] If $a_n<a_k$, then $a_k-a_n<r$ which implies $a_n$ is positive for all $n$.
-    \end{enumerate}
-\end{proof}
-\begin{definition}[equivalence classes of Cauchy sequences]
-    Let $\{a_k\}$ and $\{b_k\}$ be Cauchy sequences in $\Q$. We say that $\{a_k\}$ is equivalent to $\{b_k\}$, denoted by $\{a_k\}\sim\{b_k\}$, if $\{c_k\} = \{a_k-b_k\}$is in $I$.
-\end{definition}
-\begin{proposition}
-    The "$\sim$" defined above gives an equivalence relation.
-\end{proposition}
-\begin{proof}
-    We need to check "$\sim$" is reflexive, symmetric, and transitive.
-    \begin{enumerate}
-        \item[] Reflexive: For all $\{a_k\}$, $\{a_k\} - \{a_k\} = \{0\} \in I$.
-        \item[] Symmetric: If $\{a_k - b_k\} \in I$, then for all $\epsilon > 0$, there exists some $N \in \N$ such that for all $ n \geq N$, $|a_n - b_n - 0| < \epsilon$. This means that $|b_n - a_n - 0| < \epsilon$, so $\{b_k - a_k\} \in I$.
-        \item[] Transitive: If $\{a_k - b_k\} \in I$, then for all $\epsilon / 2 > 0$, there exists $N_1 \in \N$ such that for all $ n \geq N_1$, $|a_n - b_n - 0| <  \epsilon/ 2$. If also $\{b_k - c_k\} \in I$, then for all $ \epsilon > 0$, there exists $ N_2 \in \N$ such that for all $n \geq N_2$, $|b_n - c_n - 0| < \epsilon/ 2$. Let $N = \text{max}(N_1, N_2)$. Then for all $n > N$, $|a_n - b_n - 0| <  \epsilon/ 2$ and $|b_n - c_n - 0| <  \epsilon/ 2$. It follows that $|a_n - b_n - 0 + b_n - c_n - 0| = |a_n - c_n - 0| < \epsilon$. So $\{a_k - c_k\} \in I$.
-    \end{enumerate}
-\end{proof}
-\begin{definition}[set of equivalence classes]
-    Define $\textbf{R}:=\mathcal{C}/I$ as the set of all equivalence classes in $\mathcal{C}$.
-\end{definition}
-\begin{proposition}
-    Term-wise addition and multiplication are well-defined on $\textbf{R}$: If $\{a_k\}$ is a Cauchy sequence, denote its equivalence class by $[a_k]$, then the sum and product of equivalence classes are defined as $[a_k] + [b_k] = [a_k + b_k]$ and $[a_k][b_k] = [a_kb_k]$.
-\end{proposition}
+
+
 \begin{proposition}
     Assume $\mathbf{R} = \mathcal{C}/I$ is a commutative ring\footnote{This is not hard to show. But for right now, we do not have the construction needed to prove this fact.}. It turned out $\mathbf{R}$ is a field.
 \end{proposition}
@@ -2003,11 +1982,8 @@ We will show how axiom of choice implies our categorical reformulation.
 \begin{proof}
     
 \end{proof}
-
-
-
 \par
-Recall that $\cat{Set}$ does not have a zero object. We will take $\cat{Grp}$ as an example to show more categorical definitions and reformulate our notions of $\cat{Grp}$ and $\cat{Top}$.
+Recall that $\cat{Set}$ does not have a zero object. We will take $\cat{Grp}$ as an example to show more categorical definitions and reformulate our notions of $\cat{Grp}$.
 \begin{problem}
     Prove that in $\cat{Grp}$, the product of two groups $G$ and $H$ is the Cartesian product $G\times H$.
 \end{problem}
