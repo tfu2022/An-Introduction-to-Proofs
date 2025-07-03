@@ -1432,16 +1432,25 @@ Now we denote $\ca{C}/I$ by $\ca{R}$. If $\{{a}_{k}\}$ and $\{{b}_{k}\}$ are Cau
 \begin{problem}
     Prove that the addition and multiplication are well-defined on $\ca{C}/I$.
 \end{problem}
-
+\begin{proposition}
+    The quotient set $\ca{R}$ is a field.
+\end{proposition}
+\begin{proof}
+    Since $\ca{R}=\ca{C}/I$ and $\ca{C}$ is a commutative ring, $\ca{R}$ is a commutative ring. Now we are left to show that multiplicative inverses exist for nonzero elements of $\ca{R}$. 
+\end{proof}
+\par
+Let $a=[{a}_{k}],b=[{b}_{k}]\in\ca{R}$ be distinct. We define $a\le b$ if and only if ${a}_{k}\le{b}_{k}$ eventually.
+\begin{definition}
+    Let $F$ be a field and let $\le$ be a partial-ordering on $F$. We say $F$ is an \hdef{ordered field} if the following properties hold.
+    \begin{enumerate}
+        \item 
+    \end{enumerate}
+\end{definition}
 \newpage
 
 
-
-\begin{proposition}
-    Assume $\mathbf{R} = \mathcal{C}/I$ is a commutative ring\footnote{This is not hard to show. But for right now, we do not have the construction needed to prove this fact.}. It turned out $\mathbf{R}$ is a field.
-\end{proposition}
 \begin{proof}
-    We only need to show that multiplicative inverses exist for nonzero elements of $\mathbf{R}$. Consider some arbitrary $[a_k] \neq I$. By Proposition ???, since $[a_k]\nrightarrow 0$, the absolute value of $[a_k]$ is eventually bounded below. In other words, there exists $N\in\N$ and $r > 0$, such that $|a_n| > r$ for all $n \geq N$. Therefore, we define $[b_k]$ as follows:
+    Consider some arbitrary $[a_k] \neq I$. By Proposition ???, since $[a_k]\nrightarrow 0$, the absolute value of $[a_k]$ is eventually bounded below. In other words, there exists $N\in\N$ and $r > 0$, such that $|a_n| > r$ for all $n \geq N$. Therefore, we define $[b_k]$ as follows:
     \begin{align*}
         \{b_k\}=
         \begin{cases}
@@ -1455,9 +1464,10 @@ Now we denote $\ca{C}/I$ by $\ca{R}$. If $\{{a}_{k}\}$ and $\{{b}_{k}\}$ are Cau
     \end{align*}
     This implies that $\{b_k\}$ is Cauchy. Furthermore, $\{a_k\}\{b_k\}\rightarrow 1$, which means that $\{b_k\}$ is the multiplicative inverse of $\{a_k\}$. Therefore, $\mathbf{R}$ is a field.
 \end{proof}
-\begin{definition}[order of $\mathbf{R}$]
-    Let $a=[a_k]$,$b=[b_k]$ be distinct elements of $\textbf{R}$. We define $a<b$ if $a_k <b_k$ eventually and $b<a$ if $b_k <a_k$ eventually.
-\end{definition}
+
+
+\newpage
+
 \begin{definition}[order axioms]
     Here are the order axioms
     \begin{enumerate}
