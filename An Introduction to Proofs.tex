@@ -815,10 +815,15 @@ Recall that we have constructed $\N$ by axioms. By the convention of quotient se
     The set of all \hdef{integers}, denoted $\Z$, is defined to be ${(\N\times{\N})}_{{\sim}_{\N+}}$. Let $[(a,b)]\in\Z$, the \hdef{inverse} of $[(a,b)]$ is defined to be $[(b,a)]$.
 \end{definition}
 \begin{problem}
-    Prove that there exists a bijection between $\{[(a,b)]\mid a,b\in\N, a\subn b\}$ and $\{[(b,a)]\mid a,b\in\N, b\subn a\}$, conclude that the inverse of an integer is unique.
+    Prove that there exists a bijection between $\{[(a,b)]\in\Z\mid a\sub b\}$ and $\{[(b,a)]\in\Z\mid b\sub a\}$, conclude that the inverse of an integer is unique.
 \end{problem}
 \par
-Let $n\in\Z$, the inverse of $n$ is denoted by $-n$.
+Let $n\in\Z$, the inverse of $n$ is denoted by $-n$. The analogy of ${\sim}_{+}$ is  the ``subtraction''. We will use a similar trick to define ``division'' later.
+\begin{problem}
+    Prove that there exists a bijection $f:\{[(a,b)]\in\Z\mid a\sub b\}\to\N$.
+\end{problem}
+\par
+For two sets, if there exists a bijection between them, we say they are isomorphic as sets, which means they have exactly the same structure. In this case, $\{[(a,b)]\in\Z\mid a\sub b\}\sub Z$ has the same structure as $\N$. We only care about the structures here, so please consider $\N\sub\Z$. The idea of structures and isomorphisms will be explained later.
 \begin{definition}
     Let $[(a,b)],[(c,d)]\in\Z$. The \hdef{addition} on $\Z$ is defined to be $[(a,b)]+[(c,d)]=[(a+c,b+d)]$.
 \end{definition}
@@ -860,6 +865,11 @@ Recall that we have defined $\le$ on $\N$ by the natural inclusion, that is, for
 \begin{definition}
     The \hdef{rational numbers}, denoted $\Q$, is defined to be the set ${(\Z\times(\Z\sm\{0\}))}_{{\sim}_{\Z\times}}$. Let $[(a,b)],[(c,d)]\in\Q$, the \hdef{addition} is defined to be $[(a,b)]+[(c,d)]=[(ad+bc,bd)]$ and the \hdef{multiplication} on $\Q$ is defined to be $[(a,b)]\cdot[(c,d)]=[(ac,bd)]$.
 \end{definition}
+\begin{problem}
+    Find the subset of $S\sub\Q$ such that there exists a bijection from $S$ to $\Z$. Prove your choice of $S$ is the desired set.
+\end{problem}
+\par
+Similarly, we take this as $\Z\sub\Q$.
 \begin{problem}
     Prove that addition and multiplication on $\Q$ are well-defined.
 \end{problem}
@@ -1337,6 +1347,9 @@ Consider the function $\card{\cdot}:\Q\to\Q$ defined by $\card{a}=a$ if $a\ge 0$
 \begin{remark}
     We will use the notation $\{{a}_{n}\}$ for a sequence ${\{{a}_{n}\}}_{n=1}^{\infty}$.
 \end{remark}
+\begin{remark}
+    For the rest of our construction, we use ${\Q}^{+}$ to denote the set $\{a\in\Q\mid a>0\}$.
+\end{remark}
 \begin{definition}
     A sequence $\{{a}_{n}\}$ \hdef{converges} to $a\in\Q$ if for all $r\in{\Q}^{+}$, there exists $N\in\N$ such that for all $n\ge N$, $\card{{a}_{n}-a}<r$. If a sequence $\{{a}_{n}\}$ converges to $a$, then we write $\{{a}_{n}\}\to a$. Here $a$ is called the \hdef{limit} of $\{{a}_{n}\}$.
 \end{definition}
@@ -1446,9 +1459,10 @@ Let $a=[{a}_{k}],b=[{b}_{k}]\in\ca{R}$ be distinct. We define $a\le b$ if and on
         \item 
     \end{enumerate}
 \end{definition}
+\par
+We define the set of all real numbers, denoted $\R$, to be the ordered field $\ca{R}$. For all $x\in\Q$, $x$ is considered to be the sequence $\{{x}_{n}\}$, where ${x}_{n}=x$ for all $n$. It is trivial that $\Q\sub\R$.
+
 \newpage
-
-
 \begin{proof}
     Consider some arbitrary $[a_k] \neq I$. By Proposition ???, since $[a_k]\nrightarrow 0$, the absolute value of $[a_k]$ is eventually bounded below. In other words, there exists $N\in\N$ and $r > 0$, such that $|a_n| > r$ for all $n \geq N$. Therefore, we define $[b_k]$ as follows:
     \begin{align*}
