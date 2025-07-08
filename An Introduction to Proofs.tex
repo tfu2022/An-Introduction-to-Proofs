@@ -418,6 +418,9 @@ Let $(X,\le)$ be a partially ordered set. Let $Y\sub X$ and $Y\ne\es$. We say $a
 \begin{definition}
     Let $(X,\le)$ be a partially ordered set and let $Y$ be a nonempty subset of $X$. An element $a\in X$ is said to be an \hdef{upper bound} of $Y$ if for all $y\in Y$, $y\le a$. An element $a\in X$ is said to be a \hdef{lower bound} of $Y$ if for all $y\in Y$, $a\le y$. We call the least upper bound of $Y$ the \hdef{supremum} and we call the greatest lower bound of $Y$ the \hdef{infimum}.
 \end{definition}
+\begin{problem}
+    Prove that if supremum and infimum exist, then they are unique.
+\end{problem}
 \begin{definition}
     A partially ordered set $(X,\le)$ is \hdef{linearly ordered} if for all $p,q\in X$, either $p\le q$ or $q\le p$.
 \end{definition}
@@ -1432,7 +1435,7 @@ In other words, if a Cauchy sequence $\{{a}_{k}\}$ does not converge to 0, then 
     If a Cauchy sequence does not converge to 0, all terms of the sequence eventually have the same sign.
 \end{proposition}
 \begin{proof}
-    If $\{{a}_{k}\}$ is a Cauchy sequence that does not converge to 0, then $\{{a}_{}k\}\notin I$. There exists some $r>0$ and $N$ so that $\card{{a}_{k}}\ge r$ for all $n\ge N$. Since $\{{a}_{k}\}$ is Cauchy and $r>0$, there exists $M$ such that if $m,n\ge M$, then $\card{{a}_{n}-{a}_{m}}< r$. Assume without loss of generality that there is some $k>\max(M,N)$ such that ${a}_{k}$ is positive. Fix ${a}_{k}$, pick any $n\ge k$ from the sequence. If ${a}_{n}>{a}_{k}$, then we are done. If ${a}_{n}<{a}_{k}$, then ${a}_{k}-{a}_{n}<r$ which implies ${a}_{n}$ is positive for all $n$.
+    If $\{{a}_{k}\}$ is a Cauchy sequence that does not converge to 0, then $\{{a}_{k}\}\notin I$. There exists some $r>0$ and $N$ so that $\card{{a}_{k}}\ge r$ for all $n\ge N$. Since $\{{a}_{k}\}$ is Cauchy and $r>0$, there exists $M$ such that if $m,n\ge M$, then $\card{{a}_{n}-{a}_{m}}< r$. Assume without loss of generality that there is some $k>\max(M,N)$ such that ${a}_{k}$ is positive. Fix ${a}_{k}$, pick any $n\ge k$ from the sequence. If ${a}_{n}>{a}_{k}$, then we are done. If ${a}_{n}<{a}_{k}$, then ${a}_{k}-{a}_{n}<r$ which implies ${a}_{n}$ is positive for all $n$.
 \end{proof}
 \par
 Let $\{{a}_{k}\}$ and $\{{b}_{k}\}$ be Cauchy sequences in $\Q$. Define an relation $\sim$ on $\ca{C}$ as follows: $\{{a}_{k}\}\sim\{{b}_{k}\}$ if and only if $\{{a}_{k}-{b}_{k}\}\in I$. 
@@ -1512,40 +1515,33 @@ We say $\R$ is dense over $\Q$. Now we define the set of \hdef{irrationals} to b
 \begin{problem}
     Prove that rational numbers are algebraic.
 \end{problem}
-
-
-
+\begin{proposition}
+    If the coefficients of the monic polynomial equation ${x}^{n}+{c}_{n-1}{x}^{n-1}+\cdots+{c}_{1}x+c=0$ are integers, then any rational solution $q$ of the polynomial is an integer that divides $c$.
+\end{proposition}
 \begin{problem}
     Prove that $\sqrt{p}$ is irrational, where $p$ is a prime.
+\end{problem}
+\begin{problem}
+    Let $a\in\R\sm\Q$. Let $c\in\Q$ and $c\ne 0$. Prove that $a+c,ac\in\R\sm\Q$.
 \end{problem}
 \begin{proposition}
     Irrationals are dense over $\Q$.
 \end{proposition}
 \begin{proof}
-    Let $a,b$ be arbitrary real numbers such that $a<b$. Since $\sqrt{2}>0$, ${a}/{\sqrt{2}}<{b}/{\sqrt{2}}$. Because the rational numbers are dense, we know that there exists some ${p}/{q}\in\Q$ such that ${a}/{\sqrt{2}}<{p}/{q}<{b}/{\sqrt{2}}$. Therefore, $a<\sqrt{2}({p}/{q})<b$. Because ${p}/{q}$ is rational and $\sqrt{2}$ is irrational, we know that their product $\sqrt{2}({p}/{q})$ is irrational. Let $r=\sqrt{2}({p}/{q})$. We have
-    $a<r<b,r\in\R\sm\Q$, which is what we needed to show.
+    Let $a,b$ be arbitrary real numbers such that $a<b$. Since $\sqrt{2}>0$, ${a}/{\sqrt{2}}<{b}/{\sqrt{2}}$. Because the rational numbers are dense, we know that there exists some ${p}/{q}\in\Q$ such that ${a}/{\sqrt{2}}<{p}/{q}<{b}/{\sqrt{2}}$. Therefore, $a<\sqrt{2}({p}/{q})<b$. Because ${p}/{q}$ is rational and $\sqrt{2}$ is irrational, we know that their product $\sqrt{2}({p}/{q})$ is irrational. Let $r=\sqrt{2}({p}/{q})$. We have $a<r<b,r\in\R\sm\Q$.
 \end{proof}
 
 
+% closed intervals & metric on R
 
-\newpage
+\begin{definition}
+    
+\end{definition}
 \begin{proposition}
-    Real numbers are not countable.
+    Let ${([{a}_{n},{b}_{n}])}_{n\in\N}$ be a nested sequence of closed bounded intervals in $\R$. That is, for any $n$, we have $[{a}_{n+1},{b}_{n+1}]\sub[{a}_{n},{b}_{n}]$. Then ${\In}_{n\in\N}[{a}_{n},{b}_{n}]\ne\es$.
 \end{proposition}
 \begin{proof}
-    Use Cantor's diagonal argument on real numbers.
-\end{proof}
-
-
-
-
-
-
-\begin{proposition}
-    Let $([a_n,b_n])_{n\in \mathbb{N}}$ be a nested sequence of closed bounded intervals in $\mathbb{R}$. That is, for any $n$, we have $[a_{n+1},b_{n+1}]\subseteq [a_{n},b_{n}]$, or equivalently, $a_n\leq a_{n+1}\leq b_{n+1}\leq b_n$ for all $n$. Then $\bigcap_{n\in \mathbb{N}}^{} [a_n,b_n]\neq \emptyset $.
-\end{proposition}
-\begin{proof}
-    Let $A=\left \{ a_n\mid n\in \mathbb{N} \right \}$. $A$ is bounded above by some $b_1$, which implies for every $a_n\in A$, $a_n\leq b_1$. If $a_m$=lub($A$), $a_n\leq a_m\leq b_1$. $a_m\in [a_n,b_1]$ and $a_m\in \bigcap_{n\in \mathbb{N}}^{} [a_n,b_n]$.
+    Let $A=\left \{ a_n\mid n\in \mathbb{N} \right \}$. $A$ is bounded above by some $b_1$, which implies for every $a_n\in A$, $a_n\leq b_1$. If ${a}_{m}=\inf(A)$, $a_n\leq a_m\leq b_1$. $a_m\in [a_n,b_1]$ and $a_m\in \bigcap_{n\in \mathbb{N}}^{} [a_n,b_n]$.
 \end{proof}
 \begin{remark}
     What happens if we replace $[a_n,b_n]$ with $(a_n,b_n]$ and assume $a_n<b_n$? Does the proposition still hold?
