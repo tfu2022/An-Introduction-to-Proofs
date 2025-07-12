@@ -681,17 +681,6 @@ Recall that we have defined partial ordering by ``$\le$''. From now on, we requi
 \begin{problem}
     Prove that any well-ordered set cannot have the same order-type as any of its initial segment.
 \end{problem}
-\begin{proposition}
-    If ${W}_{1}$ and ${W}_{2}$ are well-ordered, then one of the following conditions hold.
-    \begin{enumerate}
-        \item ${W}_{1}$ and ${W}_{2}$ have the same order-type.
-        \item ${W}_{1}$ has the same order-type as an initial segment of ${W}_{2}$.
-        \item ${W}_{2}$ has the same order-type as an initial segment of ${W}_{1}$.
-    \end{enumerate}
-\end{proposition}
-\begin{proof}
-    Denote the initial segment of ${W}_{i}$ by $x$ by ${W}_{i}(x)$. Let $f:{W}_{1}\to{W}_{2}$ be a function defined by $f(x)=y$ if ${W}_{1}(x)$ has the same order-type as ${W}_{2}(y)$. It is trivial that this map is well-defined and order-preserving. Let ${y}_{1}={y}_{2}$, then there exist ${x}_{1},{x}_{2}\in{W}_{1}$ such that ${W}_{1}({x}_{1})\iso{W}_{2}({y}_{1})={W}_{2}({y}_{2})\iso{W}_{1}({x}_{2})$, so ${W}_{1}({x}_{1})\iso{W}_{1}({x}_{2})$, which implies ${x}_{1}={x}_{2}$. Hence $f$ is injective. Let $h:{W}_{1}(x)\to{W}_{2}(y)$ be an order-preserving bijection. If $x'<x$, since $f$ is order-preserving, ${W}_{1}(x')\iso{W}_{2}(h(x'))$. If $\dom(f)={W}_{1}$ and $\ran(f)={W}_{2}$, then it is exactly case (\rom1). If $\ran(f)\ne{W}_{2}$. Let ${y}_{0}$ be the least element in ${W}_{2}\sm\ran(f)$, then ${W}_{2}({y}_{0})=\ran(f)$. Suppose $\dom(f)\ne{W}_{1}$, then pick the least element of ${W}_{1}\sm\dom(f)$, denoted ${x}_{0}$. It is trivial that $f({x}_{0})={y}_{0}$, a contradiction. This is case (\rom2). Similarly, if $\dom(f)\ne{W}_{1}$, define the same ${x}_{0}$. By contradiction, we have case (\rom3).
-\end{proof}
 \begin{definition}
     If $\vp(x,{p}_{1},{p}_{2},\dots)$ is some formula, then we say $C=\{x\mid\vp\}$ is a \hdef{class}, that is, $x$ is a member of $C$ if and only if $x$ satisfies $\vp$.
 \end{definition}
@@ -708,11 +697,27 @@ Recall that we have defined partial ordering by ``$\le$''. From now on, we requi
 \begin{Axiom schema of replacement}\index{axiom schema of replacement}
     If a class $F$ is a funciton, then there exists a set $Y=F(X)=\{F(x)\mid x\in X\}$ for all $X$.
 \end{Axiom schema of replacement}
-\begin{problem}
-    Prove that axiom schema of replacement implies axiom schema of separation.
-\end{problem}
 \par
-Notice that the axiom schema of separation guarantees the existence of functions, so we need both axioms.
+You may notice that the axiom schema of replacement seems to ``imply'' the axiom schema of separation. However, the axiom schema of separation guarantees the existence of functions, so we need both axioms.
+\customtheorem{Axiom of choice}
+\begin{Axiom of choice}\index{axiom of choice}
+    Let $X$ be a set and $X\ne\es$. Then there exists a map $f:\ps(X)\to X$ such that for every $x\subn X$, where $x\ne\es$, $f(x)\in x$. 
+\end{Axiom of choice}
+\par
+We call such a function $f$ a \hdef{choice function}. Therefore, we can reformulate the axiom of choice as: for every nonempty set $X$, there exists a choice function.
+\par
+From now on, we will give a detailed procedure to prove the well-ordering theorem. This process is technical and you may skip it.
+\begin{proposition}
+    If ${W}_{1}$ and ${W}_{2}$ are well-ordered, then one of the following conditions hold.
+    \begin{enumerate}
+        \item ${W}_{1}$ and ${W}_{2}$ have the same order-type.
+        \item ${W}_{1}$ has the same order-type as an initial segment of ${W}_{2}$.
+        \item ${W}_{2}$ has the same order-type as an initial segment of ${W}_{1}$.
+    \end{enumerate}
+\end{proposition}
+\begin{proof}
+    Denote the initial segment of ${W}_{i}$ by $x$ by ${W}_{i}(x)$. Let $f:{W}_{1}\to{W}_{2}$ be a function defined by $f(x)=y$ if ${W}_{1}(x)$ has the same order-type as ${W}_{2}(y)$. It is trivial that this map is well-defined and order-preserving. Let ${y}_{1}={y}_{2}$, then there exist ${x}_{1},{x}_{2}\in{W}_{1}$ such that ${W}_{1}({x}_{1})\iso{W}_{2}({y}_{1})={W}_{2}({y}_{2})\iso{W}_{1}({x}_{2})$, so ${W}_{1}({x}_{1})\iso{W}_{1}({x}_{2})$, which implies ${x}_{1}={x}_{2}$. Hence $f$ is injective. Let $h:{W}_{1}(x)\to{W}_{2}(y)$ be an order-preserving bijection. If $x'<x$, since $f$ is order-preserving, ${W}_{1}(x')\iso{W}_{2}(h(x'))$. If $\dom(f)={W}_{1}$ and $\ran(f)={W}_{2}$, then it is exactly case (\rom1). If $\ran(f)\ne{W}_{2}$. Let ${y}_{0}$ be the least element in ${W}_{2}\sm\ran(f)$, then ${W}_{2}({y}_{0})=\ran(f)$. Suppose $\dom(f)\ne{W}_{1}$, then pick the least element of ${W}_{1}\sm\dom(f)$, denoted ${x}_{0}$. It is trivial that $f({x}_{0})={y}_{0}$, a contradiction. This is case (\rom2). Similarly, if $\dom(f)\ne{W}_{1}$, define the same ${x}_{0}$. By contradiction, we have case (\rom3).
+\end{proof}
 \begin{definition}
     A set $S$ is said to be \hdef{transitive} if for all $s\in S$, $s\sub S$. A set is an \hdef{ordinal} if it is transitive and well-ordered by $\in$. The \hdef{successor ordinal} of an ordinal $\al$ is defined to be $\al\cup\{\al\}$, and we denote it by $\al+1$. 
 \end{definition}
@@ -747,8 +752,6 @@ Suppose there exists a set of all ordinals, denoted $\text{On}$. Since every ele
 \begin{proposition}
     If a set is well-ordered, then it has the same order-type as an ordinal.
 \end{proposition}
-\par
-This proof is slightly technical, you may skip the proof and remember the result.
 \begin{proof}
     Let $W$ be well-ordered. For all $x\in W$, consider the initial segment ${I}_{x}$ given by $x$. If ${I}_{x}\iso{\al}_{x}$, where ${\al}_{x}$ is some ordinal, then define $F(x)={\al}_{x}$. Suppose we have a set $M\sub W$ consisting of elements $x\in W$ such that ${I}_{x}$ does not exist. Let $m$ be the least element in $M$. Consider the set $\{{\al}_{y}\mid y<m\}$, this is a set of ordinals. Define $\al=\sup\{{\al}_{y}\mid y<m\}$. It is trivial that ${I}_{m}\iso\al$, a contradiction. Hence $F:W\to\text{On}$ is well-defined, by the axiom of replacement, $F(W)=\{{\al}_{x}\}$ is a set. For all $x,y\in W$ and $x<y$, ${I}_{x}\subn{I}_{y}$, so ${\al}_{x}\in{\al}_{y}$, which is $F(x)<F(y)$. This also shows $F$ is injective. Let $\ga=\min(\text{On}\sm F(W))$, then $F(W)\sub\ga$. If $\be<\ga$ is an ordinal, then $\be\in F(W)$, so $F(W)=\{\be\mid\be<\ga\}=\ga$. Hence $F:W\to\ga$ is an order-preserving bijection.
 \end{proof}
@@ -769,12 +772,6 @@ We can conclude that every well-ordered set has the same order-type as a unique 
     \end{enumerate}
     Use the previous proposition, prove that $C$ is the class of all ordinals. This is called the \hdef{transfinite induction}.
 \end{problem}
-\customtheorem{Axiom of choice}
-\begin{Axiom of choice}\index{axiom of choice}
-    Let $X$ be a set and $X\ne\es$. Then there exists a map $f:\ps(X)\to X$ such that for every $x\subn X$, where $x\ne\es$, $f(x)\in x$. 
-\end{Axiom of choice}
-\par
-We call such a function $f$ a \hdef{choice function}. Therefore, we can reformulate the axiom of choice as: for every nonempty set $X$, there exists a choice function.
 \begin{theorem}[well-ordering theorem]
     Every set is well-orderable.
 \end{theorem}
@@ -784,7 +781,7 @@ We call such a function $f$ a \hdef{choice function}. Therefore, we can reformul
 \par
 By the well-ordering theorem, $\N$ is well-ordered, this is called the \hdef{well-ordering principle}.
 \begin{remark}
-    Well-ordering principle is based on ZF system, the system without axiom of choice. The well-ordering theorem is an equivalent form of axiom of choice. For more information, we recommend you to check [3].
+    Well-ordering principle is based on ZF system, the system without axiom of choice. The well-ordering theorem is an equivalent form of axiom of choice. For more information, we recommend you to check the book \textit{Set Theory} by Thomas Jech.
 \end{remark}
 \section{Integers and Cardinality}
 Recall that we have constructed $\N$ by axioms. By the convention of quotient sets, we could further construct the set of integers and rational numbers.
@@ -1612,8 +1609,7 @@ The metric on the real line $\R$ induces a topology called the standard topology
     Let $X$ be a topological space and let $x,y\in X$. A \hdef{path} in $X$ from $x$ to $y$ is a continuous map $[0,1]\to X$ such that $u(0)=x$ and $u(1)=y$.
 \end{definition}
 \par
-Given two paths $u$ and $v$ from $x$ to $y$ in a topological space $X$.
-
+Let $X$ be a topological space and let $x,y\in X$. 
 
 
 
