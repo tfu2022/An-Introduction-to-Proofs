@@ -1540,17 +1540,6 @@ We say $\R$ is dense over $\Q$. Now we define the set of \hdef{irrationals} to b
 \begin{proposition}
     Let ${([{a}_{n},{b}_{n}])}_{n\in\N}$ be a nested sequence of closed bounded intervals in $\R$. That is, for any $n$, we have $[{a}_{n+1},{b}_{n+1}]\sub[{a}_{n},{b}_{n}]$. Then ${\In}_{n\in\N}[{a}_{n},{b}_{n}]\ne\es$.
 \end{proposition}
-\begin{proof}
-    Let $A=\left \{ a_n\mid n\in \mathbb{N} \right \}$. $A$ is bounded above by some $b_1$, which implies for every $a_n\in A$, $a_n\leq b_1$. If ${a}_{m}=\inf(A)$, $a_n\leq a_m\leq b_1$. $a_m\in [a_n,b_1]$ and $a_m\in \bigcap_{n\in \mathbb{N}}^{} [a_n,b_n]$.
-\end{proof}
-\begin{remark}
-    What happens if we replace $[a_n,b_n]$ with $(a_n,b_n]$ and assume $a_n<b_n$? Does the proposition still hold?
-    {No}. An example would be $a_n=0$ and $b_n={1}/{n}$ for all $n\in\N$. The intersection is empty (this is "clear" but can be proved using the Archimedean property).
-\end{remark}
-
-
-\newpage
-\section{Topological Spaces}
 \begin{definition}
     A \hdef{metric} on a set $X$ is a function $d:X\times X\to[0,\infty)$ satisfying:
     \begin{enumerate}
@@ -1563,6 +1552,17 @@ We say $\R$ is dense over $\Q$. Now we define the set of \hdef{irrationals} to b
 \begin{definition}
     Let $(X,d)$ be a metric space and let ${x}_{0}\in X$. An \hdef{open ball} centered at ${x}_{0}$ with radius $r$, where $r\ge 0$, is the set $B({x}_{0},r)=\{x\mid x\in X,d(x,{x}_{0})<r\}$. An \hdef{open set} is a subset of $X$ that can be written as a union of open balls.
 \end{definition}
+\begin{proof}
+    Let $A=\left \{ a_n\mid n\in \mathbb{N} \right \}$. $A$ is bounded above by some $b_1$, which implies for every $a_n\in A$, $a_n\leq b_1$. If ${a}_{m}=\inf(A)$, $a_n\leq a_m\leq b_1$. $a_m\in [a_n,b_1]$ and $a_m\in \bigcap_{n\in \mathbb{N}}^{} [a_n,b_n]$.
+\end{proof}
+\begin{remark}
+    What happens if we replace $[a_n,b_n]$ with $(a_n,b_n]$ and assume $a_n<b_n$? Does the proposition still hold?
+    {No}. An example would be $a_n=0$ and $b_n={1}/{n}$ for all $n\in\N$. The intersection is empty (this is "clear" but can be proved using the Archimedean property).
+\end{remark}
+
+
+\newpage
+\section{Topological Spaces}
 \begin{definition}
     A \hdef{topology} on a set $X$ is a set $\T$ of subsets of $X$ such that:
     \begin{enumerate}
@@ -1589,6 +1589,8 @@ It is trivial that $\T$ must be a subcollection of $\ps(X)$, so $\T$ is a set.
 \begin{proof}
     Denote the family of all open sets in $X$ by $\T$. Fix ${x}_{0}\in X$, then the open ball $B({x}_{0},0)=\es$. There exists an open set consisting of all open balls in $X$, which is $X$. Let ${U}_{1}$ and ${U}_{2}$ be open sets, we can express them as unions of open balls, and the union of open balls is again an open set, similarly, the finite intersection is an open set, so $(X,d)$ induces a topology.
 \end{proof}
+\par
+The metric on the real line $\R$ induces a topology called the standard topology on $\R$.
 \begin{problem}
     Let $(X,{\T}_{1})$ and $(X,{\T}_{2})$ be two topological spaces. Are $(X,{\T}_{1}\cap{\T}_{2})$ and $(X,{\T}_{1}\cup{\T}_{2})$ topological spaces? Prove or state counterexamples.
 \end{problem}
@@ -1605,6 +1607,15 @@ It is trivial that $\T$ must be a subcollection of $\ps(X)$, so $\T$ is a set.
     Not every continuous bijection between topological spaces is a homeomorphism. Consider the identity function $\id:(\R,{\T}_{1})\to(\R,{\T}_{2})$, where ${\T}_{1}$ is the discrete topology and ${\T}_{2}$ is the standard topology. Prove that $\id$ is not a continuous bijection but not a homeomorphism.
 \end{problem}
 \begin{definition}
+    Let $X$ be a topological space and let $x,y\in X$. A \hdef{path} in $X$ from $x$ to $y$ is a continuous map $[0,1]\to X$ such that $u(0)=x$ and $u(1)=y$.
+\end{definition}
+\par
+Given two paths 
+
+
+
+
+\begin{definition}
     Let $(X,{\T}_{X})$ be a topological space and $Y\sub X$. The \hdef{subspace topology} on $Y$ is ${\T}_{Y}=\{U\cap Y\mid U\in{\T}_{X}\}$.
 \end{definition}
 \begin{problem}
@@ -1619,50 +1630,8 @@ It is trivial that $\T$ must be a subcollection of $\ps(X)$, so $\T$ is a set.
 \begin{proof}
     Given a topological space $(X,{\T})$ and an arbitrary set $Y$, consider the topology on $Y$ that makes $f:Y\to X$ continuous. There exists such topology and the discrete topology is an example. Therefore, the intersection of topologies such that $f:Y\to X$ is continuous is trivially the coarsest such topology, denoted ${\T}_{f}$. Now let $Y\sub X$ and $f=i$, the inclusion map, then ${\T}_{i}=\{\inv{i}(U)\mid U\in{\T}_{X}\}$, where ${\T}_{X}$ is the topology on $X$ and $\inv{i}(U)=U\cap Y$, hence ${\T}_{i}$ is the subspace topology.
 \end{proof}
-\customtheorem{Universal property for subspace topology}
-\begin{Universal property for subspace topology}
-    Let $(X,{\T}_{X})$ be a topological space, let $Y$ be a subset of $X$, and let $i: Y\hra X$ be the natural inclusion. For every topological space $(Z,{\T}_{Z})$ and every function $f:Z\to Y$, $f$ is continuous if and only if $i\comp f:Z\to X$ is continuous.
-\end{Universal property for subspace topology}
-\begin{center}
-    \begin{tikzcd}
-        Z && Y \\
-        \\
-        && X
-        \arrow["f", from=1-1, to=1-3]
-        \arrow["{i\comp f}"', from=1-1, to=3-3]
-        \arrow["i", from=1-3, to=3-3]
-    \end{tikzcd}
-\end{center}
-\begin{problem}
-    Prove that the composition of two continuous functions is continuous.
-\end{problem}
-\begin{proposition}
-    Any topology satisfies this property is the subspace topology.
-\end{proposition}
-\begin{center}
-    \begin{tikzcd}
-        \T && \T \\
-        \\
-        && {{\T}_{X}}
-        \arrow["{{\id}_{Y}}", from=1-1, to=1-3]
-        \arrow["i"', from=1-1, to=3-3]
-        \arrow["i", from=1-3, to=3-3]
-    \end{tikzcd}
-    \hspace{2.5cm}
-    \begin{tikzcd}
-        {{\T}_{Y}} && \T \\
-        \\
-        && {{\T}_{X}}
-        \arrow["{{\id}_{Y}}", from=1-1, to=1-3]
-        \arrow["i"', from=1-1, to=3-3]
-        \arrow["i", from=1-3, to=3-3]
-    \end{tikzcd}
-\end{center}
-\begin{proof}
-    Let $i\comp f$ be a continuous function. Since $i$ is continuous, for all $U\in{\T}_{X}$, there exists $V\in{\T}_{Y}$ and $W\in{\T}_{Z}$ such that $\inv{(i\comp f)}(U)=W$ and $\inv{i}(U)=V$, so $\inv{f}(V)=W$, so $f$ is continuous. Let $\T$ be any topology on $Y$ with the property and let ${\T}_{Y}$ be the subspace topology. Consider the left diagram, since ${\id}_{Y}$ is continuous, $i\comp{\id}_{Y}=i$ is continuous, then ${\T}_{Y}\sub\T$. Now consider the right diagram, since $i$ is continuous, ${\id}_{Y}$ is continuous, then $\T\sub{\T}_{Y}$. Hence $\T={\T}_{Y}$.
-\end{proof}
 \begin{definition}
-    Let $(X,{\T}_{X})$ be a topological space, let $S$ be a set, and let $\pi:X\thra S$ be surjective. The \hdef{quotient topology} on $S$ is the finest topology for which $\pi$ is continuous, and $\pi$ is called a \hdef{quotient map}.
+    
 \end{definition}
 \begin{example}
     A \hdef{torus} is 
@@ -1978,7 +1947,48 @@ Let $G$ and $H$ be groups. Since $0$ is the zero object, there exists unique gro
     
 \end{proof}
 
-
+\customtheorem{Universal property for subspace topology}
+\begin{Universal property for subspace topology}
+    Let $(X,{\T}_{X})$ be a topological space, let $Y$ be a subset of $X$, and let $i: Y\hra X$ be the natural inclusion. For every topological space $(Z,{\T}_{Z})$ and every function $f:Z\to Y$, $f$ is continuous if and only if $i\comp f:Z\to X$ is continuous.
+\end{Universal property for subspace topology}
+\begin{center}
+    \begin{tikzcd}
+        Z && Y \\
+        \\
+        && X
+        \arrow["f", from=1-1, to=1-3]
+        \arrow["{i\comp f}"', from=1-1, to=3-3]
+        \arrow["i", from=1-3, to=3-3]
+    \end{tikzcd}
+\end{center}
+\begin{problem}
+    Prove that the composition of two continuous functions is continuous.
+\end{problem}
+\begin{proposition}
+    Any topology satisfies this property is the subspace topology.
+\end{proposition}
+\begin{center}
+    \begin{tikzcd}
+        \T && \T \\
+        \\
+        && {{\T}_{X}}
+        \arrow["{{\id}_{Y}}", from=1-1, to=1-3]
+        \arrow["i"', from=1-1, to=3-3]
+        \arrow["i", from=1-3, to=3-3]
+    \end{tikzcd}
+    \hspace{2.5cm}
+    \begin{tikzcd}
+        {{\T}_{Y}} && \T \\
+        \\
+        && {{\T}_{X}}
+        \arrow["{{\id}_{Y}}", from=1-1, to=1-3]
+        \arrow["i"', from=1-1, to=3-3]
+        \arrow["i", from=1-3, to=3-3]
+    \end{tikzcd}
+\end{center}
+\begin{proof}
+    Let $i\comp f$ be a continuous function. Since $i$ is continuous, for all $U\in{\T}_{X}$, there exists $V\in{\T}_{Y}$ and $W\in{\T}_{Z}$ such that $\inv{(i\comp f)}(U)=W$ and $\inv{i}(U)=V$, so $\inv{f}(V)=W$, so $f$ is continuous. Let $\T$ be any topology on $Y$ with the property and let ${\T}_{Y}$ be the subspace topology. Consider the left diagram, since ${\id}_{Y}$ is continuous, $i\comp{\id}_{Y}=i$ is continuous, then ${\T}_{Y}\sub\T$. Now consider the right diagram, since $i$ is continuous, ${\id}_{Y}$ is continuous, then $\T\sub{\T}_{Y}$. Hence $\T={\T}_{Y}$.
+\end{proof}
 
 
 \customtheorem{Universal property for quotient topology}
