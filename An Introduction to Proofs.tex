@@ -1596,6 +1596,9 @@ The metric on the real line $\R$ induces a topology called the standard topology
 \begin{remark}
     Given a topological space $(X,\T)$, we will denote it by $X$ for convenience.
 \end{remark}
+\begin{problem}
+    Let $K$ be a field, let $\A{n}$ be the set $\{({a}_{1},\dots,{a}_{n})\mid{a}_{i}\in K\}$, and let $A=K[{x}_{1},\dots,{x}_{n}]$. The \hdef{zero locus} of $T\sub A$ is the set $Z(T)=\{P\in\A{n}\mid f\in T,f(P)=0\}$. A subset $Y$ of $\A{n}$ is an \hdef{algebraic set} if there exists a subset $T\sub A$ such that $Y=Z(T)$. Let the complements of the algebraic sets be the open sets, prove this defines a topology. This is called the \hdef{Zariski topology} on $\A{n}$.
+\end{problem}
 \begin{definition}
     A function $f:X\to Y$ between two topological spaces is \hdef{continuous} if $\inv{f}(U)$ is open in $X$ whenever $U$ is open in $Y$. A continuous function with a left and right inverse is called a \hdef{homeomorphism}.
 \end{definition}
@@ -1605,14 +1608,6 @@ The metric on the real line $\R$ induces a topology called the standard topology
 \begin{problem}
     Not every continuous bijection between topological spaces is a homeomorphism. Consider the identity function $\id:(\R,{\T}_{1})\to(\R,{\T}_{2})$, where ${\T}_{1}$ is the discrete topology and ${\T}_{2}$ is the standard topology. Prove that $\id$ is a continuous bijection but not a homeomorphism.
 \end{problem}
-\begin{definition}
-    Let $X$ be a topological space and let $x,y\in X$. A \hdef{path} in $X$ from $x$ to $y$ is a continuous map $[0,1]\to X$ such that $u(0)=x$ and $u(1)=y$.
-\end{definition}
-\par
-Let $X$ be a topological space and let $x,y\in X$. 
-
-
-
 \begin{definition}
     Let $(X,{\T}_{X})$ be a topological space and $Y\sub X$. The \hdef{subspace topology} on $Y$ is ${\T}_{Y}=\{U\cap Y\mid U\in{\T}_{X}\}$.
 \end{definition}
@@ -1628,8 +1623,27 @@ Let $X$ be a topological space and let $x,y\in X$.
 \begin{proof}
     Given a topological space $(X,{\T})$ and an arbitrary set $Y$, consider the topology on $Y$ that makes $f:Y\to X$ continuous. There exists such topology and the discrete topology is an example. Therefore, the intersection of topologies such that $f:Y\to X$ is continuous is trivially the coarsest such topology, denoted ${\T}_{f}$. Now let $Y\sub X$ and $f=i$, the inclusion map, then ${\T}_{i}=\{\inv{i}(U)\mid U\in{\T}_{X}\}$, where ${\T}_{X}$ is the topology on $X$ and $\inv{i}(U)=U\cap Y$, hence ${\T}_{i}$ is the subspace topology.
 \end{proof}
+
+
 \begin{definition}
-    
+    Let $X$ be a topological space and let $x,y\in X$. A \hdef{path} in $X$ from $x$ to $y$ is a continuous map $[0,1]\to X$ such that $u(0)=x$ and $u(1)=y$.
+\end{definition}
+\par
+Let $X$ be a topological space and let $x,y\in X$. 
+
+
+\begin{theorem}[fixed point theorem]
+    Any continuous map $f:[0,1]\to[0,1]$ has a fixed point, that is, there exists $x\in[0,1]$ such that $f(x)=x$.
+\end{theorem}
+\begin{proof}
+    Suppose $f(x)\ne x$ for all $x\in[0,1]$. Define $g:[0,1]\to\{1,-1\}$ by $g(x)=(f(x)-x)/\card{f(x)-x}$. If $x=0$, then $f(x)\ne 0$, so $f(0)=1$. Similarly, $f(1)=-1$, so $g$ is surjective.
+\end{proof}
+
+
+
+
+\begin{definition}
+    Let $(X,{\T}_{X})$ be a topological space, let $S$ be a set, and let $\pi:X\to S$ be surjective. The \hdef{quotient topology} on $S$ is the finest topology for which $\pi$ is continuous, and $\pi$ is called a \hdef{quotient map}.
 \end{definition}
 \begin{example}
     A \hdef{torus} is 
