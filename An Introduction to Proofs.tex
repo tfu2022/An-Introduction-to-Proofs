@@ -2,23 +2,16 @@
 \documentclass[10pt]{article}
 \input{/Users/mr.hassium/Desktop/Github/Hello-World/hassium.tex}
 \def\htitle{An Introduction to Proofs}
-\def\hauthor{Hassium, Fung San Gaan, Tingyu Wu}
-\def\hfauthor{HS, FSG, WTY}
+\def\hauthor{Hassium, Fung San Gaan}
+\def\hfauthor{HS, FSG}
 \begin{document}
 \hstart
 \par
-In higher-level mathematics, students need a certain level of ``mathematical maturity'' to understand and apply abstract ideas. However, there is no clear way to measure this maturity, nor a definitive method to teach someone how to write a proof. This note is intended to be a transition from elementary math to proof-based formal mathematics. The beauty of mathematics is hidden behind the craft of abstraction and  the search to common forms between entities. It is not merely about techniques of solving problems, but about a way of thinking. As Poincaré famously said, ``Mathematics is the art of giving the same name to different things.''
+In higher-level mathematics, students need a certain level of ``mathematical maturity'' to understand and apply abstract ideas. However, there is no clear way to measure this maturity, nor a definitive method to teach someone how to write a proof. This note is intended to be a transition from elementary math to proof-based formal mathematics. The beauty of mathematics is hidden behind the craft of abstraction and  the search to common forms between entities. It is not merely about techniques of solving problems, but about a way of thinking.
 \par
-The first section is a quick review of basic logic, the language we used in proofs. Sections 2 to 4 are set-theoretic constructions that are essential in any kind of math. Those sections discuss the axioms of sets in ZFC and their consequences. This part largely follows from [?] and [?].  In the later sections, those properties will be frequently used.
+The first section is a quick review of basic logic, the language we used in proofs. Sections 2-4 are set-theoretic constructions that are essential in any kind of math. Those sections discuss some axioms in ZFC and their consequences. This part largely follows from [?] and [?]. In the later sections, those properties will be frequently used. Sections 5-9 are selected topics that cover linear algebra, abstract algebra, real analysis, and general topology. Those sections correspond to the first several weeks of those courses. Section 10 introduce the basic notions in category theory. Our goal is to reformulate some results we proved before in a more elegant and general way by using categorical definitions. You may skip this section if you think it is too ``formal''. Section 11 is an appendix for further readings in different area of mathematics. 
 \par
-Section 5 is an introduction to linear algebra.
-The next two sections are introductory abstract algebra. We include discussions on groups, rings, and relations between rings and matrices. Section 8 is an algebraic construction of the real numbers $\R$. This section is entirely adopted from professor Lerman's Math 347 lectures given in . We will also use the construction to verify some analytic properties of $\R$. Section 9 talks about general topology. This section includes several examples of topologies and the Tikhonov theorem. In the last two sections, we offer a more general theory to think about every entity in mathematics, the theory of categories. Our goal is to reformulate some results we proved before in a more elegant and general way by using categorical definitions. You may skip those sections if you think they are too ``formal''.
-\par
-Many people have contributed to this note. Special thanks to my collaborators. Fung San Gaan wrote the entire section 8 and part of section 7. 
-? 
-Tingyu Wu collaborated with me on section 4. I shall also thank Bryce for his suggestions on the contents.
-
-
+Many people have contributed to this note. Special thanks to my collaborator Fung San Gaan, who wrote the entire section 8 and part of section 7. I shall also thank Bryce for his suggestions on the contents.
 \section{Basic Logic}
 Logic is the formal framework and rules of inference that ensure the validity and coherence of arguments in math.
 \begin{remark}
@@ -190,13 +183,13 @@ If $S$ is a set and $x$ is an element in $S$, then we say $x$ belongs to $S$, de
     If $P$ is a property, then for any set $X$ there exists a set $Y=\{x\in X\mid P(x)\}$.
 \end{Axiom schema of separation}
 \par
-Elements determine a set. One way to describe a set is to explicitly list the elements. For example, we can write a set $S=\{6,7,8\}$. Another way is to express the elements by the properties they satisfy.
+Elements determine a set. One way to describe a set is to explicitly list the elements. For example, we can write a set $S=\{6,7,8\}$. Another way is to express the elements by the properties they satisfy. Consider the set of all even numbers, each even number can be uniquely expressed by $2n$, where $n\in\N$ and $\N$ is the set of natural numbers. This is the defining property of the set, so the set of even numbers is $\{2n\mid n\in\N\}$.
 \begin{example}
     Here are several examples of sets.
     \begin{enumerate}
-        \item the set $S=\{\es,\{\es\},\{\{\es\}\}\}$ has three elements;
-        \item the set $\{2n\mid n\in\N\}$ is the set of all even numbers, where $\N$ is the set of natural numbers;
-        \item the set $\Q=\{a/b\mid a,b\in\Z,b\ne 0\}$ is the set of rational numbers, where $\Z$ is the set of integers.
+        \item The set $S=\{\es,\{\es\},\{\{\es\}\}\}$ has three elements.
+        \item The set $\Q=\{a/b\mid a,b\in\Z,b\ne 0\}$ is the set of rational numbers, where $\Z$ is the set of integers.
+        \item The set $\Z$ can be written as $\{-z\mid z\in\Z\}$. Why?
     \end{enumerate}
     We shall provide constructions for $\N$ and $\Z$ later.
 \end{example}
@@ -298,7 +291,7 @@ The definition of ordered pairs can be extended to multiple elements. We call $(
     Let $x\in C\sm(A\cap B)$, then $x\in C$ and $x\notin A\cap B$, that is, $x\notin A$ and $x\notin B$. If $x\notin C\sm A$, then $x\notin A$, so $x\notin B$ and $x\in C\sm B$. Hence $C\sm(A\cap B)\sub(C\sm A)\cup(C\sm B)$. Now let $x\in(C\sm A)\cup(C\sm B)$, then $x\in C$ and $x\notin A$ or $x\notin B$, so $x\notin A\cap B$, that is, $x\in C\sm(A\cap B)$, hence $(C\sm A)\cup(C\sm B)\sub C\sm(A\cap B)$. The proof of the second part is left as an exercise.
 \end{proof}
 \par
-Some texts assume the existence of an ``universal set'', denoted $U$, which has all objects as elements including itself, so we can define complements of any set $S$ as the set $U\sm S$. However, this assumption leads to a paradox. Consider the set $S$, defined as the set of all sets that are not members of themselves, that is, $S=\{X\mid X\notin X\}$. Does $S$ belong to $S$? This is known as Russell's Paradox. Assume $S\in S$, then by the definition of $S$, $S\in S$ implies $S\notin S$, a contradiction. Assume $S\notin S$, then $S\in S$. This is also a contradiction.
+Some texts assume the existence of an ``universal set'', denoted $U$, which has all objects as elements including itself, so we can define complements of any set $S$ as the set $U\sm S$. However, this assumption leads to a paradox. Consider the set $S$, defined as the set of all sets that are not members of themselves, that is, $S=\{X\mid X\notin X\}$. Does $S$ belong to $S$? This is known as the Russell's Paradox. Assume $S\in S$, then by the definition of $S$, $S\in S$ implies $S\notin S$, a contradiction. Assume $S\notin S$, then $S\in S$. This is also a contradiction.
 \customtheorem{Axiom of regularity}
 \begin{Axiom of regularity}\index{axiom of regularity}
     For all nonempty sets, there is an element of the set that shares no element with the set.
@@ -442,9 +435,12 @@ Let $(X,\le)$ be a partially ordered set. Let $Y\sub X$ and $Y\ne\es$. We say $a
 \begin{definition}
     Let $(X,\le)$ be a partially ordered set. The set is \hdef{well-ordered} if for every nonempty subset $S$ of $X$, there exists $a\in S$ such that for all $s\in S$, $a\le s$.
 \end{definition}
-\begin{problem}
-    Prove that every well-ordered set has a smallest element.
-\end{problem}
+\begin{proposition}
+    Every well-ordered set has a $\le$-minimal element.
+\end{proposition}
+\begin{proof}
+    Suppose for any $a$, there exists 
+\end{proof}
 \par
 Let $a,b\in X$, where $X$ is well-ordered. If $a\ge b$ and $a\ne b$, then we write the strict ordering as $a>b$.
 \begin{definition}
@@ -469,12 +465,12 @@ The well-ordering theorem is equivalent to the axiom of choice, which will be di
 \begin{problem}
     Prove that given a subset $S\sub\N$ of the natural numbers with $0\in S$ and $\{0,1,\dots,n\}\sub S$ implies $n+1\in S$, then $S=\N$. This is known as the \hdef{complete finite induction}. Prove that the complete finite induction implies the finite induction, conclude that they are equivalent.
 \end{problem}
-\section{Functions and Well-Ordering}
+\section{Functions}
 \begin{definition}
     Let $X$ and $Y$ be sets. A \hdef{function} $f$ is a binary operation $f\sub X\times Y$ such that for all $x\in X$, there exists a unique $y\in Y$ such that $(x,y)\in f$. We say $f$ is a function from $X$ to $Y$, denoted $f:X\to Y$. The set $Y$ is called the \hdef{codomain} of $f$, denoted $\cod(f)$.
 \end{definition}
 \begin{problem}
-    Given two sets $A$ and $B$, prove that the collection of functions from $A$ to $B$ is a subset of $\ps(A\times B)$, hence it is a set.
+    Given sets $A$ and $B$, prove that the collection of functions from $A$ to $B$ is a subset of $\ps(A\times B)$, hence it is a set.
 \end{problem}
 \begin{definition}
     Let $f:X\to Y$ be a function, the \hdef{image} of $X$ under $f$, denoted $\im(f)$, is the range of $f$. For all $(x,y)\in f$, we write $f(x)=y$. The \hdef{preimage} of $Y$ under $f$, denoted $\inv{f}(Y)$, is the set $\{x\mid x\in X\ \text{and}\ f(x)\in Y\}$. Two functions $f$ and $g$ are the same if $\dom(f)=\dom(g)$, $\cod(f)=\cod(g)$, and for all $x\in\dom(f)$, $f(x)=g(x)$.
@@ -705,83 +701,14 @@ You may notice that the axiom schema of replacement seems to ``imply'' the axiom
 \end{Axiom of choice}
 \par
 We call such a function $f$ a \hdef{choice function}. Therefore, we can reformulate the axiom of choice as: for every nonempty set $X$, there exists a choice function.
-\par
-From now on, we will give a detailed procedure to prove the well-ordering theorem. This process is technical and you may skip it.
-\begin{proposition}
-    If ${W}_{1}$ and ${W}_{2}$ are well-ordered, then one of the following conditions hold.
-    \begin{enumerate}
-        \item ${W}_{1}$ and ${W}_{2}$ have the same order-type.
-        \item ${W}_{1}$ has the same order-type as an initial segment of ${W}_{2}$.
-        \item ${W}_{2}$ has the same order-type as an initial segment of ${W}_{1}$.
-    \end{enumerate}
-\end{proposition}
-\begin{proof}
-    Denote the initial segment of ${W}_{i}$ by $x$ by ${W}_{i}(x)$. Let $f:{W}_{1}\to{W}_{2}$ be a function defined by $f(x)=y$ if ${W}_{1}(x)$ has the same order-type as ${W}_{2}(y)$. It is trivial that this map is well-defined and order-preserving. Let ${y}_{1}={y}_{2}$, then there exist ${x}_{1},{x}_{2}\in{W}_{1}$ such that ${W}_{1}({x}_{1})\iso{W}_{2}({y}_{1})={W}_{2}({y}_{2})\iso{W}_{1}({x}_{2})$, so ${W}_{1}({x}_{1})\iso{W}_{1}({x}_{2})$, which implies ${x}_{1}={x}_{2}$. Hence $f$ is injective. Let $h:{W}_{1}(x)\to{W}_{2}(y)$ be an order-preserving bijection. If $x'<x$, since $f$ is order-preserving, ${W}_{1}(x')\iso{W}_{2}(h(x'))$. If $\dom(f)={W}_{1}$ and $\ran(f)={W}_{2}$, then it is exactly case (\rom1). If $\ran(f)\ne{W}_{2}$. Let ${y}_{0}$ be the least element in ${W}_{2}\sm\ran(f)$, then ${W}_{2}({y}_{0})=\ran(f)$. Suppose $\dom(f)\ne{W}_{1}$, then pick the least element of ${W}_{1}\sm\dom(f)$, denoted ${x}_{0}$. It is trivial that $f({x}_{0})={y}_{0}$, a contradiction. This is case (\rom2). Similarly, if $\dom(f)\ne{W}_{1}$, define the same ${x}_{0}$. By contradiction, we have case (\rom3).
-\end{proof}
-\begin{definition}
-    A set $S$ is said to be \hdef{transitive} if for all $s\in S$, $s\sub S$. A set is an \hdef{ordinal} if it is transitive and well-ordered by $\in$. The \hdef{successor ordinal} of an ordinal $\al$ is defined to be $\al\cup\{\al\}$, and we denote it by $\al+1$. 
-\end{definition}
-\begin{problem}
-    Prove that the element of an ordinal is an ordinal.
-\end{problem}
-\begin{proposition}
-    The successor ordinal of an ordinal is an ordinal.
-\end{proposition}
-\begin{proof}
-    Let $\al$ be an ordinal. For all $s\in\al+1$, if $s\in\al$, since $\al$ is an ordinal, $s\sub\al\sub\al+1$; if $s\in\{\al\}$, then $s=\al\sub\al+1$. Since $\al$ is well-ordered by $\in$, $\al$ is the $\in$-maximal element in $\al+1$, hence $\al+1$ is also well-ordered.
-\end{proof}
-\par
-Let $\al$ and $\be$ be ordinals. We define $\al<\be$ if and only if $\al\in\be$.
-\begin{example}
-    The set $0\in\N$ is an ordinal.
-\end{example}
-\begin{problem}
-    The intersection of ordinals is an ordinal.
-\end{problem}
-\begin{definition}
-    An ordinal $\la$ is said to be a \hdef{limit ordinal} if $\la\ne\es$ and for all $\al<\la$, $\al+1<\la$.
-\end{definition}
-\begin{problem}
-    Prove that every limit ordinal is an ordinal.
-\end{problem}
-\par
-Suppose there exists a set of all ordinals, denoted $\text{On}$. Since every element of an ordinal is an ordinal, $\text{On}$ is transitive. Let ``$<$'' be the ordering on $\text{On}$, then it is trivially a partial ordering. Let $S$ be a nonempty subset of $\text{On}$. Consider $\In{s}_{i}\sub{s}_{i}$, where ${s}_{i}\in S$, if $T\notin S$, then $T\sub{s}_{i}$, so $T\sub s$. Now we have $T\in\In{s}_{i}=T$, a contradiction. Hence $T\in S$ and $S$ is $T$ is trivially the desired infimum. This proves $\text{On}$ is an ordinal, so $\text{On}\in\text{On}$. Recall that $\text{On}$ is a set, so $\text{On}\notin\text{On}$, a contradiction. This is known as the \hdef{Burali-Forti paradox}.
-\begin{problem}
-    Prove that two different ordinals do not have the same order-type.
-\end{problem}
-\begin{proposition}
-    If a set is well-ordered, then it has the same order-type as an ordinal.
-\end{proposition}
-\begin{proof}
-    Let $W$ be well-ordered. For all $x\in W$, consider the initial segment ${I}_{x}$ given by $x$. If ${I}_{x}\iso{\al}_{x}$, where ${\al}_{x}$ is some ordinal, then define $F(x)={\al}_{x}$. Suppose we have a set $M\sub W$ consisting of elements $x\in W$ such that ${I}_{x}$ does not exist. Let $m$ be the least element in $M$. Consider the set $\{{\al}_{y}\mid y<m\}$, this is a set of ordinals. Define $\al=\sup\{{\al}_{y}\mid y<m\}$. It is trivial that ${I}_{m}\iso\al$, a contradiction. Hence $F:W\to\text{On}$ is well-defined, by the axiom of replacement, $F(W)=\{{\al}_{x}\}$ is a set. For all $x,y\in W$ and $x<y$, ${I}_{x}\subn{I}_{y}$, so ${\al}_{x}\in{\al}_{y}$, which is $F(x)<F(y)$. This also shows $F$ is injective. Let $\ga=\min(\text{On}\sm F(W))$, then $F(W)\sub\ga$. If $\be<\ga$ is an ordinal, then $\be\in F(W)$, so $F(W)=\{\be\mid\be<\ga\}=\ga$. Hence $F:W\to\ga$ is an order-preserving bijection.
-\end{proof}
-\par
-We can conclude that every well-ordered set has the same order-type as a unique ordinal.
-\begin{proposition}
-    Every non-empty ordinal is either a successor ordinal or a limit ordinal.
-\end{proposition}
-\begin{proof}
-    Let $\la$ be an ordinal and $\la\ne\es$. Assume $\la$ is not a successor ordinal, then $\la\ne\al+1$ for any ordinal $\al$. Now suppose $\la$ is not a limit ordinal, then there exists $\be$ such that $\be<\la\nless\be+1$. Since $\la\ne\al+1$ for all $\al$, $\la<\be+1$, then either $\la\in\be$ or $\la=\be$, a contradiction.
-\end{proof}
-\begin{problem}
-    Let $C$ be a class of ordinals that satisfies:
-    \begin{enumerate}
-        \item $0\in C$;
-        \item if $\al\in C$, then $\al+1\in C$;
-        \item if $\al$ is a limit ordinal and $\be\in C$ for all $\be<\al$, then $\al\in C$.
-    \end{enumerate}
-    Use the previous proposition, prove that $C$ is the class of all ordinals. This is called the \hdef{transfinite induction}.
-\end{problem}
-\begin{theorem}[well-ordering theorem]
-    Every set is well-orderable.
-\end{theorem}
-\begin{proof}
-    Let $S$ be a set, by the axiom of choice, there exists a choice function $f:\ps(S)\sm\{\es\}\to S$. Let an ordinal $\al=0$ and let ${s}_{0}=f(S)$, this is the basis for the transfinite induction. Assume ${s}_{\be}$ has been defined, where $\be<\al$. If $S\sm\{{s}_{\be}\}=\es$, then the map $f:\{{s}_{\be}\}\to\al$ defined by $f(\be)={s}_{\be}$ is a bijection, so $S$ is well-ordered. If $S\sm\{{s}_{\be}\}\ne\es$, define ${s}_{\al}=f(S\sm\{{s}_{\be}\})$. Suppose the process does not stop, then we have an injection from the class of all ordinal to the set $S$, by Burali-Forti paradox, this is a contradiction. Hence we have a bijection between $\al$ and $S$, so $S$ is well-ordered.
-\end{proof}
+\begin{remark}
+    Throughout the notes, we shall see many equivalent forms of 
+\end{remark}
+
 \par
 By the well-ordering theorem, $\N$ is well-ordered, this is called the \hdef{well-ordering principle}.
 \begin{remark}
-    Well-ordering principle is based on ZF system, the system without axiom of choice. The well-ordering theorem is an equivalent form of axiom of choice. For more information, we recommend you to check the book \textit{Set Theory} by Thomas Jech.
+    Well-ordering principle is based on ZF system, the system without axiom of choice. The well-ordering theorem is an equivalent form of axiom of choice. For more information, we recommend you to check [?]
 \end{remark}
 \section{Integers and Cardinality}
 Recall that we have constructed $\N$ by axioms. By the convention of quotient sets, we could further construct the set of integers and rational numbers.
@@ -1342,7 +1269,7 @@ We conclude that the set of all rational Cauchy sequences is a commutative ring 
 \par
 In other words, if a Cauchy sequence $\{{a}_{k}\}$ does not converge to 0, then after certain point $n\ge N$ the sequence stays at least $r$ distance away from 0.
 \begin{proposition}
-    If a Cauchy sequence does not converge to 0, all terms of the sequence eventually have the same sign.
+    If a Cauchy sequence does not converge to 0, then all terms of it eventually have the same sign.
 \end{proposition}
 \begin{proof}
     If $\{{a}_{k}\}$ is a Cauchy sequence that does not converge to 0, then $\{{a}_{k}\}\notin I$. There exists some $r>0$ and $N$ so that $\card{{a}_{k}}\ge r$ for all $n\ge N$. Since $\{{a}_{k}\}$ is Cauchy and $r>0$, there exists $M$ such that if $m,n\ge M$, then $\card{{a}_{n}-{a}_{m}}< r$. Assume without loss of generality that there is some $k>\max(M,N)$ such that ${a}_{k}$ is positive. Fix ${a}_{k}$, pick any $n\ge k$ from the sequence. If ${a}_{n}>{a}_{k}$, then we are done. If ${a}_{n}<{a}_{k}$, then ${a}_{k}-{a}_{n}<r$ which implies ${a}_{n}$ is positive for all $n$.
@@ -1467,10 +1394,9 @@ The set $\R$ is a
 \begin{proof}
     Let $A=\left \{ a_n\mid n\in \mathbb{N} \right \}$. $A$ is bounded above by some $b_1$, which implies for every $a_n\in A$, $a_n\leq b_1$. If ${a}_{m}=\inf(A)$, $a_n\leq a_m\leq b_1$. $a_m\in [a_n,b_1]$ and $a_m\in \bigcap_{n\in \mathbb{N}}^{} [a_n,b_n]$.
 \end{proof}
-\begin{remark}
-    What happens if we replace $[a_n,b_n]$ with $(a_n,b_n]$ and assume $a_n<b_n$? Does the proposition still hold?
-    {No}. An example would be $a_n=0$ and $b_n={1}/{n}$ for all $n\in\N$. The intersection is empty (this is "clear" but can be proved using the Archimedean property).
-\end{remark}
+\par
+What happens if we replace $[a_n,b_n]$ with $(a_n,b_n]$ and assume $a_n<b_n$? Does the proposition still hold? No. An example would be $a_n=0$ and $b_n={1}/{n}$ for all $n\in\N$. The intersection is empty (this is "clear" but can be proved using the Archimedean property).
+
 
 
 \newpage
@@ -1934,20 +1860,91 @@ Let $G$ and $H$ be groups. Since $0$ is the zero object, there exists unique gro
     Prove that the quotient topology satisfies the universal property. Prove that any topology satisfies this property is the quotient topology.
 \end{problem}
 
+\section{Deep Water}
+\begin{quote}
+    The furies are at home in the mirror; it is their address.\\
+    Even the clearest water, if deep enough can drown.
+\end{quote}
+\hspace{10cm}-- R. S. Thomas
+\subsection{The Well-Ordering Theorem}
+We will explicitly give a proof for the well-ordering theorem using the axiom of choice.
+\begin{proposition}
+    If ${W}_{1}$ and ${W}_{2}$ are well-ordered, then one of the following conditions hold.
+    \begin{enumerate}
+        \item ${W}_{1}$ and ${W}_{2}$ have the same order-type.
+        \item ${W}_{1}$ has the same order-type as an initial segment of ${W}_{2}$.
+        \item ${W}_{2}$ has the same order-type as an initial segment of ${W}_{1}$.
+    \end{enumerate}
+\end{proposition}
+\begin{proof}
+    Denote the initial segment of ${W}_{i}$ by $x$ by ${W}_{i}(x)$. Let $f:{W}_{1}\to{W}_{2}$ be a function defined by $f(x)=y$ if ${W}_{1}(x)$ has the same order-type as ${W}_{2}(y)$. It is trivial that this map is well-defined and order-preserving. Let ${y}_{1}={y}_{2}$, then there exist ${x}_{1},{x}_{2}\in{W}_{1}$ such that ${W}_{1}({x}_{1})\iso{W}_{2}({y}_{1})={W}_{2}({y}_{2})\iso{W}_{1}({x}_{2})$, so ${W}_{1}({x}_{1})\iso{W}_{1}({x}_{2})$, which implies ${x}_{1}={x}_{2}$. Hence $f$ is injective. Let $h:{W}_{1}(x)\to{W}_{2}(y)$ be an order-preserving bijection. If $x'<x$, since $f$ is order-preserving, ${W}_{1}(x')\iso{W}_{2}(h(x'))$. If $\dom(f)={W}_{1}$ and $\ran(f)={W}_{2}$, then it is exactly case (\rom1). If $\ran(f)\ne{W}_{2}$. Let ${y}_{0}$ be the least element in ${W}_{2}\sm\ran(f)$, then ${W}_{2}({y}_{0})=\ran(f)$. Suppose $\dom(f)\ne{W}_{1}$, then pick the least element of ${W}_{1}\sm\dom(f)$, denoted ${x}_{0}$. It is trivial that $f({x}_{0})={y}_{0}$, a contradiction. This is case (\rom2). Similarly, if $\dom(f)\ne{W}_{1}$, define the same ${x}_{0}$. By contradiction, we have case (\rom3).
+\end{proof}
+\begin{definition}
+    A set $S$ is said to be \hdef{transitive} if for all $s\in S$, $s\sub S$. A set is an \hdef{ordinal} if it is transitive and well-ordered by $\in$. The \hdef{successor ordinal} of an ordinal $\al$ is defined to be $\al\cup\{\al\}$, and we denote it by $\al+1$. 
+\end{definition}
+\begin{problem}
+    Prove that the element of an ordinal is an ordinal.
+\end{problem}
+\begin{proposition}
+    The successor ordinal of an ordinal is an ordinal.
+\end{proposition}
+\begin{proof}
+    Let $\al$ be an ordinal. For all $s\in\al+1$, if $s\in\al$, since $\al$ is an ordinal, $s\sub\al\sub\al+1$; if $s\in\{\al\}$, then $s=\al\sub\al+1$. Since $\al$ is well-ordered by $\in$, $\al$ is the $\in$-maximal element in $\al+1$, hence $\al+1$ is also well-ordered.
+\end{proof}
+\par
+Let $\al$ and $\be$ be ordinals. We define $\al<\be$ if and only if $\al\in\be$.
+\begin{example}
+    The set $0\in\N$ is an ordinal.
+\end{example}
+\begin{problem}
+    The intersection of ordinals is an ordinal.
+\end{problem}
+\begin{definition}
+    An ordinal $\la$ is said to be a \hdef{limit ordinal} if $\la\ne\es$ and for all $\al<\la$, $\al+1<\la$.
+\end{definition}
+\begin{problem}
+    Prove that every limit ordinal is an ordinal.
+\end{problem}
+\par
+Suppose there exists a set of all ordinals, denoted $\text{On}$. Since every element of an ordinal is an ordinal, $\text{On}$ is transitive. Let ``$<$'' be the ordering on $\text{On}$, then it is trivially a partial ordering. Let $S$ be a nonempty subset of $\text{On}$. Consider $\In{s}_{i}\sub{s}_{i}$, where ${s}_{i}\in S$, if $T\notin S$, then $T\sub{s}_{i}$, so $T\sub s$. Now we have $T\in\In{s}_{i}=T$, a contradiction. Hence $T\in S$ and $S$ is $T$ is trivially the desired infimum. This proves $\text{On}$ is an ordinal, so $\text{On}\in\text{On}$. Recall that $\text{On}$ is a set, so $\text{On}\notin\text{On}$, a contradiction. This is known as the \hdef{Burali-Forti paradox}.
+\begin{problem}
+    Prove that two different ordinals do not have the same order-type.
+\end{problem}
+\begin{proposition}
+    If a set is well-ordered, then it has the same order-type as an ordinal.
+\end{proposition}
+\begin{proof}
+    Let $W$ be well-ordered. For all $x\in W$, consider the initial segment ${I}_{x}$ given by $x$. If ${I}_{x}\iso{\al}_{x}$, where ${\al}_{x}$ is some ordinal, then define $F(x)={\al}_{x}$. Suppose we have a set $M\sub W$ consisting of elements $x\in W$ such that ${I}_{x}$ does not exist. Let $m$ be the least element in $M$. Consider the set $\{{\al}_{y}\mid y<m\}$, this is a set of ordinals. Define $\al=\sup\{{\al}_{y}\mid y<m\}$. It is trivial that ${I}_{m}\iso\al$, a contradiction. Hence $F:W\to\text{On}$ is well-defined, by the axiom of replacement, $F(W)=\{{\al}_{x}\}$ is a set. For all $x,y\in W$ and $x<y$, ${I}_{x}\subn{I}_{y}$, so ${\al}_{x}\in{\al}_{y}$, which is $F(x)<F(y)$. This also shows $F$ is injective. Let $\ga=\min(\text{On}\sm F(W))$, then $F(W)\sub\ga$. If $\be<\ga$ is an ordinal, then $\be\in F(W)$, so $F(W)=\{\be\mid\be<\ga\}=\ga$. Hence $F:W\to\ga$ is an order-preserving bijection.
+\end{proof}
+\par
+We can conclude that every well-ordered set has the same order-type as a unique ordinal.
+\begin{proposition}
+    Every non-empty ordinal is either a successor ordinal or a limit ordinal.
+\end{proposition}
+\begin{proof}
+    Let $\la$ be an ordinal and $\la\ne\es$. Assume $\la$ is not a successor ordinal, then $\la\ne\al+1$ for any ordinal $\al$. Now suppose $\la$ is not a limit ordinal, then there exists $\be$ such that $\be<\la\nless\be+1$. Since $\la\ne\al+1$ for all $\al$, $\la<\be+1$, then either $\la\in\be$ or $\la=\be$, a contradiction.
+\end{proof}
+\begin{problem}
+    Let $C$ be a class of ordinals that satisfies:
+    \begin{enumerate}
+        \item $0\in C$;
+        \item if $\al\in C$, then $\al+1\in C$;
+        \item if $\al$ is a limit ordinal and $\be\in C$ for all $\be<\al$, then $\al\in C$.
+    \end{enumerate}
+    Use the previous proposition, prove that $C$ is the class of all ordinals. This is called the \hdef{transfinite induction}.
+\end{problem}
+\begin{theorem}[well-ordering theorem]
+    Every set is well-orderable.
+\end{theorem}
+\begin{proof}
+    Let $S$ be a set, by the axiom of choice, there exists a choice function $f:\ps(S)\sm\{\es\}\to S$. Let an ordinal $\al=0$ and let ${s}_{0}=f(S)$, this is the basis for the transfinite induction. Assume ${s}_{\be}$ has been defined, where $\be<\al$. If $S\sm\{{s}_{\be}\}=\es$, then the map $f:\{{s}_{\be}\}\to\al$ defined by $f(\be)={s}_{\be}$ is a bijection, so $S$ is well-ordered. If $S\sm\{{s}_{\be}\}\ne\es$, define ${s}_{\al}=f(S\sm\{{s}_{\be}\})$. Suppose the process does not stop, then we have an injection from the class of all ordinal to the set $S$, by Burali-Forti paradox, this is a contradiction. Hence we have a bijection between $\al$ and $S$, so $S$ is well-ordered.
+\end{proof}
+\subsection{Free Groups and Group Presentations}
+
+
 \vspace{\baselineskip}
 \begin{center}
     \large\bfseries References\normalsize
 \end{center}
-[1] Awodey, S. \textit{Introduction to Category Theory}. 2nd ed. Oxford, Oxford University Press. 2008.
-\newline
-[2] Bradley, Tai-Danae, et al. \textit{Topology}. 1st ed. MIT Press. 2020.
-\newline
-[3] Jech, T. \textit{Set Theory}. 3rd ed. Berlin ; London, Springer. 2011.
-\newline
-[4] Kaplansky, I. \textit{Set Theory and Metric Spaces}. 1st ed. Chelsea Publishing Co., New York. 1977.
-\newline
-[5] Lang, S. \textit{Algebra}. 3rd ed. New York, Springer. 2002.
-\newline
-[6] Tao, T. \textit{Analysis I}. 3rd ed. Singapore Springer Singapore, Imprint: Springer. 2016.
 \hindex 
 \end{document}
