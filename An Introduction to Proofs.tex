@@ -433,16 +433,16 @@ Let $(X,\le)$ be a partially ordered set. Let $Y\sub X$ and $Y\ne\es$. We say $a
     Let $X$ be a set. If $(\ps(X),\sub)$ is a linearly ordered set, prove that $X$ is either a singleton or the empty set.
 \end{problem}
 \begin{definition}
-    Let $(X,\le)$ be a partially ordered set. The set is \hdef{well-ordered} if for every nonempty subset $S$ of $X$, there exists $a\in S$ such that for all $s\in S$, $a\le s$.
+    Let $(X,\le)$ be a partially ordered set. The set is \hdef{well-ordered} if for every nonempty subset $S$ of $X$, there exists $a\in S$ such that for all $s\in S$, $a\le s$. For $a,b\in X$ with $a\ge b$ and $a\ne b$, then we write the strict ordering as $a>b$.
 \end{definition}
+
+
 \begin{proposition}
     Every well-ordered set has a $\le$-minimal element.
 \end{proposition}
 \begin{proof}
     Suppose for any $a$, there exists 
 \end{proof}
-\par
-Let $a,b\in X$, where $X$ is well-ordered. If $a\ge b$ and $a\ne b$, then we write the strict ordering as $a>b$.
 \begin{definition}
     Let $(X,\le)$ be a well-ordered set. Let $x\in X$. Then the set $\{a\mid a\le x\}$ is called an \hdef{initial segment} of $X$ given by $x$.
 \end{definition}
@@ -459,6 +459,8 @@ The well-ordering theorem is equivalent to the axiom of choice, which will be di
 \begin{proof}
     Suppose $S\ne\N$, then $X=\N\sm S$ is a nonempty set. By the well-ordering principle, $X$ has a smallest element. Since $0\in S$, $0\notin X$, so the minimal element of $X$ can be written in the form $k+1$, where $k\in\N$. Recall that $k+1={k}^{+}=k\cup\{k\}$ is the successor of $k\in\N$, since $k+1$ is the smallest element, $k\notin X$, so $k\in S$. Now we have $k\in S$ and $k+1\notin S$, a contradiction.
 \end{proof}
+\par
+The well-ordering principle is an equivalent form of finite induction, but we will not show the converse.
 \begin{example}
     Consider the statement: let $n\in\N$, show that ${\sum}_{i=0}^{n}=(n(n+1))/2$. If $n=0$, then the equation trivially holds. Assume ${\sum}_{i=0}^{k}=(k(k+1))/2$ holds for some $k\in\N$, then ${\sum}_{i=0}^{k+1}=(k(k+1))/2+(k+1)=((k+1)(k+2))/2$. Hence, by induction, ${\sum}_{i=0}^{n}=(n(n+1))/2$ for all $n\in\N$.
 \end{example}
@@ -702,8 +704,8 @@ You may notice that the axiom schema of replacement seems to ``imply'' the axiom
 \par
 We call such a function $f$ a \hdef{choice function}. Therefore, we can reformulate the axiom of choice as: for every nonempty set $X$, there exists a choice function. Here are some equivalent statements of the axiom of choice:
 \begin{enumerate}
-    \item Well ordering theorem: 
-    \item Zorn's lemma: 
+    \item Well ordering theorem: Every set is well-orderable.
+    \item Zorn's lemma: If a partially ordered set has the property that every chain has an upper bound, then the poset contains at least one maximal element.
 \end{enumerate}
 \begin{remark}
     Throughout the notes, we shall see many equivalent forms of the axiom of choice. It is routine and technical to prove the equivalences so we will not provide those proofs.
@@ -903,6 +905,8 @@ Similarly, one could define $\card{X}\le\card{Y}$ by surjections, that is, if th
 \end{problem}
 \par
 By Cantor-Schröder-Bernstein theorem, we conclude that if $\card{A}\le\card{B}$ and $\card{B}\le\card{A}$, then $\card{A}=\card{B}$.
+
+\newpage
 \section{Vector Spaces and Linear Maps}
 
 \newpage
@@ -1415,6 +1419,8 @@ Let $X$ be a topological space and let $x,y\in X$.
 
     We denote a torus by ${T}^{2}$.
 \end{example}
+
+
 
 
 \newpage
