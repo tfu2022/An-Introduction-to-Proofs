@@ -433,9 +433,11 @@ Let $(X,\le)$ be a partially ordered set. Let $Y\sub X$ and $Y\ne\es$. We say $a
     Let $X$ be a set. If $(\ps(X),\sub)$ is a linearly ordered set, prove that $X$ is either a singleton or the empty set.
 \end{problem}
 \begin{definition}
-    Let $(X,\le)$ be a partially ordered set. The set is \hdef{well-ordered} if for every nonempty subset $S$ of $X$, there exists $a\in S$ such that for all $s\in S$, $a\le s$. For $a,b\in X$ with $a\ge b$ and $a\ne b$, then we write the strict ordering as $a>b$.
+    Let $(X,\le)$ be a partially ordered set. The set is \hdef{well-ordered} if for every nonempty subset $S$ of $X$, there exists $a\in S$ such that for all $s\in S$, $a\le s$.
 \end{definition}
-
+\begin{proposition}
+    The set $\N$ is well-ordered under $\sub$.
+\end{proposition}
 
 \begin{proposition}
     Every well-ordered set has a $\le$-minimal element.
@@ -1664,16 +1666,6 @@ This completes our proof of the universal property for quotient sets.
 \begin{problem}
     Describe the product and coproduct in $\cat{{Set}^{op}}$. 
 \end{problem}
-\par
-Categorically, we can restate the axiom of choice as follows.
-\begin{Axiom of choice}
-    Any epimorphism in $\cat{Set}$ has a right inverse.
-\end{Axiom of choice}
-\par
-We will show how axiom of choice implies our categorical reformulation.
-\begin{proof}
-    
-\end{proof}
 \par
 Recall that $\cat{Set}$ does not have a zero object. We will take $\cat{Grp}$ as an example to show more categorical definitions and reformulate our notions of $\cat{Grp}$.
 \begin{problem}
