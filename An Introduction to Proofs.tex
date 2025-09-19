@@ -409,7 +409,7 @@ It suffices to show a binary operation is indeed a set. Let $R$ be a binary oper
 \par
 Let $(X,\le)$ be a partially ordered set. Let $Y\sub X$ and $Y\ne\es$. We say $a\in Y$ is the greatest element of $Y$ if for all $y\in Y$, $a\ge y$. Similarly, we could define the smallest element of a nonempty subset of $X$.
 \begin{definition}
-    Let $(X,\le)$ be a partially ordered set and let $Y$ be a nonempty subset of $X$. An element $a\in X$ is said to be an \hdef{upper bound} of $Y$ if for all $y\in Y$, $y\le a$. An element $a\in X$ is said to be a \hdef{lower bound} of $Y$ if for all $y\in Y$, $a\le y$. We call the least upper bound of $Y$ the \hdef{supremum} and we call the greatest lower bound of $Y$ the \hdef{infimum}.
+    Let $(X,\le)$ be a partially ordered set and let $Y\sub X$ be nonempty. An element $a\in X$ is said to be an \hdef{upper bound} of $Y$ if for all $y\in Y$, $y\le a$. An element $a\in X$ is said to be a \hdef{lower bound} of $Y$ if for all $y\in Y$, $a\le y$. We call the least upper bound of $Y$ the \hdef{supremum} and we call the greatest lower bound of $Y$ the \hdef{infimum}.
 \end{definition}
 \begin{problem}
     Prove that if supremum and infimum exist, then they are unique.
@@ -568,7 +568,7 @@ Consider a diagram, where every vertex is an object and every arrow preserves th
     Any function $f:X\to Y$, where $X,Y\sub\R$, can be written as $f=\vp+\psi$, where $\vp$ is an odd function and $\psi$ is an even function.
 \end{proposition}
 \begin{proof}
-    For all $x\in X$, define $\vp=(f(x)-f(-x))/2$ and $\psi=(f(x)+f(-x))/2$, then $\vp(-x)=(f(-x)-f(x))/2=-\vp(x)$ and $\psi(-x)=(f(-x)+f(x))/2=\psi(x)$. Moreover, $\vp(x)+\psi(x)=(f(x)-f(-x)+f(x)+f(-x))/2=f(x)$.
+    For all $x\in X$, define $\vp=(f(x)-f(-x))/2$ and $\psi=(f(x)+f(-x))/2$, then $\vp(-x)=(f(-x)-f(x))/2=-\vp(x)$ and $\psi(-x)=(f(-x)+f(x))/2=\psi(x)$. Also, $\vp(x)+\psi(x)=(f(x)-f(-x)+f(x)+f(-x))/2=f(x)$.
 \end{proof}
 \begin{problem}
     Given an example of a function that is neither odd nor even. Decompose it as a sum of an odd function and an even function.
@@ -753,7 +753,7 @@ Let $n\in\Z$, the inverse of $n$ is denoted by $-n$. The analogy of ${\sim}_{+}$
     Prove that there exists a bijection $f:\{[(a,b)]\in\Z\mid a\sub b\}\to\N$.
 \end{problem}
 \par
-For two sets, if there exists a bijection between them, we say they are isomorphic as sets, which means they have exactly the same structure. In this case, $\{[(a,b)]\in\Z\mid a\sub b\}\sub Z$ has the same structure as $\N$. We only care about the structures here, so please consider $\N\sub\Z$. The idea of structures and isomorphisms will be explained later.
+For two sets, if there exists a bijection between them, we say they are isomorphic as sets, which means they have exactly the same structure. Now $\{[(a,b)]\in\Z\mid a\sub b\}\sub Z$ has the same structure as $\N$. We only care about the structures here, so please consider $\N\sub\Z$. The idea of structures and isomorphisms will be explained later.
 \begin{definition}
     Let $[(a,b)],[(c,d)]\in\Z$. The \hdef{addition} on $\Z$ is defined to be $[(a,b)]+[(c,d)]=[(a+c,b+d)]$.
 \end{definition}
