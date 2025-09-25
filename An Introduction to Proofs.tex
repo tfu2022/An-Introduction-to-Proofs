@@ -1588,9 +1588,6 @@ The metric on the real line $\R$ induces a topology called the standard topology
     
     Let the complements of the algebraic sets be the open sets. This defines a topology, called the \hdef{Zariski topology} on $\A{n}$.
 \end{problem}
-\begin{problem}
-    A \hdef{topological group} 
-\end{problem}
 \begin{definition}
     A function $f:X\to Y$ between two topological spaces is \hdef{continuous} if $\inv{f}(U)$ is open in $X$ whenever $U$ is open in $Y$. A continuous function with a left and right inverse is called a \hdef{homeomorphism}.
 \end{definition}
@@ -2024,9 +2021,9 @@ We will explicitly give a proof for the well-ordering theorem using the axiom of
 \begin{proof}
     Denote the initial segment of ${W}_{i}$ by $x$ by ${W}_{i}(x)$. Let $f:{W}_{1}\to{W}_{2}$ be a function defined by $f(x)=y$ if ${W}_{1}(x)$ has the same order-type as ${W}_{2}(y)$. It is trivial that this map is well-defined and order-preserving. Let ${y}_{1}={y}_{2}$, then there exist ${x}_{1},{x}_{2}\in{W}_{1}$ such that ${W}_{1}({x}_{1})\iso{W}_{2}({y}_{1})={W}_{2}({y}_{2})\iso{W}_{1}({x}_{2})$, so ${W}_{1}({x}_{1})\iso{W}_{1}({x}_{2})$, which implies ${x}_{1}={x}_{2}$. Hence $f$ is injective. Let $h:{W}_{1}(x)\to{W}_{2}(y)$ be an order-preserving bijection. If $x'<x$, since $f$ is order-preserving, ${W}_{1}(x')\iso{W}_{2}(h(x'))$. If $\dom(f)={W}_{1}$ and $\ran(f)={W}_{2}$, then it is exactly case (\rom1). If $\ran(f)\ne{W}_{2}$. Let ${y}_{0}$ be the least element in ${W}_{2}\sm\ran(f)$, then ${W}_{2}({y}_{0})=\ran(f)$. Suppose $\dom(f)\ne{W}_{1}$, then pick the least element of ${W}_{1}\sm\dom(f)$, denoted ${x}_{0}$. It is trivial that $f({x}_{0})={y}_{0}$, a contradiction. This is case (\rom2). Similarly, if $\dom(f)\ne{W}_{1}$, define the same ${x}_{0}$. By contradiction, we have case (\rom3).
 \end{proof}
-\begin{definition}
+\begin{adefinition}
     A set $S$ is said to be \hdef{transitive} if for all $s\in S$, $s\sub S$. A set is an \hdef{ordinal} if it is transitive and well-ordered by $\in$. The \hdef{successor ordinal} of an ordinal $\al$ is defined to be $\al\cup\{\al\}$, and we denote it by $\al+1$. 
-\end{definition}
+\end{adefinition}
 \begin{problem}
     Prove that the element of an ordinal is an ordinal.
 \end{problem}
@@ -2044,9 +2041,9 @@ Let $\al$ and $\be$ be ordinals. We define $\al<\be$ if and only if $\al\in\be$.
 \begin{problem}
     The intersection of ordinals is an ordinal.
 \end{problem}
-\begin{definition}
+\begin{adefinition}
     An ordinal $\la$ is said to be a \hdef{limit ordinal} if $\la\ne\es$ and for all $\al<\la$, $\al+1<\la$.
-\end{definition}
+\end{adefinition}
 \begin{problem}
     Prove that every limit ordinal is an ordinal.
 \end{problem}
@@ -2078,9 +2075,9 @@ We can conclude that every well-ordered set has the same order-type as a unique 
     \end{enumerate}
     Use the previous proposition, prove that $C$ is the class of all ordinals. This is called the \hdef{transfinite induction}.
 \end{problem}
-\begin{theorem}[well-ordering theorem]
+\begin{atheorem}[well-ordering theorem]
     Every set is well-orderable.
-\end{theorem}
+\end{atheorem}
 \begin{proof}
     Let $S$ be a set, by the axiom of choice, there exists a choice function $f:\ps(S)\sm\{\es\}\to S$. Let an ordinal $\al=0$ and let ${s}_{0}=f(S)$, this is the basis for the transfinite induction. Assume ${s}_{\be}$ has been defined, where $\be<\al$. If $S\sm\{{s}_{\be}\}=\es$, then the map $f:\{{s}_{\be}\}\to\al$ defined by $f(\be)={s}_{\be}$ is a bijection, so $S$ is well-ordered. If $S\sm\{{s}_{\be}\}\ne\es$, define ${s}_{\al}=f(S\sm\{{s}_{\be}\})$. Suppose the process does not stop, then we have an injection from the class of all ordinal to the set $S$, by Burali-Forti paradox, this is a contradiction. Hence we have a bijection between $\al$ and $S$, so $S$ is well-ordered.
 \end{proof}
@@ -2090,10 +2087,10 @@ By the well-ordering theorem, $\N$ is well-ordered, this is called the \hdef{wel
 \end{remark}
 \subsection{Free Groups and Group Presentations}
 \par
-Recall that to generate a group $G$, we need a larger group $S\supset G$ containing the generating set. Intuitively, adding relators 
-\begin{definition}
+Recall that to generate a group $G$, we need a larger group $S\supset G$ containing the generating set. Intuitively, free groups are some groups without any relation other than group axioms.
+\begin{adefinition}
     Let $X$ be a subset of a group $F$. Then $F$ is a \hdef{free group} with \hdef{basis} $X$ if for any function $\vp:X\to G$, where $G$ is a group, there exists a unique extension $\wb{\vp}:F\to G$ such that $i\comp\wb{\vp}=\vp$.
-\end{definition}
+\end{adefinition}
 \begin{center}
     \begin{tikzcd}
         F && X \\
@@ -2106,9 +2103,9 @@ Recall that to generate a group $G$, we need a larger group $S\supset G$ contain
 \end{center}
 \par
 We will first show the existence of free groups. Consider an arbitrary set $X$. The elements of $X$ are called \hdef{generators}. Let $Y$ be a disjoint copy of $X$ with a bijection $f:X\to Y$. For all $x\in X$, if $f(x)=y$, then we say $y$ is the \hdef{inverse} of $x$, denoted $\inv{x}$. We can rewrite $Y=\inv{X}$ and denote ${X}^{\pm 1}=X\cup\inv{X}$.
-\begin{definition}
+\begin{adefinition}
     Let $X$ be a set. The elements of ${X}^{\pm 1}$ are called \hdef{letters}. A \hdef{word} $w$ is a finite sequence $({l}_{1},\dots,{l}_{n})$ of letters. The \hdef{length} of $w=({l}_{1},\dots,{l}_{n})$, denoted $\card{w}$, is the value $n$. If $n=0$, we call it the \hdef{empty word}, denoted 1. A word is \hdef{reduced} if it contains no part of the form $a\inv{a}$.
-\end{definition}
+\end{adefinition}
 \par
 Let the set $F(X)$ be the set of all reduced words. Let $x=({x}_{1},\dots,{x}_{m}),y=({y}_{1},\dots,{y}_{n})\in F(X)$. Pick the largest $k$ such that $0\le k\le\min(m,n)$ and ${x}_{m-i}={y}_{i+1}^{-1}$ for all $i\le k$. Define the composition $\cdot:F(X)\times F(X)\to F(X)$ to be the following function:
 \begin{center}
@@ -2138,12 +2135,14 @@ Let the set $F(X)$ be the set of all reduced words. Let $x=({x}_{1},\dots,{x}_{m
 \begin{problem}
     Prove that $F(S)$ is the unique group, up to group isomorphism, that satisfies the definition.
 \end{problem}
-\begin{definition}
+\begin{adefinition}
     A \hdef{group presentation} is a pair $(S,R)$, where $S$ is a set and $R\sub F(S)$. The group presented by $(S,R)$ is defined to be $\cyc{S\mid R}=F(S)/N$, where $N$ is the smallest normal subgroup of $F(S)$ containing $R$.
-\end{definition}
+\end{adefinition}
 \subsection{More on Freeness}
-\par
-We have shown the existence of a free group. The idea of a free object can be generalized in every category. This leads to the question: is there a free set in $\cat{Set}$?
+We have checked the existence of free groups, and it can be extended to all categories. This leads to a problem: is there a free set (in $\cat{Set}$)?
+\begin{definition}
+    Let $\cat{C}$ be a category.
+\end{definition}
 
 
 \vspace{\baselineskip}
