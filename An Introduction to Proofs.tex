@@ -9,9 +9,9 @@
 \par
 In higher-level mathematics, students need a certain level of ``mathematical maturity'' to understand and apply abstract ideas. However, there is no clear way to measure this maturity, nor a definitive method to teach someone how to write a proof. This note is intended to be a transition from elementary math to proof-based formal mathematics. The beauty of mathematics is hidden behind the craft of abstraction and  the search to common forms between entities. It is not merely about techniques of solving problems, but about a way of thinking.
 \par
-The first section is a quick review of basic logic, the language we use in proofs. Sections 2-4 cover set-theoretic constructions that are essential in any kind of math. Those sections discuss some axioms in ZFC and their consequences. This part largely follows from \textit{Set Theory} by Thomas Jech. Those properties will be frequently used later on. Sections 5-9 are selected topics covering linear algebra, abstract algebra, real analysis, and general topology. Those sections correspond to the first several weeks of core courses in undergraduate mathematics. Section 10 introduce the basic notions in category theory. Our goal is to reformulate some results we proved before in a more elegant and general way by using categorical definitions. You may skip this section if you think it is too formal. Section 11 is an appendix for further readings in different area of mathematics. 
+The first section is a quick review of basic logic, the language we use in proofs. Sections 2-4 cover set-theoretic constructions that are essential in any kind of math. Those sections discuss some axioms in ZFC and their consequences. Those properties will be frequently used later on. Sections 5-9 are selected topics covering linear algebra, abstract algebra, real analysis, and general topology. Those sections correspond to the first several weeks of core courses in undergraduate mathematics. Section 10 introduce the basic notions in category theory. Our goal is to reformulate some results we proved before in a more elegant and general way by using categorical definitions. You may skip this section if you think it is too formal. Section 11 is an appendix for further readings in different area of mathematics. 
 \par
-Many people have contributed to this note. Special thanks to my collaborator \texttt{Fung San Gaan}, who wrote the entire section 8 and part of section 7. I shall also thank Bryce for his suggestions on the contents.
+Special thanks to my collaborator \texttt{Fung San Gaan}, who wrote the entire section 8 and part of section 7. I shall also thank Bryce for his suggestions on the contents.
 \section{Basic Logic}
 Logic is the formal framework and rules of inference that ensure the validity and coherence of arguments in math.
 \begin{remark}
@@ -406,6 +406,9 @@ It suffices to show a binary operation is indeed a set. Let $R$ be a binary oper
     \end{enumerate}
     The set with a partial ordering is called a \hdef{partially ordered set}.
 \end{definition}
+\begin{remark}
+    We shall always assume partially ordered sets are nonempty.
+\end{remark}
 \par
 Let $(X,\le)$ be a partially ordered set. Let $Y\sub X$ and $Y\ne\es$. We say $a\in Y$ is the greatest element of $Y$ if for all $y\in Y$, $a\ge y$. Similarly, we could define the smallest element of a nonempty subset of $X$.
 \begin{definition}
@@ -436,20 +439,11 @@ Let $(X,\le)$ be a partially ordered set. Let $Y\sub X$ and $Y\ne\es$. We say $a
     Let $(X,\le)$ be a partially ordered set. The set is \hdef{well-ordered} if for every nonempty subset $S$ of $X$, there exists $a\in S$ such that for all $s\in S$, $a\le s$.
 \end{definition}
 \begin{proposition}
-    The set $\N$ is well-ordered under $\sub$.
-\end{proposition}
-
-\begin{proposition}
     Every well-ordered set has a $\le$-minimal element.
 \end{proposition}
 \begin{proof}
-    Suppose for any $a$, there exists 
+    Let $S$ be well-ordered, since $S\sub S$ and $S\ne 0$, there exists $a\in S$ such that for all $x\in S$, $a\le s$.
 \end{proof}
-\begin{definition}
-    Let $(X,\le)$ be a well-ordered set. Let $x\in X$. Then the set $\{a\mid a\le x\}$ is called an \hdef{initial segment} of $X$ given by $x$.
-\end{definition}
-\par
-It is trivial that any initial segment of a well-ordered set is well-ordered.
 \begin{theorem}[well-ordering theorem]\index{well-ordering theorem}
     Every set is well-orderable.
 \end{theorem}
@@ -907,15 +901,7 @@ Similarly, one could define $\card{X}\le\card{Y}$ by surjections, that is, if th
 \end{problem}
 \par
 By Cantor-Schröder-Bernstein theorem, we conclude that if $\card{A}\le\card{B}$ and $\card{B}\le\card{A}$, then $\card{A}=\card{B}$.
-
-\newpage
 \section{Vector Spaces and Linear Maps}
-
-\newpage
-
- 
-
-\newpage
 \section{Groups}
 \begin{definition}
     A \hdef{monoid} is a triple $(M,\comp,e)$, where $M$ is a set and $\comp:M\times M\to M$, called a \hdef{composition}, is a function such that:
@@ -1089,7 +1075,7 @@ Let $G$ be a group and let $S\sub G$. If $\cyc{S}=G$, then we say $G$ is \hdef{g
     The group $\cyc{X\mid\es}$ is the smallest group that contains $X$.
 \end{proposition}
 \begin{problem}
-    The \hdef{Heisenberg group} $H$ admits the presentation $\cyc{a,b,c\mid ca\inv{c}\inv{a},cb\inv{c}\inv{b},ba\inv{b}\inv{a}\inv{c}}$. Prove ${a}^{m}{b}^{n}{c}^{p}a={a}^{m}({b}^{n}a){c}^{p}={a}^{m+1}{b}^{n}{c}^{p+n}$, ${a}^{m}{b}^{n}{c}^{p}b={a}^{m}{b}^{n+1}{c}^{p}$, and ${a}^{m}{b}^{n}{c}^{p}c={a}^{m}{b}^{n}{c}^{p+1}$. Can we rewrite any element in $H$ by ${a}^{m}{b}^{n}{c}^{p}$? Prove or disprove it.
+    The \hdef{Heisenberg group} $H$ admits the presentation $\cyc{a,b,c\mid ca\inv{c}\inv{a},cb\inv{c}\inv{b},ba\inv{b}\inv{a}\inv{c}}$. Can we rewrite any element in $H$ by the form ${a}^{m}{b}^{n}{c}^{p}$? Prove or disprove it.
 \end{problem}
 \begin{problem}
     A \hdef{Tarski monster group} is a finitely generated infinite group where every proper non-trivial subgroup is cyclic of order $p$, a fixed prime. Prove that every Tarski monster group is simple.
@@ -1097,7 +1083,6 @@ Let $G$ be a group and let $S\sub G$. If $\cyc{S}=G$, then we say $G$ is \hdef{g
 \begin{problem}
     A \hdef{Baumslag-Solitar group} $BS(m,n)$ admits the presentation $\cyc{a,b\mid b{a}^{m}\inv{b}={a}^{n}}$. Recall that ${C}_{2}$ is the cyclic group of order $2$. Prove that $BS(1,1)\iso{C}_{2}=\cyc{a\mid{a}^{2}}$. This shows that the group presentation of a group is not necessarily unique. Furthermore, prove $\vp:BS(2,3)\to BS(2,3)$ defined by $\vp(a)={a}^{2}$ and $\vp(b)=b$ is a surjective group homomorphism.
 \end{problem}
-\newpage
 \section{Rings}
 \begin{definition}
     A \hdef{ring} is an abelian group $(R,+,0)$ with the operation $\cdot$ satisfies the following properties.
@@ -1315,9 +1300,6 @@ This process is called the "substitution principle" because the formula for $\vp
         \item[4.] $p(x)=\pm 2$ will lead to a contradiction as well. 
     \end{enumerate}
 \end{problem}
-
-
-\newpage
 \section{Real Numbers}
 Consider the function $\card{\cdot}:\Q\to\Q$ defined by $\card{a}=a$ if $a\ge 0$ and $\card{a}=-a$ if $a<0$.
 \begin{problem}
@@ -1639,12 +1621,9 @@ Let $X$ be a topological space and let $x,y\in X$.
 
     We denote a torus by ${T}^{2}$.
 \end{example}
-
-
-
-
-\newpage
 \section{Functions as Morphisms}
+\par
+We have met many objects in the previous sections: sets, vector spaces, groups, rings, topological spaces, ... 
 \begin{definition}
     A \hdef{category} $\cat{C}$ consists of:
     \begin{enumerate}
